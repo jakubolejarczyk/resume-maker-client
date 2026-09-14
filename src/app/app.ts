@@ -5,6 +5,7 @@ import { ShowCompaniesView } from '../view/show-companies/show-companies-view';
 import { CreateCompanyView } from '../view/create-company/create-company-view';
 import { ShowResumesView } from '../view/show-resumes/show-resumes-view';
 import { CreateResumeView } from '../view/create-resume/create-resume-view';
+import { NavComponent } from '../component/nav/nav-component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import { CreateResumeView } from '../view/create-resume/create-resume-view';
     ShowCompaniesView,
     CreateCompanyView,
     ShowResumesView,
-    CreateResumeView
+    CreateResumeView,
+    NavComponent
   ]
 })
 export class App {}
