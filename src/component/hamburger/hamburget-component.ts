@@ -1,4 +1,6 @@
-import { Component, output } from "@angular/core";
+import { Component, inject, output } from "@angular/core";
+import { Store } from "@ngxs/store";
+import { SetCompanies } from "../../store/state/test-state";
 
 @Component({
     selector: "app-hamburger-component",
@@ -10,8 +12,11 @@ export class HamburgerComponent {
 
     event = output<boolean>();
 
+    store = inject(Store);
+
     click() {
         this.isOpen = !this.isOpen;
         this.event.emit(this.isOpen);
+        this.store.dispatch(SetCompanies);
     }
 }

@@ -1,10 +1,20 @@
-import { Meta, StoryObj } from "@storybook/angular";
+import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { HamburgerComponent } from "./hamburget-component";
+import { provideStore } from "@ngxs/store";
+import { TestState } from "../../store/state/test-state";
+import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
 
 const meta: Meta<HamburgerComponent> = {
     title: "component/hamburger",
-    component: HamburgerComponent
+    component: HamburgerComponent,
+    decorators: [
+        applicationConfig({
+            providers: [
+                provideStore([TestState], withNgxsReduxDevtoolsPlugin())
+            ]
+        })
+    ]
 };
 
 export default meta;
