@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
+
+import { HamburgerComponent } from "../../component/hamburger/hamburget-component";
 
 @Component({
     selector: "app-nav-dashboard",
     templateUrl: "./nav-dashboard.html",
     styleUrl: "./nav-dashboard.scss",
-    imports: [RouterLink]
+    imports: [HamburgerComponent]
 })
 export class NavDashboard {}
