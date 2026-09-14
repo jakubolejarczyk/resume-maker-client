@@ -278,7 +278,7 @@
         },
         {
             "name": "HamburgerComponent",
-            "id": "component-HamburgerComponent-2a5a7440999c4bbf03842a1f5b475a964edb884b67490d66885f32a2de09c342cc20d530dc2c09dd5215bf9c6307120ceba9f618055d1498a79ae270abe156ce",
+            "id": "component-HamburgerComponent-a11f5bf9ec2daac7aaa114cc95c104d5b6587bd16c2089bc3b8a7a0c50885a39564cce7f585111f47660ba6786bdc10e4b6c74f1e5c83fb243c0dba755f8b511",
             "file": "src/component/hamburger/hamburget-component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -297,7 +297,21 @@
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "event",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "isOpen",
@@ -321,7 +335,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 11,
+                    "line": 13,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -338,12 +352,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger-component.html\",\r\n    styleUrl: \"./hamburger-component.scss\"\r\n})\r\nexport class HamburgerComponent {\r\n    isOpen = false;\r\n\r\n    click() {\r\n        this.isOpen = !this.isOpen;\r\n    }\r\n}",
+            "sourceCode": "import { Component, output } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger-component.html\",\r\n    styleUrl: \"./hamburger-component.scss\"\r\n})\r\nexport class HamburgerComponent {\r\n    isOpen = false;\r\n\r\n    event = output<boolean>();\r\n\r\n    click() {\r\n        this.isOpen = !this.isOpen;\r\n        this.event.emit(this.isOpen);\r\n    }\r\n}",
             "styleUrl": "./hamburger-component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".hamburger {\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: #000;\r\n    border-radius: 2px;\r\n    transition: transform 0.5s ease, opacity 0.5s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "data": ".hamburger {\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: #000;\r\n    border-radius: 2px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./hamburger-component.scss"
                 }
             ],
@@ -399,21 +413,26 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n  border: 1px solid black;\r\n  padding: 1rem;\r\n}",
+                    "data": ".menu {\r\n  border: 1px solid black;\r\n}",
                     "styleUrl": "./menu-component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "NavDashboard",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": []
             },
-            "templateData": "<div class=\"menu\">\r\n\r\n</div>"
+            "templateData": "<div class=\"menu\">\r\n    <ul>\r\n        <li>\r\n            <a>Link 1</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 2</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 3</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 4</a>\r\n        </li>\r\n    </ul>\r\n</div>"
         },
         {
             "name": "NavDashboard",
-            "id": "component-NavDashboard-333a2792dae35939b40286dfc5ae719e2c59f760ca84f72dc1d11beb9e2df4c678d438f98d402616e4687fd22e7e01a57bdabcb3f598e16b036d4c8a4eaa8d0b",
+            "id": "component-NavDashboard-1703d9ccea389da2358b1ed60b8ce579529c2d52f68b008bc6be3fe8a4a2d216ea3a2655a85aa8dee7f1f36d7c40bc2d8d5c21830575d4689b83dbb764685ccf",
             "file": "src/dashboard/nav/nav-dashboard.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -433,8 +452,58 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isMenuVisible",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onHamburgerEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "boolean",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "boolean",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -445,17 +514,21 @@
                 {
                     "name": "HamburgerComponent",
                     "type": "component"
+                },
+                {
+                    "name": "MenuComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { HamburgerComponent } from \"../../component/hamburger/hamburget-component\";\r\n\r\n@Component({\r\n    selector: \"app-nav-dashboard\",\r\n    templateUrl: \"./nav-dashboard.html\",\r\n    styleUrl: \"./nav-dashboard.scss\",\r\n    imports: [HamburgerComponent]\r\n})\r\nexport class NavDashboard {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { HamburgerComponent } from \"../../component/hamburger/hamburget-component\";\r\nimport { MenuComponent } from \"../../component/menu/menu-component\";\r\n\r\n@Component({\r\n    selector: \"app-nav-dashboard\",\r\n    templateUrl: \"./nav-dashboard.html\",\r\n    styleUrl: \"./nav-dashboard.scss\",\r\n    imports: [HamburgerComponent, MenuComponent]\r\n})\r\nexport class NavDashboard {\r\n    isMenuVisible = false;\r\n\r\n    onHamburgerEvent(event: boolean) {\r\n        this.isMenuVisible = event;\r\n    }\r\n}",
             "styleUrl": "./nav-dashboard.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    border: 1px solid black;\r\n    padding: 1rem;\r\n}",
+                    "data": ".nav {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    border: 1px solid black;\r\n    padding: 0.5rem;\r\n}",
                     "styleUrl": "./nav-dashboard.scss"
                 }
             ],
@@ -472,10 +545,14 @@
                     {
                         "name": "HamburgerComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "MenuComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component></app-hamburger-component>\r\n</nav>"
+            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component (event)=\"onHamburgerEvent($event)\"></app-hamburger-component>\r\n    @if (isMenuVisible) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
         },
         {
             "name": "RootDashboard",
@@ -778,7 +855,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\r\n  providers: [\r\n    provideBrowserGlobalErrorListeners(),\r\n    provideRouter(routes)\r\n  ]\r\n}"
+                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideStore([], withNgxsReduxDevtoolsPlugin()),\n  ],\n}"
             },
             {
                 "name": "routes",
@@ -806,7 +883,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\r\n  providers: [\r\n    provideBrowserGlobalErrorListeners(),\r\n    provideRouter(routes)\r\n  ]\r\n}"
+                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideStore([], withNgxsReduxDevtoolsPlugin()),\n  ],\n}"
                 }
             ],
             "src/app/app.routes.ts": [
@@ -906,7 +983,7 @@
                 "linktype": "component",
                 "name": "HamburgerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -933,7 +1010,7 @@
                 "linktype": "component",
                 "name": "NavDashboard",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
