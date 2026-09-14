@@ -10,4 +10,14 @@ const meta: Meta<HamburgerComponent> = {
 export default meta;
 type Story = StoryObj<HamburgerComponent>;
 
-export const Primary: Story = {};
+export const Close: Story = {
+    args: {
+        isOpen: false
+    }
+};
+
+export const Open: Story = {
+    args: {
+        isOpen: true
+    }
+};

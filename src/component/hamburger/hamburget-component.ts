@@ -5,4 +5,10 @@ import { Component } from "@angular/core";
     templateUrl: "./hamburger-component.html",
     styleUrl: "./hamburger-component.scss"
 })
-export class HamburgerComponent {}
+export class HamburgerComponent {
+    isOpen = false;
+
+    click() {
+        this.isOpen = !this.isOpen;
+    }
+}
