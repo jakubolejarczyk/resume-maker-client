@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, output } from "@angular/core";
 
 @Component({
     selector: "app-hamburger-component",
@@ -8,7 +8,10 @@ import { Component } from "@angular/core";
 export class HamburgerComponent {
     isOpen = false;
 
+    event = output<boolean>();
+
     click() {
         this.isOpen = !this.isOpen;
+        this.event.emit(this.isOpen);
     }
 }
