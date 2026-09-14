@@ -467,6 +467,57 @@
             "templateData": "<p>create-user-view works!</p>"
         },
         {
+            "name": "HamburgerComponent",
+            "id": "component-HamburgerComponent-872a456ed8906b4b2bba2927f0c098f4f2e2e6f5102fe7d42e1053b6c7ef98f493e160ec80e97430bb4c6d9cb656886872e31ba5876c48252c31068ade581487",
+            "file": "src/component/hamburger/hamburget-component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-hamburger-component",
+            "styleUrls": [
+                "./hamburger-component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./hamburger-component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger-component.html\",\r\n    styleUrl: \"./hamburger-component.scss\"\r\n})\r\nexport class HamburgerComponent {}",
+            "styleUrl": "./hamburger-component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./hamburger-component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>hamburger-component works!</p>"
+        },
+        {
             "name": "HeaderComponent",
             "id": "component-HeaderComponent-d444c967236c860e83de019719be2a91328f65c987ef05b611325c2dd2415ec3ea051e9c269d9765b080f9351330ead4ad258df3f6567d9e51fd0b00893b3e07",
             "file": "src/stories/header.component.ts",
@@ -1182,6 +1233,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "App",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/hamburger/hamburget-component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HamburgerComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
