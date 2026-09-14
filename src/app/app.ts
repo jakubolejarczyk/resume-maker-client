@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
-
-import { UsersView } from '../view/users/users-view';
-import { UserView } from '../view/user/user-view';
-import { CompaniesView } from '../view/companies/companies-view';
-import { CompanyView } from '../view/company/company-view';
-import { ResumesView } from '../view/resumes/resumes-view';
-import { ResumeView } from '../view/resume/resume-view';
+import { ShowUsersView } from '../view/show-users/show-users-view';
+import { CreateUserView } from '../view/create-user/create-user-view';
+import { ShowCompaniesView } from '../view/show-companies/show-companies-view';
+import { CreateCompanyView } from '../view/create-company/create-company-view';
+import { ShowResumesView } from '../view/show-resumes/show-resumes-view';
+import { CreateResumeView } from '../view/create-resume/create-resume-view';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  imports: [UsersView, UserView, CompaniesView, CompanyView, ResumesView, ResumeView]
+  imports: [
+    ShowUsersView,
+    CreateUserView,
+    ShowCompaniesView,
+    CreateCompanyView,
+    ShowResumesView,
+    CreateResumeView
+  ]
 })
 export class App {}
