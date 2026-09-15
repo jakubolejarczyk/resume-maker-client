@@ -596,7 +596,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "NavDashboard",
+                        "name": "NavComponent",
                         "type": "component"
                     }
                 ],
@@ -611,8 +611,8 @@
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-fcfeafc4980752e21bcdf1999b27553ef739505e6478a38b6d98a51d4b2684877c5d080b80454e9ee7b9bb11c06c38a3712f88c031fe8c86b907cb33076845e9",
-            "file": "src/component/menu/menu-component.ts",
+            "id": "component-MenuComponent-561c6f266cfde22201b6aa83e72fb6c909e93be0892335be7d356c7b7cededd8661c2d8cd4da748bf72339ed1b955d3ecaf0b0075d9267533d989b29124f917a",
+            "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -620,11 +620,11 @@
             "providers": [],
             "selector": "app-menu-component",
             "styleUrls": [
-                "./menu-component.scss"
+                "./menu.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./menu-component.html"
+                "./menu.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -643,13 +643,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu-component.html\",\r\n    styleUrl: \"./menu-component.scss\"\r\n})\r\nexport class MenuComponent {}",
-            "styleUrl": "./menu-component.scss",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\"\r\n})\r\nexport class MenuComponent {}",
+            "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n  border: 1px solid black;\r\n}",
-                    "styleUrl": "./menu-component.scss"
+                    "data": ".menu {\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
+                    "styleUrl": "./menu.component.scss"
                 }
             ],
             "stylesData": "",
@@ -657,30 +657,30 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "NavDashboard",
+                        "name": "NavComponent",
                         "type": "component"
                     }
                 ],
                 "outgoing": []
             },
-            "templateData": "<div class=\"menu\">\r\n    <ul>\r\n        <li>\r\n            <a>Link 1</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 2</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 3</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 4</a>\r\n        </li>\r\n    </ul>\r\n</div>"
+            "templateData": "<div class=\"menu\">\r\n    <ul>\r\n        <li>\r\n            <a>Link 1</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 2</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 3</a>\r\n        </li>\r\n    </ul>\r\n</div>"
         },
         {
-            "name": "NavDashboard",
-            "id": "component-NavDashboard-241a1aa259b9de923fb6f9a349bcf6c138471270a3b023bc29fc20cfea28f01c320c0555abc0d40773733af19ee9a914180c3f9e204027d73001671f5bd5897a",
-            "file": "src/dashboard/nav/nav-dashboard.ts",
+            "name": "NavComponent",
+            "id": "component-NavComponent-077ba3c57326a0a6f871fdd947a557c24a746c75f532b4bc1d06a4d743eaed2ff2eb891edeb18f9ac7d4652b44064642c7c07266064f0adf66b294fdbdd43af8",
+            "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-nav-dashboard",
+            "selector": "app-nav-component",
             "styleUrls": [
-                "./nav-dashboard.scss"
+                "./nav.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./nav-dashboard.html"
+                "./nav.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -689,56 +689,33 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "isMenuVisible",
+                    "name": "mainMenuIsOpen",
                     "coverageIgnore": false,
-                    "defaultValue": "false",
+                    "defaultValue": "this.store.select(MenuStoreState.getMainMenuIsOpen)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 18,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "onHamburgerEvent",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "boolean",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 15,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "boolean",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -747,51 +724,54 @@
             "standalone": true,
             "imports": [
                 {
+                    "name": "HamburgerComponent",
+                    "type": "component"
+                },
+                {
                     "name": "MenuComponent",
                     "type": "component"
                 },
                 {
-                    "name": "HamburgerComponent",
-                    "type": "component"
+                    "name": "AsyncPipe",
+                    "type": "pipe"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { MenuComponent } from \"../../component/menu/menu-component\";\r\nimport { HamburgerComponent } from \"../../component/hamburger/hamburget.component\";\r\n\r\n@Component({\r\n    selector: \"app-nav-dashboard\",\r\n    templateUrl: \"./nav-dashboard.html\",\r\n    styleUrl: \"./nav-dashboard.scss\",\r\n    imports: [MenuComponent, HamburgerComponent]\r\n})\r\nexport class NavDashboard {\r\n    isMenuVisible = false;\r\n\r\n    onHamburgerEvent(event: boolean) {\r\n        this.isMenuVisible = event;\r\n    }\r\n}",
-            "styleUrl": "./nav-dashboard.scss",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n}",
+            "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    border: 1px solid black;\r\n    padding: 0.5rem;\r\n}",
-                    "styleUrl": "./nav-dashboard.scss"
+                    "data": ".nav {\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
+                    "styleUrl": "./nav.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [
-                    {
-                        "name": "RootDashboard",
-                        "type": "component"
-                    }
-                ],
+                "incoming": [],
                 "outgoing": [
+                    {
+                        "name": "HamburgerComponent",
+                        "type": "component"
+                    },
                     {
                         "name": "MenuComponent",
                         "type": "component"
                     },
                     {
-                        "name": "HamburgerComponent",
-                        "type": "component"
+                        "name": "AsyncPipe",
+                        "type": "pipe"
                     }
                 ]
             },
-            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component></app-hamburger-component>\r\n    @if (isMenuVisible) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
+            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component></app-hamburger-component>\r\n    @if (mainMenuIsOpen | async) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
         },
         {
             "name": "RootDashboard",
-            "id": "component-RootDashboard-4718c840c61b0a451b993d0e31c71c5475e74eed24554033a5a60e786eb4499707cff990072f7fa755faee1d9b0901ace6aa69d21f8dc34e52b4645a3a341eb4",
+            "id": "component-RootDashboard-f85f2921c9439c508c2045b7d82c2b09142892ef66952ead579dbdc8c0621ee1920047c820deed37868e8b9d310e556f6cd28f6ad7348717033bf83ef413b9af",
             "file": "src/dashboard/root/root-dashboard.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -821,9 +801,6 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "NavDashboard"
-                },
-                {
                     "name": "ContentDashboard"
                 },
                 {
@@ -833,7 +810,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { NavDashboard } from \"../nav/nav-dashboard\";\r\nimport { ContentDashboard } from \"../content/content-dashboard\";\r\nimport { SelectionDashboard } from \"../selection/selection-dashboard\";\r\n\r\n@Component({\r\n    selector: \"app-root-dashboard\",\r\n    templateUrl: \"./root-dashboard.html\",\r\n    styleUrl: \"./root-dashboard.scss\",\r\n    imports: [NavDashboard, ContentDashboard, SelectionDashboard]\r\n})\r\nexport class RootDashboard {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ContentDashboard } from \"../content/content-dashboard\";\r\nimport { SelectionDashboard } from \"../selection/selection-dashboard\";\r\n\r\n@Component({\r\n    selector: \"app-root-dashboard\",\r\n    templateUrl: \"./root-dashboard.html\",\r\n    styleUrl: \"./root-dashboard.scss\",\r\n    imports: [ContentDashboard, SelectionDashboard]\r\n})\r\nexport class RootDashboard {}",
             "styleUrl": "./root-dashboard.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -853,10 +830,6 @@
                 ],
                 "outgoing": [
                     {
-                        "name": "NavDashboard",
-                        "type": "component"
-                    },
-                    {
                         "name": "ContentDashboard",
                         "type": "component"
                     },
@@ -866,7 +839,7 @@
                     }
                 ]
             },
-            "templateData": "<app-nav-dashboard></app-nav-dashboard>\r\n<app-selection-dashboard></app-selection-dashboard>\r\n<app-content-dashboard></app-content-dashboard>"
+            "templateData": "<app-selection-dashboard></app-selection-dashboard>\r\n<app-content-dashboard></app-content-dashboard>"
         },
         {
             "name": "SelectionDashboard",
@@ -1246,12 +1219,21 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/menu/menu-component.ts",
+                "filePath": "src/component/menu/menu.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "MenuComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/nav/nav.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -1280,15 +1262,6 @@
                 "name": "ContentDashboard",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/dashboard/nav/nav-dashboard.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "NavDashboard",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
                 "status": "low"
             },
             {

@@ -1,3 +1,6 @@
 <nav class="nav">
     <app-hamburger-component></app-hamburger-component>
+    @if (mainMenuIsOpen | async) {
+        <app-menu-component></app-menu-component>
+    }
 </nav>
