@@ -741,11 +741,11 @@
                     }
                 ]
             },
-            "templateData": "<div\r\n    class=\"hamburger\"\r\n    [class.hamburger--open]=\"mainMenuIsOpen | async\"\r\n    (click)=\"click()\"\r\n>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
+            "templateData": "<div class=\"hamburger\" [class.hamburger--open]=\"mainMenuIsOpen | async\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-e3f218a4bd15f0ec852f46ff5653ec6aac195daa3b415b2e0fbad626c656d44a06fff665b10b8401fecccf757cbc09b88528b8e72ba844f096ae5915bec3b95d",
+            "id": "component-MenuComponent-d31c55a9c605edff6040e52c24f7298b5e1e8d6658418255658919bb1c2a76f898184080b789c8e657f1fe26c35db123519db44659658c5d0a076ded8525bc68",
             "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -776,7 +776,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "rawdescription": "\n"
                 },
                 {
@@ -789,7 +789,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 16,
                     "rawdescription": "\n"
                 }
             ],
@@ -801,7 +801,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19,
+                    "line": 20,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -818,17 +818,20 @@
                 {
                     "name": "AsyncPipe",
                     "type": "pipe"
+                },
+                {
+                    "name": "RouterLink"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { RouterLink } from \"@angular/router\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
             "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    background-color: var(--color-surface);\r\n\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        font-family: Arial, Helvetica, sans-serif;\r\n\r\n        &--active {\r\n            cursor: pointer;\r\n            color: var(--color-accent);\r\n            background-color: var(--color-accent-soft);\r\n\r\n            &:hover, &:active {\r\n                background-color: var(--color-accent-soft);\r\n            }\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
+                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -845,14 +848,18 @@
                     {
                         "name": "AsyncPipe",
                         "type": "pipe"
+                    },
+                    {
+                        "name": "RouterLink",
+                        "type": "module"
                     }
                 ]
             },
-            "templateData": "<ul class=\"menu\">\r\n    @for (option of options | async; track option.id) {\r\n        <li class=\"menu__option\">\r\n            @if (option.isActive) {\r\n                <a class=\"menu__link menu__link--active\" (click)=\"click()\">{{ option.label }}</a>\r\n            } @else {\r\n                <a class=\"menu__link menu__link--inactive\">{{ option.label }}</a>\r\n            }\r\n        </li>\r\n    }\r\n</ul>"
+            "templateData": "<ul class=\"menu\">\r\n    @for (option of options | async; track option.id) {\r\n        <li class=\"menu__option\">\r\n            @if (option.isActive) {\r\n                <a class=\"menu__link menu__link--active\" [routerLink]=\"option.link\" (click)=\"click()\">{{ option.label }}</a>\r\n            } @else {\r\n                <a class=\"menu__link menu__link--inactive\">{{ option.label }}</a>\r\n            }\r\n        </li>\r\n    }\r\n</ul>"
         },
         {
             "name": "NavComponent",
-            "id": "component-NavComponent-077ba3c57326a0a6f871fdd947a557c24a746c75f532b4bc1d06a4d743eaed2ff2eb891edeb18f9ac7d4652b44064642c7c07266064f0adf66b294fdbdd43af8",
+            "id": "component-NavComponent-0f4c0a2dc79fb47e7143d5b683b798a73d7003c8019803e91f64e61843b5e54c5985950d57fe0c471f3f0bb8cd52699acbb3bba39a96520663bd315c1e8710d0",
             "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -924,12 +931,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n}",
             "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        margin: 1rem;\r\n    }\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],

@@ -1,6 +1,6 @@
 import { Component, inject } from "@angular/core";
-import { Store } from "@ngxs/store";
 import { AsyncPipe } from "@angular/common";
+import { Store } from "@ngxs/store";
 
 import { HamburgerComponent } from "../hamburger/hamburget.component";
 import { MenuComponent } from "../menu/menu.component";
