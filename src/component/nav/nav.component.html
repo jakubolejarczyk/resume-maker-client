@@ -1,5 +1,7 @@
 <nav class="nav">
-    <app-hamburger-component></app-hamburger-component>
+    <div class="nav__hamburger">
+        <app-hamburger-component></app-hamburger-component>
+    </div>
     @if (mainMenuIsOpen | async) {
         <app-menu-component></app-menu-component>
     }

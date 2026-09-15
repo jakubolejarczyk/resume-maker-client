@@ -1,5 +1,7 @@
 .nav {
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
+    background-color: var(--color-accent);
+
+    &__hamburger {
+        padding: 1rem;
+    }
 }

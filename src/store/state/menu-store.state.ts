@@ -12,17 +12,20 @@ import { SwitchMainMenuIsOpen } from "../action/menu-store.action";
       {
         id: "users",
         label: "Users",
-        link: "/users"
+        link: "/users",
+        isActive: true
       },
       {
         id: "companies",
         label: "Companies",
-        link: "/companies"
+        link: "/companies",
+        isActive: false
       },
       {
         id: "resumes",
         label: "Resumes",
-        link: "/resumes"
+        link: "/resumes",
+        isActive: false
       }
     ]
   }
