@@ -2,17 +2,17 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "Test",
-            "id": "interface-Test-181883fbc56f16c1bbdfd0350773e740ec500b147975a11d9e209a08234b1d18a2b4d7cfdde72a9a0344f96f516c27f36bca215c6b8e7f5f7ecfed192036edd8",
-            "file": "src/store/state/test-state.ts",
+            "name": "MenuStoreModel",
+            "id": "interface-MenuStoreModel-05198164c5a312ed8b6bf3cac11ec70776fed44fdb55ccb50d2dcb3e1d8b5872e6133381b743f232dab3c10b8c4dda1aa7796c3ba8472e8e27b04588ba4c441c",
+            "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\nimport { Action, State, StateContext } from \"@ngxs/store\";\r\n\r\ninterface Test {\r\n    isTest: boolean\r\n}\r\n\r\nexport class SetCompanies {\r\n  static readonly type = '[Company] Set Companies';\r\n}\r\n\r\n\r\n@State<Test>({\r\n  name: 'testState',\r\n  defaults: {\r\n    isTest: true\r\n  }\r\n})\r\n@Injectable({ providedIn: 'root' })\r\nexport class TestState {\r\n    @Action(SetCompanies)\r\n    setCompanies(context: StateContext<Test>) {\r\n        const state = context.getState();\r\n        context.setState({\r\n            ...state,\r\n            isTest: !state.isTest\r\n        });\r\n    }\r\n}",
-            "displayName": "Test",
+            "sourceCode": "export interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n}",
+            "displayName": "MenuStoreModel",
             "properties": [
                 {
-                    "name": "isTest",
+                    "name": "mainMenuIsOpen",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -20,7 +20,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 2,
                     "rawdescription": "\n"
                 }
             ],
@@ -36,19 +36,64 @@
     ],
     "injectables": [
         {
-            "name": "TestState",
-            "id": "injectable-TestState-181883fbc56f16c1bbdfd0350773e740ec500b147975a11d9e209a08234b1d18a2b4d7cfdde72a9a0344f96f516c27f36bca215c6b8e7f5f7ecfed192036edd8",
-            "file": "src/store/state/test-state.ts",
+            "name": "MenuStoreState",
+            "id": "injectable-MenuStoreState-82764d5df69aa57e86930b46d8ed46a3f22dcef83abfcfc720846bf29dda746ed482a9e80253dc25212644042568860ef7373cec150f6ac1a2f3a99a6f591d82",
+            "file": "src/store/state/menu-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
             "methods": [
                 {
-                    "name": "setCompanies",
+                    "name": "getMainMenuIsOpen",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "MenuStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        171,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "MenuStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "switchMainMenuIsOpen",
                     "coverageIgnore": false,
                     "args": [
                         {
                             "name": "context",
-                            "type": "StateContext<Test>",
+                            "type": "StateContext<MenuStoreModel>",
                             "optional": false,
                             "dotDotDotToken": false,
                             "deprecated": false,
@@ -58,7 +103,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -66,7 +111,7 @@
                     "decorators": [
                         {
                             "name": "Action",
-                            "stringifiedArguments": "SetCompanies"
+                            "stringifiedArguments": "SwitchMainMenuIsOpen"
                         }
                     ],
                     "modifierKind": [
@@ -75,7 +120,7 @@
                     "jsdoctags": [
                         {
                             "name": "context",
-                            "type": "StateContext<Test>",
+                            "type": "StateContext<MenuStoreModel>",
                             "optional": false,
                             "dotDotDotToken": false,
                             "deprecated": false,
@@ -91,7 +136,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\nimport { Action, State, StateContext } from \"@ngxs/store\";\r\n\r\ninterface Test {\r\n    isTest: boolean\r\n}\r\n\r\nexport class SetCompanies {\r\n  static readonly type = '[Company] Set Companies';\r\n}\r\n\r\n\r\n@State<Test>({\r\n  name: 'testState',\r\n  defaults: {\r\n    isTest: true\r\n  }\r\n})\r\n@Injectable({ providedIn: 'root' })\r\nexport class TestState {\r\n    @Action(SetCompanies)\r\n    setCompanies(context: StateContext<Test>) {\r\n        const state = context.getState();\r\n        context.setState({\r\n            ...state,\r\n            isTest: !state.isTest\r\n        });\r\n    }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -105,29 +150,69 @@
     "interceptors": [],
     "classes": [
         {
-            "name": "SetCompanies",
-            "id": "class-SetCompanies-181883fbc56f16c1bbdfd0350773e740ec500b147975a11d9e209a08234b1d18a2b4d7cfdde72a9a0344f96f516c27f36bca215c6b8e7f5f7ecfed192036edd8",
-            "file": "src/store/state/test-state.ts",
+            "name": "ProviderConfig",
+            "id": "class-ProviderConfig-60a6094f49e760b9318115f0f390a3a7981314427e56cbb8aa99c282941964184ea9c1b6090e9e0ba35242634e299b24bc6ee48d9500e4986dc20c12aef6a94c",
+            "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\nimport { Action, State, StateContext } from \"@ngxs/store\";\r\n\r\ninterface Test {\r\n    isTest: boolean\r\n}\r\n\r\nexport class SetCompanies {\r\n  static readonly type = '[Company] Set Companies';\r\n}\r\n\r\n\r\n@State<Test>({\r\n  name: 'testState',\r\n  defaults: {\r\n    isTest: true\r\n  }\r\n})\r\n@Injectable({ providedIn: 'root' })\r\nexport class TestState {\r\n    @Action(SetCompanies)\r\n    setCompanies(context: StateContext<Test>) {\r\n        const state = context.getState();\r\n        context.setState({\r\n            ...state,\r\n            isTest: !state.isTest\r\n        });\r\n    }\r\n}",
-            "displayName": "SetCompanies",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { MenuStoreState } from \"../store/state/menu-store.state\";\r\nimport { routesConfig } from \"./routes.config\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([MenuStoreState], withNgxsReduxDevtoolsPlugin())\r\n            ],\r\n        };\r\n    }\r\n}",
+            "displayName": "ProviderConfig",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getProvider",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "ApplicationConfig",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "modifierKind": [
+                        126
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "SwitchMainMenuIsOpen",
+            "id": "class-SwitchMainMenuIsOpen-8d302b3720bf285b6d9fd67763486d5d175fdd344f85acbd2d3f1949eceaf6b4556d8cda05e106e9721cedb7253cd71757d00aa3c27d3898b0139e5416a4c41d",
+            "file": "src/store/action/menu-store.action.ts",
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class SwitchMainMenuIsOpen {\r\n    static readonly type = \"[MenuStoreState] Switch Main Menu Is Open\";\r\n}",
+            "displayName": "SwitchMainMenuIsOpen",
             "inputsClass": [],
             "outputsClass": [],
             "properties": [
                 {
                     "name": "type",
                     "coverageIgnore": false,
-                    "defaultValue": "'[Company] Set Companies'",
+                    "defaultValue": "\"[MenuStoreState] Switch Main Menu Is Open\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 2,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -419,8 +504,8 @@
         },
         {
             "name": "HamburgerComponent",
-            "id": "component-HamburgerComponent-7a76c28e71fd63b87583441c6ba7d368662b231f7a3a54247698f745c4834e6bf79ddaf3302908ea2c9ce11e488420656e005e4c5c94f65c22c95c6c4bdc9034",
-            "file": "src/component/hamburger/hamburget-component.ts",
+            "id": "component-HamburgerComponent-e371c2a271558a3746a04b9ddc948ac4c563a96d150e4c9e7edef4224315a4319d7a0431225cb23ba790da25b2ebd0e7968651c0151077d1d7ce67c3b947b662",
+            "file": "src/component/hamburger/hamburget.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -428,43 +513,29 @@
             "providers": [],
             "selector": "app-hamburger-component",
             "styleUrls": [
-                "./hamburger-component.scss"
+                "./hamburger.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./hamburger-component.html"
+                "./hamburger.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "event",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "isOpen",
+                    "name": "mainMenuIsOpen",
                     "coverageIgnore": false,
-                    "defaultValue": "false",
+                    "defaultValue": "this.store.select(MenuStoreState.getMainMenuIsOpen)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 17,
                     "rawdescription": "\n"
                 },
                 {
@@ -489,7 +560,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -502,17 +573,22 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, output } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { SetCompanies } from \"../../store/state/test-state\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger-component.html\",\r\n    styleUrl: \"./hamburger-component.scss\"\r\n})\r\nexport class HamburgerComponent {\r\n    isOpen = false;\r\n\r\n    event = output<boolean>();\r\n\r\n    store = inject(Store);\r\n\r\n    click() {\r\n        this.isOpen = !this.isOpen;\r\n        this.event.emit(this.isOpen);\r\n        this.store.dispatch(SetCompanies);\r\n    }\r\n}",
-            "styleUrl": "./hamburger-component.scss",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger.component.html\",\r\n    styleUrl: \"./hamburger.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class HamburgerComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
+            "styleUrl": "./hamburger.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": ".hamburger {\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: #000;\r\n    border-radius: 2px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
-                    "styleUrl": "./hamburger-component.scss"
+                    "styleUrl": "./hamburger.component.scss"
                 }
             ],
             "stylesData": "",
@@ -524,9 +600,14 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    }
+                ]
             },
-            "templateData": "<div class=\"hamburger\" [class.hamburger--open]=\"isOpen\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
+            "templateData": "<div class=\"hamburger\" [class.hamburger--open]=\"mainMenuIsOpen | async\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
         },
         {
             "name": "MenuComponent",
@@ -586,7 +667,7 @@
         },
         {
             "name": "NavDashboard",
-            "id": "component-NavDashboard-1703d9ccea389da2358b1ed60b8ce579529c2d52f68b008bc6be3fe8a4a2d216ea3a2655a85aa8dee7f1f36d7c40bc2d8d5c21830575d4689b83dbb764685ccf",
+            "id": "component-NavDashboard-241a1aa259b9de923fb6f9a349bcf6c138471270a3b023bc29fc20cfea28f01c320c0555abc0d40773733af19ee9a914180c3f9e204027d73001671f5bd5897a",
             "file": "src/dashboard/nav/nav-dashboard.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -666,18 +747,18 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "HamburgerComponent",
+                    "name": "MenuComponent",
                     "type": "component"
                 },
                 {
-                    "name": "MenuComponent",
+                    "name": "HamburgerComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { HamburgerComponent } from \"../../component/hamburger/hamburget-component\";\r\nimport { MenuComponent } from \"../../component/menu/menu-component\";\r\n\r\n@Component({\r\n    selector: \"app-nav-dashboard\",\r\n    templateUrl: \"./nav-dashboard.html\",\r\n    styleUrl: \"./nav-dashboard.scss\",\r\n    imports: [HamburgerComponent, MenuComponent]\r\n})\r\nexport class NavDashboard {\r\n    isMenuVisible = false;\r\n\r\n    onHamburgerEvent(event: boolean) {\r\n        this.isMenuVisible = event;\r\n    }\r\n}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { MenuComponent } from \"../../component/menu/menu-component\";\r\nimport { HamburgerComponent } from \"../../component/hamburger/hamburget.component\";\r\n\r\n@Component({\r\n    selector: \"app-nav-dashboard\",\r\n    templateUrl: \"./nav-dashboard.html\",\r\n    styleUrl: \"./nav-dashboard.scss\",\r\n    imports: [MenuComponent, HamburgerComponent]\r\n})\r\nexport class NavDashboard {\r\n    isMenuVisible = false;\r\n\r\n    onHamburgerEvent(event: boolean) {\r\n        this.isMenuVisible = event;\r\n    }\r\n}",
             "styleUrl": "./nav-dashboard.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -697,16 +778,16 @@
                 ],
                 "outgoing": [
                     {
-                        "name": "HamburgerComponent",
+                        "name": "MenuComponent",
                         "type": "component"
                     },
                     {
-                        "name": "MenuComponent",
+                        "name": "HamburgerComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component (event)=\"onHamburgerEvent($event)\"></app-hamburger-component>\r\n    @if (isMenuVisible) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
+            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component></app-hamburger-component>\r\n    @if (isMenuVisible) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
         },
         {
             "name": "RootDashboard",
@@ -1009,7 +1090,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideStore([TestState], withNgxsReduxDevtoolsPlugin()),\n  ],\n}"
+                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ],\n}"
             },
             {
                 "name": "routes",
@@ -1021,6 +1102,17 @@
                 "deprecationMessage": "",
                 "type": "Routes",
                 "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+            },
+            {
+                "name": "routesConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/config/routes.config.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Routes",
+                "defaultValue": "[]"
             }
         ],
         "functions": [],
@@ -1037,7 +1129,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes),\n    provideStore([TestState], withNgxsReduxDevtoolsPlugin()),\n  ],\n}"
+                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ],\n}"
                 }
             ],
             "src/app/app.routes.ts": [
@@ -1051,6 +1143,19 @@
                     "deprecationMessage": "",
                     "type": "Routes",
                     "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                }
+            ],
+            "src/config/routes.config.ts": [
+                {
+                    "name": "routesConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/config/routes.config.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Routes",
+                    "defaultValue": "[]"
                 }
             ]
         },
@@ -1132,12 +1237,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/hamburger/hamburget-component.ts",
+                "filePath": "src/component/hamburger/hamburget.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "HamburgerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1145,6 +1250,25 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "MenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/config/provider.config.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ProviderConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/config/routes.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "routesConfig",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1186,30 +1310,30 @@
                 "status": "low"
             },
             {
-                "filePath": "src/store/state/test-state.ts",
+                "filePath": "src/store/action/menu-store.action.ts",
                 "type": "class",
                 "linktype": "classe",
-                "name": "SetCompanies",
+                "name": "SwitchMainMenuIsOpen",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
             },
             {
-                "filePath": "src/store/state/test-state.ts",
-                "type": "injectable",
-                "linktype": "injectable",
-                "name": "TestState",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/store/state/test-state.ts",
+                "filePath": "src/store/model/menu-store.model.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "Test",
+                "name": "MenuStoreModel",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/state/menu-store.state.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MenuStoreState",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

@@ -1,13 +1,13 @@
 import { Component } from "@angular/core";
 
-import { HamburgerComponent } from "../../component/hamburger/hamburget-component";
 import { MenuComponent } from "../../component/menu/menu-component";
+import { HamburgerComponent } from "../../component/hamburger/hamburget.component";
 
 @Component({
     selector: "app-nav-dashboard",
     templateUrl: "./nav-dashboard.html",
     styleUrl: "./nav-dashboard.scss",
-    imports: [HamburgerComponent, MenuComponent]
+    imports: [MenuComponent, HamburgerComponent]
 })
 export class NavDashboard {
     isMenuVisible = false;

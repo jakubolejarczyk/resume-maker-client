@@ -1,4 +1,4 @@
-import { Action, State, StateContext } from "@ngxs/store";
+import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { MenuStoreModel } from "../model/menu-store.model";
@@ -12,6 +12,11 @@ import { SwitchMainMenuIsOpen } from "../action/menu-store.action";
 })
 @Injectable({ providedIn: "root" })
 export class MenuStoreState {
+  @Selector()
+  static getMainMenuIsOpen(state: MenuStoreModel) {
+    return state.mainMenuIsOpen;
+  }
+
   @Action(SwitchMainMenuIsOpen)
   switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {
     const state = context.getState();
