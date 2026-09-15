@@ -11,17 +11,17 @@ export const routesConfig: Routes = [
         pathMatch: "full"
     },
     {
-        path: "users",
+        path: "/resume-maker-client/users",
         title: "Users",
         component: ShowUsersView
     },
     {
-        path: "companies",
+        path: "/resume-maker-client/companies",
         title: "Companies",
         component: ShowCompaniesView
     },
     {
-        path: "resumes",
+        path: "/resume-maker-client/resumes",
         title: "Resumes",
         component: ShowResumesView
     },
