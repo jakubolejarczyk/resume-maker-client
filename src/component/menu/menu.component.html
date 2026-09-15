@@ -2,7 +2,7 @@
     <ul class="menu__options">
         @for (option of options | async; track option.label) {
             <li class="menu__option">
-                <a class="menu__link" [routerLink]="option.link">{{ option.label }}</a>
+                <a class="menu__link" [routerLink]="option.link" (click)="click()">{{ option.label }}</a>
             </li>
         }
     </ul>

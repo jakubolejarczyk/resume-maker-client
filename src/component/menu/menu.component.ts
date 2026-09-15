@@ -4,6 +4,7 @@ import { AsyncPipe } from "@angular/common";
 
 import { MenuStoreState } from "../../store/state/menu-store.state";
 import { RouterLink } from "@angular/router";
+import { SwitchMainMenuIsOpen } from "../../store/action/menu-store.action";
 
 @Component({
     selector: "app-menu-component",
@@ -15,4 +16,8 @@ export class MenuComponent {
     store = inject(Store);
 
     options = this.store.select(MenuStoreState.getOptions);
+
+    click() {
+        this.store.dispatch(SwitchMainMenuIsOpen);
+    }
 }

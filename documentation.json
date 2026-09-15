@@ -3,16 +3,16 @@
     "interfaces": [
         {
             "name": "MenuOptionStoreModel",
-            "id": "interface-MenuOptionStoreModel-9fd90672fe1d042cb64a06f66257cf1e0f6212fcfa0f6ec1d2a989c7b54f63f97ab59050d9d03ed69a2f66c8c3e2da345c9e50e0fa53ddd312458c1c77bcdbf8",
+            "id": "interface-MenuOptionStoreModel-52fb11a64302357d3c09b34cdb4bd3acaab68953764820e224f3a2c346f8e93e50b981eb9461c9615a6b1fa32d4530cb7b8e670074ef4d924e191fc51173f62b",
             "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface MenuOptionStoreModel {\r\n    label: string;\r\n    href: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
             "displayName": "MenuOptionStoreModel",
             "properties": [
                 {
-                    "name": "href",
+                    "name": "id",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -20,7 +20,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 3,
+                    "line": 2,
                     "rawdescription": "\n"
                 },
                 {
@@ -32,7 +32,19 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 2,
+                    "line": 3,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "link",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
                     "rawdescription": "\n"
                 }
             ],
@@ -47,12 +59,12 @@
         },
         {
             "name": "MenuStoreModel",
-            "id": "interface-MenuStoreModel-9fd90672fe1d042cb64a06f66257cf1e0f6212fcfa0f6ec1d2a989c7b54f63f97ab59050d9d03ed69a2f66c8c3e2da345c9e50e0fa53ddd312458c1c77bcdbf8",
+            "id": "interface-MenuStoreModel-52fb11a64302357d3c09b34cdb4bd3acaab68953764820e224f3a2c346f8e93e50b981eb9461c9615a6b1fa32d4530cb7b8e670074ef4d924e191fc51173f62b",
             "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface MenuOptionStoreModel {\r\n    label: string;\r\n    href: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
             "displayName": "MenuStoreModel",
             "properties": [
                 {
@@ -64,7 +76,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 7,
+                    "line": 8,
                     "rawdescription": "\n"
                 },
                 {
@@ -76,7 +88,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "rawdescription": "\n"
                 }
             ],
@@ -93,7 +105,7 @@
     "injectables": [
         {
             "name": "MenuStoreState",
-            "id": "injectable-MenuStoreState-25ca74f9116f522e87115d164000ada8c75b0c186f4ed1729e66d751d3d8c174398a2600be1fa5ece6f3fa212acf392d703139c1dce1dd30aae36a4eb061c737",
+            "id": "injectable-MenuStoreState-92609d5cecdd039be2804f155839580911cb8c060c7e4be25994c990bb0b0952f6d7c34b7a360c72e5a5138ee22c9370f7442a3be77deed50a155ef8c5c88ce4",
             "file": "src/store/state/menu-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -114,7 +126,52 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        171,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "MenuStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getOptions",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "MenuStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -159,7 +216,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -192,7 +249,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false,\r\n    options: [\r\n      {\r\n        label: \"Users\",\r\n        href: \"/users\"\r\n      },\r\n      {\r\n        label: \"Companies\",\r\n        href: \"/companies\"\r\n      },\r\n      {\r\n        label: \"Resumes\",\r\n        href: \"/resumes\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false,\r\n    options: [\r\n      {\r\n        id: \"users\",\r\n        label: \"Users\",\r\n        link: \"/users\"\r\n      },\r\n      {\r\n        id: \"companies\",\r\n        label: \"Companies\",\r\n        link: \"/companies\"\r\n      },\r\n      {\r\n        id: \"resumes\",\r\n        label: \"Resumes\",\r\n        link: \"/resumes\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Selector()\r\n  static getOptions(state: MenuStoreModel) {\r\n    return state.options;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -351,7 +408,7 @@
         },
         {
             "name": "ContentDashboard",
-            "id": "component-ContentDashboard-c194d2ceced69edb722800d1f1f75f077c622af066fc91c1543ca527e88b24821fe48822aba194299a228bb0f1728da3e038e58682fbe98371293b94ae747294",
+            "id": "component-ContentDashboard-eafde46fe2f35f8a8f76ae03f732aea9d1c42a5264c319dfd3b8102fb9f28ecb4c4cb087783cd2eba2e3b190a13139abdf0ca7fdc9832ff09886b2b2edc3a63e",
             "file": "src/dashboard/content/content-dashboard.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -379,11 +436,15 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-content-dashboard\",\r\n    templateUrl: \"./content-dashboard.html\",\r\n    styleUrl: \"./content-dashboard.scss\"\r\n})\r\nexport class ContentDashboard {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\n@Component({\r\n    selector: \"app-content-dashboard\",\r\n    templateUrl: \"./content-dashboard.html\",\r\n    styleUrl: \"./content-dashboard.scss\",\r\n    imports: [RouterOutlet]\r\n})\r\nexport class ContentDashboard {}",
             "styleUrl": "./content-dashboard.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -401,9 +462,14 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "RouterOutlet",
+                        "type": "module"
+                    }
+                ]
             },
-            "templateData": "<div class=\"content\">\r\n    <p>content-dashboard works!</p>\r\n</div>"
+            "templateData": "<div class=\"content\">\r\n    <router-outlet></router-outlet>\r\n</div>"
         },
         {
             "name": "CreateCompanyView",
@@ -667,7 +733,7 @@
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-561c6f266cfde22201b6aa83e72fb6c909e93be0892335be7d356c7b7cededd8661c2d8cd4da748bf72339ed1b955d3ecaf0b0075d9267533d989b29124f917a",
+            "id": "component-MenuComponent-3136e170407341ab8fb34b8fd1d0bbb0693091c74666e3d03d265d78b0258bc87b240cdfb907a680fa5dff31a1f8a09cbfe9183a0ede872dd80dd9370fe79fd7",
             "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -687,7 +753,34 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "options",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(MenuStoreState.getOptions)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n"
+                }
+            ],
             "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
@@ -695,16 +788,24 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                },
+                {
+                    "name": "RouterLink"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\"\r\n})\r\nexport class MenuComponent {}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { RouterLink } from \"@angular/router\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options = this.store.select(MenuStoreState.getOptions);\r\n}",
             "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
+                    "data": ".menu {\r\n    border: 1px solid black;\r\n\r\n    &__options {\r\n        display: flex;\r\n        flex-direction: column;\r\n    }\r\n\r\n    &__option {\r\n        padding: 0.5rem;\r\n        border-bottom: 1px solid black;\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -717,9 +818,18 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    },
+                    {
+                        "name": "RouterLink",
+                        "type": "module"
+                    }
+                ]
             },
-            "templateData": "<div class=\"menu\">\r\n    <ul>\r\n        <li>\r\n            <a>Link 1</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 2</a>\r\n        </li>\r\n        <li>\r\n            <a>Link 3</a>\r\n        </li>\r\n    </ul>\r\n</div>"
+            "templateData": "<div class=\"menu\">\r\n    <ul class=\"menu__options\">\r\n        @for (option of options | async; track option.label) {\r\n            <li class=\"menu__option\">\r\n                <a class=\"menu__link\" [routerLink]=\"option.link\">{{ option.label }}</a>\r\n            </li>\r\n        }\r\n    </ul>\r\n</div>"
         },
         {
             "name": "NavComponent",
@@ -800,14 +910,19 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
+                    "data": ".nav {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 1rem;\r\n    padding: 1rem;\r\n    border: 1px solid black;\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "RootDashboard",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "HamburgerComponent",
@@ -827,7 +942,7 @@
         },
         {
             "name": "RootDashboard",
-            "id": "component-RootDashboard-f85f2921c9439c508c2045b7d82c2b09142892ef66952ead579dbdc8c0621ee1920047c820deed37868e8b9d310e556f6cd28f6ad7348717033bf83ef413b9af",
+            "id": "component-RootDashboard-48525447bed7f62d0a556ae018ea539320f69afa597bbf2285a28cec2713bc06cdeeb507bdd3c6d16443d7c14eb47f0fc9fe75c8b673a2abaeec63f427cd23ba",
             "file": "src/dashboard/root/root-dashboard.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -861,12 +976,16 @@
                 },
                 {
                     "name": "SelectionDashboard"
+                },
+                {
+                    "name": "NavComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ContentDashboard } from \"../content/content-dashboard\";\r\nimport { SelectionDashboard } from \"../selection/selection-dashboard\";\r\n\r\n@Component({\r\n    selector: \"app-root-dashboard\",\r\n    templateUrl: \"./root-dashboard.html\",\r\n    styleUrl: \"./root-dashboard.scss\",\r\n    imports: [ContentDashboard, SelectionDashboard]\r\n})\r\nexport class RootDashboard {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ContentDashboard } from \"../content/content-dashboard\";\r\nimport { SelectionDashboard } from \"../selection/selection-dashboard\";\r\nimport { NavComponent } from \"../../component/nav/nav.component\";\r\n\r\n@Component({\r\n    selector: \"app-root-dashboard\",\r\n    templateUrl: \"./root-dashboard.html\",\r\n    styleUrl: \"./root-dashboard.scss\",\r\n    imports: [ContentDashboard, SelectionDashboard, NavComponent]\r\n})\r\nexport class RootDashboard {}",
             "styleUrl": "./root-dashboard.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -892,10 +1011,14 @@
                     {
                         "name": "SelectionDashboard",
                         "type": "component"
+                    },
+                    {
+                        "name": "NavComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-selection-dashboard></app-selection-dashboard>\r\n<app-content-dashboard></app-content-dashboard>"
+            "templateData": "<app-nav-component></app-nav-component>\r\n<app-selection-dashboard></app-selection-dashboard>\r\n<app-content-dashboard></app-content-dashboard>"
         },
         {
             "name": "SelectionDashboard",
@@ -1119,18 +1242,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ],\n}"
-            },
-            {
-                "name": "routes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/app.routes.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Routes",
-                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                "defaultValue": "ProviderConfig.getProvider()"
             },
             {
                 "name": "routesConfig",
@@ -1141,7 +1253,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Routes",
-                "defaultValue": "[]"
+                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
             }
         ],
         "functions": [],
@@ -1158,20 +1270,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [\n    provideBrowserGlobalErrorListeners(),\n    provideRouter(routes)\n  ],\n}"
-                }
-            ],
-            "src/app/app.routes.ts": [
-                {
-                    "name": "routes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/app.routes.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Routes",
-                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                    "defaultValue": "ProviderConfig.getProvider()"
                 }
             ],
             "src/config/routes.config.ts": [
@@ -1184,7 +1283,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Routes",
-                    "defaultValue": "[]"
+                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
                 }
             ]
         },
@@ -1202,25 +1301,25 @@
                 "path": "",
                 "redirectTo": "users",
                 "pathMatch": "full",
-                "filename": "src/app/app.routes.ts"
+                "filename": "src/config/routes.config.ts"
             },
             {
                 "name": "users",
                 "kind": "route-path",
                 "component": "ShowUsersView",
-                "filename": "src/app/app.routes.ts"
+                "filename": "src/config/routes.config.ts"
             },
             {
                 "name": "companies",
                 "kind": "route-path",
                 "component": "ShowCompaniesView",
-                "filename": "src/app/app.routes.ts"
+                "filename": "src/config/routes.config.ts"
             },
             {
                 "name": "resumes",
                 "kind": "route-path",
                 "component": "ShowResumesView",
-                "filename": "src/app/app.routes.ts"
+                "filename": "src/config/routes.config.ts"
             },
             {
                 "name": "users",
@@ -1228,7 +1327,7 @@
                 "path": "**",
                 "redirectTo": "users",
                 "pathMatch": "full",
-                "filename": "src/app/app.routes.ts"
+                "filename": "src/config/routes.config.ts"
             }
         ]
     },
@@ -1242,16 +1341,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "appConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/app.routes.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "routes",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1280,7 +1369,7 @@
                 "linktype": "component",
                 "name": "MenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -1353,7 +1442,7 @@
                 "linktype": "interface",
                 "name": "MenuOptionStoreModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1371,7 +1460,7 @@
                 "linktype": "injectable",
                 "name": "MenuStoreState",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
