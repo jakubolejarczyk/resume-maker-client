@@ -1,5 +1,5 @@
-import { Component, inject } from "@angular/core";
 import { AsyncPipe } from "@angular/common";
+import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
 import { MenuStoreState } from "../../store/state/menu-store.state";

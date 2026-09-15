@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "MenuOptionStoreModel",
-            "id": "interface-MenuOptionStoreModel-52fb11a64302357d3c09b34cdb4bd3acaab68953764820e224f3a2c346f8e93e50b981eb9461c9615a6b1fa32d4530cb7b8e670074ef4d924e191fc51173f62b",
+            "id": "interface-MenuOptionStoreModel-667955d497512f12f2aecdffe545ac21afedeb685acd85eecf67137be5beb39b7cd12c461f6aee7310b61a5238550f9e4e44bd453ec076ed09837212bec6127c",
             "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n    isActive: boolean;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
             "displayName": "MenuOptionStoreModel",
             "properties": [
                 {
@@ -21,6 +21,18 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "isActive",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
                     "rawdescription": "\n"
                 },
                 {
@@ -59,12 +71,12 @@
         },
         {
             "name": "MenuStoreModel",
-            "id": "interface-MenuStoreModel-52fb11a64302357d3c09b34cdb4bd3acaab68953764820e224f3a2c346f8e93e50b981eb9461c9615a6b1fa32d4530cb7b8e670074ef4d924e191fc51173f62b",
+            "id": "interface-MenuStoreModel-667955d497512f12f2aecdffe545ac21afedeb685acd85eecf67137be5beb39b7cd12c461f6aee7310b61a5238550f9e4e44bd453ec076ed09837212bec6127c",
             "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    id: string;\r\n    label: string;\r\n    link: string;\r\n    isActive: boolean;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
             "displayName": "MenuStoreModel",
             "properties": [
                 {
@@ -76,7 +88,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "rawdescription": "\n"
                 },
                 {
@@ -88,7 +100,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 10,
                     "rawdescription": "\n"
                 }
             ],
@@ -105,7 +117,7 @@
     "injectables": [
         {
             "name": "MenuStoreState",
-            "id": "injectable-MenuStoreState-92609d5cecdd039be2804f155839580911cb8c060c7e4be25994c990bb0b0952f6d7c34b7a360c72e5a5138ee22c9370f7442a3be77deed50a155ef8c5c88ce4",
+            "id": "injectable-MenuStoreState-154ef2892fe80f6170480e91b7a180e3efc7eaaf7ffd72ec3bc146f0d64a2368dbb58ab220b42ccffc85d4b6b877c3efedc42330d07e9756a6e006405959e63b",
             "file": "src/store/state/menu-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -126,7 +138,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -171,7 +183,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -216,7 +228,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -249,7 +261,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false,\r\n    options: [\r\n      {\r\n        id: \"users\",\r\n        label: \"Users\",\r\n        link: \"/users\"\r\n      },\r\n      {\r\n        id: \"companies\",\r\n        label: \"Companies\",\r\n        link: \"/companies\"\r\n      },\r\n      {\r\n        id: \"resumes\",\r\n        label: \"Resumes\",\r\n        link: \"/resumes\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Selector()\r\n  static getOptions(state: MenuStoreModel) {\r\n    return state.options;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false,\r\n    options: [\r\n      {\r\n        id: \"users\",\r\n        label: \"Users\",\r\n        link: \"/users\",\r\n        isActive: true\r\n      },\r\n      {\r\n        id: \"companies\",\r\n        label: \"Companies\",\r\n        link: \"/companies\",\r\n        isActive: false\r\n      },\r\n      {\r\n        id: \"resumes\",\r\n        label: \"Resumes\",\r\n        link: \"/resumes\",\r\n        isActive: false\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Selector()\r\n  static getOptions(state: MenuStoreModel) {\r\n    return state.options;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -709,7 +721,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".hamburger {\r\n  margin: 1rem;\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: gray;\r\n    border-radius: 2px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "data": ".hamburger {\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: var(--color-surface);\r\n    border-radius: 2px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./hamburger.component.scss"
                 }
             ],
@@ -733,7 +745,7 @@
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-17126857f2fbc2a23f9982b8c0af9466f785c94f87dacf900ee5537cd11c6ca56fec883509e8498e66febc0ada644a24982e2960f9423f11cc478e16281c9304",
+            "id": "component-MenuComponent-e3f218a4bd15f0ec852f46ff5653ec6aac195daa3b415b2e0fbad626c656d44a06fff665b10b8401fecccf757cbc09b88528b8e72ba844f096ae5915bec3b95d",
             "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -764,7 +776,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "rawdescription": "\n"
                 },
                 {
@@ -777,7 +789,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 15,
                     "rawdescription": "\n"
                 }
             ],
@@ -789,7 +801,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -806,20 +818,17 @@
                 {
                     "name": "AsyncPipe",
                     "type": "pipe"
-                },
-                {
-                    "name": "RouterLink"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { RouterLink } from \"@angular/router\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
             "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    &__options {\r\n        display: flex;\r\n        flex-direction: column;\r\n    }\r\n\r\n    &__option {\r\n        border-bottom: 1px solid lightgray;\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        padding: 1rem;\r\n        display: block;\r\n        text-decoration: none;\r\n        color: gray;\r\n        font-family: Arial, Helvetica, sans-serif;\r\n\r\n        &:hover, &:active {\r\n            background-color: lightgray;\r\n        }\r\n    }\r\n}",
+                    "data": ".menu {\r\n    background-color: var(--color-surface);\r\n\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        font-family: Arial, Helvetica, sans-serif;\r\n\r\n        &--active {\r\n            cursor: pointer;\r\n            color: var(--color-accent);\r\n            background-color: var(--color-accent-soft);\r\n\r\n            &:hover, &:active {\r\n                background-color: var(--color-accent-soft);\r\n            }\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -836,14 +845,10 @@
                     {
                         "name": "AsyncPipe",
                         "type": "pipe"
-                    },
-                    {
-                        "name": "RouterLink",
-                        "type": "module"
                     }
                 ]
             },
-            "templateData": "<div class=\"menu\">\r\n    <ul class=\"menu__options\">\r\n        @for (option of options | async; track option.label) {\r\n            <li class=\"menu__option\">\r\n                <a class=\"menu__link\" [routerLink]=\"option.link\" (click)=\"click()\">{{ option.label }}</a>\r\n            </li>\r\n        }\r\n    </ul>\r\n</div>"
+            "templateData": "<ul class=\"menu\">\r\n    @for (option of options | async; track option.id) {\r\n        <li class=\"menu__option\">\r\n            @if (option.isActive) {\r\n                <a class=\"menu__link menu__link--active\" (click)=\"click()\">{{ option.label }}</a>\r\n            } @else {\r\n                <a class=\"menu__link menu__link--inactive\">{{ option.label }}</a>\r\n            }\r\n        </li>\r\n    }\r\n</ul>"
         },
         {
             "name": "NavComponent",
@@ -924,7 +929,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -952,7 +957,7 @@
                     }
                 ]
             },
-            "templateData": "<nav class=\"nav\">\r\n    <app-hamburger-component></app-hamburger-component>\r\n    @if (mainMenuIsOpen | async) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
+            "templateData": "<nav class=\"nav\">\r\n    <div class=\"nav__hamburger\">\r\n        <app-hamburger-component></app-hamburger-component>\r\n    </div>\r\n    @if (mainMenuIsOpen | async) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
         },
         {
             "name": "RootDashboard",
@@ -1456,7 +1461,7 @@
                 "linktype": "interface",
                 "name": "MenuOptionStoreModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
