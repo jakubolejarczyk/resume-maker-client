@@ -1,8 +1,18 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import { Store } from "@ngxs/store";
+import { AsyncPipe } from "@angular/common";
+
+import { MenuStoreState } from "../../store/state/menu-store.state";
+import { RouterLink } from "@angular/router";
 
 @Component({
     selector: "app-menu-component",
     templateUrl: "./menu.component.html",
-    styleUrl: "./menu.component.scss"
+    styleUrl: "./menu.component.scss",
+    imports: [AsyncPipe, RouterLink]
 })
-export class MenuComponent {}
+export class MenuComponent {
+    store = inject(Store);
+
+    options = this.store.select(MenuStoreState.getOptions);
+}

@@ -1,4 +1,21 @@
 .menu {
-    padding: 0.5rem;
     border: 1px solid black;
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__option {
+        padding: 0.5rem;
+        border-bottom: 1px solid black;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__link {
+        display: block;
+    }
 }

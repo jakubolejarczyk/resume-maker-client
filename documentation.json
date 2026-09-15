@@ -2,13 +2,57 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "MenuStoreModel",
-            "id": "interface-MenuStoreModel-05198164c5a312ed8b6bf3cac11ec70776fed44fdb55ccb50d2dcb3e1d8b5872e6133381b743f232dab3c10b8c4dda1aa7796c3ba8472e8e27b04588ba4c441c",
+            "name": "MenuOptionStoreModel",
+            "id": "interface-MenuOptionStoreModel-9fd90672fe1d042cb64a06f66257cf1e0f6212fcfa0f6ec1d2a989c7b54f63f97ab59050d9d03ed69a2f66c8c3e2da345c9e50e0fa53ddd312458c1c77bcdbf8",
             "file": "src/store/model/menu-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n}",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    label: string;\r\n    href: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
+            "displayName": "MenuOptionStoreModel",
+            "properties": [
+                {
+                    "name": "href",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "MenuStoreModel",
+            "id": "interface-MenuStoreModel-9fd90672fe1d042cb64a06f66257cf1e0f6212fcfa0f6ec1d2a989c7b54f63f97ab59050d9d03ed69a2f66c8c3e2da345c9e50e0fa53ddd312458c1c77bcdbf8",
+            "file": "src/store/model/menu-store.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "interface MenuOptionStoreModel {\r\n    label: string;\r\n    href: string;\r\n}\r\n\r\nexport interface MenuStoreModel {\r\n    mainMenuIsOpen: boolean;\r\n    options: MenuOptionStoreModel[];\r\n}",
             "displayName": "MenuStoreModel",
             "properties": [
                 {
@@ -20,7 +64,19 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 2,
+                    "line": 7,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "options",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MenuOptionStoreModel[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
                     "rawdescription": "\n"
                 }
             ],
@@ -37,7 +93,7 @@
     "injectables": [
         {
             "name": "MenuStoreState",
-            "id": "injectable-MenuStoreState-82764d5df69aa57e86930b46d8ed46a3f22dcef83abfcfc720846bf29dda746ed482a9e80253dc25212644042568860ef7373cec150f6ac1a2f3a99a6f591d82",
+            "id": "injectable-MenuStoreState-25ca74f9116f522e87115d164000ada8c75b0c186f4ed1729e66d751d3d8c174398a2600be1fa5ece6f3fa212acf392d703139c1dce1dd30aae36a4eb061c737",
             "file": "src/store/state/menu-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -58,7 +114,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -103,7 +159,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -136,7 +192,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { MenuStoreModel } from \"../model/menu-store.model\";\r\nimport { SwitchMainMenuIsOpen } from \"../action/menu-store.action\";\r\n\r\n@State<MenuStoreModel>({\r\n  name: \"menuStoreState\",\r\n  defaults: {\r\n    mainMenuIsOpen: false,\r\n    options: [\r\n      {\r\n        label: \"Users\",\r\n        href: \"/users\"\r\n      },\r\n      {\r\n        label: \"Companies\",\r\n        href: \"/companies\"\r\n      },\r\n      {\r\n        label: \"Resumes\",\r\n        href: \"/resumes\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class MenuStoreState {\r\n  @Selector()\r\n  static getMainMenuIsOpen(state: MenuStoreModel) {\r\n    return state.mainMenuIsOpen;\r\n  }\r\n\r\n  @Action(SwitchMainMenuIsOpen)\r\n  switchMainMenuIsOpen(context: StateContext<MenuStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      mainMenuIsOpen: !state.mainMenuIsOpen\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -744,7 +800,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
+                    "data": ".nav {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 0.5rem;\r\n    border: 1px solid black;\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -1295,9 +1351,18 @@
                 "filePath": "src/store/model/menu-store.model.ts",
                 "type": "interface",
                 "linktype": "interface",
+                "name": "MenuOptionStoreModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/model/menu-store.model.ts",
+                "type": "interface",
+                "linktype": "interface",
                 "name": "MenuStoreModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

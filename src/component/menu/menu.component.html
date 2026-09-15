@@ -1,13 +1,9 @@
 <div class="menu">
-    <ul>
-        <li>
-            <a>Link 1</a>
-        </li>
-        <li>
-            <a>Link 2</a>
-        </li>
-        <li>
-            <a>Link 3</a>
-        </li>
+    <ul class="menu__options">
+        @for (option of options | async; track option.label) {
+            <li class="menu__option">
+                <a class="menu__link" [routerLink]="option.link">{{ option.label }}</a>
+            </li>
+        }
     </ul>
 </div>
