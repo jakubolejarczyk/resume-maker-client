@@ -638,7 +638,7 @@
         },
         {
             "name": "HamburgerComponent",
-            "id": "component-HamburgerComponent-e371c2a271558a3746a04b9ddc948ac4c563a96d150e4c9e7edef4224315a4319d7a0431225cb23ba790da25b2ebd0e7968651c0151077d1d7ce67c3b947b662",
+            "id": "component-HamburgerComponent-962d69d5ec1a2ea2c0e24d85358c793ba7d288356a4a04e82add2424c7e0ea88a8190deb5755a441d65a12017f2230c6602a30f17fcd07d217e6f04738765950",
             "file": "src/component/hamburger/hamburget.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -716,12 +716,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger.component.html\",\r\n    styleUrl: \"./hamburger.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class HamburgerComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
+            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { SwitchMainMenuIsOpen } from \"../../store/action/menu-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger.component.html\",\r\n    styleUrl: \"./hamburger.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class HamburgerComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMainMenuIsOpen);\r\n    }\r\n}",
             "styleUrl": "./hamburger.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".hamburger {\r\n  width: 30px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 5px;\r\n    background: var(--color-surface);\r\n    border-radius: 2px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(9.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-9.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "data": ".hamburger {\r\n  width: 32px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 4px;\r\n    background-color: var(--color-surface);\r\n    border-radius: 5px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(10px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-10px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./hamburger.component.scss"
                 }
             ],
@@ -741,7 +741,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"hamburger\" [class.hamburger--open]=\"mainMenuIsOpen | async\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
+            "templateData": "<div\r\n    class=\"hamburger\"\r\n    [class.hamburger--open]=\"mainMenuIsOpen | async\"\r\n    (click)=\"click()\"\r\n>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
         },
         {
             "name": "MenuComponent",

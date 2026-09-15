@@ -2,7 +2,7 @@
     @for (option of options | async; track option.id) {
         <li class="menu__option">
             @if (option.isActive) {
-                <a class="menu__link menu__link--active" (click)="click()">{{ option.label }}</a>
+                <a class="menu__link menu__link--active" [routerLink]="option.link" (click)="click()">{{ option.label }}</a>
             } @else {
                 <a class="menu__link menu__link--inactive">{{ option.label }}</a>
             }
