@@ -1,10 +1,6 @@
 .menu {
     &__option {
         border-bottom: 1px solid var(--color-border-subtle);
-
-        &:last-child {
-            border-bottom: none;
-        }
     }
 
     &__link {
