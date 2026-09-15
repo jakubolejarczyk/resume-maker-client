@@ -1,6 +1,6 @@
 import { Component, inject, output } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { SetCompanies } from "../../store/state/test-state";
+import { SwitchMainMenuIsOpen } from "../../store/action/menu-store.action";
 
 @Component({
     selector: "app-hamburger-component",
@@ -17,6 +17,6 @@ export class HamburgerComponent {
     click() {
         this.isOpen = !this.isOpen;
         this.event.emit(this.isOpen);
-        this.store.dispatch(SetCompanies);
+        this.store.dispatch(SwitchMainMenuIsOpen);
     }
 }

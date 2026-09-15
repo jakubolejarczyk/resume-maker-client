@@ -1,9 +1,7 @@
 import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { HamburgerComponent } from "./hamburget-component";
-import { provideStore } from "@ngxs/store";
-import { TestState } from "../../store/state/test-state";
-import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
+import { storeProvider } from "../../store/provider/store.provider";
 
 const meta: Meta<HamburgerComponent> = {
     title: "component/hamburger",
@@ -11,7 +9,7 @@ const meta: Meta<HamburgerComponent> = {
     decorators: [
         applicationConfig({
             providers: [
-                provideStore([TestState], withNgxsReduxDevtoolsPlugin())
+                ...storeProvider()
             ]
         })
     ]
