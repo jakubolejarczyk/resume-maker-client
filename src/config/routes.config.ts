@@ -6,22 +6,17 @@ import { ShowUsersView } from '../view/show-users/show-users-view';
 
 export const routesConfig: Routes = [
     {
-        path: "",
-        redirectTo: "users",
-        pathMatch: "full"
-    },
-    {
-        path: "/resume-maker-client/users",
+        path: "users",
         title: "Users",
         component: ShowUsersView
     },
     {
-        path: "/resume-maker-client/companies",
+        path: "companies",
         title: "Companies",
         component: ShowCompaniesView
     },
     {
-        path: "/resume-maker-client/resumes",
+        path: "resumes",
         title: "Resumes",
         component: ShowResumesView
     },
