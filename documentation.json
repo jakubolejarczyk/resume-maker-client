@@ -831,7 +831,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
+                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -936,7 +936,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        margin: 1rem;\r\n    }\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -1279,7 +1279,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Routes",
-                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                "defaultValue": "[]"
             }
         ],
         "functions": [],
@@ -1309,7 +1309,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Routes",
-                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        title: \"Users\",\r\n        component: ShowUsersView\r\n    },\r\n    {\r\n        path: \"companies\",\r\n        title: \"Companies\",\r\n        component: ShowCompaniesView\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        title: \"Resumes\",\r\n        component: ShowResumesView\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"users\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                    "defaultValue": "[]"
                 }
             ]
         },
@@ -1320,42 +1320,7 @@
     "routes": {
         "name": "<root>",
         "kind": "module",
-        "children": [
-            {
-                "name": "users",
-                "kind": "route-redirect",
-                "path": "",
-                "redirectTo": "users",
-                "pathMatch": "full",
-                "filename": "src/config/routes.config.ts"
-            },
-            {
-                "name": "users",
-                "kind": "route-path",
-                "component": "ShowUsersView",
-                "filename": "src/config/routes.config.ts"
-            },
-            {
-                "name": "companies",
-                "kind": "route-path",
-                "component": "ShowCompaniesView",
-                "filename": "src/config/routes.config.ts"
-            },
-            {
-                "name": "resumes",
-                "kind": "route-path",
-                "component": "ShowResumesView",
-                "filename": "src/config/routes.config.ts"
-            },
-            {
-                "name": "users",
-                "kind": "route-redirect",
-                "path": "**",
-                "redirectTo": "users",
-                "pathMatch": "full",
-                "filename": "src/config/routes.config.ts"
-            }
-        ]
+        "children": []
     },
     "coverage": {
         "count": 0,
