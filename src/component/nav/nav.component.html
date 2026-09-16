@@ -1,8 +1,13 @@
+@let mainMenuIsOpen = mainMenuIsOpen$ | async;
+@let screenSize = screenSize$ | async;
+
 <nav class="nav">
-    <div class="nav__hamburger">
-        <app-hamburger-component></app-hamburger-component>
-    </div>
-    @if (mainMenuIsOpen | async) {
+    @if (screenSize && screenSize <= 426) {
+        <div class="nav__hamburger">
+            <app-hamburger-component></app-hamburger-component>
+        </div>
+    }
+    @if (mainMenuIsOpen === true || (screenSize && screenSize > 426)) {
         <app-menu-component></app-menu-component>
     }
 </nav>

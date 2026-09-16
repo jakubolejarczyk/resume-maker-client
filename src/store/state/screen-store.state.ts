@@ -2,7 +2,7 @@ import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { ScreenStoreModel } from "../model/screen-store.model";
-import { SetScreenSize } from "../action/screen-store.action";
+import { SetScreenType } from "../action/screen-store.action";
 
 @State<ScreenStoreModel>({
   name: "screenStoreState",
@@ -17,8 +17,8 @@ export class ScreenStoreState {
     return state.screenSize;
   }
   
-  @Action(SetScreenSize)
-  setScreenSize(context: StateContext<ScreenStoreModel>, action: SetScreenSize) {
+  @Action(SetScreenType)
+  setScreenType(context: StateContext<ScreenStoreModel>, action: SetScreenType) {
     const state = context.getState();
     context.setState({
       ...state,
