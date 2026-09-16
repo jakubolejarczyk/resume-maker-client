@@ -5,6 +5,7 @@ import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
 
 import { MenuStoreState } from "../store/state/menu-store.state";
 import { routesConfig } from "./routes.config";
+import { ScreenStoreState } from "../store/state/screen-store.state";
 
 export class ProviderConfig {
     static getProvider(): ApplicationConfig {
@@ -12,7 +13,7 @@ export class ProviderConfig {
             providers: [
                 provideBrowserGlobalErrorListeners(),
                 provideRouter(routesConfig),
-                provideStore([MenuStoreState], withNgxsReduxDevtoolsPlugin())
+                provideStore([MenuStoreState, ScreenStoreState], withNgxsReduxDevtoolsPlugin())
             ],
         };
     }

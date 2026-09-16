@@ -360,7 +360,7 @@
     "components": [
         {
             "name": "App",
-            "id": "component-App-b199aa279a7b04446d092a4461c78874efbfc3984877bb83bfe68f029fc9f51f94c0d643343331e9ec3a355288f237c156e72be30cf101ba2aa3ab929d4a277e",
+            "id": "component-App-0e43a87c79648760dd24ad3185dcf08f923ed97461646148db9a34295f1a3194e2c183865821c17bd8bc21f371a72ce84378db35b11fd218250dda933e0d2e7f",
             "file": "src/app/app.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -390,13 +390,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "RootDashboard"
+                    "name": "NavComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { RootDashboard } from '../dashboard/root/root-dashboard';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [RootDashboard]\r\n})\r\nexport class App {}",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { NavComponent } from '../component/nav/nav.component';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [NavComponent]\r\n})\r\nexport class App {}",
             "styleUrl": "./app.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -411,77 +412,12 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "RootDashboard",
+                        "name": "NavComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-root-dashboard></app-root-dashboard>"
-        },
-        {
-            "name": "ContentDashboard",
-            "id": "component-ContentDashboard-eafde46fe2f35f8a8f76ae03f732aea9d1c42a5264c319dfd3b8102fb9f28ecb4c4cb087783cd2eba2e3b190a13139abdf0ca7fdc9832ff09886b2b2edc3a63e",
-            "file": "src/dashboard/content/content-dashboard.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-content-dashboard",
-            "styleUrls": [
-                "./content-dashboard.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./content-dashboard.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "RouterOutlet"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\n@Component({\r\n    selector: \"app-content-dashboard\",\r\n    templateUrl: \"./content-dashboard.html\",\r\n    styleUrl: \"./content-dashboard.scss\",\r\n    imports: [RouterOutlet]\r\n})\r\nexport class ContentDashboard {}",
-            "styleUrl": "./content-dashboard.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".content {\r\n    background-color: green;\r\n    padding: 1rem;\r\n}",
-                    "styleUrl": "./content-dashboard.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "RootDashboard",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "RouterOutlet",
-                        "type": "module"
-                    }
-                ]
-            },
-            "templateData": "<div class=\"content\">\r\n    <router-outlet></router-outlet>\r\n</div>"
+            "templateData": "<app-nav-component></app-nav-component>"
         },
         {
             "name": "CreateCompanyView",
@@ -831,7 +767,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n        &:last-child {\r\n            border-bottom: none;\r\n        }\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
+                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -859,7 +795,7 @@
         },
         {
             "name": "NavComponent",
-            "id": "component-NavComponent-0f4c0a2dc79fb47e7143d5b683b798a73d7003c8019803e91f64e61843b5e54c5985950d57fe0c471f3f0bb8cd52699acbb3bba39a96520663bd315c1e8710d0",
+            "id": "component-NavComponent-678fdb1cba34be233da7a470fdbb4880fb9828c8bc0827132409d6c007132a1a7d4f21b359d851975d172ba07a6598398ed70032013b7bbd9cdc3bcfd51f32c3",
             "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -907,12 +843,45 @@
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "aaa",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [],
+            "hostListeners": [
+                {
+                    "coverageIgnore": false,
+                    "name": "click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21
+                }
+            ],
             "standalone": true,
             "imports": [
                 {
@@ -931,7 +900,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n}",
+            "sourceCode": "import { Component, HostListener, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    @HostListener(\"click\")\r\n    aaa() {\r\n        console.log(\"Hello\");\r\n    }\r\n}",
             "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -945,7 +914,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "RootDashboard",
+                        "name": "App",
                         "type": "component"
                     }
                 ],
@@ -965,142 +934,6 @@
                 ]
             },
             "templateData": "<nav class=\"nav\">\r\n    <div class=\"nav__hamburger\">\r\n        <app-hamburger-component></app-hamburger-component>\r\n    </div>\r\n    @if (mainMenuIsOpen | async) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
-        },
-        {
-            "name": "RootDashboard",
-            "id": "component-RootDashboard-48525447bed7f62d0a556ae018ea539320f69afa597bbf2285a28cec2713bc06cdeeb507bdd3c6d16443d7c14eb47f0fc9fe75c8b673a2abaeec63f427cd23ba",
-            "file": "src/dashboard/root/root-dashboard.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-root-dashboard",
-            "styleUrls": [
-                "./root-dashboard.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./root-dashboard.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "ContentDashboard"
-                },
-                {
-                    "name": "SelectionDashboard"
-                },
-                {
-                    "name": "NavComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ContentDashboard } from \"../content/content-dashboard\";\r\nimport { SelectionDashboard } from \"../selection/selection-dashboard\";\r\nimport { NavComponent } from \"../../component/nav/nav.component\";\r\n\r\n@Component({\r\n    selector: \"app-root-dashboard\",\r\n    templateUrl: \"./root-dashboard.html\",\r\n    styleUrl: \"./root-dashboard.scss\",\r\n    imports: [ContentDashboard, SelectionDashboard, NavComponent]\r\n})\r\nexport class RootDashboard {}",
-            "styleUrl": "./root-dashboard.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./root-dashboard.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "App",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "ContentDashboard",
-                        "type": "component"
-                    },
-                    {
-                        "name": "SelectionDashboard",
-                        "type": "component"
-                    },
-                    {
-                        "name": "NavComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<app-nav-component></app-nav-component>\r\n<app-selection-dashboard></app-selection-dashboard>\r\n<app-content-dashboard></app-content-dashboard>"
-        },
-        {
-            "name": "SelectionDashboard",
-            "id": "component-SelectionDashboard-34ae90ff359f0423a676c449c7854bc13631a77c514dc01487b31a5b485842c6fd9157af6abac6eb03b81828297c1b5b34c514defa3d39d72f908324309f0f9b",
-            "file": "src/dashboard/selection/selection-dashboard.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-selection-dashboard",
-            "styleUrls": [
-                "./selection-dashboard.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./selection-dashboard.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-selection-dashboard\",\r\n    templateUrl: \"./selection-dashboard.html\",\r\n    styleUrl: \"./selection-dashboard.scss\"\r\n})\r\nexport class SelectionDashboard {}",
-            "styleUrl": "./selection-dashboard.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".selection {\r\n    background-color: purple;\r\n    padding: 1rem;\r\n}",
-                    "styleUrl": "./selection-dashboard.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "RootDashboard",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": []
-            },
-            "templateData": "<div class=\"selection\">\r\n    <p>selection-dashboard works!</p>\r\n</div>"
         },
         {
             "name": "ShowCompaniesView",
@@ -1369,7 +1202,7 @@
                 "linktype": "component",
                 "name": "NavComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1387,33 +1220,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "routesConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/dashboard/content/content-dashboard.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ContentDashboard",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/dashboard/root/root-dashboard.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "RootDashboard",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/dashboard/selection/selection-dashboard.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "SelectionDashboard",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
