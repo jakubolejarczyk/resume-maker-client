@@ -2,12 +2,12 @@
 @let screenSize = screenSize$ | async;
 
 <nav class="nav">
-    @if (screenSize && screenSize <= 426) {
+    @if (screenSize && screenSize <= 768) {
         <div class="nav__hamburger">
             <app-hamburger-component></app-hamburger-component>
         </div>
     }
-    @if (mainMenuIsOpen === true || (screenSize && screenSize > 426)) {
+    @if (mainMenuIsOpen === true || (screenSize && screenSize > 768)) {
         <app-menu-component></app-menu-component>
     }
 </nav>
