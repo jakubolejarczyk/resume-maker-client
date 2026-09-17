@@ -500,13 +500,13 @@
     "classes": [
         {
             "name": "ProviderConfig",
-            "id": "class-ProviderConfig-a35a1a26db8fefdb11dac608b3fae42289c5e904e7600277cb676249c0a2992ceb19bfe53fcd07370be18ea9a36d2af415acd9bfbaa6e282be1d129216424ff5",
+            "id": "class-ProviderConfig-098d4f9b108d07bdcfc159207eccd0a576aca2628283befa497709622b02ef69cca4e9cc219b404b38c2f2f869de8c96a7a2f163c1dec89100453413d64bddbb",
             "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\n// import { MenuStoreState } from \"../store/state/nav-store.state\";\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\n// import { ScreenStoreState } from \"../store/state/window-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([NavStoreState, WindowStoreState], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
             "displayName": "ProviderConfig",
             "inputsClass": [],
             "outputsClass": [],
@@ -519,7 +519,7 @@
                     "optional": false,
                     "returnType": "ApplicationConfig",
                     "typeParameters": [],
-                    "line": 13,
+                    "line": 11,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -757,12 +757,12 @@
     "directives": [
         {
             "name": "WindowDirective",
-            "id": "directive-WindowDirective-aa40d66fef536e8b906a2150a7e9ec3e5b9da75cf7ebf114cac8d9b6809480165afbb39330ad4464a3dce38a919a31b3b37dbb4d5e876109695029c0ea51bb83",
+            "id": "directive-WindowDirective-1625e3e23aa3af474569f9d15a5c3bc2d37d100497a5272a32573e2d3965257fec8b0d2f2ab22597bd1873dcd164c9e618423a476adbd54af9d9259d1e035b52",
             "file": "src/directive/window.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive, inject, OnInit } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { debounceTime, fromEvent, map, tap } from \"rxjs\";\r\n\r\nimport { SetWindowWidth } from \"../store/action/window-store.action\";\r\n\r\n@Directive({\r\n    selector: \"[appWindowDirective]\"\r\n})\r\nexport class WindowDirective implements OnInit {\r\n    store = inject(Store);\r\n\r\n    ngOnInit() {\r\n        this.store.dispatch(new SetWindowWidth(window.innerWidth));\r\n        fromEvent(window, \"resize\").pipe(\r\n            debounceTime(20),\r\n            map(() => window.innerWidth),\r\n            tap(width => this.store.dispatch(new SetWindowWidth(width)))\r\n        ).subscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Directive, inject, OnInit } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { fromEvent, map, tap } from \"rxjs\";\r\n\r\nimport { SetWindowWidth } from \"../store/action/window-store.action\";\r\n\r\n@Directive({\r\n    selector: \"[appWindowDirective]\"\r\n})\r\nexport class WindowDirective implements OnInit {\r\n    store = inject(Store);\r\n\r\n    ngOnInit() {\r\n        this.store.dispatch(new SetWindowWidth(window.innerWidth));\r\n        fromEvent(window, \"resize\").pipe(\r\n            map(() => window.innerWidth),\r\n            tap(width => this.store.dispatch(new SetWindowWidth(width)))\r\n        ).subscribe();\r\n    }\r\n}",
             "selector": "[appWindowDirective]",
             "providers": [],
             "hostDirectives": [],
@@ -882,159 +882,6 @@
             "templateData": "<app-nav-component></app-nav-component>"
         },
         {
-            "name": "CreateCompanyView",
-            "id": "component-CreateCompanyView-0c7646c3d6d697c2cf67353c0493a25ac9c07f965b78f5e703bf3863046f848b0cd66ca0db1416046b7a3522ab83fd057134e6ce0fe28cb258fa457475ec8520",
-            "file": "src/view/create-company/create-company-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "create-company-view",
-            "styleUrls": [
-                "create-company-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "create-company-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"create-company-view\",\r\n    templateUrl: \"create-company-view.html\",\r\n    styleUrl: \"create-company-view.scss\"\r\n})\r\nexport class CreateCompanyView {}",
-            "styleUrl": "create-company-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "create-company-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>create-company-view works!</p>"
-        },
-        {
-            "name": "CreateResumeView",
-            "id": "component-CreateResumeView-a95bcc618d36f584782375c870f26892a11fd3af5909d8bf9a73bc14df1d93ab4bb964832fe34a843112022b559f5eaea814718eeb62667eed49b5a85cd7b41c",
-            "file": "src/view/create-resume/create-resume-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "create-resume-view",
-            "styleUrls": [
-                "create-resume-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "create-resume-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"create-resume-view\",\r\n    templateUrl: \"create-resume-view.html\",\r\n    styleUrl: \"create-resume-view.scss\"\r\n})\r\nexport class CreateResumeView {}",
-            "styleUrl": "create-resume-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "create-resume-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>create-resume-view works!</p>"
-        },
-        {
-            "name": "CreateUserView",
-            "id": "component-CreateUserView-9c0a179bb315d33110b2b73fc737a34a3131ba35840905581bc65da457cbead044fe5999cf89da5b3821cca372d96a67ddf0f6451486e1ac40aaa08564ad7a3a",
-            "file": "src/view/create-user/create-user-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "create-user-view",
-            "styleUrls": [
-                "create-user-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "create-user-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"create-user-view\",\r\n    templateUrl: \"create-user-view.html\",\r\n    styleUrl: \"create-user-view.scss\"\r\n})\r\nexport class CreateUserView {}",
-            "styleUrl": "create-user-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "create-user-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>create-user-view works!</p>"
-        },
-        {
             "name": "HamburgerComponent",
             "id": "component-HamburgerComponent-d834706a2ce23c473d7ce5da952027f7431e5437ef67a48ed00543c2b3f215b18f23f3a1097f7f572932b9405026b56b8019dc02004b5dbdcfae7146645186d0",
             "file": "src/component/hamburger/hamburget.component.ts",
@@ -1124,14 +971,19 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".hamburger {\r\n  width: 32px;\r\n  height: 26px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    height: 5px;\r\n    background-color: var(--color-surface);\r\n    border-radius: 5px;\r\n    transition: transform 0.5s ease, opacity 0.5s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(10.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-10.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "data": ".wrapper {\r\n  width: 55px;\r\n  height: 55px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.hamburger {\r\n  width: 32px;\r\n  height: 26px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    height: 5px;\r\n    background-color: var(--color-surface);\r\n    border-radius: 5px;\r\n    transition: transform 0.5s ease, opacity 0.5s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(10.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-10.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./hamburger.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "NavComponent",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "AsyncPipe",
@@ -1139,11 +991,11 @@
                     }
                 ]
             },
-            "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n\r\n<div class=\"hamburger\" [class.hamburger--open]=\"menuIsOpen\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
+            "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n\r\n<div class=\"wrapper\">\r\n    <div class=\"hamburger\" [class.hamburger--open]=\"menuIsOpen\" (click)=\"click()\">\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n    </div>\r\n</div>"
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-8b64122fa88fdbd0658dc5d302c4c52e9a418322bc165ff541186b4ac62e577bd6dd2e63f9746247ff89e9ca6a473a1f8bd44da13f64af27a97f57beec0defd5",
+            "id": "component-MenuComponent-1d3a928d8be6a9de918b87380774e7c8b6d4c1bf9f0390fcce0fa4be4aa0339a15130fffe06b674ea4a30709d862eeed50a6e0d854a93d89a638bf1cc17268ed",
             "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1158,12 +1010,30 @@
             "templateUrl": [
                 "./menu.component.html"
             ],
-            "templateVariables": [],
+            "templateVariables": [
+                {
+                    "name": "options",
+                    "defaultValue": "options$ | async"
+                }
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "options$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(NavStoreState.getOptions)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n"
+                },
                 {
                     "name": "store",
                     "coverageIgnore": false,
@@ -1178,37 +1048,73 @@
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "click",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                },
+                {
+                    "name": "RouterLink"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n// import { AsyncPipe } from \"@angular/common\";\r\n// import { RouterLink } from \"@angular/router\";\r\n\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { SwitchMainMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    // imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    // options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    // click() {\r\n    //     this.store.dispatch(SwitchMainMenuIsOpen);\r\n    // }\r\n}",
+            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { RouterLink } from \"@angular/router\";\r\n\r\nimport { NavStoreState } from \"../../store/state/nav-store.state\";\r\nimport { SetMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    options$ = this.store.select(NavStoreState.getOptions);\r\n\r\n    click() {\r\n        this.store.dispatch(new SetMenuIsOpen(false));\r\n    }\r\n}",
             "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n\r\n    @media screen and (min-width: 768px) {\r\n        display: flex;\r\n        padding: 1rem;\r\n\r\n        &__option {\r\n            border-bottom: none;\r\n            border-right: 1px solid var(--color-accent-hover);\r\n        }\r\n\r\n        &__link {\r\n            display: block;\r\n            padding: 1rem;\r\n            text-decoration: none;\r\n\r\n            &--active {\r\n                color: var(--color-text-on-accent);\r\n                background-color: transparent;\r\n\r\n                &:hover {\r\n                    background-color: var(--color-accent-hover);\r\n                }\r\n\r\n                &:active {\r\n                    background-color: var(--color-accent-active);\r\n                }\r\n            }\r\n\r\n            &--inactive {\r\n                color: var(--color-text-disabled);\r\n                background-color: transparent;\r\n            }\r\n        }\r\n    }\r\n}",
+                    "data": ".option {\r\n    border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n\r\n    @media screen and (min-width: 768px) {\r\n        border-bottom: none;\r\n        \r\n        &__link {\r\n            height: 55px;\r\n            display: flex;\r\n            align-items: center;\r\n            justify-content: center;\r\n\r\n            &--active {\r\n                color: var(--color-text-on-accent);\r\n                background-color: transparent;\r\n\r\n                &:hover {\r\n                    background-color: var(--color-accent-hover);\r\n                }\r\n\r\n                &:active {\r\n                    background-color: var(--color-accent-active);\r\n                }\r\n            }\r\n\r\n            &--inactive {\r\n                color: var(--color-text-disabled);\r\n                background-color: transparent;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n@media screen and (min-width: 768px) {\r\n    .menu {\r\n        display: flex;\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
-                "outgoing": []
+                "incoming": [
+                    {
+                        "name": "NavComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    },
+                    {
+                        "name": "RouterLink",
+                        "type": "module"
+                    }
+                ]
             },
-            "templateData": "<!-- <ul class=\"menu\">\r\n    @for (option of options | async; track option.id) {\r\n        <li class=\"menu__option\">\r\n            @if (option.isActive) {\r\n                <a class=\"menu__link menu__link--active\" [routerLink]=\"option.link\" (click)=\"click()\">{{ option.label }}</a>\r\n            } @else {\r\n                <a class=\"menu__link menu__link--inactive\">{{ option.label }}</a>\r\n            }\r\n        </li>\r\n    }\r\n</ul> -->"
+            "templateData": "@let options = options$ | async;\r\n\r\n<ul class=\"menu\">\r\n    @for (option of options; track option.id) {\r\n        <li class=\"option\">\r\n            @if (option.isActive) {\r\n                <a class=\"option__link option__link--active\" [routerLink]=\"option.link\" (click)=\"click()\">\r\n                    {{ option.label }}\r\n                </a>\r\n            } @else {\r\n                <a class=\"option__link option__link--inactive\">\r\n                    {{ option.label }}\r\n                </a>\r\n            }\r\n        </li>\r\n    }\r\n</ul>"
         },
         {
             "name": "NavComponent",
-            "id": "component-NavComponent-ac1123b9eb2b810bb8279deb9c9910fcff68f2a459b00a1017dfcef55f79da48a30eda02f3929711fea936b2b6510b99b398eb3ad1687eae284c86b5d07e2e64",
+            "id": "component-NavComponent-ff56cb6b8816e22e2bc1e17a2f3505ce73ec5104da3d34fa3cdabc98ea19742e6dce389a45859544edf60570fd69d598015ab6e694be1c9033e6108104a506c0",
             "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1225,12 +1131,12 @@
             ],
             "templateVariables": [
                 {
-                    "name": "mainMenuIsOpen",
-                    "defaultValue": "mainMenuIsOpen$ | async"
+                    "name": "menuIsOpen",
+                    "defaultValue": "menuIsOpen$ | async"
                 },
                 {
-                    "name": "screenSize",
-                    "defaultValue": "screenSize$ | async"
+                    "name": "width",
+                    "defaultValue": "width$ | async"
                 }
             ],
             "viewProviders": [],
@@ -1238,6 +1144,19 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "menuIsOpen$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(NavStoreState.getMenuIsOpen)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "rawdescription": "\n"
+                },
                 {
                     "name": "store",
                     "coverageIgnore": false,
@@ -1248,32 +1167,88 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 20,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "TABLET",
+                    "coverageIgnore": false,
+                    "defaultValue": "TABLET",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "width$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(WindowStoreState.getWidth)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "HamburgerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "MenuComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\n// import { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\n// import { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\n// import { MenuComponent } from \"../menu/menu.component\";\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { ScreenStoreState } from \"../../store/state/window-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    // imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    // mainMenuIsOpen$ = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    // screenSize$ = this.store.select(ScreenStoreState.getScreenSize);\r\n}",
+            "sourceCode": "import { Component, inject, OnInit } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { filter, tap } from \"rxjs\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { NavStoreState } from \"../../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../../store/state/window-store.state\";\r\nimport { TABLET } from \"../../const/window-width.const\";\r\nimport { SetMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent implements OnInit {\r\n    store = inject(Store);\r\n\r\n    menuIsOpen$ = this.store.select(NavStoreState.getMenuIsOpen);\r\n\r\n    width$ = this.store.select(WindowStoreState.getWidth);\r\n\r\n    TABLET = TABLET;\r\n\r\n    ngOnInit() {\r\n        this.width$.pipe(\r\n            filter(width => width >= TABLET),\r\n            tap(() => this.store.dispatch(new SetMenuIsOpen(false)))\r\n        ).subscribe();\r\n    }\r\n}",
             "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n    height: 60px;\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
+            "implements": [
+                "OnInit"
+            ],
             "relationships": {
                 "incoming": [
                     {
@@ -1281,162 +1256,26 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "HamburgerComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "MenuComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    },
+                    {
+                        "name": "OnInit",
+                        "type": "interface"
+                    }
+                ]
             },
-            "templateData": "<!-- @let mainMenuIsOpen = mainMenuIsOpen$ | async;\r\n@let screenSize = screenSize$ | async;\r\n\r\n<nav class=\"nav\">\r\n    @if (screenSize && screenSize <= 768) {\r\n        <div class=\"nav__hamburger\">\r\n            <app-hamburger-component></app-hamburger-component>\r\n        </div>\r\n    }\r\n    @if (mainMenuIsOpen === true || (screenSize && screenSize > 768)) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav> -->"
-        },
-        {
-            "name": "ShowCompaniesView",
-            "id": "component-ShowCompaniesView-d2570bdfbaa3a654786a37124e13710f78c0007f6243676286dec69c81ebc9635d6d955d9cc99ab18e05022fecfcb7c55bbe79fcf1dbdea2984fc712a2a45645",
-            "file": "src/view/show-companies/show-companies-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "show-companies-view",
-            "styleUrls": [
-                "show-companies-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "show-companies-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"show-companies-view\",\r\n    templateUrl: \"show-companies-view.html\",\r\n    styleUrl: \"show-companies-view.scss\"\r\n})\r\nexport class ShowCompaniesView {}",
-            "styleUrl": "show-companies-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "show-companies-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>show-companies-view works!</p>"
-        },
-        {
-            "name": "ShowResumesView",
-            "id": "component-ShowResumesView-9148a9d6621a1ff6aaf273eff948883d6a57a81689739cf6935e6c8a1c2b78076d3666fa8740c3e3c9c72f97dcd429b10c6b5ad942cfbc71a01ae9d1e3c9a957",
-            "file": "src/view/show-resumes/show-resumes-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "show-resumes-view",
-            "styleUrls": [
-                "show-resumes-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "show-resumes-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"show-resumes-view\",\r\n    templateUrl: \"show-resumes-view.html\",\r\n    styleUrl: \"show-resumes-view.scss\"\r\n})\r\nexport class ShowResumesView {}",
-            "styleUrl": "show-resumes-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "show-resumes-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>show-resumes-view works!</p>"
-        },
-        {
-            "name": "ShowUsersView",
-            "id": "component-ShowUsersView-ea91b0325cfc6152c7da652b3c22757a18317fa2209790f38764c7f40f3cd5d0ca9297516e074a0e88735c68f3f53270a4004790f6caff35c16117341176575d",
-            "file": "src/view/show-users/show-users-view.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "show-users-view",
-            "styleUrls": [
-                "show-users-view.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "show-users-view.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"show-users-view\",\r\n    templateUrl: \"show-users-view.html\",\r\n    styleUrl: \"show-users-view.scss\"\r\n})\r\nexport class ShowUsersView {}",
-            "styleUrl": "show-users-view.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "show-users-view.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": []
-            },
-            "templateData": "<p>show-users-view works!</p>"
+            "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n@let width = width$ | async;\r\n\r\n@if (width) {\r\n    <nav class=\"nav\">\r\n        @if (width <= TABLET) {\r\n            <div class=\"nav__hamburger\">\r\n                <app-hamburger-component></app-hamburger-component>\r\n            </div>\r\n        }\r\n        @if (menuIsOpen || width > TABLET + 1) {\r\n            <app-menu-component></app-menu-component>\r\n        }\r\n    </nav>\r\n}"
         }
     ],
     "modules": [],
@@ -1452,28 +1291,6 @@
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
                 "defaultValue": "ProviderConfig.getProvider()"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/app.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/component/nav/nav.component.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
             },
             {
                 "name": "FOUR_K",
@@ -1507,28 +1324,6 @@
                 "deprecationMessage": "",
                 "type": "number",
                 "defaultValue": "1440"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/app.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<App>",
-                "defaultValue": "{\r\n    title: \"app\",\r\n    component: App,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/component/nav/nav.component.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<NavComponent>",
-                "defaultValue": "{\r\n    title: \"component/nav\",\r\n    component: NavComponent,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
             },
             {
                 "name": "MOBILE_L",
@@ -1587,34 +1382,7 @@
             }
         ],
         "functions": [],
-        "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "coverageIgnore": false,
-                "rawtype": "StoryObj<App>",
-                "file": "src/app/app.storiesold.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "rawdescription": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "coverageIgnore": false,
-                "rawtype": "StoryObj<NavComponent>",
-                "file": "src/component/nav/nav.component.storiesold.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "rawdescription": "",
-                "description": "",
-                "kind": 184
-            }
-        ],
+        "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
             "src/app/app.config.ts": [
@@ -1628,54 +1396,6 @@
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
                     "defaultValue": "ProviderConfig.getProvider()"
-                }
-            ],
-            "src/app/app.storiesold.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/app.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/app.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<App>",
-                    "defaultValue": "{\r\n    title: \"app\",\r\n    component: App,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
-                }
-            ],
-            "src/component/nav/nav.component.storiesold.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/component/nav/nav.component.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/component/nav/nav.component.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<NavComponent>",
-                    "defaultValue": "{\r\n    title: \"component/nav\",\r\n    component: NavComponent,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
                 }
             ],
             "src/const/window-width.const.ts": [
@@ -1773,38 +1493,7 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {
-            "src/app/app.storiesold.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "coverageIgnore": false,
-                    "rawtype": "StoryObj<App>",
-                    "file": "src/app/app.storiesold.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
-            "src/component/nav/nav.component.storiesold.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "coverageIgnore": false,
-                    "rawtype": "StoryObj<NavComponent>",
-                    "file": "src/component/nav/nav.component.storiesold.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ]
-        }
+        "groupedTypeAliases": {}
     },
     "routes": {
         "name": "<root>",
@@ -1821,36 +1510,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "appConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/app.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/app.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/app.storiesold.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1879,37 +1538,7 @@
                 "linktype": "component",
                 "name": "MenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/nav/nav.component.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/nav/nav.component.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/nav/nav.component.storiesold.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1918,7 +1547,7 @@
                 "linktype": "component",
                 "name": "NavComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2089,60 +1718,6 @@
                 "name": "WindowStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/create-company/create-company-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CreateCompanyView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/create-resume/create-resume-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CreateResumeView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/create-user/create-user-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CreateUserView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/show-companies/show-companies-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ShowCompaniesView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/show-resumes/show-resumes-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ShowResumesView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/view/show-users/show-users-view.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ShowUsersView",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             }
         ]
