@@ -3,9 +3,9 @@ import { provideRouter } from "@angular/router";
 import { provideStore } from "@ngxs/store";
 import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
 
-import { MenuStoreState } from "../store/state/menu-store.state";
+import { MenuStoreState } from "../store/state/nav-store.state";
 import { routesConfig } from "./routes.config";
-import { ScreenStoreState } from "../store/state/screen-store.state";
+import { ScreenStoreState } from "../store/state/window-store.state";
 
 export class ProviderConfig {
     static getProvider(): ApplicationConfig {

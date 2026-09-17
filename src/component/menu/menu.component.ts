@@ -3,8 +3,8 @@ import { Store } from "@ngxs/store";
 import { AsyncPipe } from "@angular/common";
 import { RouterLink } from "@angular/router";
 
-import { MenuStoreState } from "../../store/state/menu-store.state";
-import { SwitchMainMenuIsOpen } from "../../store/action/menu-store.action";
+import { MenuStoreState } from "../../store/state/nav-store.state";
+import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-menu-component",

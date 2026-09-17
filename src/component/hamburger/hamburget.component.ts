@@ -2,8 +2,8 @@ import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
-import { MenuStoreState } from "../../store/state/menu-store.state";
-import { SwitchMainMenuIsOpen } from "../../store/action/menu-store.action";
+import { MenuStoreState } from "../../store/state/nav-store.state";
+import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-hamburger-component",

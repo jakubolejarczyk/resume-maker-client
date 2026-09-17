@@ -2,7 +2,7 @@ import { Directive, inject, OnInit } from "@angular/core";
 import { Store } from "@ngxs/store";
 import { fromEvent, tap } from "rxjs";
 
-import { SetScreenType } from "../store/action/screen-store.action";
+import { SetScreenType } from "../store/action/window-store.action";
 
 @Directive({
     selector: "[appScreenDirective]"

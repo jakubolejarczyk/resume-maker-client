@@ -4,8 +4,8 @@ import { Store } from "@ngxs/store";
 
 import { HamburgerComponent } from "../hamburger/hamburget.component";
 import { MenuComponent } from "../menu/menu.component";
-import { MenuStoreState } from "../../store/state/menu-store.state";
-import { ScreenStoreState } from "../../store/state/screen-store.state";
+import { MenuStoreState } from "../../store/state/nav-store.state";
+import { ScreenStoreState } from "../../store/state/window-store.state";
 
 @Component({
     selector: "app-nav-component",
