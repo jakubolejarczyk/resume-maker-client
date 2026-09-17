@@ -1,11 +1,17 @@
-<!-- <ul class="menu">
-    @for (option of options | async; track option.id) {
-        <li class="menu__option">
+@let options = options$ | async;
+
+<ul class="menu">
+    @for (option of options; track option.id) {
+        <li class="option">
             @if (option.isActive) {
-                <a class="menu__link menu__link--active" [routerLink]="option.link" (click)="click()">{{ option.label }}</a>
+                <a class="option__link option__link--active" [routerLink]="option.link" (click)="click()">
+                    {{ option.label }}
+                </a>
             } @else {
-                <a class="menu__link menu__link--inactive">{{ option.label }}</a>
+                <a class="option__link option__link--inactive">
+                    {{ option.label }}
+                </a>
             }
         </li>
     }
-</ul> -->
+</ul>

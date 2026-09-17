@@ -757,12 +757,12 @@
     "directives": [
         {
             "name": "WindowDirective",
-            "id": "directive-WindowDirective-ddf9a2e01de6f6f1ec2b4a0b10919d8cf809145f965e8791093f5e7ec2506cd746392ccc56c4e713a7909e8c012abc9abcc1cdc3f190137c0d273a6a611f82c8",
+            "id": "directive-WindowDirective-aa40d66fef536e8b906a2150a7e9ec3e5b9da75cf7ebf114cac8d9b6809480165afbb39330ad4464a3dce38a919a31b3b37dbb4d5e876109695029c0ea51bb83",
             "file": "src/directive/window.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive, inject, OnInit } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { fromEvent, tap } from \"rxjs\";\r\n\r\nimport { SetWindowWidth } from \"../store/action/window-store.action\";\r\n\r\n@Directive({\r\n    selector: \"[appWindowDirective]\"\r\n})\r\nexport class WindowDirective implements OnInit {\r\n    store = inject(Store);\r\n\r\n    ngOnInit() {\r\n        const width = window.innerWidth;\r\n        this.store.dispatch(new SetWindowWidth(width));\r\n        fromEvent(window, \"resize\").pipe(\r\n            tap(() => this.store.dispatch(new SetWindowWidth(width)))\r\n        ).subscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Directive, inject, OnInit } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { debounceTime, fromEvent, map, tap } from \"rxjs\";\r\n\r\nimport { SetWindowWidth } from \"../store/action/window-store.action\";\r\n\r\n@Directive({\r\n    selector: \"[appWindowDirective]\"\r\n})\r\nexport class WindowDirective implements OnInit {\r\n    store = inject(Store);\r\n\r\n    ngOnInit() {\r\n        this.store.dispatch(new SetWindowWidth(window.innerWidth));\r\n        fromEvent(window, \"resize\").pipe(\r\n            debounceTime(20),\r\n            map(() => window.innerWidth),\r\n            tap(width => this.store.dispatch(new SetWindowWidth(width)))\r\n        ).subscribe();\r\n    }\r\n}",
             "selector": "[appWindowDirective]",
             "providers": [],
             "hostDirectives": [],
@@ -1036,7 +1036,7 @@
         },
         {
             "name": "HamburgerComponent",
-            "id": "component-HamburgerComponent-d8d4988c2d75b740fe422452f3fabd7cb7509d5e1a12dc35a0b5cb1eb414ac91219b7529ad6caa00be9cf7d7b0214526b67b4e2e89eb1b9616b245b497094222",
+            "id": "component-HamburgerComponent-d834706a2ce23c473d7ce5da952027f7431e5437ef67a48ed00543c2b3f215b18f23f3a1097f7f572932b9405026b56b8019dc02004b5dbdcfae7146645186d0",
             "file": "src/component/hamburger/hamburget.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1051,12 +1051,30 @@
             "templateUrl": [
                 "./hamburger.component.html"
             ],
-            "templateVariables": [],
+            "templateVariables": [
+                {
+                    "name": "menuIsOpen",
+                    "defaultValue": "menuIsOpen$ | async"
+                }
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "menuIsOpen$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(NavStoreState.getMenuIsOpen)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n"
+                },
                 {
                     "name": "store",
                     "coverageIgnore": false,
@@ -1071,7 +1089,21 @@
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "click",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -1087,24 +1119,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { SwitchMainMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger.component.html\",\r\n    styleUrl: \"./hamburger.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class HamburgerComponent {\r\n    store = inject(Store);\r\n\r\n    // mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    // click() {\r\n    //     this.store.dispatch(SwitchMainMenuIsOpen);\r\n    // }\r\n}",
+            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { NavStoreState } from \"../../store/state/nav-store.state\";\r\nimport { SwitchMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-hamburger-component\",\r\n    templateUrl: \"./hamburger.component.html\",\r\n    styleUrl: \"./hamburger.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class HamburgerComponent {\r\n    store = inject(Store);\r\n\r\n    menuIsOpen$ = this.store.select(NavStoreState.getMenuIsOpen);\r\n\r\n    click() {\r\n        this.store.dispatch(SwitchMenuIsOpen);\r\n    }\r\n}",
             "styleUrl": "./hamburger.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".hamburger {\r\n  width: 32px;\r\n  height: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    width: 100%;\r\n    height: 4px;\r\n    background-color: var(--color-surface);\r\n    border-radius: 5px;\r\n    transition: transform 0.25s ease, opacity 0.25s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(10px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-10px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "data": ".hamburger {\r\n  width: 32px;\r\n  height: 26px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  cursor: pointer;\r\n\r\n  &__line {\r\n    height: 5px;\r\n    background-color: var(--color-surface);\r\n    border-radius: 5px;\r\n    transition: transform 0.5s ease, opacity 0.5s ease;\r\n  }\r\n\r\n  &--open {\r\n    .hamburger__line {\r\n      &:nth-child(1) {\r\n        transform: translateY(10.5px) rotate(45deg);\r\n      }\r\n\r\n      &:nth-child(2) {\r\n        opacity: 0;\r\n      }\r\n\r\n      &:nth-child(3) {\r\n        transform: translateY(-10.5px) rotate(-45deg);\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./hamburger.component.scss"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [
-                    {
-                        "name": "NavComponent",
-                        "type": "component"
-                    }
-                ],
+                "incoming": [],
                 "outgoing": [
                     {
                         "name": "AsyncPipe",
@@ -1112,11 +1139,11 @@
                     }
                 ]
             },
-            "templateData": "<!-- <div class=\"hamburger\" [class.hamburger--open]=\"mainMenuIsOpen | async\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div> -->"
+            "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n\r\n<div class=\"hamburger\" [class.hamburger--open]=\"menuIsOpen\" (click)=\"click()\">\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n    <div class=\"hamburger__line\"></div>\r\n</div>"
         },
         {
             "name": "MenuComponent",
-            "id": "component-MenuComponent-1ebefa3e733a044101be62a3e62b71c1b922505d33a7943e7e8aa3a8c04a4053d78d11f6c1812bfecd777ff1dbd27ea57f1624bbb4a25d56042f358cda8d4913",
+            "id": "component-MenuComponent-8b64122fa88fdbd0658dc5d302c4c52e9a418322bc165ff541186b4ac62e577bd6dd2e63f9746247ff89e9ca6a473a1f8bd44da13f64af27a97f57beec0defd5",
             "file": "src/component/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1158,19 +1185,11 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "AsyncPipe",
-                    "type": "pipe"
-                },
-                {
-                    "name": "RouterLink"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { RouterLink } from \"@angular/router\";\r\n\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { SwitchMainMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    // options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    // click() {\r\n    //     this.store.dispatch(SwitchMainMenuIsOpen);\r\n    // }\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n// import { AsyncPipe } from \"@angular/common\";\r\n// import { RouterLink } from \"@angular/router\";\r\n\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { SwitchMainMenuIsOpen } from \"../../store/action/nav-store.action\";\r\n\r\n@Component({\r\n    selector: \"app-menu-component\",\r\n    templateUrl: \"./menu.component.html\",\r\n    styleUrl: \"./menu.component.scss\",\r\n    // imports: [AsyncPipe, RouterLink]\r\n})\r\nexport class MenuComponent {\r\n    store = inject(Store);\r\n\r\n    // options = this.store.select(MenuStoreState.getOptions);\r\n\r\n    // click() {\r\n    //     this.store.dispatch(SwitchMainMenuIsOpen);\r\n    // }\r\n}",
             "styleUrl": "./menu.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1182,28 +1201,14 @@
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [
-                    {
-                        "name": "NavComponent",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "AsyncPipe",
-                        "type": "pipe"
-                    },
-                    {
-                        "name": "RouterLink",
-                        "type": "module"
-                    }
-                ]
+                "incoming": [],
+                "outgoing": []
             },
             "templateData": "<!-- <ul class=\"menu\">\r\n    @for (option of options | async; track option.id) {\r\n        <li class=\"menu__option\">\r\n            @if (option.isActive) {\r\n                <a class=\"menu__link menu__link--active\" [routerLink]=\"option.link\" (click)=\"click()\">{{ option.label }}</a>\r\n            } @else {\r\n                <a class=\"menu__link menu__link--inactive\">{{ option.label }}</a>\r\n            }\r\n        </li>\r\n    }\r\n</ul> -->"
         },
         {
             "name": "NavComponent",
-            "id": "component-NavComponent-79cd5e70d7d9e2441cdd7a33967a59398ee82bd63b362d06824781ec781e1f8dc036d1a7ad2f83d563ad27c8eefa4341529bef5935219fabbe48a0c013ad131e",
+            "id": "component-NavComponent-ac1123b9eb2b810bb8279deb9c9910fcff68f2a459b00a1017dfcef55f79da48a30eda02f3929711fea936b2b6510b99b398eb3ad1687eae284c86b5d07e2e64",
             "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1254,24 +1259,11 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "HamburgerComponent",
-                    "type": "component"
-                },
-                {
-                    "name": "MenuComponent",
-                    "type": "component"
-                },
-                {
-                    "name": "AsyncPipe",
-                    "type": "pipe"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { ScreenStoreState } from \"../../store/state/window-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    // mainMenuIsOpen$ = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    // screenSize$ = this.store.select(ScreenStoreState.getScreenSize);\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\n// import { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\n// import { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\n// import { MenuComponent } from \"../menu/menu.component\";\r\n// import { MenuStoreState } from \"../../store/state/nav-store.state\";\r\n// import { ScreenStoreState } from \"../../store/state/window-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    // imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    // mainMenuIsOpen$ = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    // screenSize$ = this.store.select(ScreenStoreState.getScreenSize);\r\n}",
             "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1289,20 +1281,7 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": [
-                    {
-                        "name": "HamburgerComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "MenuComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "AsyncPipe",
-                        "type": "pipe"
-                    }
-                ]
+                "outgoing": []
             },
             "templateData": "<!-- @let mainMenuIsOpen = mainMenuIsOpen$ | async;\r\n@let screenSize = screenSize$ | async;\r\n\r\n<nav class=\"nav\">\r\n    @if (screenSize && screenSize <= 768) {\r\n        <div class=\"nav__hamburger\">\r\n            <app-hamburger-component></app-hamburger-component>\r\n        </div>\r\n    }\r\n    @if (mainMenuIsOpen === true || (screenSize && screenSize > 768)) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav> -->"
         },
@@ -1489,17 +1468,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/component/menu/menu.component.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/component/nav/nav.component.storiesold.ts",
                 "coverageIgnore": false,
                 "deprecated": false,
@@ -1550,17 +1518,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<App>",
                 "defaultValue": "{\r\n    title: \"app\",\r\n    component: App,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/component/menu/menu.component.storiesold.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MenuComponent>",
-                "defaultValue": "{\r\n    title: \"component/menu\",\r\n    component: MenuComponent,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
             },
             {
                 "name": "meta",
@@ -1649,19 +1606,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "coverageIgnore": false,
-                "rawtype": "StoryObj<MenuComponent>",
-                "file": "src/component/menu/menu.component.storiesold.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "rawdescription": "",
-                "description": "",
-                "kind": 184
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "coverageIgnore": false,
                 "rawtype": "StoryObj<NavComponent>",
                 "file": "src/component/nav/nav.component.storiesold.ts",
                 "deprecated": false,
@@ -1708,30 +1652,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<App>",
                     "defaultValue": "{\r\n    title: \"app\",\r\n    component: App,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
-                }
-            ],
-            "src/component/menu/menu.component.storiesold.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/component/menu/menu.component.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/component/menu/menu.component.storiesold.ts",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<MenuComponent>",
-                    "defaultValue": "{\r\n    title: \"component/menu\",\r\n    component: MenuComponent,\r\n    decorators: [\r\n        applicationConfig(ProviderConfig.getProvider())\r\n    ]\r\n}"
                 }
             ],
             "src/component/nav/nav.component.storiesold.ts": [
@@ -1869,21 +1789,6 @@
                     "kind": 184
                 }
             ],
-            "src/component/menu/menu.component.storiesold.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "coverageIgnore": false,
-                    "rawtype": "StoryObj<MenuComponent>",
-                    "file": "src/component/menu/menu.component.storiesold.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "",
-                    "description": "",
-                    "kind": 184
-                }
-            ],
             "src/component/nav/nav.component.storiesold.ts": [
                 {
                     "name": "Story",
@@ -1965,37 +1870,7 @@
                 "linktype": "component",
                 "name": "HamburgerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/menu/menu.component.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/menu/menu.component.storiesold.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/menu/menu.component.storiesold.ts",
-                "type": "type alias",
-                "linktype": "miscellaneous",
-                "linksubtype": "typealias",
-                "name": "Story",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

@@ -1,13 +1,15 @@
-<!-- @let mainMenuIsOpen = mainMenuIsOpen$ | async;
-@let screenSize = screenSize$ | async;
+@let menuIsOpen = menuIsOpen$ | async;
+@let width = width$ | async;
 
-<nav class="nav">
-    @if (screenSize && screenSize <= 768) {
-        <div class="nav__hamburger">
-            <app-hamburger-component></app-hamburger-component>
-        </div>
-    }
-    @if (mainMenuIsOpen === true || (screenSize && screenSize > 768)) {
-        <app-menu-component></app-menu-component>
-    }
-</nav> -->
+@if (width) {
+    <nav class="nav">
+        @if (width <= TABLET) {
+            <div class="nav__hamburger">
+                <app-hamburger-component></app-hamburger-component>
+            </div>
+        }
+        @if (menuIsOpen || width > TABLET + 1) {
+            <app-menu-component></app-menu-component>
+        }
+    </nav>
+}

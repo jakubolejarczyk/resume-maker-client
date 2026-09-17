@@ -1,11 +1,14 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { AsyncPipe } from "@angular/common";
 import { Store } from "@ngxs/store";
+import { filter, tap } from "rxjs";
 
 import { HamburgerComponent } from "../hamburger/hamburget.component";
 import { MenuComponent } from "../menu/menu.component";
-// import { MenuStoreState } from "../../store/state/nav-store.state";
-// import { ScreenStoreState } from "../../store/state/window-store.state";
+import { NavStoreState } from "../../store/state/nav-store.state";
+import { WindowStoreState } from "../../store/state/window-store.state";
+import { TABLET } from "../../const/window-width.const";
+import { SetMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-nav-component",
@@ -13,10 +16,19 @@ import { MenuComponent } from "../menu/menu.component";
     styleUrl: "./nav.component.scss",
     imports: [HamburgerComponent, MenuComponent, AsyncPipe]
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
     store = inject(Store);
 
-    // mainMenuIsOpen$ = this.store.select(MenuStoreState.getMainMenuIsOpen);
+    menuIsOpen$ = this.store.select(NavStoreState.getMenuIsOpen);
 
-    // screenSize$ = this.store.select(ScreenStoreState.getScreenSize);
+    width$ = this.store.select(WindowStoreState.getWidth);
+
+    TABLET = TABLET;
+
+    ngOnInit() {
+        this.width$.pipe(
+            filter(width => width >= TABLET),
+            tap(() => this.store.dispatch(new SetMenuIsOpen(false)))
+        ).subscribe();
+    }
 }

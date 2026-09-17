@@ -1,10 +1,10 @@
+import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { AsyncPipe } from "@angular/common";
 import { RouterLink } from "@angular/router";
 
-// import { MenuStoreState } from "../../store/state/nav-store.state";
-// import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
+import { NavStoreState } from "../../store/state/nav-store.state";
+import { SetMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-menu-component",
@@ -15,9 +15,9 @@ import { RouterLink } from "@angular/router";
 export class MenuComponent {
     store = inject(Store);
 
-    // options = this.store.select(MenuStoreState.getOptions);
+    options$ = this.store.select(NavStoreState.getOptions);
 
-    // click() {
-    //     this.store.dispatch(SwitchMainMenuIsOpen);
-    // }
+    click() {
+        this.store.dispatch(new SetMenuIsOpen(false));
+    }
 }
