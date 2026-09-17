@@ -2,8 +2,8 @@ import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
-import { MenuStoreState } from "../../store/state/nav-store.state";
-import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
+import { NavStoreState } from "../../store/state/nav-store.state";
+import { SwitchMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-hamburger-component",
@@ -14,9 +14,9 @@ import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
 export class HamburgerComponent {
     store = inject(Store);
 
-    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);
+    menuIsOpen$ = this.store.select(NavStoreState.getMenuIsOpen);
 
     click() {
-        this.store.dispatch(SwitchMainMenuIsOpen);
+        this.store.dispatch(SwitchMenuIsOpen);
     }
 }

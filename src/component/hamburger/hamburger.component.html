@@ -1,4 +1,6 @@
-<div class="hamburger" [class.hamburger--open]="mainMenuIsOpen | async" (click)="click()">
+@let menuIsOpen = menuIsOpen$ | async;
+
+<div class="hamburger" [class.hamburger--open]="menuIsOpen" (click)="click()">
     <div class="hamburger__line"></div>
     <div class="hamburger__line"></div>
     <div class="hamburger__line"></div>

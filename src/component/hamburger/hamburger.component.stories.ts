@@ -1,8 +1,8 @@
 import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
-import { HamburgerComponent } from "./hamburget.component";
 import { ProviderConfig } from "../../config/provider.config";
-import { ScreenDirective } from '../../directive/screen.directive';
+import { WindowDirective } from "../../directive/window.directive";
+import { HamburgerComponent } from "./hamburget.component";
 
 const meta: Meta<HamburgerComponent> = {
     title: "component/hamburger",
@@ -10,7 +10,7 @@ const meta: Meta<HamburgerComponent> = {
     decorators: [
         applicationConfig(ProviderConfig.getProvider()),
         moduleMetadata({
-            imports: [ScreenDirective]
+            imports: [WindowDirective]
         })
     ]
 };
@@ -19,10 +19,7 @@ export default meta;
 type Story = StoryObj<HamburgerComponent>;
 
 export const Default: Story = {
-    render: (args) => ({
-        props: args,
-        template: `
-            <app-hamburger-component appScreenDirective></app-hamburger-component>
-        `
+    render: () => ({
+        template: "<app-hamburger-component appWindowDirective></app-hamburger-component>"
     })
 };

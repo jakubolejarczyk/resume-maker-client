@@ -3,8 +3,8 @@ import { Store } from "@ngxs/store";
 import { AsyncPipe } from "@angular/common";
 import { RouterLink } from "@angular/router";
 
-import { MenuStoreState } from "../../store/state/nav-store.state";
-import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
+// import { MenuStoreState } from "../../store/state/nav-store.state";
+// import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
 
 @Component({
     selector: "app-menu-component",
@@ -15,9 +15,9 @@ import { SwitchMainMenuIsOpen } from "../../store/action/nav-store.action";
 export class MenuComponent {
     store = inject(Store);
 
-    options = this.store.select(MenuStoreState.getOptions);
+    // options = this.store.select(MenuStoreState.getOptions);
 
-    click() {
-        this.store.dispatch(SwitchMainMenuIsOpen);
-    }
+    // click() {
+    //     this.store.dispatch(SwitchMainMenuIsOpen);
+    // }
 }
