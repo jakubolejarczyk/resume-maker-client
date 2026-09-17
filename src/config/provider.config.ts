@@ -14,7 +14,7 @@ export class ProviderConfig {
                 provideBrowserGlobalErrorListeners(),
                 provideRouter(routesConfig),
                 provideStore([MenuStoreState, ScreenStoreState], withNgxsReduxDevtoolsPlugin())
-            ],
+            ]
         };
     }
 }

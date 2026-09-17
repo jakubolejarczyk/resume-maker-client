@@ -112,6 +112,38 @@
                 "incoming": [],
                 "outgoing": []
             }
+        },
+        {
+            "name": "ScreenStoreModel",
+            "id": "interface-ScreenStoreModel-1eff888daee35d09d86666501464d3451a69903413511b9f3bc360065ffaa2d1726d9b9d813969bd3f4f9ad1e6ae97e6a5f0a0c0699f4bc93343bc914117216d",
+            "file": "src/store/model/screen-store.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface ScreenStoreModel {\r\n    screenSize: number;\r\n}",
+            "displayName": "ScreenStoreModel",
+            "properties": [
+                {
+                    "name": "screenSize",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
         }
     ],
     "injectables": [
@@ -269,6 +301,135 @@
                 "incoming": [],
                 "outgoing": []
             }
+        },
+        {
+            "name": "ScreenStoreState",
+            "id": "injectable-ScreenStoreState-24f67e5a691feb82205464ec4c5073a60a2451957009129a5afb5dbe2def8c22ecc95a855f1c22784a45fe987431a9770e45c75eb7a84c18b8385d0b2d580dd1",
+            "file": "src/store/state/screen-store.state.ts",
+            "coverageIgnore": false,
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getScreenSize",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "ScreenStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        171,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "ScreenStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setScreenType",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<ScreenStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "action",
+                            "type": "SetScreenType",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "SetScreenType"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<ScreenStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "action",
+                            "type": "SetScreenType",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ScreenStoreModel } from \"../model/screen-store.model\";\r\nimport { SetScreenType } from \"../action/screen-store.action\";\r\n\r\n@State<ScreenStoreModel>({\r\n  name: \"screenStoreState\",\r\n  defaults: {\r\n    screenSize: 0\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ScreenStoreState {\r\n  @Selector()\r\n  static getScreenSize(state: ScreenStoreModel) {\r\n    return state.screenSize;\r\n  }\r\n  \r\n  @Action(SetScreenType)\r\n  setScreenType(context: StateContext<ScreenStoreModel>, action: SetScreenType) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      screenSize: action.screenSize\r\n    });\r\n  }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
         }
     ],
     "guards": [],
@@ -276,13 +437,13 @@
     "classes": [
         {
             "name": "ProviderConfig",
-            "id": "class-ProviderConfig-60a6094f49e760b9318115f0f390a3a7981314427e56cbb8aa99c282941964184ea9c1b6090e9e0ba35242634e299b24bc6ee48d9500e4986dc20c12aef6a94c",
+            "id": "class-ProviderConfig-85f55b6269247ba8a99c3f162e529bfb6e1b28fbf4b062c1438bd2793c31ed8ea30e56173b3310d51671431a289073239d423024d30cd166bfd9fe698ceb2c98",
             "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { MenuStoreState } from \"../store/state/menu-store.state\";\r\nimport { routesConfig } from \"./routes.config\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([MenuStoreState], withNgxsReduxDevtoolsPlugin())\r\n            ],\r\n        };\r\n    }\r\n}",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { MenuStoreState } from \"../store/state/menu-store.state\";\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { ScreenStoreState } from \"../store/state/screen-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([MenuStoreState, ScreenStoreState], withNgxsReduxDevtoolsPlugin())\r\n            ],\r\n        };\r\n    }\r\n}",
             "displayName": "ProviderConfig",
             "inputsClass": [],
             "outputsClass": [],
@@ -295,7 +456,7 @@
                     "optional": false,
                     "returnType": "ApplicationConfig",
                     "typeParameters": [],
-                    "line": 10,
+                    "line": 11,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -305,6 +466,93 @@
                     ]
                 }
             ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "SetScreenType",
+            "id": "class-SetScreenType-465ba931ee4f0ee25be8d2eb76b05e1ca7089bb5d58d8fa298295c08ac0f812896f45b7ad60a39b1a837ae5077afba871ad0e36c93914afa8aaffd7c7c33d8ce",
+            "file": "src/store/action/screen-store.action.ts",
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class SetScreenType {\r\n    static readonly type = \"[ScreenStoreState] Set Screen Size\";\r\n\r\n    constructor(public screenSize: number) {}\r\n}",
+            "displayName": "SetScreenType",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "screenSize",
+                        "type": "number",
+                        "optional": false,
+                        "dotDotDotToken": false,
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 2,
+                "rawdescription": "\n",
+                "jsdoctags": [
+                    {
+                        "name": "screenSize",
+                        "type": "number",
+                        "optional": false,
+                        "dotDotDotToken": false,
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "screenSize",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "type",
+                    "coverageIgnore": false,
+                    "defaultValue": "\"[ScreenStoreState] Set Screen Size\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
             "indexSignatures": [],
             "extends": [],
             "hostBindings": [],
@@ -356,11 +604,80 @@
             }
         }
     ],
-    "directives": [],
+    "directives": [
+        {
+            "name": "ScreenDirective",
+            "id": "directive-ScreenDirective-b759b3a17c919e8cca27b05802a22e4d763aa6baa0dcca4a9e6bbe667ee2447774eb92737f5f780ce806e4670b8bfe32d50fe4008907d8577dad279d952069ee",
+            "file": "src/directive/screen.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive, inject, OnInit } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { fromEvent, tap } from \"rxjs\";\r\n\r\nimport { SetScreenType } from \"../store/action/screen-store.action\";\r\n\r\n@Directive({\r\n    selector: \"[appScreenDirective]\"\r\n})\r\nexport class ScreenDirective implements OnInit {\r\n    store = inject(Store);\r\n\r\n    ngOnInit() {\r\n        this.store.dispatch(new SetScreenType(window.innerWidth));\r\n        fromEvent(window, \"resize\").pipe(\r\n            tap(() => this.store.dispatch(new SetScreenType(window.innerWidth)))\r\n        ).subscribe();\r\n    }\r\n}",
+            "selector": "[appScreenDirective]",
+            "providers": [],
+            "hostDirectives": [],
+            "standalone": true,
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
+            "coverageIgnore": false,
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "App",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "OnInit",
+                        "type": "interface"
+                    }
+                ]
+            }
+        }
+    ],
     "components": [
         {
             "name": "App",
-            "id": "component-App-0e43a87c79648760dd24ad3185dcf08f923ed97461646148db9a34295f1a3194e2c183865821c17bd8bc21f371a72ce84378db35b11fd218250dda933e0d2e7f",
+            "id": "component-App-af59ccc4029ea9f4e67580c348135081da05e3b7deca1a349e00fd7adbb57f0e6641595c3e96f9c1c7538acf58bcc4f81e1bdb4fccb60476c0439dab3cc40792",
             "file": "src/app/app.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -392,12 +709,16 @@
                 {
                     "name": "NavComponent",
                     "type": "component"
+                },
+                {
+                    "name": "ScreenDirective",
+                    "type": "directive"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { NavComponent } from '../component/nav/nav.component';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [NavComponent]\r\n})\r\nexport class App {}",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { NavComponent } from '../component/nav/nav.component';\r\nimport { ScreenDirective } from '../directive/screen.directive';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [NavComponent, ScreenDirective]\r\n})\r\nexport class App {}",
             "styleUrl": "./app.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -414,10 +735,14 @@
                     {
                         "name": "NavComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "ScreenDirective",
+                        "type": "directive"
                     }
                 ]
             },
-            "templateData": "<app-nav-component></app-nav-component>"
+            "templateData": "<app-nav-component appScreenDirective></app-nav-component>"
         },
         {
             "name": "CreateCompanyView",
@@ -767,7 +1092,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n}",
+                    "data": ".menu {\r\n    &__option {\r\n        border-bottom: 1px solid var(--color-border-subtle);\r\n    }\r\n\r\n    &__link {\r\n        display: block;\r\n        padding: 1rem;\r\n        text-decoration: none;\r\n\r\n        &--active {\r\n            color: var(--color-text-secondary);\r\n            background-color: var(--color-accent-soft);\r\n        }\r\n\r\n        &--inactive {\r\n            color: var(--color-text-disabled);\r\n            background-color: var(--color-surface-disabled);\r\n        }\r\n    }\r\n\r\n    @media screen and (min-width: 768px) {\r\n        display: flex;\r\n        padding: 1rem;\r\n\r\n        &__option {\r\n            border-bottom: none;\r\n            border-right: 1px solid var(--color-accent-hover);\r\n        }\r\n\r\n        &__link {\r\n            display: block;\r\n            padding: 1rem;\r\n            text-decoration: none;\r\n\r\n            &--active {\r\n                color: var(--color-text-on-accent);\r\n                background-color: transparent;\r\n\r\n                &:hover {\r\n                    background-color: var(--color-accent-hover);\r\n                }\r\n\r\n                &:active {\r\n                    background-color: var(--color-accent-active);\r\n                }\r\n            }\r\n\r\n            &--inactive {\r\n                color: var(--color-text-disabled);\r\n                background-color: transparent;\r\n            }\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./menu.component.scss"
                 }
             ],
@@ -795,7 +1120,7 @@
         },
         {
             "name": "NavComponent",
-            "id": "component-NavComponent-678fdb1cba34be233da7a470fdbb4880fb9828c8bc0827132409d6c007132a1a7d4f21b359d851975d172ba07a6598398ed70032013b7bbd9cdc3bcfd51f32c3",
+            "id": "component-NavComponent-459b3a9b7dbcbc924a83986f993fe8b57fdf1fc7ba4cd6cd8635cdaf18284a4460098b94eb8a897beccc3b6aa9bddab9b9eccd6f88aea71b7cfd0dc65d1c4bf1",
             "file": "src/component/nav/nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -810,14 +1135,23 @@
             "templateUrl": [
                 "./nav.component.html"
             ],
-            "templateVariables": [],
+            "templateVariables": [
+                {
+                    "name": "mainMenuIsOpen",
+                    "defaultValue": "mainMenuIsOpen$ | async"
+                },
+                {
+                    "name": "screenSize",
+                    "defaultValue": "screenSize$ | async"
+                }
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "mainMenuIsOpen",
+                    "name": "mainMenuIsOpen$",
                     "coverageIgnore": false,
                     "defaultValue": "this.store.select(MenuStoreState.getMainMenuIsOpen)",
                     "deprecated": false,
@@ -826,7 +1160,20 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 19,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "screenSize$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(ScreenStoreState.getScreenSize)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
                     "rawdescription": "\n"
                 },
                 {
@@ -839,49 +1186,16 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 17,
                     "rawdescription": "\n"
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "aaa",
-                    "coverageIgnore": false,
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 21,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "decorators": [
-                        {
-                            "name": "HostListener",
-                            "stringifiedArguments": "'click'"
-                        }
-                    ],
-                    "modifierKind": [
-                        171
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [
-                {
-                    "coverageIgnore": false,
-                    "name": "click",
-                    "args": [],
-                    "argsDecorator": [],
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 21
-                }
-            ],
+            "hostListeners": [],
             "standalone": true,
             "imports": [
                 {
@@ -900,12 +1214,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostListener, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    @HostListener(\"click\")\r\n    aaa() {\r\n        console.log(\"Hello\");\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { HamburgerComponent } from \"../hamburger/hamburget.component\";\r\nimport { MenuComponent } from \"../menu/menu.component\";\r\nimport { MenuStoreState } from \"../../store/state/menu-store.state\";\r\nimport { ScreenStoreState } from \"../../store/state/screen-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-nav-component\",\r\n    templateUrl: \"./nav.component.html\",\r\n    styleUrl: \"./nav.component.scss\",\r\n    imports: [HamburgerComponent, MenuComponent, AsyncPipe]\r\n})\r\nexport class NavComponent {\r\n    store = inject(Store);\r\n\r\n    mainMenuIsOpen$ = this.store.select(MenuStoreState.getMainMenuIsOpen);\r\n\r\n    screenSize$ = this.store.select(ScreenStoreState.getScreenSize);\r\n}",
             "styleUrl": "./nav.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n    height: 60px;\r\n\r\n    &__hamburger {\r\n        padding: 1rem;\r\n    }\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -933,7 +1247,7 @@
                     }
                 ]
             },
-            "templateData": "<nav class=\"nav\">\r\n    <div class=\"nav__hamburger\">\r\n        <app-hamburger-component></app-hamburger-component>\r\n    </div>\r\n    @if (mainMenuIsOpen | async) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
+            "templateData": "@let mainMenuIsOpen = mainMenuIsOpen$ | async;\r\n@let screenSize = screenSize$ | async;\r\n\r\n<nav class=\"nav\">\r\n    @if (screenSize && screenSize <= 768) {\r\n        <div class=\"nav__hamburger\">\r\n            <app-hamburger-component></app-hamburger-component>\r\n        </div>\r\n    }\r\n    @if (mainMenuIsOpen === true || (screenSize && screenSize > 768)) {\r\n        <app-menu-component></app-menu-component>\r\n    }\r\n</nav>"
         },
         {
             "name": "ShowCompaniesView",
@@ -1202,7 +1516,7 @@
                 "linktype": "component",
                 "name": "NavComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1225,12 +1539,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/directive/screen.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ScreenDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/store/action/menu-store.action.ts",
                 "type": "class",
                 "linktype": "classe",
                 "name": "SwitchMainMenuIsOpen",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/action/screen-store.action.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "SetScreenType",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1252,12 +1584,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/store/model/screen-store.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ScreenStoreModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
                 "filePath": "src/store/state/menu-store.state.ts",
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "MenuStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/state/screen-store.state.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ScreenStoreState",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
