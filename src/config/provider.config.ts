@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from "@angular/core";
-import { provideRouter } from "@angular/router";
+import { provideRouter, withHashLocation } from "@angular/router";
 import { provideStore } from "@ngxs/store";
 import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
 
@@ -12,7 +12,7 @@ export class ProviderConfig {
         return {
             providers: [
                 provideBrowserGlobalErrorListeners(),
-                provideRouter(routesConfig),
+                provideRouter(routesConfig, withHashLocation()),
                 provideStore([
                     NavStoreState,
                     WindowStoreState
