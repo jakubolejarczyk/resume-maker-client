@@ -1,0 +1,22 @@
+@let users = users$ | async;
+
+@if (users) {
+  <table class="users-table">
+    @for (user of users; track user.id) {
+      <tr class="users-table__row">
+        <td class="users-table__cell" data-label="Fullname">{{ user.firstName }} {{ user.lastName }}</td>
+        <td class="users-table__cell" data-label="Email">{{ user.email }}</td>
+        <td class="users-table__cell" data-label="City">{{ user.city }}</td>
+        <td class="users-table__cell" data-label="Country">{{ user.country }}</td>
+        <td class="users-table__cell" data-label="Phone number">{{ user.phoneNumber }}</td>
+        <td class="users-table__cell" data-label="Actions">
+          <div class="actions__buttons">
+            <button class="actions__button actions__button--select" type="button">Select</button>
+            <button class="actions__button actions__button--edit" type="button">Edit</button>
+            <button class="actions__button actions__button--remove" type="button">Remove</button>
+          </div>
+        </td>
+      </tr>
+    }
+  </table>
+}

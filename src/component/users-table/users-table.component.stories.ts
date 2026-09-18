@@ -2,11 +2,11 @@ import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/an
 
 import { ProviderConfig } from "../../config/provider.config";
 import { WindowDirective } from "../../directive/window.directive";
-import { ListComponent } from "./list.component";
+import { UsersTableComponent } from "./users-table.component";
 
-const meta: Meta<ListComponent> = {
-    title: "component/list",
-    component: ListComponent,
+const meta: Meta<UsersTableComponent> = {
+    title: "component/users-table",
+    component: UsersTableComponent,
     decorators: [
         applicationConfig(ProviderConfig.getProvider()),
         moduleMetadata({
@@ -16,10 +16,10 @@ const meta: Meta<ListComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<ListComponent>;
+type Story = StoryObj<UsersTableComponent>;
 
 export const Default: Story = {
     render: () => ({
-        template: "<app-list-component appWindowDirective></app-list-component>"
+        template: "<app-users-table-component appWindowDirective></app-users-table-component>"
     })
 };
