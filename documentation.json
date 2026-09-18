@@ -114,6 +114,154 @@
             }
         },
         {
+            "name": "UserModel",
+            "id": "interface-UserModel-22146be57ed2d2da12715146c4ac2085916313f19f29f50ecf824b3fa5d79ca217852fc4153d7da75658bc4463c416ec07ee692eb571a262dc6afdfc336b9208",
+            "file": "src/model/user.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface UserModel {\r\n    id: number;\r\n    email: string;\r\n    firstName: string;\r\n    lastName: string;\r\n    city: string;\r\n    country: string;\r\n    phoneNumber: string;\r\n}",
+            "displayName": "UserModel",
+            "properties": [
+                {
+                    "name": "city",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "country",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "email",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "firstName",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "id",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "lastName",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "phoneNumber",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UserStoreModel",
+            "id": "interface-UserStoreModel-cf7b0998e76acf8ece1bd36312656ac7ba4583297373be0fccc14bdc5b53946b9f8fe8972c73193606cce53454d5aeec6a3a26fd608a0fd6e069d7644f52999e",
+            "file": "src/store/model/user-store.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { UserModel } from \"../../model/user.model\";\r\n\r\nexport interface UserStoreModel {\r\n    selectedUserId: number | null;\r\n    users: UserModel[];\r\n}",
+            "displayName": "UserStoreModel",
+            "properties": [
+                {
+                    "name": "selectedUserId",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number | null",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "users",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserModel[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "WindowStoreModel",
             "id": "interface-WindowStoreModel-b48ec8a77b60b3520829bf5f2646a0a664b62d13ca54345f229ca200e4694268e53ad2d87c51f31cac41739575419ef50860f1ee1ca8f6d3a3ae2531bcab1cf7",
             "file": "src/store/model/window-store.model.ts",
@@ -366,6 +514,65 @@
             }
         },
         {
+            "name": "UserStoreState",
+            "id": "injectable-UserStoreState-a73b5ad91abb9208e2b9d515e8816b297a5bf79f70ed1b63d318c0396cc98f31620d75252cb6b64f16ae30c370a0e05d5aa230931472f0d3f2cc897b58a24053",
+            "file": "src/store/state/user-store.state.ts",
+            "coverageIgnore": false,
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getUsers",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "UserStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "modifierKind": [
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "UserStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { State } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: {\r\n    selectedUserId: 0,\r\n    users: [\r\n      {\r\n        id: 0,\r\n        email: \"jakub.olejarczyk@outlook.com\",\r\n        firstName: \"Jakub\",\r\n        lastName: \"Olejarczyk\",\r\n        city: \"Kielce\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"501007197\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState {\r\n  static getUsers(state: UserStoreModel) {\r\n    return state.users;\r\n  }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "WindowStoreState",
             "id": "injectable-WindowStoreState-9ec1940d32fabeeabba559db7e7a5b860cfe657aa89db4bb9e589d59c311786ef58c03eb01ed255d1a9fdf577f992750867a2463cd3aea604ea3918560901163",
             "file": "src/store/state/window-store.state.ts",
@@ -500,13 +707,13 @@
     "classes": [
         {
             "name": "ProviderConfig",
-            "id": "class-ProviderConfig-29482a59726bc86e7fa67eeb4715a593fb17c398d207813886f259f82f7e3a738b549c179c7c96363e08e94c0d5634975093c4d2730f2dc251c66a9be812c46c",
+            "id": "class-ProviderConfig-20cb3873d6400457bc0d8fd84f48d40d8855e911e4986a3278bc315797b19f98c0135708f3258f6b4da3b45771716ee64f57a4b52530ad3b97d90c5a2b4c3725",
             "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter, withHashLocation } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig, withHashLocation()),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter, withHashLocation } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\nimport { UserStoreState } from \"../store/state/user-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig, withHashLocation()),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState,\r\n                    UserStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
             "displayName": "ProviderConfig",
             "inputsClass": [],
             "outputsClass": [],
@@ -519,7 +726,7 @@
                     "optional": false,
                     "returnType": "ApplicationConfig",
                     "typeParameters": [],
-                    "line": 11,
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -1047,6 +1254,57 @@
                 ]
             },
             "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n\r\n<div class=\"wrapper\">\r\n    <div class=\"hamburger\" [class.hamburger--open]=\"menuIsOpen\" (click)=\"click()\">\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n    </div>\r\n</div>"
+        },
+        {
+            "name": "ListComponent",
+            "id": "component-ListComponent-806e0ce412db4b1af0172e08c3f9988664088493efc1c7deb38066f66d120cb4134d888b6666f79737694174f4dfec3652d713fe422eb855505580bc38bfb0cb",
+            "file": "src/component/list/list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-list-component",
+            "styleUrls": [
+                "./list.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./list.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-list-component\",\r\n    templateUrl: \"./list.component.html\",\r\n    styleUrl: \"./list.component.scss\"\r\n})\r\nexport class ListComponent {}",
+            "styleUrl": "./list.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./list.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>list-component works!</p>"
         },
         {
             "name": "MenuComponent",
@@ -1806,6 +2064,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/component/list/list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/component/menu/menu.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1922,6 +2189,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/model/user.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UserModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
                 "filePath": "src/root/root.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1976,6 +2252,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/store/model/user-store.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UserStoreModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/store/model/window-store.model.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -1991,6 +2276,15 @@
                 "name": "NavStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/state/user-store.state.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UserStoreState",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

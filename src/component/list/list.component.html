@@ -1,0 +1,7 @@
+@let users = users$ | async;
+
+@if (users) {
+    @for (user of users; track user.id) {
+        <p>{{ user.firstName }} {{ user.lastName }}</p>
+    }
+}
