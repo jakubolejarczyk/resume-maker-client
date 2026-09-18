@@ -515,7 +515,7 @@
         },
         {
             "name": "UserStoreState",
-            "id": "injectable-UserStoreState-a73b5ad91abb9208e2b9d515e8816b297a5bf79f70ed1b63d318c0396cc98f31620d75252cb6b64f16ae30c370a0e05d5aa230931472f0d3f2cc897b58a24053",
+            "id": "injectable-UserStoreState-18977286c1920e3542c84d57ce34e54d69217a9b9fea0e35cae74b5cdb829b2914c911892bbc4167be923c3bf82ec71acda7e242e0e5985cccb59b11293c81ef",
             "file": "src/store/state/user-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -536,12 +536,19 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 17,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
                     "modifierKind": [
+                        171,
                         126
                     ],
                     "jsdoctags": [
@@ -563,7 +570,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { State } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: {\r\n    selectedUserId: 0,\r\n    users: [\r\n      {\r\n        id: 0,\r\n        email: \"jakub.olejarczyk@outlook.com\",\r\n        firstName: \"Jakub\",\r\n        lastName: \"Olejarczyk\",\r\n        city: \"Kielce\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"501007197\"\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState {\r\n  static getUsers(state: UserStoreModel) {\r\n    return state.users;\r\n  }\r\n}",
+            "sourceCode": "import { Selector, State } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { usersMock } from \"../../mock/users.mock\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: {\r\n    selectedUserId: 0,\r\n    users: usersMock\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState {\r\n  @Selector()\r\n  static getUsers(state: UserStoreModel) {\r\n    return state.users;\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -1257,7 +1264,7 @@
         },
         {
             "name": "ListComponent",
-            "id": "component-ListComponent-806e0ce412db4b1af0172e08c3f9988664088493efc1c7deb38066f66d120cb4134d888b6666f79737694174f4dfec3652d713fe422eb855505580bc38bfb0cb",
+            "id": "component-ListComponent-6a13089ff21adae7e8b75fd23e6904fb8e8b72564f6d30ceb3590eb296a146694e1e4aa337a45686ca070161b593f88696b38b6739229c6395f0c06c804652cd",
             "file": "src/component/list/list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1272,12 +1279,44 @@
             "templateUrl": [
                 "./list.component.html"
             ],
-            "templateVariables": [],
+            "templateVariables": [
+                {
+                    "name": "users",
+                    "defaultValue": "users$ | async"
+                }
+            ],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "users$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(UserStoreState.getUsers)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n"
+                }
+            ],
             "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
@@ -1285,11 +1324,16 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-list-component\",\r\n    templateUrl: \"./list.component.html\",\r\n    styleUrl: \"./list.component.scss\"\r\n})\r\nexport class ListComponent {}",
+            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { UserStoreState } from \"../../store/state/user-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-list-component\",\r\n    templateUrl: \"./list.component.html\",\r\n    styleUrl: \"./list.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class ListComponent {\r\n    store = inject(Store);\r\n\r\n    users$ = this.store.select(UserStoreState.getUsers);\r\n}",
             "styleUrl": "./list.component.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1301,10 +1345,20 @@
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
-                "outgoing": []
+                "incoming": [
+                    {
+                        "name": "UsersView",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    }
+                ]
             },
-            "templateData": "<p>list-component works!</p>"
+            "templateData": "@let users = users$ | async;\r\n\r\n@if (users) {\r\n    @for (user of users; track user.id) {\r\n        <p>{{ user.firstName }} {{ user.lastName }}</p>\r\n    }\r\n}"
         },
         {
             "name": "MenuComponent",
@@ -1724,7 +1778,7 @@
         },
         {
             "name": "UsersView",
-            "id": "component-UsersView-ddb21f51346e38747acb58eef82a6039bfc18ae1a2657f6378995935f4d4659530e515513a1203f075e7125eece5ad3773db133a3c3916db9e9a09576fa822ef",
+            "id": "component-UsersView-034374e96918b314493166387e0cdf28e85d85eab0cfb42d4ad50452f2a1f39e32509288cdf338eaad9623048d89f4595008282f23837434d9c7f73f8075d4df",
             "file": "src/view/users/users.view.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1752,11 +1806,16 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "ListComponent",
+                    "type": "component"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-users-view\",\r\n    templateUrl: \"./users.view.html\",\r\n    styleUrl: \"./users.view.scss\"\r\n})\r\nexport class UsersView {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ListComponent } from \"../../component/list/list.component\";\r\n\r\n@Component({\r\n    selector: \"app-users-view\",\r\n    templateUrl: \"./users.view.html\",\r\n    styleUrl: \"./users.view.scss\",\r\n    imports: [ListComponent]\r\n})\r\nexport class UsersView {}",
             "styleUrl": "./users.view.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1769,9 +1828,14 @@
             "extends": [],
             "relationships": {
                 "incoming": [],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "ListComponent",
+                        "type": "component"
+                    }
+                ]
             },
-            "templateData": "<p>users-view works!</p>"
+            "templateData": "<app-list-component></app-list-component>"
         }
     ],
     "modules": [],
@@ -1875,6 +1939,17 @@
                 "deprecationMessage": "",
                 "type": "number",
                 "defaultValue": "768"
+            },
+            {
+                "name": "usersMock",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mock/users.mock.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "UserModel[]",
+                "defaultValue": "[\r\n    {\r\n        id: 0,\r\n        email: \"jakub.olejarczyk@outlook.com\",\r\n        firstName: \"Jakub\",\r\n        lastName: \"Olejarczyk\",\r\n        city: \"Kielce\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"501007197\"\r\n    },\r\n    {\r\n        id: 1,\r\n        email: \"anna.kowalska@gmail.com\",\r\n        firstName: \"Anna\",\r\n        lastName: \"Kowalska\",\r\n        city: \"Warsaw\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"502123456\"\r\n    },\r\n    {\r\n        id: 2,\r\n        email: \"michael.smith@gmail.com\",\r\n        firstName: \"Michael\",\r\n        lastName: \"Smith\",\r\n        city: \"London\",\r\n        country: \"United Kingdom\",\r\n        phoneNumber: \"7701234567\"\r\n    },\r\n    {\r\n        id: 3,\r\n        email: \"sophie.martin@yahoo.com\",\r\n        firstName: \"Sophie\",\r\n        lastName: \"Martin\",\r\n        city: \"Paris\",\r\n        country: \"France\",\r\n        phoneNumber: \"612345678\"\r\n    },\r\n    {\r\n        id: 4,\r\n        email: \"daniel.mueller@web.de\",\r\n        firstName: \"Daniel\",\r\n        lastName: \"Müller\",\r\n        city: \"Berlin\",\r\n        country: \"Germany\",\r\n        phoneNumber: \"15123456789\"\r\n    }\r\n]"
             }
         ],
         "functions": [],
@@ -1985,6 +2060,19 @@
                     "type": "Routes",
                     "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\"\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
                 }
+            ],
+            "src/mock/users.mock.ts": [
+                {
+                    "name": "usersMock",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mock/users.mock.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserModel[]",
+                    "defaultValue": "[\r\n    {\r\n        id: 0,\r\n        email: \"jakub.olejarczyk@outlook.com\",\r\n        firstName: \"Jakub\",\r\n        lastName: \"Olejarczyk\",\r\n        city: \"Kielce\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"501007197\"\r\n    },\r\n    {\r\n        id: 1,\r\n        email: \"anna.kowalska@gmail.com\",\r\n        firstName: \"Anna\",\r\n        lastName: \"Kowalska\",\r\n        city: \"Warsaw\",\r\n        country: \"Poland\",\r\n        phoneNumber: \"502123456\"\r\n    },\r\n    {\r\n        id: 2,\r\n        email: \"michael.smith@gmail.com\",\r\n        firstName: \"Michael\",\r\n        lastName: \"Smith\",\r\n        city: \"London\",\r\n        country: \"United Kingdom\",\r\n        phoneNumber: \"7701234567\"\r\n    },\r\n    {\r\n        id: 3,\r\n        email: \"sophie.martin@yahoo.com\",\r\n        firstName: \"Sophie\",\r\n        lastName: \"Martin\",\r\n        city: \"Paris\",\r\n        country: \"France\",\r\n        phoneNumber: \"612345678\"\r\n    },\r\n    {\r\n        id: 4,\r\n        email: \"daniel.mueller@web.de\",\r\n        firstName: \"Daniel\",\r\n        lastName: \"Müller\",\r\n        city: \"Berlin\",\r\n        country: \"Germany\",\r\n        phoneNumber: \"15123456789\"\r\n    }\r\n]"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -2069,7 +2157,7 @@
                 "linktype": "component",
                 "name": "ListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -2186,6 +2274,16 @@
                 "name": "WindowDirective",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mock/users.mock.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "usersMock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

@@ -1,7 +1,53 @@
 @let users = users$ | async;
 
 @if (users) {
-    @for (user of users; track user.id) {
-        <p>{{ user.firstName }} {{ user.lastName }}</p>
-    }
+  <section>
+    <table>
+      @for (user of users; track user.id) {
+        @let fullname = user.firstName + ' ' + user.lastName;
+
+        <tr>
+          <td data-label="ID">
+            {{ user.id }}
+          </td>
+
+          <td data-label="Name">
+            {{ fullname }}
+          </td>
+
+          <td data-label="Email">
+            {{ user.email }}
+          </td>
+
+          <td data-label="City">
+            {{ user.city }}
+          </td>
+
+          <td data-label="Country">
+            {{ user.country }}
+          </td>
+
+          <td data-label="Phone">
+            {{ user.phoneNumber }}
+          </td>
+
+          <td data-label="Actions">
+            <div>
+              <button type="button">
+                Select
+              </button>
+
+              <button type="button">
+                Edit
+              </button>
+
+              <button type="button">
+                Remove
+              </button>
+            </div>
+          </td>
+        </tr>
+      }
+    </table>
+  </section>
 }
