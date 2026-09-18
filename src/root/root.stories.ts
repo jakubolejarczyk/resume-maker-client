@@ -12,7 +12,10 @@ const meta: Meta<Root> = {
         moduleMetadata({
             imports: [WindowDirective]
         })
-    ]
+    ],
+    parameters: {
+        layout: "fullscreen"
+    }
 };
 
 export default meta;

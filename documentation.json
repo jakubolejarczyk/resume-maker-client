@@ -1263,108 +1263,6 @@
             "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n\r\n<div class=\"wrapper\">\r\n    <div class=\"hamburger\" [class.hamburger--open]=\"menuIsOpen\" (click)=\"click()\">\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n        <div class=\"hamburger__line\"></div>\r\n    </div>\r\n</div>"
         },
         {
-            "name": "ListComponent",
-            "id": "component-ListComponent-6a13089ff21adae7e8b75fd23e6904fb8e8b72564f6d30ceb3590eb296a146694e1e4aa337a45686ca070161b593f88696b38b6739229c6395f0c06c804652cd",
-            "file": "src/component/list/list.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-list-component",
-            "styleUrls": [
-                "./list.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./list.component.html"
-            ],
-            "templateVariables": [
-                {
-                    "name": "users",
-                    "defaultValue": "users$ | async"
-                },
-                {
-                    "name": "fullname",
-                    "defaultValue": "user.firstName + ' ' + user.lastName"
-                }
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "store",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(Store)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "rawdescription": "\n"
-                },
-                {
-                    "name": "users$",
-                    "coverageIgnore": false,
-                    "defaultValue": "this.store.select(UserStoreState.getUsers)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n"
-                }
-            ],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "AsyncPipe",
-                    "type": "pipe"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { UserStoreState } from \"../../store/state/user-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-list-component\",\r\n    templateUrl: \"./list.component.html\",\r\n    styleUrl: \"./list.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class ListComponent {\r\n    store = inject(Store);\r\n\r\n    users$ = this.store.select(UserStoreState.getUsers);\r\n}",
-            "styleUrl": "./list.component.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "section {\r\n  width: 100%;\r\n  overflow-x: auto;\r\n  -webkit-overflow-scrolling: touch;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n  min-width: 900px;\r\n  border-collapse: collapse;\r\n\r\n  background: var(--color-surface);\r\n\r\n  font-family:\r\n    Inter,\r\n    system-ui,\r\n    -apple-system,\r\n    BlinkMacSystemFont,\r\n    \"Segoe UI\",\r\n    sans-serif;\r\n\r\n  font-size: 14px;\r\n  color: var(--color-text);\r\n}\r\n\r\n/* ========================================\r\n   Desktop / Tablet\r\n   ======================================== */\r\n\r\ntd {\r\n  padding: 14px 16px;\r\n  border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n  white-space: nowrap;\r\n}\r\n\r\ntr:first-child td {\r\n  border-top: 1px solid var(--color-border);\r\n}\r\n\r\ntr:hover {\r\n  background: var(--color-surface-hover);\r\n}\r\n\r\n/* ========================================\r\n   Actions\r\n   ======================================== */\r\n\r\ntd:last-child > div {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: center;\r\n  gap: 6px;\r\n}\r\n\r\nbutton {\r\n  padding: 7px 11px;\r\n\r\n  border: 1px solid var(--color-border);\r\n  background: var(--color-surface);\r\n\r\n  color: var(--color-text-secondary);\r\n\r\n  font: inherit;\r\n  font-size: 13px;\r\n  font-weight: 500;\r\n\r\n  cursor: pointer;\r\n\r\n  transition:\r\n    background-color 0.15s ease,\r\n    border-color 0.15s ease,\r\n    color 0.15s ease;\r\n}\r\n\r\nbutton:hover {\r\n  background: var(--color-surface-hover);\r\n  border-color: var(--color-border-hover);\r\n  color: var(--color-text);\r\n}\r\n\r\nbutton:focus-visible {\r\n  outline: 2px solid var(--color-focus);\r\n  outline-offset: 2px;\r\n}\r\n\r\n/* Select */\r\n\r\nbutton:first-child {\r\n  color: var(--color-accent);\r\n}\r\n\r\nbutton:first-child:hover {\r\n  background: var(--color-accent-soft);\r\n  border-color: var(--color-accent);\r\n}\r\n\r\n/* Edit */\r\n\r\nbutton:nth-child(2) {\r\n  color: var(--color-info);\r\n}\r\n\r\nbutton:nth-child(2):hover {\r\n  background: var(--color-info-soft);\r\n  border-color: var(--color-info);\r\n}\r\n\r\n/* Remove */\r\n\r\nbutton:last-child {\r\n  color: var(--color-danger);\r\n}\r\n\r\nbutton:last-child:hover {\r\n  background: var(--color-danger-soft);\r\n  border-color: var(--color-danger);\r\n}\r\n\r\n/* ========================================\r\n   Mobile\r\n   ======================================== */\r\n\r\n@media (max-width: 768px) {\r\n  section {\r\n    overflow-x: visible;\r\n  }\r\n\r\n  table,\r\n  tbody,\r\n  tr,\r\n  td {\r\n    display: block;\r\n    width: 100%;\r\n  }\r\n\r\n  table {\r\n    min-width: 0;\r\n  }\r\n\r\n  tr {\r\n    margin-bottom: 1rem;\r\n\r\n    border: 1px solid var(--color-border);\r\n\r\n    background: var(--color-surface);\r\n\r\n    box-shadow: var(--shadow-sm);\r\n  }\r\n\r\n  td {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n\r\n    gap: 20px;\r\n\r\n    padding: 12px 14px;\r\n\r\n    border: 0;\r\n    border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n    white-space: normal;\r\n    text-align: right;\r\n\r\n    overflow-wrap: anywhere;\r\n  }\r\n\r\n  td:last-child {\r\n    border-bottom: 0;\r\n  }\r\n\r\n  td::before {\r\n    content: attr(data-label);\r\n\r\n    flex-shrink: 0;\r\n\r\n    font-weight: 600;\r\n    color: var(--color-text-secondary);\r\n\r\n    text-align: left;\r\n  }\r\n\r\n  /* Actions on mobile */\r\n\r\n  td:last-child > div {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n\r\n    flex-wrap: wrap;\r\n\r\n    gap: 6px;\r\n  }\r\n\r\n  tr:last-child {\r\n    margin-bottom: 0;\r\n  }\r\n\r\n  tr:hover {\r\n    background: var(--color-surface);\r\n  }\r\n}",
-                    "styleUrl": "./list.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "UsersView",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "AsyncPipe",
-                        "type": "pipe"
-                    }
-                ]
-            },
-            "templateData": "@let users = users$ | async;\r\n\r\n@if (users) {\r\n  <section>\r\n    <table>\r\n      @for (user of users; track user.id) {\r\n        @let fullname = user.firstName + ' ' + user.lastName;\r\n\r\n        <tr>\r\n          <td data-label=\"ID\">\r\n            {{ user.id }}\r\n          </td>\r\n\r\n          <td data-label=\"Name\">\r\n            {{ fullname }}\r\n          </td>\r\n\r\n          <td data-label=\"Email\">\r\n            {{ user.email }}\r\n          </td>\r\n\r\n          <td data-label=\"City\">\r\n            {{ user.city }}\r\n          </td>\r\n\r\n          <td data-label=\"Country\">\r\n            {{ user.country }}\r\n          </td>\r\n\r\n          <td data-label=\"Phone\">\r\n            {{ user.phoneNumber }}\r\n          </td>\r\n\r\n          <td data-label=\"Actions\">\r\n            <div>\r\n              <button type=\"button\">\r\n                Select\r\n              </button>\r\n\r\n              <button type=\"button\">\r\n                Edit\r\n              </button>\r\n\r\n              <button type=\"button\">\r\n                Remove\r\n              </button>\r\n            </div>\r\n          </td>\r\n        </tr>\r\n      }\r\n    </table>\r\n  </section>\r\n}"
-        },
-        {
             "name": "MenuComponent",
             "id": "component-MenuComponent-1d3a928d8be6a9de918b87380774e7c8b6d4c1bf9f0390fcce0fa4be4aa0339a15130fffe06b674ea4a30709d862eeed50a6e0d854a93d89a638bf1cc17268ed",
             "file": "src/component/menu/menu.component.ts",
@@ -1781,8 +1679,106 @@
             "templateData": "<app-nav-component appWindowDirective></app-nav-component>\r\n<router-outlet></router-outlet>"
         },
         {
+            "name": "UsersTableComponent",
+            "id": "component-UsersTableComponent-4b729eaf3cd3035a88928ea211e434450722dac7ae52210e5e334e36ea8e0c76b10cfd1ac173d91d67822b8bbc02c81ba1564fab23fb5f68993e6a4b66715af5",
+            "file": "src/component/users-table/users-table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-users-table-component",
+            "styleUrls": [
+                "./users-table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./users-table.component.html"
+            ],
+            "templateVariables": [
+                {
+                    "name": "users",
+                    "defaultValue": "users$ | async"
+                }
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "users$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.store.select(UserStoreState.getUsers)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { UserStoreState } from \"../../store/state/user-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-users-table-component\",\r\n    templateUrl: \"./users-table.component.html\",\r\n    styleUrl: \"./users-table.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class UsersTableComponent {\r\n    store = inject(Store);\r\n\r\n    users$ = this.store.select(UserStoreState.getUsers);\r\n}",
+            "styleUrl": "./users-table.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  display: block;\r\n  width: 100%;\r\n  overflow-x: auto;\r\n  -webkit-overflow-scrolling: touch;\r\n}\r\n\r\n.users-table {\r\n  width: 100%;\r\n  min-width: 900px;\r\n\r\n  border: 1px solid var(--color-border);\r\n  border-collapse: separate;\r\n  border-spacing: 0;\r\n\r\n  background: var(--color-surface);\r\n  box-shadow: var(--shadow-sm);\r\n\r\n  overflow: hidden;\r\n\r\n  font-family:\r\n    Inter,\r\n    system-ui,\r\n    -apple-system,\r\n    BlinkMacSystemFont,\r\n    \"Segoe UI\",\r\n    sans-serif;\r\n\r\n  font-size: 14px;\r\n  line-height: 1.4;\r\n  color: var(--color-text);\r\n\r\n  // ===========================================================================\r\n  // Row\r\n  // ===========================================================================\r\n\r\n  &__row {\r\n    transition: background-color 0.15s ease;\r\n\r\n    &:hover {\r\n      background: var(--color-surface-hover);\r\n    }\r\n\r\n    &:last-child {\r\n      .users-table__cell {\r\n        border-bottom: 0;\r\n      }\r\n    }\r\n  }\r\n\r\n  // ===========================================================================\r\n  // Cell\r\n  // ===========================================================================\r\n\r\n  &__cell {\r\n    padding: 14px 16px;\r\n\r\n    border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n    vertical-align: middle;\r\n    white-space: nowrap;\r\n\r\n    &:first-child {\r\n      font-weight: 500;\r\n      color: var(--color-text);\r\n    }\r\n\r\n    &:last-child {\r\n      width: 1%;\r\n      padding-right: 12px;\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Actions\r\n// =============================================================================\r\n\r\n.actions {\r\n  &__buttons {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n    gap: 6px;\r\n  }\r\n\r\n  &__button {\r\n    min-height: 32px;\r\n    padding: 6px 11px;\r\n\r\n    border: 1px solid var(--color-border);\r\n    border-radius: 6px;\r\n\r\n    background: var(--color-surface);\r\n\r\n    color: var(--color-text-secondary);\r\n\r\n    font: inherit;\r\n    font-size: 13px;\r\n    font-weight: 500;\r\n    line-height: 1;\r\n\r\n    white-space: nowrap;\r\n\r\n    cursor: pointer;\r\n\r\n    transition:\r\n      background-color 0.15s ease,\r\n      border-color 0.15s ease,\r\n      color 0.15s ease,\r\n      box-shadow 0.15s ease,\r\n      transform 0.1s ease;\r\n\r\n    &:focus-visible {\r\n      outline: 2px solid var(--color-focus);\r\n      outline-offset: 2px;\r\n    }\r\n\r\n    &:active {\r\n      transform: translateY(1px);\r\n    }\r\n\r\n    // Select\r\n    &--select {\r\n      color: var(--color-accent);\r\n      border-color: var(--color-accent);\r\n\r\n      &:hover {\r\n        color: var(--color-text-on-accent);\r\n        background: var(--color-accent);\r\n        border-color: var(--color-accent);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-accent-active);\r\n        border-color: var(--color-accent-active);\r\n      }\r\n    }\r\n\r\n    // Edit\r\n    &--edit {\r\n      color: var(--color-info);\r\n\r\n      &:hover {\r\n        background: var(--color-info-soft);\r\n        border-color: var(--color-info);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-surface-active);\r\n      }\r\n    }\r\n\r\n    // Remove\r\n    &--remove {\r\n      color: var(--color-danger);\r\n\r\n      &:hover {\r\n        background: var(--color-danger-soft);\r\n        border-color: var(--color-danger);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-danger-soft);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Tablet / Mobile\r\n// =============================================================================\r\n\r\n@media (max-width: 768px) {\r\n  :host {\r\n    overflow-x: visible;\r\n  }\r\n\r\n  .users-table {\r\n    width: 100%;\r\n    min-width: 0;\r\n      background: var(--color-surface);\r\n\r\n    display: block;\r\n\r\n    border: 0;\r\n    border-radius: 0;\r\n\r\n    box-shadow: none;\r\n\r\n    // -------------------------------------------------------------------------\r\n    // Card\r\n    // -------------------------------------------------------------------------\r\n\r\n    &__row {\r\n      display: block;\r\n\r\n      width: calc(100% - 2rem);\r\n      margin: 1rem;\r\n\r\n\r\n      border: 1px solid var(--color-border);\r\n\r\n      background: var(--color-surface);\r\n      box-shadow: var(--shadow-sm);\r\n\r\n      overflow: hidden;\r\n\r\n      &:hover {\r\n        background: var(--color-surface);\r\n      }\r\n\r\n      &:last-child {\r\n        margin-bottom: 0;\r\n      }\r\n    }\r\n\r\n    // -------------------------------------------------------------------------\r\n    // Cell\r\n    // -------------------------------------------------------------------------\r\n\r\n    &__cell {\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: space-between;\r\n\r\n      width: 100%;\r\n      min-width: 0;\r\n\r\n      gap: 20px;\r\n\r\n      padding: 12px 14px;\r\n\r\n      border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n      white-space: normal;\r\n      text-align: right;\r\n\r\n      overflow-wrap: anywhere;\r\n\r\n      &::before {\r\n        content: attr(data-label);\r\n\r\n        flex: 0 0 auto;\r\n\r\n        color: var(--color-text-secondary);\r\n\r\n        font-size: 12px;\r\n        font-weight: 600;\r\n        line-height: 1.3;\r\n        letter-spacing: 0.01em;\r\n\r\n        text-align: left;\r\n      }\r\n\r\n      // IMPORTANT:\r\n      // Override the desktop `width: 1%` rule.\r\n      &:last-child {\r\n        width: 100%;\r\n        padding-right: 14px;\r\n\r\n        border-bottom: 0;\r\n      }\r\n    }\r\n  }\r\n\r\n  // ===========================================================================\r\n  // Mobile actions\r\n  // ===========================================================================\r\n\r\n  .actions {\r\n    &__buttons {\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: flex-end;\r\n\r\n      width: 100%;\r\n\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      flex: 0 0 auto;\r\n\r\n      min-width: max-content;\r\n      min-height: 34px;\r\n\r\n      padding: 7px 12px;\r\n\r\n      white-space: nowrap;\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Small mobile\r\n// =============================================================================\r\n\r\n@media (max-width: 480px) {\r\n  .users-table {\r\n    &__cell {\r\n      align-items: flex-start;\r\n      flex-direction: column;\r\n\r\n      gap: 4px;\r\n\r\n      text-align: left;\r\n\r\n      &::before {\r\n        font-size: 11px;\r\n        line-height: 1.2;\r\n        text-transform: uppercase;\r\n        letter-spacing: 0.05em;\r\n      }\r\n\r\n      // Actions cell\r\n      &:last-child {\r\n        align-items: stretch;\r\n\r\n        // Keep the cell full width!\r\n        width: 100%;\r\n\r\n        &::before {\r\n          margin-bottom: 4px;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .actions {\r\n    &__buttons {\r\n      width: 100%;\r\n\r\n      display: grid;\r\n      grid-template-columns: repeat(3, 1fr);\r\n\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      width: 100%;\r\n      min-width: 0;\r\n\r\n      padding: 8px 6px;\r\n\r\n      white-space: nowrap;\r\n      text-align: center;\r\n    }\r\n  }\r\n}",
+                    "styleUrl": "./users-table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "UsersView",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    }
+                ]
+            },
+            "templateData": "@let users = users$ | async;\r\n\r\n@if (users) {\r\n  <table class=\"users-table\">\r\n    @for (user of users; track user.id) {\r\n      <tr class=\"users-table__row\">\r\n        <td class=\"users-table__cell\" data-label=\"Fullname\">{{ user.firstName }} {{ user.lastName }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Email\">{{ user.email }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"City\">{{ user.city }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Country\">{{ user.country }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Phone number\">{{ user.phoneNumber }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Actions\">\r\n          <div class=\"actions__buttons\">\r\n            <button class=\"actions__button actions__button--select\" type=\"button\">Select</button>\r\n            <button class=\"actions__button actions__button--edit\" type=\"button\">Edit</button>\r\n            <button class=\"actions__button actions__button--remove\" type=\"button\">Remove</button>\r\n          </div>\r\n        </td>\r\n      </tr>\r\n    }\r\n  </table>\r\n}"
+        },
+        {
             "name": "UsersView",
-            "id": "component-UsersView-034374e96918b314493166387e0cdf28e85d85eab0cfb42d4ad50452f2a1f39e32509288cdf338eaad9623048d89f4595008282f23837434d9c7f73f8075d4df",
+            "id": "component-UsersView-b50d80da54ca783f917569fe24f10806b99289a2c9001cbc284d2da45ec3197d4531dec3c25cc1af95c5996dc712869b24d9988a1ee596dc2192e1854a2e0d80",
             "file": "src/view/users/users.view.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1812,14 +1808,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "ListComponent",
+                    "name": "UsersTableComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { ListComponent } from \"../../component/list/list.component\";\r\n\r\n@Component({\r\n    selector: \"app-users-view\",\r\n    templateUrl: \"./users.view.html\",\r\n    styleUrl: \"./users.view.scss\",\r\n    imports: [ListComponent]\r\n})\r\nexport class UsersView {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { UsersTableComponent } from \"../../component/users-table/users-table.component\";\r\n\r\n@Component({\r\n    selector: \"app-users-view\",\r\n    templateUrl: \"./users.view.html\",\r\n    styleUrl: \"./users.view.scss\",\r\n    imports: [UsersTableComponent]\r\n})\r\nexport class UsersView {}",
             "styleUrl": "./users.view.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1834,12 +1830,12 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "ListComponent",
+                        "name": "UsersTableComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-list-component></app-list-component>"
+            "templateData": "<app-users-table-component></app-users-table-component>"
         }
     ],
     "modules": [],
@@ -2156,15 +2152,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/list/list.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ListComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
                 "filePath": "src/component/menu/menu.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -2180,6 +2167,15 @@
                 "name": "NavComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/users-table/users-table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "UsersTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

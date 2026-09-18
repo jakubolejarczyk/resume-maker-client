@@ -1,22 +1,57 @@
 @let users = users$ | async;
 
-@if (users) {
-  <table class="users-table">
-    @for (user of users; track user.id) {
-      <tr class="users-table__row">
-        <td class="users-table__cell" data-label="Fullname">{{ user.firstName }} {{ user.lastName }}</td>
-        <td class="users-table__cell" data-label="Email">{{ user.email }}</td>
-        <td class="users-table__cell" data-label="City">{{ user.city }}</td>
-        <td class="users-table__cell" data-label="Country">{{ user.country }}</td>
-        <td class="users-table__cell" data-label="Phone number">{{ user.phoneNumber }}</td>
-        <td class="users-table__cell" data-label="Actions">
-          <div class="actions__buttons">
-            <button class="actions__button actions__button--select" type="button">Select</button>
-            <button class="actions__button actions__button--edit" type="button">Edit</button>
-            <button class="actions__button actions__button--remove" type="button">Remove</button>
-          </div>
-        </td>
-      </tr>
-    }
-  </table>
-}
+<div class="users-table__wrapper">
+  @if (users?.length) {
+    <table class="users-table">
+      <thead class="users-table__head">
+        <tr class="users-table__row">
+          <th class="users-table__cell" scope="col">Fullname</th>
+          <th class="users-table__cell" scope="col">Email</th>
+          <th class="users-table__cell" scope="col">City</th>
+          <th class="users-table__cell" scope="col">Country</th>
+          <th class="users-table__cell" scope="col">Phone number</th>
+          <th class="users-table__cell" scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (user of users; track user.id) {
+          <tr class="users-table__row">
+            <td class="users-table__cell" data-label="Fullname">
+              {{ user.firstName }} {{ user.lastName }}
+            </td>
+            <td class="users-table__cell" data-label="Email">
+              {{ user.email }}
+            </td>
+            <td class="users-table__cell" data-label="City">
+              {{ user.city }}
+            </td>
+            <td class="users-table__cell" data-label="Country">
+              {{ user.country }}
+            </td>
+            <td class="users-table__cell" data-label="Phone number">
+              {{ user.phoneNumber }}
+            </td>
+            <td class="users-table__cell" data-label="Actions">
+              <div class="actions__buttons">
+                <button class="actions__button actions__button--select" type="button">
+                  Select
+                </button>
+                <button class="actions__button actions__button--edit" type="button">
+                  Edit
+                </button>
+                <button class="actions__button actions__button--remove" type="button">
+                  Remove
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <div class="users-table__empty">
+      <p class="users-table__empty-message">No users found.</p>
+    </div>
+  }
+</div>
