@@ -16,7 +16,7 @@ export const routesConfig: Routes = [
         title: "Users"
     },
     {
-        path: "companies",
+        path: "comapnies",
         component: CompaniesView,
         title: "Companies"
     },
