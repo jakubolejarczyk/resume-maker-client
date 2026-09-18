@@ -19,13 +19,13 @@ import { SetMenuIsOpen, SwitchMenuIsOpen } from "../action/nav-store.action";
         id: "companies",
         label: "Companies",
         link: "/comapnies",
-        isActive: false
+        isActive: true
       },
       {
         id: "resumes",
         label: "Resumes",
         link: "/resumes",
-        isActive: false
+        isActive: true
       }
     ]
   }
