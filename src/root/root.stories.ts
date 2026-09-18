@@ -1,12 +1,12 @@
 import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
-import { App } from "./app";
 import { ProviderConfig } from "../config/provider.config";
 import { WindowDirective } from "../directive/window.directive";
+import { Root } from "./root";
 
-const meta: Meta<App> = {
-    title: "app",
-    component: App,
+const meta: Meta<Root> = {
+    title: "root",
+    component: Root,
     decorators: [
         applicationConfig(ProviderConfig.getProvider()),
         moduleMetadata({
@@ -16,10 +16,6 @@ const meta: Meta<App> = {
 };
 
 export default meta;
-type Story = StoryObj<App>;
+type Story = StoryObj<Root>;
 
-export const Default: Story = {
-    render: () => ({
-        template: "<app-root appWindowDirective></app-root>"
-    })
-};
+export const Default: Story = {};

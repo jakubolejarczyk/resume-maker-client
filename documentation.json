@@ -149,7 +149,7 @@
     "injectables": [
         {
             "name": "NavStoreState",
-            "id": "injectable-NavStoreState-4f287de27e00f53d2a1f932a42d046b1d83da72e29d3a0e2e244d045e58e216ca0a0cf4f7bd710485fcbc8e1344ba18460bfb25fc33e89ef7147d30e14fab795",
+            "id": "injectable-NavStoreState-9d79b48fa0656051bb7d14ec302809f93b4a0f32af4ae5a9c812ef7f2381ddde66951e4402a79186fffde7fc8d62f946e4ab7f21deb7d8d9b57288c48f4a05ec",
             "file": "src/store/state/nav-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -356,7 +356,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { NavStoreModel } from \"../model/nav-store.model\";\r\nimport { SetMenuIsOpen, SwitchMenuIsOpen } from \"../action/nav-store.action\";\r\n\r\n@State<NavStoreModel>({\r\n  name: \"navStoreState\",\r\n  defaults: {\r\n    menuIsOpen: false,\r\n    options: [\r\n      {\r\n        id: \"users\",\r\n        label: \"Users\",\r\n        link: \"/users\",\r\n        isActive: true\r\n      },\r\n      {\r\n        id: \"companies\",\r\n        label: \"Companies\",\r\n        link: \"/comapnies\",\r\n        isActive: false\r\n      },\r\n      {\r\n        id: \"resumes\",\r\n        label: \"Resumes\",\r\n        link: \"/resumes\",\r\n        isActive: false\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class NavStoreState {\r\n  @Selector()\r\n  static getMenuIsOpen(state: NavStoreModel) {\r\n    return state.menuIsOpen;\r\n  }\r\n\r\n  @Selector()\r\n  static getOptions(state: NavStoreModel) {\r\n    return state.options;\r\n  }\r\n\r\n  @Action(SwitchMenuIsOpen)\r\n  switchMenuIsOpen(context: StateContext<NavStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      menuIsOpen: !state.menuIsOpen\r\n    });\r\n  }\r\n\r\n  @Action(SetMenuIsOpen)\r\n  setMenuIsOpen(context: StateContext<NavStoreModel>, action: SetMenuIsOpen) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      menuIsOpen: action.menuIsOpen\r\n    });\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { NavStoreModel } from \"../model/nav-store.model\";\r\nimport { SetMenuIsOpen, SwitchMenuIsOpen } from \"../action/nav-store.action\";\r\n\r\n@State<NavStoreModel>({\r\n  name: \"navStoreState\",\r\n  defaults: {\r\n    menuIsOpen: false,\r\n    options: [\r\n      {\r\n        id: \"users\",\r\n        label: \"Users\",\r\n        link: \"/users\",\r\n        isActive: true\r\n      },\r\n      {\r\n        id: \"companies\",\r\n        label: \"Companies\",\r\n        link: \"/comapnies\",\r\n        isActive: true\r\n      },\r\n      {\r\n        id: \"resumes\",\r\n        label: \"Resumes\",\r\n        link: \"/resumes\",\r\n        isActive: true\r\n      }\r\n    ]\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class NavStoreState {\r\n  @Selector()\r\n  static getMenuIsOpen(state: NavStoreModel) {\r\n    return state.menuIsOpen;\r\n  }\r\n\r\n  @Selector()\r\n  static getOptions(state: NavStoreModel) {\r\n    return state.options;\r\n  }\r\n\r\n  @Action(SwitchMenuIsOpen)\r\n  switchMenuIsOpen(context: StateContext<NavStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      menuIsOpen: !state.menuIsOpen\r\n    });\r\n  }\r\n\r\n  @Action(SetMenuIsOpen)\r\n  setMenuIsOpen(context: StateContext<NavStoreModel>, action: SetMenuIsOpen) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      menuIsOpen: action.menuIsOpen\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -500,13 +500,13 @@
     "classes": [
         {
             "name": "ProviderConfig",
-            "id": "class-ProviderConfig-098d4f9b108d07bdcfc159207eccd0a576aca2628283befa497709622b02ef69cca4e9cc219b404b38c2f2f869de8c96a7a2f163c1dec89100453413d64bddbb",
+            "id": "class-ProviderConfig-29482a59726bc86e7fa67eeb4715a593fb17c398d207813886f259f82f7e3a738b549c179c7c96363e08e94c0d5634975093c4d2730f2dc251c66a9be812c46c",
             "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter, withHashLocation } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig, withHashLocation()),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
             "displayName": "ProviderConfig",
             "inputsClass": [],
             "outputsClass": [],
@@ -809,7 +809,12 @@
                 "OnInit"
             ],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "Root",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "OnInit",
@@ -822,14 +827,14 @@
     "components": [
         {
             "name": "App",
-            "id": "component-App-0e43a87c79648760dd24ad3185dcf08f923ed97461646148db9a34295f1a3194e2c183865821c17bd8bc21f371a72ce84378db35b11fd218250dda933e0d2e7f",
+            "id": "component-App-64c5fea38bd5d5d0f3f59c88c26783dcb076e1c74dd5b08e0bc5e34bc3cd5c74fed087442b78b3699b65fe108b0c12be9c959a4615809066b03be6e4d1a91862",
             "file": "src/app/app.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-root",
+            "selector": "app",
             "styleUrls": [
                 "./app.scss"
             ],
@@ -852,14 +857,13 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "NavComponent",
-                    "type": "component"
+                    "name": "Root"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { NavComponent } from '../component/nav/nav.component';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [NavComponent]\r\n})\r\nexport class App {}",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { Root } from '../root/root';\r\n\r\n@Component({\r\n  selector: 'app',\r\n  templateUrl: './app.html',\r\n  styleUrl: './app.scss',\r\n  imports: [Root],\r\n})\r\nexport class App {}",
             "styleUrl": "./app.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -874,12 +878,63 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "NavComponent",
+                        "name": "Root",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-nav-component></app-nav-component>"
+            "templateData": "<app-root></app-root>"
+        },
+        {
+            "name": "CompaniesView",
+            "id": "component-CompaniesView-7d39622aca21b026f2a97b25be05535f869e462c1fd67beb3bbc48ef8521ca55334e31d026f40cbf71b75dff944a8d19d62464cc89271f42b5888ae4352c43ea",
+            "file": "src/view/companies/companies.view.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-companies-view",
+            "styleUrls": [
+                "./companies.view.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./companies.view.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-companies-view\",\r\n    templateUrl: \"./companies.view.html\",\r\n    styleUrl: \"./companies.view.scss\"\r\n})\r\nexport class CompaniesView {}",
+            "styleUrl": "./companies.view.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./companies.view.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>companies-view works!</p>"
         },
         {
             "name": "HamburgerComponent",
@@ -1252,7 +1307,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "App",
+                        "name": "Root",
                         "type": "component"
                     }
                 ],
@@ -1276,6 +1331,189 @@
                 ]
             },
             "templateData": "@let menuIsOpen = menuIsOpen$ | async;\r\n@let width = width$ | async;\r\n\r\n@if (width) {\r\n    <nav class=\"nav\">\r\n        @if (width <= TABLET) {\r\n            <div class=\"nav__hamburger\">\r\n                <app-hamburger-component></app-hamburger-component>\r\n            </div>\r\n        }\r\n        @if (menuIsOpen || width > TABLET + 1) {\r\n            <app-menu-component></app-menu-component>\r\n        }\r\n    </nav>\r\n}"
+        },
+        {
+            "name": "ResumesView",
+            "id": "component-ResumesView-e513ee869e57b08bb3aabbe4aef7f7488d166eb13793093041fa251e93cd5789129c45024358213c5c1f5870c6115ef88fd01e770f1b8657dd77cedeb858cd59",
+            "file": "src/view/resumes/resumes.view.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-resumes-view",
+            "styleUrls": [
+                "./resumes.view.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./resumes.view.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-resumes-view\",\r\n    templateUrl: \"./resumes.view.html\",\r\n    styleUrl: \"./resumes.view.scss\"\r\n})\r\nexport class ResumesView {}",
+            "styleUrl": "./resumes.view.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./resumes.view.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>resumes-view works!</p>"
+        },
+        {
+            "name": "Root",
+            "id": "component-Root-e6b82f8bc0f8d0b4cca51e911b0ba7758d2538e96360bcbcb79d1599c361ccce9ae88fbec6a602f5f1919b5945a97a93dec971cfff1f26c5f330fdfecd1d3c14",
+            "file": "src/root/root.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./root.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./root.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                },
+                {
+                    "name": "NavComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "WindowDirective",
+                    "type": "directive"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\nimport { NavComponent } from \"../component/nav/nav.component\";\r\nimport { WindowDirective } from \"../directive/window.directive\";\r\n\r\n@Component({\r\n    selector: \"app-root\",\r\n    templateUrl: \"./root.html\",\r\n    styleUrl: \"./root.scss\",\r\n    imports: [RouterOutlet, NavComponent, WindowDirective]\r\n})\r\nexport class Root {}",
+            "styleUrl": "./root.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./root.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "App",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "RouterOutlet",
+                        "type": "module"
+                    },
+                    {
+                        "name": "NavComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "WindowDirective",
+                        "type": "directive"
+                    }
+                ]
+            },
+            "templateData": "<app-nav-component appWindowDirective></app-nav-component>\r\n<router-outlet></router-outlet>"
+        },
+        {
+            "name": "UsersView",
+            "id": "component-UsersView-ddb21f51346e38747acb58eef82a6039bfc18ae1a2657f6378995935f4d4659530e515513a1203f075e7125eece5ad3773db133a3c3916db9e9a09576fa822ef",
+            "file": "src/view/users/users.view.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-users-view",
+            "styleUrls": [
+                "./users.view.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./users.view.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-users-view\",\r\n    templateUrl: \"./users.view.html\",\r\n    styleUrl: \"./users.view.scss\"\r\n})\r\nexport class UsersView {}",
+            "styleUrl": "./users.view.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./users.view.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>users-view works!</p>"
         }
     ],
     "modules": [],
@@ -1367,7 +1605,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Routes",
-                "defaultValue": "[]"
+                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\"\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
             },
             {
                 "name": "TABLET",
@@ -1487,7 +1725,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Routes",
-                    "defaultValue": "[]"
+                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\"\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
                 }
             ]
         },
@@ -1498,7 +1736,42 @@
     "routes": {
         "name": "<root>",
         "kind": "module",
-        "children": []
+        "children": [
+            {
+                "name": "/users",
+                "kind": "route-redirect",
+                "path": "",
+                "redirectTo": "/users",
+                "pathMatch": "full",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "users",
+                "kind": "route-path",
+                "component": "UsersView",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "comapnies",
+                "kind": "route-path",
+                "component": "CompaniesView",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "resumes",
+                "kind": "route-path",
+                "component": "ResumesView",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "/",
+                "kind": "route-redirect",
+                "path": "**",
+                "redirectTo": "/",
+                "pathMatch": "full",
+                "filename": "src/config/routes.config.ts"
+            }
+        ]
     },
     "coverage": {
         "count": 0,
@@ -1649,6 +1922,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/root/root.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Root",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/store/action/nav-store.action.ts",
                 "type": "class",
                 "linktype": "classe",
@@ -1718,6 +2000,33 @@
                 "name": "WindowStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/view/companies/companies.view.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CompaniesView",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/view/resumes/resumes.view.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ResumesView",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/view/users/users.view.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "UsersView",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]
