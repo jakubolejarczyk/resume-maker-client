@@ -514,12 +514,145 @@
             }
         },
         {
+            "name": "UserService",
+            "id": "injectable-UserService-844c31f6c679a86dc378a6c8904181cb40535267f3abe544dbbc957a1f053de2f147de759f75a80a1d8f73d8dd582ef31a6f2170a685ff4f7a6d45c325e2db5e",
+            "file": "src/service/user.service.ts",
+            "coverageIgnore": false,
+            "properties": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "delete",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { DeleteUser } from \"../store/action/user-store.action\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserService {\r\n    store = inject(Store);\r\n\r\n    delete(id: number) {\r\n        this.store.dispatch(new DeleteUser(id));\r\n    }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "UserStoreState",
-            "id": "injectable-UserStoreState-18977286c1920e3542c84d57ce34e54d69217a9b9fea0e35cae74b5cdb829b2914c911892bbc4167be923c3bf82ec71acda7e242e0e5985cccb59b11293c81ef",
+            "id": "injectable-UserStoreState-b8e413cd47dd872910f06510ebead4dd66c5cea5000c898b822c9caa22a5574cbd7d94ae082edc07ae15b9970551e0a497ff2a4c8ed02255665e38660b96cae2",
             "file": "src/store/state/user-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
             "methods": [
+                {
+                    "name": "deleteUser",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<UserStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "action",
+                            "type": "DeleteUser",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "DeleteUser"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<UserStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "action",
+                            "type": "DeleteUser",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "getUsers",
                     "coverageIgnore": false,
@@ -536,7 +669,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -570,7 +703,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Selector, State } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { usersMock } from \"../../mock/users.mock\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: {\r\n    selectedUserId: 0,\r\n    users: usersMock\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState {\r\n  @Selector()\r\n  static getUsers(state: UserStoreModel) {\r\n    return state.users;\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { usersMock } from \"../../mock/users.mock\";\r\nimport { DeleteUser } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: {\r\n    selectedUserId: 0,\r\n    users: usersMock\r\n  }\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState {\r\n  @Selector()\r\n  static getUsers(state: UserStoreModel) {\r\n    return state.users;\r\n  }\r\n\r\n  @Action(DeleteUser)\r\n  deleteUser(context: StateContext<UserStoreModel>, action: DeleteUser) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      users: state.users.filter(user => user.id !== action.id)\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -712,6 +845,93 @@
     "guards": [],
     "interceptors": [],
     "classes": [
+        {
+            "name": "DeleteUser",
+            "id": "class-DeleteUser-53c9a12c92f972cdf39f1ffa963b065f44586c6b85b9750a7146f2f2162115d1d102fd450051bea7c5673db02a6afd20680a0db2be1922b30a30aa921e7085a5",
+            "file": "src/store/action/user-store.action.ts",
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class DeleteUser {\r\n    static readonly type = \"[UserStoreState] Delete User\";\r\n\r\n    constructor(public id: number) {}\r\n}",
+            "displayName": "DeleteUser",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "optional": false,
+                        "dotDotDotToken": false,
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 2,
+                "rawdescription": "\n",
+                "jsdoctags": [
+                    {
+                        "name": "id",
+                        "type": "number",
+                        "optional": false,
+                        "dotDotDotToken": false,
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "id",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "type",
+                    "coverageIgnore": false,
+                    "defaultValue": "\"[UserStoreState] Delete User\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
         {
             "name": "ProviderConfig",
             "id": "class-ProviderConfig-20cb3873d6400457bc0d8fd84f48d40d8855e911e4986a3278bc315797b19f98c0135708f3258f6b4da3b45771716ee64f57a4b52530ad3b97d90c5a2b4c3725",
@@ -1509,7 +1729,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n    height: 55px;\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -1677,104 +1897,6 @@
                 ]
             },
             "templateData": "<app-nav-component appWindowDirective></app-nav-component>\r\n<router-outlet></router-outlet>"
-        },
-        {
-            "name": "UsersTableComponent",
-            "id": "component-UsersTableComponent-4b729eaf3cd3035a88928ea211e434450722dac7ae52210e5e334e36ea8e0c76b10cfd1ac173d91d67822b8bbc02c81ba1564fab23fb5f68993e6a4b66715af5",
-            "file": "src/component/users-table/users-table.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-users-table-component",
-            "styleUrls": [
-                "./users-table.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./users-table.component.html"
-            ],
-            "templateVariables": [
-                {
-                    "name": "users",
-                    "defaultValue": "users$ | async"
-                }
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "store",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(Store)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "rawdescription": "\n"
-                },
-                {
-                    "name": "users$",
-                    "coverageIgnore": false,
-                    "defaultValue": "this.store.select(UserStoreState.getUsers)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n"
-                }
-            ],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "AsyncPipe",
-                    "type": "pipe"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { UserStoreState } from \"../../store/state/user-store.state\";\r\n\r\n@Component({\r\n    selector: \"app-users-table-component\",\r\n    templateUrl: \"./users-table.component.html\",\r\n    styleUrl: \"./users-table.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class UsersTableComponent {\r\n    store = inject(Store);\r\n\r\n    users$ = this.store.select(UserStoreState.getUsers);\r\n}",
-            "styleUrl": "./users-table.component.scss",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ":host {\r\n  display: block;\r\n  width: 100%;\r\n  overflow-x: auto;\r\n  -webkit-overflow-scrolling: touch;\r\n}\r\n\r\n.users-table {\r\n  width: 100%;\r\n  min-width: 900px;\r\n\r\n  border: 1px solid var(--color-border);\r\n  border-collapse: separate;\r\n  border-spacing: 0;\r\n\r\n  background: var(--color-surface);\r\n  box-shadow: var(--shadow-sm);\r\n\r\n  overflow: hidden;\r\n\r\n  font-family:\r\n    Inter,\r\n    system-ui,\r\n    -apple-system,\r\n    BlinkMacSystemFont,\r\n    \"Segoe UI\",\r\n    sans-serif;\r\n\r\n  font-size: 14px;\r\n  line-height: 1.4;\r\n  color: var(--color-text);\r\n\r\n  // ===========================================================================\r\n  // Row\r\n  // ===========================================================================\r\n\r\n  &__row {\r\n    transition: background-color 0.15s ease;\r\n\r\n    &:hover {\r\n      background: var(--color-surface-hover);\r\n    }\r\n\r\n    &:last-child {\r\n      .users-table__cell {\r\n        border-bottom: 0;\r\n      }\r\n    }\r\n  }\r\n\r\n  // ===========================================================================\r\n  // Cell\r\n  // ===========================================================================\r\n\r\n  &__cell {\r\n    padding: 14px 16px;\r\n\r\n    border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n    vertical-align: middle;\r\n    white-space: nowrap;\r\n\r\n    &:first-child {\r\n      font-weight: 500;\r\n      color: var(--color-text);\r\n    }\r\n\r\n    &:last-child {\r\n      width: 1%;\r\n      padding-right: 12px;\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Actions\r\n// =============================================================================\r\n\r\n.actions {\r\n  &__buttons {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n    gap: 6px;\r\n  }\r\n\r\n  &__button {\r\n    min-height: 32px;\r\n    padding: 6px 11px;\r\n\r\n    border: 1px solid var(--color-border);\r\n    border-radius: 6px;\r\n\r\n    background: var(--color-surface);\r\n\r\n    color: var(--color-text-secondary);\r\n\r\n    font: inherit;\r\n    font-size: 13px;\r\n    font-weight: 500;\r\n    line-height: 1;\r\n\r\n    white-space: nowrap;\r\n\r\n    cursor: pointer;\r\n\r\n    transition:\r\n      background-color 0.15s ease,\r\n      border-color 0.15s ease,\r\n      color 0.15s ease,\r\n      box-shadow 0.15s ease,\r\n      transform 0.1s ease;\r\n\r\n    &:focus-visible {\r\n      outline: 2px solid var(--color-focus);\r\n      outline-offset: 2px;\r\n    }\r\n\r\n    &:active {\r\n      transform: translateY(1px);\r\n    }\r\n\r\n    // Select\r\n    &--select {\r\n      color: var(--color-accent);\r\n      border-color: var(--color-accent);\r\n\r\n      &:hover {\r\n        color: var(--color-text-on-accent);\r\n        background: var(--color-accent);\r\n        border-color: var(--color-accent);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-accent-active);\r\n        border-color: var(--color-accent-active);\r\n      }\r\n    }\r\n\r\n    // Edit\r\n    &--edit {\r\n      color: var(--color-info);\r\n\r\n      &:hover {\r\n        background: var(--color-info-soft);\r\n        border-color: var(--color-info);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-surface-active);\r\n      }\r\n    }\r\n\r\n    // Remove\r\n    &--remove {\r\n      color: var(--color-danger);\r\n\r\n      &:hover {\r\n        background: var(--color-danger-soft);\r\n        border-color: var(--color-danger);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-danger-soft);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Tablet / Mobile\r\n// =============================================================================\r\n\r\n@media (max-width: 768px) {\r\n  :host {\r\n    overflow-x: visible;\r\n  }\r\n\r\n  .users-table {\r\n    width: 100%;\r\n    min-width: 0;\r\n      background: var(--color-surface);\r\n\r\n    display: block;\r\n\r\n    border: 0;\r\n    border-radius: 0;\r\n\r\n    box-shadow: none;\r\n\r\n    // -------------------------------------------------------------------------\r\n    // Card\r\n    // -------------------------------------------------------------------------\r\n\r\n    &__row {\r\n      display: block;\r\n\r\n      width: calc(100% - 2rem);\r\n      margin: 1rem;\r\n\r\n\r\n      border: 1px solid var(--color-border);\r\n\r\n      background: var(--color-surface);\r\n      box-shadow: var(--shadow-sm);\r\n\r\n      overflow: hidden;\r\n\r\n      &:hover {\r\n        background: var(--color-surface);\r\n      }\r\n\r\n      &:last-child {\r\n        margin-bottom: 0;\r\n      }\r\n    }\r\n\r\n    // -------------------------------------------------------------------------\r\n    // Cell\r\n    // -------------------------------------------------------------------------\r\n\r\n    &__cell {\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: space-between;\r\n\r\n      width: 100%;\r\n      min-width: 0;\r\n\r\n      gap: 20px;\r\n\r\n      padding: 12px 14px;\r\n\r\n      border-bottom: 1px solid var(--color-border-subtle);\r\n\r\n      white-space: normal;\r\n      text-align: right;\r\n\r\n      overflow-wrap: anywhere;\r\n\r\n      &::before {\r\n        content: attr(data-label);\r\n\r\n        flex: 0 0 auto;\r\n\r\n        color: var(--color-text-secondary);\r\n\r\n        font-size: 12px;\r\n        font-weight: 600;\r\n        line-height: 1.3;\r\n        letter-spacing: 0.01em;\r\n\r\n        text-align: left;\r\n      }\r\n\r\n      // IMPORTANT:\r\n      // Override the desktop `width: 1%` rule.\r\n      &:last-child {\r\n        width: 100%;\r\n        padding-right: 14px;\r\n\r\n        border-bottom: 0;\r\n      }\r\n    }\r\n  }\r\n\r\n  // ===========================================================================\r\n  // Mobile actions\r\n  // ===========================================================================\r\n\r\n  .actions {\r\n    &__buttons {\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: flex-end;\r\n\r\n      width: 100%;\r\n\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      flex: 0 0 auto;\r\n\r\n      min-width: max-content;\r\n      min-height: 34px;\r\n\r\n      padding: 7px 12px;\r\n\r\n      white-space: nowrap;\r\n    }\r\n  }\r\n}\r\n\r\n// =============================================================================\r\n// Small mobile\r\n// =============================================================================\r\n\r\n@media (max-width: 480px) {\r\n  .users-table {\r\n    &__cell {\r\n      align-items: flex-start;\r\n      flex-direction: column;\r\n\r\n      gap: 4px;\r\n\r\n      text-align: left;\r\n\r\n      &::before {\r\n        font-size: 11px;\r\n        line-height: 1.2;\r\n        text-transform: uppercase;\r\n        letter-spacing: 0.05em;\r\n      }\r\n\r\n      // Actions cell\r\n      &:last-child {\r\n        align-items: stretch;\r\n\r\n        // Keep the cell full width!\r\n        width: 100%;\r\n\r\n        &::before {\r\n          margin-bottom: 4px;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  .actions {\r\n    &__buttons {\r\n      width: 100%;\r\n\r\n      display: grid;\r\n      grid-template-columns: repeat(3, 1fr);\r\n\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      width: 100%;\r\n      min-width: 0;\r\n\r\n      padding: 8px 6px;\r\n\r\n      white-space: nowrap;\r\n      text-align: center;\r\n    }\r\n  }\r\n}",
-                    "styleUrl": "./users-table.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "UsersView",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "AsyncPipe",
-                        "type": "pipe"
-                    }
-                ]
-            },
-            "templateData": "@let users = users$ | async;\r\n\r\n@if (users) {\r\n  <table class=\"users-table\">\r\n    @for (user of users; track user.id) {\r\n      <tr class=\"users-table__row\">\r\n        <td class=\"users-table__cell\" data-label=\"Fullname\">{{ user.firstName }} {{ user.lastName }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Email\">{{ user.email }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"City\">{{ user.city }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Country\">{{ user.country }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Phone number\">{{ user.phoneNumber }}</td>\r\n        <td class=\"users-table__cell\" data-label=\"Actions\">\r\n          <div class=\"actions__buttons\">\r\n            <button class=\"actions__button actions__button--select\" type=\"button\">Select</button>\r\n            <button class=\"actions__button actions__button--edit\" type=\"button\">Edit</button>\r\n            <button class=\"actions__button actions__button--remove\" type=\"button\">Remove</button>\r\n          </div>\r\n        </td>\r\n      </tr>\r\n    }\r\n  </table>\r\n}"
         },
         {
             "name": "UsersView",
@@ -2170,15 +2292,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/users-table/users-table.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "UsersTableComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
                 "filePath": "src/config/provider.config.ts",
                 "type": "class",
                 "linktype": "classe",
@@ -2305,6 +2418,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/service/user.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UserService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/store/action/nav-store.action.ts",
                 "type": "class",
                 "linktype": "classe",
@@ -2320,6 +2442,15 @@
                 "name": "SwitchMenuIsOpen",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/action/user-store.action.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "DeleteUser",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -2382,7 +2513,7 @@
                 "linktype": "injectable",
                 "name": "UserStoreState",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
