@@ -13,6 +13,9 @@ export class UsersStateStore {
   @Action(UsersActionStore.InitDto)
   initDto(context: StateContext<UsersStoreModel>) {
     const state = context.getState();
-    context.setState({ ...state, dto: USERS_DTO_MOCK });
+    context.setState({
+      ...state,
+      dto: USERS_DTO_MOCK
+    });
   }
 }
