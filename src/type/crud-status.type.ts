@@ -1,0 +1,1 @@
+export type CrudStatusType = "create" | "read" | "update" | "delete";

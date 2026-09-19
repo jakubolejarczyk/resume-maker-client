@@ -1,1 +1,0 @@
-export type StatusType = "create" | "read" | "update" | "delete";
