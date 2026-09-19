@@ -10,7 +10,12 @@ export class UserMockService extends BaseMockService<UserMockModel> {
             {
                 id: 0,
                 firstName: "Jakub",
-                lastName: "Olejarczyk"
+                lastName: "Olejarczyk",
+                jobTitle: "Senior Software Engineer",
+                email: "jakub.olejarczyk@outlook.com",
+                phoneNumber: "+48 501 007 197",
+                city: "Kielce",
+                country: "Poland"
             }
         ]);
     }
