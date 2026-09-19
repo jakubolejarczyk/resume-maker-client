@@ -1,11 +1,19 @@
-import { CrudStatusType } from "../../../type/crud-status.type";
+import { CrudActionType } from "../../../type/crud-action.type";
 
 export namespace UsersDto {
-    interface UserModel {
-        id: string;
+    interface DataModel {
         firstName: string;
         lastName: string;
-        crudStatus: CrudStatusType;
+    }
+
+    interface MetadataModel {
+        id: string;
+        crudAction: CrudActionType;
+    }
+
+    interface UserModel {
+        data: DataModel;
+        metadata: MetadataModel;
     }
 
     export interface Model {
