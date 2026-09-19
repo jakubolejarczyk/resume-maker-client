@@ -1,6 +1,4 @@
-import { UsersDtoModel } from "../model/users-dto.model";
-
-export const USERS_DTO_MOCK: UsersDtoModel = {
+export const USERS_DTO_MOCK: any = {
     users: [
         {
             data: {
