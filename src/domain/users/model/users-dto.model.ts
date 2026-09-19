@@ -1,22 +1,25 @@
 import { CrudActionType } from "../../../type/crud-action.type";
 
-export namespace UsersDto {
-    interface DataModel {
-        firstName: string;
-        lastName: string;
-    }
+interface UserDtoDataModel {
+    firstName: string;
+    lastName: string;
+    role: string;
+    phoneNumber: string;
+    email: string;
+    city: string;
+    country: string;
+}
 
-    interface MetadataModel {
-        id: string;
-        crudAction: CrudActionType;
-    }
+interface UserDtoMetadataModel {
+    id: string;
+    crudAction: CrudActionType;
+}
 
-    interface UserModel {
-        data: DataModel;
-        metadata: MetadataModel;
-    }
+interface UserDtoModel {
+    data: UserDtoDataModel;
+    metadata: UserDtoMetadataModel;
+}
 
-    export interface Model {
-        users: UserModel[];
-    }
+export interface UsersDtoModel {
+    users: UserDtoModel[];
 }

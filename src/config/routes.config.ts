@@ -3,6 +3,7 @@ import { Routes } from "@angular/router";
 import { UsersView } from "../view/users/users.view";
 import { CompaniesView } from "../view/companies/companies.view";
 import { ResumesView } from "../view/resumes/resumes.view";
+import { usersGuard } from "../guard/users.guard";
 
 export const routesConfig: Routes = [
     {
@@ -13,7 +14,8 @@ export const routesConfig: Routes = [
     {
         path: "users",
         component: UsersView,
-        title: "Users"
+        title: "Users",
+        canActivate: [usersGuard]
     },
     {
         path: "comapnies",
