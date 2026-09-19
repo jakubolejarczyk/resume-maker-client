@@ -114,6 +114,198 @@
             }
         },
         {
+            "name": "UserDtoDataModel",
+            "id": "interface-UserDtoDataModel-81244f56bb8582b5fc16ddd633712cc73e372aeba1a14107eaa082449e3a89577a2f4f85b9d11e4f5e096551b79741682e6c0eb81aa77183531a51b26639a70c",
+            "file": "src/domain/users/model/users-dto.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { CrudActionType } from \"../../../type/crud-action.type\";\r\n\r\ninterface UserDtoDataModel {\r\n    firstName: string;\r\n    lastName: string;\r\n    role: string;\r\n    phoneNumber: string;\r\n    email: string;\r\n    city: string;\r\n    country: string;\r\n}\r\n\r\ninterface UserDtoMetadataModel {\r\n    id: string;\r\n    crudAction: CrudActionType;\r\n}\r\n\r\ninterface UserDtoModel {\r\n    data: UserDtoDataModel;\r\n    metadata: UserDtoMetadataModel;\r\n}\r\n\r\nexport interface UsersDtoModel {\r\n    users: UserDtoModel[];\r\n}",
+            "displayName": "UserDtoDataModel",
+            "properties": [
+                {
+                    "name": "city",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "country",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "email",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "firstName",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "lastName",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "phoneNumber",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "role",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UserDtoMetadataModel",
+            "id": "interface-UserDtoMetadataModel-81244f56bb8582b5fc16ddd633712cc73e372aeba1a14107eaa082449e3a89577a2f4f85b9d11e4f5e096551b79741682e6c0eb81aa77183531a51b26639a70c",
+            "file": "src/domain/users/model/users-dto.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { CrudActionType } from \"../../../type/crud-action.type\";\r\n\r\ninterface UserDtoDataModel {\r\n    firstName: string;\r\n    lastName: string;\r\n    role: string;\r\n    phoneNumber: string;\r\n    email: string;\r\n    city: string;\r\n    country: string;\r\n}\r\n\r\ninterface UserDtoMetadataModel {\r\n    id: string;\r\n    crudAction: CrudActionType;\r\n}\r\n\r\ninterface UserDtoModel {\r\n    data: UserDtoDataModel;\r\n    metadata: UserDtoMetadataModel;\r\n}\r\n\r\nexport interface UsersDtoModel {\r\n    users: UserDtoModel[];\r\n}",
+            "displayName": "UserDtoMetadataModel",
+            "properties": [
+                {
+                    "name": "crudAction",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CrudActionType",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "id",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UserDtoModel",
+            "id": "interface-UserDtoModel-81244f56bb8582b5fc16ddd633712cc73e372aeba1a14107eaa082449e3a89577a2f4f85b9d11e4f5e096551b79741682e6c0eb81aa77183531a51b26639a70c",
+            "file": "src/domain/users/model/users-dto.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { CrudActionType } from \"../../../type/crud-action.type\";\r\n\r\ninterface UserDtoDataModel {\r\n    firstName: string;\r\n    lastName: string;\r\n    role: string;\r\n    phoneNumber: string;\r\n    email: string;\r\n    city: string;\r\n    country: string;\r\n}\r\n\r\ninterface UserDtoMetadataModel {\r\n    id: string;\r\n    crudAction: CrudActionType;\r\n}\r\n\r\ninterface UserDtoModel {\r\n    data: UserDtoDataModel;\r\n    metadata: UserDtoMetadataModel;\r\n}\r\n\r\nexport interface UsersDtoModel {\r\n    users: UserDtoModel[];\r\n}",
+            "displayName": "UserDtoModel",
+            "properties": [
+                {
+                    "name": "data",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserDtoDataModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "metadata",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserDtoMetadataModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "UserModel",
             "id": "interface-UserModel-22146be57ed2d2da12715146c4ac2085916313f19f29f50ecf824b3fa5d79ca217852fc4153d7da75658bc4463c416ec07ee692eb571a262dc6afdfc336b9208",
             "file": "src/model/user.model.ts",
@@ -205,6 +397,70 @@
                     "optional": false,
                     "description": "",
                     "line": 8,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UsersDtoModel",
+            "id": "interface-UsersDtoModel-81244f56bb8582b5fc16ddd633712cc73e372aeba1a14107eaa082449e3a89577a2f4f85b9d11e4f5e096551b79741682e6c0eb81aa77183531a51b26639a70c",
+            "file": "src/domain/users/model/users-dto.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { CrudActionType } from \"../../../type/crud-action.type\";\r\n\r\ninterface UserDtoDataModel {\r\n    firstName: string;\r\n    lastName: string;\r\n    role: string;\r\n    phoneNumber: string;\r\n    email: string;\r\n    city: string;\r\n    country: string;\r\n}\r\n\r\ninterface UserDtoMetadataModel {\r\n    id: string;\r\n    crudAction: CrudActionType;\r\n}\r\n\r\ninterface UserDtoModel {\r\n    data: UserDtoDataModel;\r\n    metadata: UserDtoMetadataModel;\r\n}\r\n\r\nexport interface UsersDtoModel {\r\n    users: UserDtoModel[];\r\n}",
+            "displayName": "UsersDtoModel",
+            "properties": [
+                {
+                    "name": "users",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UserDtoModel[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UsersStoreModel",
+            "id": "interface-UsersStoreModel-8ef46277844de8149d3983967978bea76fe291cdbfe7b17e61ac7bbe1260bfafa1f8a61f0eedafa37281650220f578aba4604d1b5154964b3bbd8c28f830b46d",
+            "file": "src/domain/users/model/users-store.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { UsersDtoModel } from \"./users-dto.model\";\r\n\r\nexport interface UsersStoreModel {\r\n    dto: UsersDtoModel;\r\n}",
+            "displayName": "UsersStoreModel",
+            "properties": [
+                {
+                    "name": "dto",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UsersDtoModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4,
                     "rawdescription": "\n"
                 }
             ],
@@ -514,6 +770,54 @@
             }
         },
         {
+            "name": "UsersDtoService",
+            "id": "injectable-UsersDtoService-c0c79f1a5dfc980443c5df9e521bafb33feec21af753482276380c205c4a9ad372e38b35c8c585c55b4d125ed3f4b37bb0213f9b54ed9c9f1a3304f07bd44106",
+            "file": "src/domain/users/service/users-dto.service.ts",
+            "coverageIgnore": false,
+            "properties": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "readAll",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { UsersStateStore } from \"../store/users-state.store\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UsersDtoService {\r\n    store = inject(Store);\r\n\r\n    readAll() {\r\n        return this.store.select(UsersStateStore.getDtoUsers);\r\n    }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "UserService",
             "id": "injectable-UserService-844c31f6c679a86dc378a6c8904181cb40535267f3abe544dbbc957a1f053de2f147de759f75a80a1d8f73d8dd582ef31a6f2170a685ff4f7a6d45c325e2db5e",
             "file": "src/service/user.service.ts",
@@ -575,6 +879,116 @@
             "description": "",
             "rawdescription": "\n",
             "sourceCode": "import { inject, Injectable } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { DeleteUser } from \"../store/action/user-store.action\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserService {\r\n    store = inject(Store);\r\n\r\n    delete(id: number) {\r\n        this.store.dispatch(new DeleteUser(id));\r\n    }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
+            "name": "UsersStateStore",
+            "id": "injectable-UsersStateStore-8ecd139c0db4b1615da1d269b1aedab079a1adebc92c889f44a95919bd7e13ef7a37e34283b29db93c4da065a8cf2f3afcf34ae64c5aa70e83aeb58b3a5b3070",
+            "file": "src/domain/users/store/users-state.store.ts",
+            "coverageIgnore": false,
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getDtoUsers",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "state",
+                            "type": "UsersStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Selector",
+                            "stringifiedArguments": ""
+                        }
+                    ],
+                    "modifierKind": [
+                        171,
+                        126
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "state",
+                            "type": "UsersStoreModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "initDto",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<UsersStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "decorators": [
+                        {
+                            "name": "Action",
+                            "stringifiedArguments": "UsersActionStore.InitDto"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "context",
+                            "type": "StateContext<UsersStoreModel>",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UsersStoreModel } from \"../model/users-store.model\";\r\nimport { UsersActionStore } from \"./users-action.store\";\r\nimport { USERS_DTO_MOCK } from \"../mock/users-dto.mock\";\r\n\r\n@State<UsersStoreModel>({\r\n  name: \"usersStateStore\"\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UsersStateStore {\r\n  @Selector()\r\n  static getDtoUsers(state: UsersStoreModel) {\r\n    return state.dto.users;\r\n  }\r\n\r\n  @Action(UsersActionStore.InitDto)\r\n  initDto(context: StateContext<UsersStoreModel>) {\r\n    const state = context.getState();\r\n    context.setState({\r\n      ...state,\r\n      dto: USERS_DTO_MOCK\r\n    });\r\n  }\r\n}",
             "extends": [],
             "providedIn": "root",
             "type": "injectable",
@@ -842,7 +1256,26 @@
             }
         }
     ],
-    "guards": [],
+    "guards": [
+        {
+            "name": "usersGuard",
+            "id": "guard-usersGuard-146a295cd21f4bd8d1ccff530fbdf5de48f19000270101dd60a435adbf8b9d9b78397fdc4df1a625fc3ce11a033cd6d68ef21f7ff4a846cc5dac3a20cb379c4a",
+            "file": "src/guard/users.guard.ts",
+            "type": "guard",
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "",
+            "properties": [],
+            "methods": [],
+            "sourceCode": "import { inject } from \"@angular/core\";\r\nimport { CanActivateFn } from \"@angular/router\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { UsersActionStore } from \"../domain/users/store/users-action.store\";\r\n\r\nexport const usersGuard: CanActivateFn = () => {\r\n    const store = inject(Store);\r\n    store.dispatch(new UsersActionStore.InitDto());\r\n    return true;\r\n};",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        }
+    ],
     "interceptors": [],
     "classes": [
         {
@@ -933,14 +1366,55 @@
             }
         },
         {
+            "name": "InitDto",
+            "id": "class-InitDto-2245e6da2b37f86e4615cf0987d25190f47833a04a9a11fc1e4ba08f8c2d033db35e71e5821c49562c926b5dcd4a7e1ed5037e3b512aa0c3ea09fe3e4199a438",
+            "file": "src/domain/users/store/users-action.store.ts",
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export namespace UsersActionStore {\r\n  export class InitDto {\r\n    static readonly type = \"[UsersActionStore] Init Dto\";\r\n  }\r\n}",
+            "displayName": "InitDto",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [
+                {
+                    "name": "type",
+                    "coverageIgnore": false,
+                    "defaultValue": "\"[UsersActionStore] Init Dto\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        126,
+                        148
+                    ]
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "ProviderConfig",
-            "id": "class-ProviderConfig-20cb3873d6400457bc0d8fd84f48d40d8855e911e4986a3278bc315797b19f98c0135708f3258f6b4da3b45771716ee64f57a4b52530ad3b97d90c5a2b4c3725",
+            "id": "class-ProviderConfig-2652284fa5c9d23cb712387ee676d027432057bbec8ba96b09e691c63680d1d10404d97f19b2be3b1f9170fcdd37d92665e77e176403e7be7c04d4036843d79a",
             "file": "src/config/provider.config.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter, withHashLocation } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\nimport { UserStoreState } from \"../store/state/user-store.state\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig, withHashLocation()),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState,\r\n                    UserStoreState\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
+            "sourceCode": "import { ApplicationConfig, provideBrowserGlobalErrorListeners } from \"@angular/core\";\r\nimport { provideRouter, withHashLocation } from \"@angular/router\";\r\nimport { provideStore } from \"@ngxs/store\";\r\nimport { withNgxsReduxDevtoolsPlugin } from \"@ngxs/devtools-plugin\";\r\n\r\nimport { routesConfig } from \"./routes.config\";\r\nimport { NavStoreState } from \"../store/state/nav-store.state\";\r\nimport { WindowStoreState } from \"../store/state/window-store.state\";\r\nimport { UserStoreState } from \"../store/state/user-store.state\";\r\nimport { UsersStateStore } from \"../domain/users/store/users-state.store\";\r\n\r\nexport class ProviderConfig {\r\n    static getProvider(): ApplicationConfig {\r\n        return {\r\n            providers: [\r\n                provideBrowserGlobalErrorListeners(),\r\n                provideRouter(routesConfig, withHashLocation()),\r\n                provideStore([\r\n                    NavStoreState,\r\n                    WindowStoreState,\r\n                    UserStoreState,\r\n                    UsersStateStore\r\n                ], withNgxsReduxDevtoolsPlugin())\r\n            ]\r\n        };\r\n    }\r\n}",
             "displayName": "ProviderConfig",
             "inputsClass": [],
             "outputsClass": [],
@@ -953,7 +1427,7 @@
                     "optional": false,
                     "returnType": "ApplicationConfig",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 13,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -1729,7 +2203,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n    height: 55px;\r\n}",
+                    "data": ".nav {\r\n    background-color: var(--color-accent);\r\n    min-height: 55px;\r\n}",
                     "styleUrl": "./nav.component.scss"
                 }
             ],
@@ -1819,7 +2293,7 @@
         },
         {
             "name": "Root",
-            "id": "component-Root-e6b82f8bc0f8d0b4cca51e911b0ba7758d2538e96360bcbcb79d1599c361ccce9ae88fbec6a602f5f1919b5945a97a93dec971cfff1f26c5f330fdfecd1d3c14",
+            "id": "component-Root-9fea46962d74431c5f47d6c48616a56145d6c5e97b3bc2bb937655ca1f844572e01c84cddc8aefe0be1b3d319ff47b7699344e30d7872460c8a7a053f2548f35",
             "file": "src/root/root.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1863,7 +2337,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\nimport { NavComponent } from \"../component/nav/nav.component\";\r\nimport { WindowDirective } from \"../directive/window.directive\";\r\n\r\n@Component({\r\n    selector: \"app-root\",\r\n    templateUrl: \"./root.html\",\r\n    styleUrl: \"./root.scss\",\r\n    imports: [RouterOutlet, NavComponent, WindowDirective]\r\n})\r\nexport class Root {}",
+            "sourceCode": "import { Component, inject, OnInit } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\nimport { NavComponent } from \"../component/nav/nav.component\";\r\nimport { WindowDirective } from \"../directive/window.directive\";\r\n\r\n@Component({\r\n    selector: \"app-root\",\r\n    templateUrl: \"./root.html\",\r\n    styleUrl: \"./root.scss\",\r\n    imports: [RouterOutlet, NavComponent, WindowDirective]\r\n})\r\nexport class Root {}",
             "styleUrl": "./root.scss",
             "assetsDirs": [],
             "styleUrlsData": [
@@ -1897,6 +2371,204 @@
                 ]
             },
             "templateData": "<app-nav-component appWindowDirective></app-nav-component>\r\n<router-outlet></router-outlet>"
+        },
+        {
+            "name": "UsersFormCreateComponent",
+            "id": "component-UsersFormCreateComponent-82985cbb9ee621a99dc4aec5003a39efc945906054b6d18b3753a011b6db193803f29249f544dc3ce0cad39ecd590879c50e45a46deaa33ca66445c08d59bf6a",
+            "file": "src/domain/users/component/users-form-create/users-form-create.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-users-form-create-component",
+            "styleUrls": [
+                "./users-form-create.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./users-form-create.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-users-form-create-component\",\r\n    templateUrl: \"./users-form-create.component.html\",\r\n    styleUrl: \"./users-form-create.component.scss\",\r\n})\r\nexport class UsersFormCreateComponent {}",
+            "styleUrl": "./users-form-create.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./users-form-create.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            },
+            "templateData": "<p>users-form-create works!</p>"
+        },
+        {
+            "name": "UsersTableComponent",
+            "id": "component-UsersTableComponent-9d35cf922d0deff5ca85c642d8b435e6306a2c0b7650e3711cc94f5019453c456965cb5c9d910620159e2c012b2d4dff395627139c2ccbead81bb107b33720ff",
+            "file": "src/component/users-table/users-table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-users-table-component",
+            "styleUrls": [
+                "./users-table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./users-table.component.html"
+            ],
+            "templateVariables": [
+                {
+                    "name": "users",
+                    "defaultValue": "users$ | async"
+                }
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "store",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Store)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "users$",
+                    "coverageIgnore": false,
+                    "defaultValue": "this.usersDtoService.readAll()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "usersDtoService",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(UsersDtoService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "delete",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "AsyncPipe",
+                    "type": "pipe"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { AsyncPipe } from \"@angular/common\";\r\nimport { Component, inject } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\n\r\nimport { DeleteUser } from \"../../store/action/user-store.action\";\r\nimport { UsersDtoService } from \"../../domain/users/service/users-dto.service\";\r\n\r\n@Component({\r\n    selector: \"app-users-table-component\",\r\n    templateUrl: \"./users-table.component.html\",\r\n    styleUrl: \"./users-table.component.scss\",\r\n    imports: [AsyncPipe]\r\n})\r\nexport class UsersTableComponent {\r\n    store = inject(Store);\r\n    usersDtoService = inject(UsersDtoService);\r\n\r\n    users$ = this.usersDtoService.readAll();\r\n\r\n    delete(id: number) {\r\n        this.store.dispatch(new DeleteUser(id));\r\n    }\r\n}",
+            "styleUrl": "./users-table.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".users-table__wrapper {\r\n  width: 100%;\r\n  min-height: calc(100svh - 55px);\r\n  background: var(--color-surface);\r\n}\r\n\r\n.users-table {\r\n  width: 100%;\r\n  background: transparent;\r\n  border: 0;\r\n  border-radius: 0;\r\n  box-shadow: none;\r\n  font-size: 14px;\r\n  line-height: 1.4;\r\n  color: var(--color-text);\r\n\r\n  &__head {\r\n    display: none;\r\n  }\r\n\r\n  &__row {\r\n    display: block;\r\n    width: calc(100% - 2rem);\r\n    margin: 1rem;\r\n    border: 1px solid var(--color-border);\r\n    background: var(--color-surface);\r\n    box-shadow: var(--shadow-sm);\r\n    overflow: hidden;\r\n    transition: background-color 0.15s ease;\r\n\r\n    &:hover {\r\n      background: var(--color-surface);\r\n    }\r\n  }\r\n\r\n  &__cell {\r\n    display: flex;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    justify-content: space-between;\r\n    width: 100%;\r\n    min-width: 0;\r\n    gap: 4px;\r\n    padding: 12px 14px;\r\n    border-bottom: 1px solid var(--color-border-subtle);\r\n    white-space: normal;\r\n    text-align: left;\r\n    overflow-wrap: anywhere;\r\n\r\n    &::before {\r\n      content: attr(data-label);\r\n      flex: 0 0 auto;\r\n      color: var(--color-text-secondary);\r\n      font-size: 11px;\r\n      font-weight: 600;\r\n      line-height: 1.2;\r\n      letter-spacing: 0.05em;\r\n      text-align: left;\r\n      text-transform: uppercase;\r\n    }\r\n\r\n    &:first-child {\r\n      font-weight: 500;\r\n      color: var(--color-text);\r\n    }\r\n\r\n    &:last-child {\r\n      align-items: stretch;\r\n      width: 100%;\r\n      padding-right: 14px;\r\n      border-bottom: 0;\r\n\r\n      &::before {\r\n        margin-bottom: 4px;\r\n      }\r\n    }\r\n  }\r\n\r\n  &__empty {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: 100%;\r\n    padding: 2rem;\r\n    text-align: center;\r\n  }\r\n\r\n  &__empty-message {\r\n    margin: 0;\r\n    color: var(--color-text-secondary);\r\n    font-size: 14px;\r\n  }\r\n}\r\n\r\n.actions {\r\n  &__buttons {\r\n    display: grid;\r\n    grid-template-columns: repeat(3, 1fr);\r\n    align-items: center;\r\n    width: 100%;\r\n    gap: 6px;\r\n  }\r\n\r\n  &__button {\r\n    appearance: none;\r\n    -webkit-appearance: none;\r\n    width: 100%;\r\n    min-width: 0;\r\n    min-height: 34px;\r\n    padding: 8px 6px;\r\n    border-width: 1px;\r\n    border-style: solid;\r\n    border-color: var(--color-border);\r\n    border-radius: 6px;\r\n    background: var(--color-surface);\r\n    color: var(--color-text-secondary);\r\n    font-family: inherit;\r\n    font-size: 13px;\r\n    font-weight: 500;\r\n    line-height: 1;\r\n    text-align: center;\r\n    white-space: nowrap;\r\n    cursor: pointer;\r\n    transition:\r\n      background-color 0.15s ease,\r\n      border-color 0.15s ease,\r\n      color 0.15s ease,\r\n      box-shadow 0.15s ease,\r\n      transform 0.1s ease;\r\n\r\n    &:focus-visible {\r\n      outline: 2px solid var(--color-focus);\r\n      outline-offset: 2px;\r\n    }\r\n\r\n    &:active {\r\n      transform: translateY(1px);\r\n    }\r\n\r\n    &--select {\r\n      color: var(--color-accent);\r\n      border-color: var(--color-accent);\r\n\r\n      &:hover {\r\n        color: var(--color-text-on-accent);\r\n        background: var(--color-accent);\r\n        border-color: var(--color-accent);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-accent-active);\r\n        border-color: var(--color-accent-active);\r\n      }\r\n    }\r\n\r\n    &--edit {\r\n      color: var(--color-info);\r\n      border-color: var(--color-info);\r\n\r\n      &:hover {\r\n        background: var(--color-info-soft);\r\n        border-color: var(--color-info);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-surface-active);\r\n        border-color: var(--color-info);\r\n      }\r\n    }\r\n\r\n    &--remove {\r\n      color: var(--color-danger);\r\n      border-color: var(--color-danger);\r\n\r\n      &:hover {\r\n        background: var(--color-danger-soft);\r\n        border-color: var(--color-danger);\r\n      }\r\n\r\n      &:active {\r\n        background: var(--color-danger-soft);\r\n        border-color: var(--color-danger);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n@media (min-width: 425px) {\r\n  .users-table {\r\n    &__cell {\r\n      align-items: center;\r\n      flex-direction: row;\r\n      gap: 20px;\r\n      text-align: right;\r\n\r\n      &::before {\r\n        font-size: 12px;\r\n        line-height: 1.3;\r\n        letter-spacing: 0.01em;\r\n        text-transform: none;\r\n      }\r\n\r\n      &:last-child {\r\n        align-items: center;\r\n      }\r\n    }\r\n  }\r\n\r\n  .actions {\r\n    &__buttons {\r\n      display: flex;\r\n      justify-content: flex-end;\r\n      width: 100%;\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      flex: 0 0 auto;\r\n      width: auto;\r\n      min-width: max-content;\r\n      min-height: 34px;\r\n      padding: 7px 12px;\r\n    }\r\n  }\r\n}\r\n\r\n@media (min-width: 768px) {\r\n  .users-table__wrapper {\r\n    width: 100%;\r\n    height: calc(100svh - 55px);\r\n    overflow: auto;\r\n    background: var(--color-surface);\r\n    border: 1px solid var(--color-border);\r\n    box-shadow: var(--shadow-sm);\r\n  }\r\n\r\n  .users-table {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    background: transparent;\r\n    border: 0;\r\n    border-collapse: collapse;\r\n    border-spacing: 0;\r\n    border-radius: 0;\r\n    box-shadow: none;\r\n    overflow: visible;\r\n\r\n    &__head {\r\n      display: table-header-group;\r\n      position: sticky;\r\n      top: 0;\r\n      z-index: 2;\r\n      background: var(--color-surface-hover);\r\n\r\n      .users-table__cell {\r\n        background: var(--color-surface-hover);\r\n        color: var(--color-text-secondary);\r\n        font-size: 12px;\r\n        font-weight: 600;\r\n        text-align: left;\r\n        text-transform: uppercase;\r\n        letter-spacing: 0.02em;\r\n        border: 0;\r\n\r\n        &:first-child {\r\n          font-weight: 600;\r\n        }\r\n\r\n        &:last-child {\r\n          text-align: right;\r\n        }\r\n      }\r\n    }\r\n\r\n    &__row {\r\n      display: table-row;\r\n      width: auto;\r\n      margin: 0;\r\n      border-top: 1px solid var(--color-border-subtle);\r\n      border-bottom: 1px solid var(--color-border-subtle);\r\n      background: transparent;\r\n      box-shadow: none;\r\n\r\n      &:hover {\r\n        background: var(--color-surface-hover);\r\n      }\r\n\r\n      &:first-child {\r\n        border-top: 0;\r\n      }\r\n    }\r\n\r\n    &__cell {\r\n      display: table-cell;\r\n      width: auto;\r\n      min-width: 0;\r\n      padding: 14px 16px;\r\n      border: 0;\r\n      background: transparent;\r\n      vertical-align: middle;\r\n      white-space: nowrap;\r\n      text-align: left;\r\n\r\n      &::before {\r\n        display: none;\r\n      }\r\n\r\n      &:first-child {\r\n        font-weight: 500;\r\n        color: var(--color-text);\r\n      }\r\n\r\n      &:last-child {\r\n        width: 1%;\r\n        padding-right: 12px;\r\n      }\r\n    }\r\n  }\r\n\r\n  .actions {\r\n    &__buttons {\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: flex-end;\r\n      width: auto;\r\n      gap: 6px;\r\n    }\r\n\r\n    &__button {\r\n      min-height: 32px;\r\n      padding: 6px 11px;\r\n      border-width: 1px;\r\n      border-style: solid;\r\n\r\n      &--select {\r\n        border-color: var(--color-accent);\r\n      }\r\n\r\n      &--edit {\r\n        border-color: var(--color-info);\r\n      }\r\n\r\n      &--remove {\r\n        border-color: var(--color-danger);\r\n      }\r\n    }\r\n  }\r\n}",
+                    "styleUrl": "./users-table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "UsersView",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "AsyncPipe",
+                        "type": "pipe"
+                    }
+                ]
+            },
+            "templateData": "@let users = users$ | async;\r\n\r\n@if (users !== null) {\r\n  <div class=\"users-table__wrapper\">\r\n    @if (users.length) {\r\n      <table class=\"users-table\">\r\n        <thead class=\"users-table__head\">\r\n          <tr class=\"users-table__row\">\r\n            <th class=\"users-table__cell\" scope=\"col\">Id</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">Fullname</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">Email</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">City</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">Country</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">Phone number</th>\r\n            <th class=\"users-table__cell\" scope=\"col\">Actions</th>\r\n          </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          @for (user of users; track user.metadata.id) {\r\n            <tr class=\"users-table__row\">\r\n              <td class=\"users-table__cell\" data-label=\"Id\">\r\n                {{ user.metadata.id }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"Fullname\">\r\n                {{ user.data.firstName }} {{ user.data.lastName }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"Email\">\r\n                {{ user.data.email }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"City\">\r\n                {{ user.data.city }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"Country\">\r\n                {{ user.data.country }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"Phone number\">\r\n                {{ user.data.phoneNumber }}\r\n              </td>\r\n              <td class=\"users-table__cell\" data-label=\"Actions\">\r\n                <div class=\"actions__buttons\">\r\n                  <button class=\"actions__button actions__button--select\" type=\"button\">\r\n                    Select\r\n                  </button>\r\n                  <button class=\"actions__button actions__button--edit\" type=\"button\">\r\n                    Edit\r\n                  </button>\r\n                  <button class=\"actions__button actions__button--remove\" type=\"button\">\r\n                    Remove\r\n                  </button>\r\n                </div>\r\n              </td>\r\n            </tr>\r\n          }\r\n        </tbody>\r\n      </table>\r\n    } @else {\r\n      <div class=\"users-table__empty\">\r\n        <p class=\"users-table__empty-message\">No users found.</p>\r\n      </div>\r\n    }\r\n  </div>\r\n}"
         },
         {
             "name": "UsersView",
@@ -2049,7 +2721,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Routes",
-                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\"\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\",\r\n        canActivate: [usersGuard]\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
             },
             {
                 "name": "TABLET",
@@ -2061,6 +2733,17 @@
                 "deprecationMessage": "",
                 "type": "number",
                 "defaultValue": "768"
+            },
+            {
+                "name": "USERS_DTO_MOCK",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/domain/users/mock/users-dto.mock.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "UsersDtoModel",
+                "defaultValue": "{\r\n    users: [\r\n        {\r\n            data: {\r\n                firstName: \"Jakub\",\r\n                lastName: \"Olejarczyk\",\r\n                role: \"Senior Software Engineer\",\r\n                phoneNumber: \"+48 501 007 197\",\r\n                email: \"jakub.olejarczyk@outlook.com\",\r\n                city: \"Kielce\",\r\n                country: \"Poland\"\r\n            },\r\n            metadata: {\r\n                id: \"fd4f7b64-340d-4015-b202-805bfa77aff9\",\r\n                crudAction: \"read\"\r\n            }\r\n        }\r\n    ]\r\n}"
             },
             {
                 "name": "usersMock",
@@ -2075,7 +2758,21 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "CrudActionType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "\"create\" | \"read\" | \"update\" | \"delete\"",
+                "file": "src/type/crud-action.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 193
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "src/app/app.config.ts": [
@@ -2180,7 +2877,20 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Routes",
-                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\"\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersView,\r\n        title: \"Users\",\r\n        canActivate: [usersGuard]\r\n    },\r\n    {\r\n        path: \"comapnies\",\r\n        component: CompaniesView,\r\n        title: \"Companies\"\r\n    },\r\n    {\r\n        path: \"resumes\",\r\n        component: ResumesView,\r\n        title: \"Resumes\"\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
+                }
+            ],
+            "src/domain/users/mock/users-dto.mock.ts": [
+                {
+                    "name": "USERS_DTO_MOCK",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/domain/users/mock/users-dto.mock.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "UsersDtoModel",
+                    "defaultValue": "{\r\n    users: [\r\n        {\r\n            data: {\r\n                firstName: \"Jakub\",\r\n                lastName: \"Olejarczyk\",\r\n                role: \"Senior Software Engineer\",\r\n                phoneNumber: \"+48 501 007 197\",\r\n                email: \"jakub.olejarczyk@outlook.com\",\r\n                city: \"Kielce\",\r\n                country: \"Poland\"\r\n            },\r\n            metadata: {\r\n                id: \"fd4f7b64-340d-4015-b202-805bfa77aff9\",\r\n                crudAction: \"read\"\r\n            }\r\n        }\r\n    ]\r\n}"
                 }
             ],
             "src/mock/users.mock.ts": [
@@ -2199,7 +2909,23 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/type/crud-action.type.ts": [
+                {
+                    "name": "CrudActionType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "\"create\" | \"read\" | \"update\" | \"delete\"",
+                    "file": "src/type/crud-action.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 193
+                }
+            ]
+        }
     },
     "routes": {
         "name": "<root>",
@@ -2289,6 +3015,15 @@
                 "name": "NavComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/users-table/users-table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "UsersTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -2387,6 +3122,106 @@
                 "name": "WindowDirective",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/component/users-form-create/users-form-create.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "UsersFormCreateComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/mock/users-dto.mock.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "USERS_DTO_MOCK",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/model/users-dto.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UserDtoDataModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/model/users-dto.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UserDtoMetadataModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/model/users-dto.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UserDtoModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/model/users-dto.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UsersDtoModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/model/users-store.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "UsersStoreModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/service/users-dto.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UsersDtoService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/store/users-action.store.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "InitDto",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/domain/users/store/users-state.store.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UsersStateStore",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/guard/users.guard.ts",
+                "type": "guard",
+                "linktype": "guard",
+                "name": "usersGuard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -2523,6 +3358,16 @@
                 "name": "WindowStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/type/crud-action.type.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "CrudActionType",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
