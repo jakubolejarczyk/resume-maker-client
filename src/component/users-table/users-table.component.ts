@@ -2,8 +2,8 @@ import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
-import { UserStoreState } from "../../store/state/user-store.state";
 import { DeleteUser } from "../../store/action/user-store.action";
+import { UsersDtoService } from "../../domain/users/service/users-dto.service";
 
 @Component({
     selector: "app-users-table-component",
@@ -13,8 +13,9 @@ import { DeleteUser } from "../../store/action/user-store.action";
 })
 export class UsersTableComponent {
     store = inject(Store);
+    usersDtoService = inject(UsersDtoService);
 
-    users$ = this.store.select(UserStoreState.getUsers);
+    users$ = this.usersDtoService.readAll();
 
     delete(id: number) {
         this.store.dispatch(new DeleteUser(id));

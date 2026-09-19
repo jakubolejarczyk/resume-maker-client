@@ -1,4 +1,4 @@
-import { Action, State, StateContext } from "@ngxs/store";
+import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { UsersStoreModel } from "../model/users-store.model";
@@ -10,6 +10,11 @@ import { USERS_DTO_MOCK } from "../mock/users-dto.mock";
 })
 @Injectable({ providedIn: "root" })
 export class UsersStateStore {
+  @Selector()
+  static getDtoUsers(state: UsersStoreModel) {
+    return state.dto.users;
+  }
+
   @Action(UsersActionStore.InitDto)
   initDto(context: StateContext<UsersStoreModel>) {
     const state = context.getState();
