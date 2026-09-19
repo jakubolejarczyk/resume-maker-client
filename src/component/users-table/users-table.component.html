@@ -5,6 +5,7 @@
     <table class="users-table">
       <thead class="users-table__head">
         <tr class="users-table__row">
+          <th class="users-table__cell" scope="col">Id</th>
           <th class="users-table__cell" scope="col">Fullname</th>
           <th class="users-table__cell" scope="col">Email</th>
           <th class="users-table__cell" scope="col">City</th>
@@ -17,6 +18,9 @@
       <tbody>
         @for (user of users; track user.id) {
           <tr class="users-table__row">
+            <td class="users-table__cell" data-label="Id">
+              {{ user.id }}
+            </td>
             <td class="users-table__cell" data-label="Fullname">
               {{ user.firstName }} {{ user.lastName }}
             </td>
