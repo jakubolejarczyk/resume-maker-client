@@ -11,7 +11,7 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                 id: 0,
                 firstName: "Jakub",
                 lastName: "Olejarczyk",
-                jobTitle: "",
+                jobTitle: "Senior Software Engineer",
                 phone: "+48 501 007 197",
                 email: "jakub.olejarczyk@outlook.com",
                 city: "Kielce",
