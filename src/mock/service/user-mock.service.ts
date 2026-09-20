@@ -18,9 +18,10 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                 city: "Kielce",
                 country: "Poland",
                 links: [
+                    "",
                     "linkedin.com/in/jakub-olejarczyk",
-                    "github.com/jakubolejarczyk",
-                    "leetcode.com/u/JakubOlejarczyk"
+                    "",
+                    ""
                 ],
                 summary: ""
             }
