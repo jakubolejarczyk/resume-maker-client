@@ -20,7 +20,7 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                 links: [
                     "",
                     "linkedin.com/in/jakub-olejarczyk",
-                    "",
+                    "github.com/jakubolejarczyk",
                     ""
                 ],
                 summary: ""
