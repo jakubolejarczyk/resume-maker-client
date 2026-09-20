@@ -10,15 +10,13 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
             {
                 id: 0,
                 company: "APR System",
-                startDate: "2020-07-01",
-                endDate: "2025-02-01",
+                jobTitle: "",
                 description: []
             },
             {
                 id: 1,
                 company: "Primaris",
-                startDate: "2025-06-01",
-                endDate: undefined,
+                jobTitle: "",
                 description: []
             }
         ]);

@@ -4,8 +4,10 @@ export interface UserMockModel extends BaseMockModel {
     firstName: string;
     lastName: string;
     jobTitle: string;
+    phone: string;
     email: string;
-    phoneNumber: string;
     city: string;
     country: string;
+    links: string[];
+    languages: string[];
 }

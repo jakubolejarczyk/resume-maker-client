@@ -11,11 +11,17 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                 id: 0,
                 firstName: "Jakub",
                 lastName: "Olejarczyk",
-                jobTitle: "Senior Software Engineer",
+                jobTitle: "",
+                phone: "+48 501 007 197",
                 email: "jakub.olejarczyk@outlook.com",
-                phoneNumber: "+48 501 007 197",
                 city: "Kielce",
-                country: "Poland"
+                country: "Poland",
+                links: [
+                    "linkedin.com/in/jakub-olejarczyk",
+                    "github.com/jakubolejarczyk",
+                    "leetcode.com/u/JakubOlejarczyk"
+                ],
+                languages: ["English", "Polish"]
             }
         ]);
     }

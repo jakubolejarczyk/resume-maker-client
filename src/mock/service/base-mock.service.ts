@@ -1,16 +1,16 @@
 import { BaseMockModel } from "../model/base-mock.model";
 
-export class BaseMockService<TModel extends BaseMockModel> {
-    constructor(private items: TModel[]) {
+export class BaseMockService<T extends BaseMockModel> {
+    constructor(private items: T[]) {
         this.items = items;
     }
 
-    create(itemToCreate: Omit<TModel, "id">) {
-        const item = <TModel> {
-            ...itemToCreate,
+    create(item: Omit<T, "id">) {
+        const itemToCreate = <T> {
+            ...item,
             id: this.items.length
-        }
-        this.items.push(item);
+        };
+        this.items.push(itemToCreate);
     }
 
     read(id: number) {
@@ -21,11 +21,8 @@ export class BaseMockService<TModel extends BaseMockModel> {
         return this.items;
     }
 
-    update(itemToUpdate: TModel) {
-        this.items = this.items.map(item => {
-            if (item.id === itemToUpdate.id) return itemToUpdate;
-            return item;
-        });
+    update(itemToUpdate: T) {
+        this.items = this.items.map(item => item.id === itemToUpdate.id ? itemToUpdate : item);
     }
 
     delete(id: number) {
