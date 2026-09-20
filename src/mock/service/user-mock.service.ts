@@ -12,8 +12,9 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                 firstName: "Jakub",
                 lastName: "Olejarczyk",
                 jobTitle: "Senior Software Engineer",
-                phone: "+48 501 007 197",
                 email: "jakub.olejarczyk@outlook.com",
+                countryCode: "+48",
+                phoneNumber: "501007197",
                 city: "Kielce",
                 country: "Poland",
                 links: [
@@ -21,7 +22,7 @@ export class UserMockService extends BaseMockService<UserMockModel> {
                     "github.com/jakubolejarczyk",
                     "leetcode.com/u/JakubOlejarczyk"
                 ],
-                languages: ["English", "Polish"]
+                summary: ""
             }
         ]);
     }
