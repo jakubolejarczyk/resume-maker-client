@@ -1,8 +1,9 @@
 import { BaseMockModel } from "./base-mock.model";
 
 export interface EducationMockModel extends BaseMockModel {
-    institutionName: string;
+    startYear: number;
+    endYear: number;
     fieldOfStudy: string;
     degree: string;
-    graduationYear: number;
+    institutionName: string;
 }
