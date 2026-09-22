@@ -1,3 +1,5 @@
+import { of } from "rxjs";
+
 import { BaseMockModel } from "../model/base-mock.model";
 
 export class BaseMockService<T extends BaseMockModel> {
@@ -6,26 +8,28 @@ export class BaseMockService<T extends BaseMockModel> {
     }
 
     create(item: Omit<T, "id">) {
-        const itemToCreate = <T> {
-            ...item,
-            id: this.items.length
-        };
+        const itemToCreate = <T> { ...item, id: this.items.length };
         this.items.push(itemToCreate);
+        return of(itemToCreate);
     }
 
     read(id: number) {
-        return this.items.find(item => item.id === id);
+        const item = this.items.find(item => item.id === id);
+        return of(item);
     }
 
     readAll() {
-        return this.items;
+        return of(this.items);
     }
 
     update(itemToUpdate: T) {
         this.items = this.items.map(item => item.id === itemToUpdate.id ? itemToUpdate : item);
+        return of(itemToUpdate);
     }
 
     delete(id: number) {
+        const itemToDelete = this.items.find(item => item.id === id);
         this.items = this.items.filter(item => item.id !== id);
+        return of(itemToDelete);
     }
 }
