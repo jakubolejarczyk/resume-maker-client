@@ -25,8 +25,15 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                 id: 1,
                 company: "Primaris",
                 startDate: "2025-06-01",
-                jobTitle: "", // todo: Add the content
-                description: [] // todo: Add the content
+                jobTitle: "RPA Software Engineer",
+                description: [
+                    "Designed, developed, deployed, and maintained UiPath RPA automations using .NET/C#.",
+                    "Gathered business requirements and worked directly with clients to design automation solutions.",
+                    "Developed a large-scale UiPath automation for KSeF 2.0 integration.",
+                    "Built an internal C#/.NET library with custom UiPath activities for KSeF 2.0 integration.",
+                    "Integrated RPA solutions with REST APIs and Microsoft SQL Server.",
+                    "Provided production support and maintenance for deployed automations."
+                ]
             }
         ]);
     }
