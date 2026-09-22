@@ -19,7 +19,8 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Built internal npm tools to support and improve development workflows across the end-to-end product delivery process.",
                     "Created and maintained custom ESLint rules to improve code quality and consistency.",
                     "Wrote and maintained unit tests to ensure code correctness and reliability."
-                ]
+                ],
+                userId: 0
             },
             {
                 id: 1,
@@ -33,7 +34,8 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Built an internal C#/.NET library with custom UiPath activities for KSeF 2.0 integration.",
                     "Integrated RPA solutions with REST APIs and Microsoft SQL Server.",
                     "Provided production support and maintenance for deployed automations."
-                ]
+                ],
+                userId: 0
             }
         ]);
     }

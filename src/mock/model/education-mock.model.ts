@@ -6,4 +6,5 @@ export interface EducationMockModel extends BaseMockModel {
     fieldOfStudy: string;
     degree: string;
     institutionName: string;
+    userId: number;
 }
