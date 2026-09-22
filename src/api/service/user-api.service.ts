@@ -9,4 +9,19 @@ export class UserApiService {
     test() {
         return this.service.readAll();
     }
+
+    test2() {
+        return this.service.create({
+            firstName: "a",
+            lastName: "b",
+            jobTitle: "c",
+            email: "d",
+            countryCode: "e",
+            phoneNumber: "f",
+            city: "g",
+            country: "h",
+            links: [],
+            summary: "i"
+        });
+    }
 }
