@@ -1,14 +1,13 @@
-interface UserApiModel {
+export interface UserApiModel {
     id: string;
     firstName: string;
     lastName: string;
     jobTitle: string;
     email: string;
+    countryCode: string;
     phoneNumber: string;
     city: string;
     country: string;
-}
-
-export interface UsersApiModel {
-    users: UserApiModel[];
+    links: string[];
+    summary: string;
 }

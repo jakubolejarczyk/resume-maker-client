@@ -4,24 +4,17 @@ import { UserMockService } from "../../mock/service/user-mock.service";
 
 @Injectable({ providedIn: "root" })
 export class UserApiService {
-    service = inject(UserMockService);
+    userMockService = inject(UserMockService);
 
-    test() {
-        return this.service.readAll();
+    read(id: string) {
+        return this.userMockService.read(id);
     }
 
-    test2() {
-        return this.service.create({
-            firstName: "a",
-            lastName: "b",
-            jobTitle: "c",
-            email: "d",
-            countryCode: "e",
-            phoneNumber: "f",
-            city: "g",
-            country: "h",
-            links: [],
-            summary: "i"
-        });
+    readAll() {
+        return this.userMockService.readAll();
+    }
+
+    delete(id: string) {
+        return this.userMockService.delete(id);
     }
 }
