@@ -1,6 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 
 import { UserMockService } from "../../mock/service/user-mock.service";
+import { UserApiModel } from "../model/user-api.model";
 
 @Injectable({ providedIn: "root" })
 export class UserApiService {
@@ -12,6 +13,10 @@ export class UserApiService {
 
     readAll() {
         return this.userMockService.readAll();
+    }
+
+    update(userToUpdate: UserApiModel) {
+        return this.userMockService.update(userToUpdate);
     }
 
     delete(id: string) {

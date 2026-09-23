@@ -34,6 +34,11 @@ export class UserMockService {
         return of(this.users);
     }
 
+    update(userToUpdate: UserMockModel) {
+        this.users = this.users.map(user => user.id === userToUpdate.id ? userToUpdate : user);
+        return of(userToUpdate);
+    }
+
     delete(id: string) {
         const userToDelete = this.users.find(user => user.id === id);
         this.users = this.users.filter(user => user.id !== id);
