@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { of } from "rxjs";
 
 import { UserMockModel } from "../model/user-mock.model";
+import { UUIDUtil } from "../../util/uuid.util";
 
 @Injectable({ providedIn: "root" })
 export class UserMockService {
@@ -25,6 +26,17 @@ export class UserMockService {
             summary: "Senior Software Engineer with 6+ years of experience specializing in full-stack web development, with a strong focus on Angular on the frontend and ASP.NET on the backend. Experienced in designing and developing scalable web applications, RESTful APIs, and backend services, with a strong focus on clean architecture, performance, maintainability, and code quality. Proven ability to work across the full software development lifecycle and collaborate effectively with cross-functional teams to deliver reliable, high-quality solutions."
         }
     ];
+
+    uuidUtil = inject(UUIDUtil);
+
+    create(userToCreate: Omit<UserMockModel, "id">) {
+        const newUser: UserMockModel = {
+            ...userToCreate,
+            id: this.uuidUtil.generate()
+        };
+        this.users.push(newUser);
+        return of(newUser);
+    }
 
     read(id: string) {
         return of(this.users.find(user => user.id === id));

@@ -7,6 +7,10 @@ import { UserApiModel } from "../model/user-api.model";
 export class UserApiService {
     userMockService = inject(UserMockService);
 
+    create(userToCreate: UserApiModel) {
+        return this.userMockService.create(userToCreate);
+    }
+
     read(id: string) {
         return this.userMockService.read(id);
     }
