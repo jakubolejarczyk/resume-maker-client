@@ -3,9 +3,8 @@ export interface UserMockModel {
     firstName: string;
     lastName: string;
     jobTitle: string;
-    email: string;
-    countryCode: string;
     phoneNumber: string;
+    email: string;
     city: string;
     country: string;
     links: string[];
