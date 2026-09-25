@@ -1,42 +1,58 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
+import { of } from "rxjs";
 
-import { BaseMockService } from "./base-mock.service";
 import { ExperienceMockModel } from "../model/experience-mock.model";
+import { UUIDUtil } from "../../util/uuid.util";
 
 @Injectable({ providedIn: "root" })
-export class ExperienceMockService extends BaseMockService<ExperienceMockModel> {
-    constructor() {
-        super([
-            {
-                id: 0,
-                company: "APR System",
-                startDate: "2020-07-01",
-                endDate: "2025-02-01",
-                jobTitle: "Software Engineer",
-                description: [
-                    "Developed and maintained full-stack applications using Angular and ASP.NET, working across frontend components, business logic, backend services, REST APIs, and data integration.",
-                    "Created a model-driven code generation platform that processed UML/domain models through SQL-based data transformation into JSON definitions, which were then used by TypeScript to generate frontend and backend project structures.",
-                    "Built internal npm tools to support and improve development workflows across the end-to-end product delivery process.",
-                    "Created and maintained custom ESLint rules to improve code quality and consistency.",
-                    "Wrote and maintained unit tests to ensure code correctness and reliability."
-                ],
-                userId: 0
-            },
-            {
-                id: 1,
-                company: "Primaris",
-                startDate: "2025-06-01",
-                jobTitle: "RPA Software Engineer",
-                description: [
-                    "Designed, developed, deployed, and maintained UiPath RPA automations using .NET/C#.",
-                    "Gathered business requirements and worked directly with clients to design automation solutions.",
-                    "Developed a large-scale UiPath automation for KSeF 2.0 integration.",
-                    "Built an internal C#/.NET library with custom UiPath activities for KSeF 2.0 integration.",
-                    "Integrated RPA solutions with REST APIs and Microsoft SQL Server.",
-                    "Provided production support and maintenance for deployed automations."
-                ],
-                userId: 0
-            }
-        ]);
+export class ExperienceMockService {
+    private experiences: ExperienceMockModel[] = [
+        {
+            id: "b5aa0f18-56b5-44f6-bc8d-83fa86e69873",
+            company: "APR System",
+            startDate: "2020-07-01",
+            endDate: "2025-02-01",
+            jobTitle: "Software Engineer",
+            description: [],
+            userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+        },
+        {
+            id: "52da20ef-5813-4caf-af35-fb6239be0f0b",
+            company: "Primaris",
+            startDate: "2025-06-01",
+            jobTitle: "Software Engineer",
+            description: [],
+            userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+        }
+    ];
+
+    uuidUtil = inject(UUIDUtil);
+
+    create(experienceToCreate: Omit<ExperienceMockModel, "id">) {
+        const newExperience: ExperienceMockModel = {
+            ...experienceToCreate,
+            id: this.uuidUtil.generate()
+        };
+        this.experiences.push(newExperience);
+        return of(newExperience);
+    }
+
+    read(id: string) {
+        return of(this.experiences.find(experience => experience.id === id));
+    }
+
+    readAll() {
+        return of(this.experiences);
+    }
+
+    update(experienceToUpdate: ExperienceMockModel) {
+        this.experiences = this.experiences.map(experience => experience.id === experienceToUpdate.id ? experienceToUpdate : experience);
+        return of(experienceToUpdate);
+    }
+
+    delete(id: string) {
+        const experienceToDelete = this.experiences.find(experience => experience.id === id);
+        this.experiences = this.experiences.filter(experience => experience.id !== id);
+        return of(experienceToDelete);
     }
 }

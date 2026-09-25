@@ -1,0 +1,103 @@
+import { TestBed } from "@angular/core/testing";
+import { combineLatest } from "rxjs";
+import { Mocked } from "vitest";
+
+import { ExperienceApiService } from "./experience-api.service";
+import { ExperienceApiModel } from "../model/experience-api.model";
+import { UUIDUtil } from "../../util/uuid.util";
+
+const EXPERIENCE_APR: ExperienceApiModel = {
+    id: "b5aa0f18-56b5-44f6-bc8d-83fa86e69873",
+    company: "APR System",
+    startDate: "2020-07-01",
+    endDate: "2025-02-01",
+    jobTitle: "Software Engineer",
+    description: [],
+    userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+};
+
+const EXPERIENCE_Primaris: ExperienceApiModel = {
+    id: "52da20ef-5813-4caf-af35-fb6239be0f0b",
+    company: "Primaris",
+    startDate: "2025-06-01",
+    jobTitle: "Software Engineer",
+    description: [],
+    userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+};
+
+const NEW_EXPERIENCE: ExperienceApiModel = {
+    id: "fa7ae503-62f0-4e54-b5cb-16a137cbf905",
+    company: "Google",
+    startDate: "2021-06-01",
+    endDate: "2023-09-01",
+    jobTitle: "Software Engineer",
+    description: [],
+    userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+};
+
+const uuidUtil: Mocked<UUIDUtil> = {
+  generate: vi.fn(),
+};
+
+describe("Experience API Service", () => {
+    let experienceApiService: ExperienceApiService;
+    
+    beforeEach(() => {
+        uuidUtil.generate.mockReturnValue("fa7ae503-62f0-4e54-b5cb-16a137cbf905");
+        TestBed.configureTestingModule({
+            providers: [
+                { provide: UUIDUtil, useValue: uuidUtil }
+            ],
+        });
+        experienceApiService = TestBed.inject(ExperienceApiService);
+    });
+
+    it("Should create the experience by the API correctly.", () => {
+        combineLatest({
+            experience: experienceApiService.create(NEW_EXPERIENCE),
+            experiences: experienceApiService.readAll()
+        }).subscribe(({ experience, experiences }) => {
+            expect(experience).toEqual(NEW_EXPERIENCE);
+            expect(experiences).toEqual([EXPERIENCE_APR, EXPERIENCE_Primaris, NEW_EXPERIENCE]);
+        });
+    });
+
+    it("Should read the first experiences from the API correctly.", () => {
+        experienceApiService.read("b5aa0f18-56b5-44f6-bc8d-83fa86e69873").subscribe(experience => {
+            expect(experience).toEqual(EXPERIENCE_APR);
+        });
+    });
+
+    it("Should read undefined if the experience with given id does not exists.", () => {
+        experienceApiService.read("18c09fe0-5d67-4b0a-bc1e-0c9d59c64402").subscribe(experience => {
+            expect(experience).toEqual(undefined);
+        });
+    });
+
+    it("Should read all experiences from the API correctly.", () => {
+        experienceApiService.readAll().subscribe(experiences => {
+            expect(experiences).toEqual([EXPERIENCE_APR, EXPERIENCE_Primaris]);
+        });
+    });
+
+    it("Should update the experience from the API correctly.", () => {
+        const UPDATED_EXPERIENCE = { ...EXPERIENCE_APR, company: "Abc" };
+        combineLatest({
+            experience: experienceApiService.update(UPDATED_EXPERIENCE),
+            experiences: experienceApiService.readAll()
+        }).subscribe(({ experience, experiences }) => {
+            expect(experience).toEqual(UPDATED_EXPERIENCE);
+            expect(experiences).toEqual([UPDATED_EXPERIENCE, EXPERIENCE_Primaris]);
+        });
+    });
+
+    it("Should delete the expereince from the API correctly.", () => {
+        combineLatest({
+            experience: experienceApiService.delete("b5aa0f18-56b5-44f6-bc8d-83fa86e69873"),
+            experiences: experienceApiService.readAll()
+        }).subscribe(({ experience, experiences }) => {
+            expect(experience).toEqual(EXPERIENCE_APR);
+            expect(experiences).toEqual([EXPERIENCE_Primaris]);
+        });
+    });
+});

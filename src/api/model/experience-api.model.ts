@@ -1,4 +1,4 @@
-export interface ExperienceMockModel {
+export interface ExperienceApiModel {
     id: string;
     company: string;
     startDate: string;
