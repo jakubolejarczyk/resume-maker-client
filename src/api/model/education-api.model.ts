@@ -1,4 +1,4 @@
-export interface EducationMockModel {
+export interface EducationApiModel {
     id: string;
     startYear: number;
     endYear: number;
