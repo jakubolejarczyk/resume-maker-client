@@ -13,7 +13,13 @@ export class ExperienceMockService {
             startDate: "2020-07-01",
             endDate: "2025-02-01",
             jobTitle: "Software Engineer",
-            description: [],
+            description: [
+                "Developed and maintained full-stack applications using Angular and ASP.NET, working across frontend components, business logic, backend services, REST APIs, and data integration.",
+                "Designed and implemented a model-driven code generation platform that automatically generated frontend and backend structures from UML/domain models, reducing development time and allowing developers to focus on business logic.",
+                "Developed internal npm tooling to standardize and streamline development workflows, improving team productivity and ensuring a consistent, well-structured process across the software delivery lifecycle.",
+                "Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.",
+                "Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability."
+            ],
             userId: "10229cd3-5321-4692-9996-6d14d01558aa"
         },
         {
