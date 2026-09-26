@@ -1,5 +1,6 @@
-export interface UserApiModel {
-    id: string;
+import { BaseApiModel } from "./base-api.model";
+
+export interface UserApiModel extends BaseApiModel {
     firstName: string;
     lastName: string;
     jobTitle: string;

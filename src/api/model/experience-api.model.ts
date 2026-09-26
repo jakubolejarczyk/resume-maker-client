@@ -1,5 +1,6 @@
-export interface ExperienceApiModel {
-    id: string;
+import { BaseApiModel } from "./base-api.model";
+
+export interface ExperienceApiModel extends BaseApiModel {
     company: string;
     startDate: string;
     endDate?: string;
