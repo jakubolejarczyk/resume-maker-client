@@ -27,7 +27,13 @@ const EXPERIENCE_Primaris: ExperienceApiModel = {
     company: "Primaris",
     startDate: "2025-06-01",
     jobTitle: "Software Engineer",
-    description: [],
+    description: [
+        "Designed, developed, deployed, and maintained UiPath RPA solutions using .NET/C# to automate repetitive, time-consuming manual processes, reducing manual effort for non-technical employees and streamlining business workflows.",
+        "Developed an internal C#/.NET library with custom UiPath activities that enabled seamless integration with KSeF 2.0, providing reusable components for implementing KSeF functionality across RPA workflows.",
+        "Developed and maintained a UiPath automation for KSeF 2.0 that automated key KSeF operations, reducing time-consuming manual work and streamlining the company's invoicing processes.",
+        "Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.",
+        "Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions."
+    ],
     userId: "10229cd3-5321-4692-9996-6d14d01558aa"
 };
 
