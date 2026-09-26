@@ -1,4 +1,4 @@
-export interface SkillMockModel {
+export interface SkillApiModel {
     id: string;
     category: string;
     skills: string[];

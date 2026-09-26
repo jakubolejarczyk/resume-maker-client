@@ -1,89 +1,47 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
+import { of } from "rxjs";
 
-import { BaseMockService } from "./base-mock.service";
 import { SkillMockModel } from "../model/skill-mock.model";
+import { UUIDUtil } from "../../util/uuid.util";
 
 @Injectable({ providedIn: "root" })
-export class SkillMockService extends BaseMockService<SkillMockModel> {
-    constructor() {
-        super([
-            {
-                id: 0,
-                category: "Programming Languages",
-                skills: [
-                    "C#",
-                    "JavaScript",
-                    "TypeScript"
-                ],
-                userId: 0
-            },
-            {
-                id: 1,
-                category: "Frontend",
-                skills: [
-                    "HTML",
-                    "CSS",
-                    "SASS",
-                    "Angular",
-                    "RxJS",
-                    "NGRX",
-                    "Storybook",
-                    "PrimeNG",
-                    "Jest"
-                ],
-                userId: 0
-            },
-            {
-                id: 2,
-                category: "Backend",
-                skills: [
-                    "ASP.NET",
-                    "Entity Framework",
-                    "SQL"
-                ],
-                userId: 0
-            },
-            {
-                id: 3,
-                category: "RPA",
-                skills: [
-                    "UiPath"
-                ],
-                userId: 0
-            },
-            {
-                id: 4,
-                category: "Tools",
-                skills: [
-                    "Docker",
-                    "Git",
-                    "GitHub",
-                    "GitLab",
-                    "npm",
-                    "pnpm",
-                    "ESLint",
-                    "Prettier",
-                    "Stylelint",
-                    "Postman",
-                    "Nx",
-                    "Windows",
-                    "Linux",
-                    "Visual Paradigm",
-                    "Webstorm",
-                    "Visual Studio",
-                    "Visual Studio Code"
-                ],
-                userId: 0
-            },
-            {
-                id: 5,
-                category: "Languages",
-                skills: [
-                    "English",
-                    "Polish"
-                ],
-                userId: 0
-            }
-        ]);
+export class SkillMockService {
+    private skills: SkillMockModel[] = [
+        {
+            id: "dd15a80e-7ea6-43da-a027-da762387ea2f",
+            category: "",
+            skills: [],
+            userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+        }
+    ];
+
+    uuidUtil = inject(UUIDUtil);
+
+    create(skillToCreate: Omit<SkillMockModel, "id">) {
+        const newSkill: SkillMockModel = {
+            ...skillToCreate,
+            id: this.uuidUtil.generate()
+        };
+        this.skills.push(newSkill);
+        return of(newSkill);
+    }
+
+    read(id: string) {
+        return of(this.skills.find(skill => skill.id === id));
+    }
+
+    readAll() {
+        return of(this.skills);
+    }
+
+    update(skillToUpdate: SkillMockModel) {
+        this.skills = this.skills.map(skill => skill.id === skillToUpdate.id ? skillToUpdate : skill);
+        return of(skillToUpdate);
+    }
+
+    delete(id: string) {
+        const skillToDelete = this.skills.find(skill => skill.id === id);
+        this.skills = this.skills.filter(skill => skill.id !== id);
+        return of(skillToDelete);
     }
 }
