@@ -5,4 +5,5 @@ import { Component } from "@angular/core";
     templateUrl: "./users-form-create.component.html",
     styleUrl: "./users-form-create.component.scss",
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class UsersFormCreateComponent {}

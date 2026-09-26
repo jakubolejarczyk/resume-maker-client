@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class SwitchMenuIsOpen {
     static readonly type = "[NavStoreState] Switch Menu Is Open";
 }

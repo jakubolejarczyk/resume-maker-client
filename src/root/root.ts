@@ -9,4 +9,5 @@ import { NavComponent } from "../component/nav/nav.component";
     styleUrl: "./root.scss",
     imports: [RouterOutlet, NavComponent]
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class Root {}

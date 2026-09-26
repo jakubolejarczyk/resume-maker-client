@@ -8,4 +8,5 @@ import { UsersTableComponent } from "../../component/users-table/users-table.com
     styleUrl: "./users.view.scss",
     imports: [UsersTableComponent]
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class UsersView {}

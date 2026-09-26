@@ -5,4 +5,5 @@ import { Component } from "@angular/core";
     templateUrl: "./resumes.view.html",
     styleUrl: "./resumes.view.scss"
 })
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class ResumesView {}

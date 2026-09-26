@@ -11,7 +11,7 @@ export class BaseMockService<T extends BaseMockModel = BaseMockModel> {
 
     create(itemToCreate: Omit<T, "id">) {
         const newId = this.uuidUtil.generate();
-        const newItem = <T> { ...itemToCreate, id: newId };
+        const newItem = { ...itemToCreate, id: newId } as T;
         this.items.push(newItem);
         return of(newItem);
     }
