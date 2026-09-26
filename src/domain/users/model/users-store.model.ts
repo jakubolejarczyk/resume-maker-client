@@ -1,3 +1,3 @@
 export interface UsersStoreModel {
-    dto: any;
+    dto: string;
 }

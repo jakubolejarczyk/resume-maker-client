@@ -1,4 +1,4 @@
-export const USERS_DTO_MOCK: any = {
+export const USERS_DTO_MOCK = {
     users: [
         {
             data: {
