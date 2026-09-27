@@ -7,6 +7,7 @@
     "build": "ng build --base-href /resume-maker-client/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "npx eslint . --fix",
     "storybook": "ng run resume-maker-client:storybook",
     "build-storybook": "ng run resume-maker-client:build-storybook"
   },

@@ -49,12 +49,9 @@ describe("Base API Service", () => {
         testUserService = TestBed.inject(TestUserService);
     });
 
-    it("Should create a new item correctly", () => {
+    it("Should create the new test user correctly", () => {
         combineLatest({
-            testUser: testUserService.create({
-                firstName: jamesBrown.firstName,
-                lastName: jamesBrown.lastName
-            }),
+            testUser: testUserService.create({ firstName: jamesBrown.firstName, lastName: jamesBrown.lastName }),
             testUsers: testUserService.readAll()
         }).subscribe(({ testUser, testUsers }) => {
             expect(testUser).toEqual(jamesBrown);
@@ -62,19 +59,25 @@ describe("Base API Service", () => {
         });
     });
 
-    it("Should read an item correctly", () => {
+    it("Should read the test user correctly", () => {
         testUserService.read("98945f79-6293-4e98-8756-bc471d956fda").subscribe(testUser => {
             expect(testUser).toEqual(johnSmith);
         });
     });
 
-    it("Should all items correctly", () => {
+    it("Should return undefined for not existing test user", () => {
+        testUserService.read("97fb3e17-75b2-4228-877a-fbb86b0148b7").subscribe(testUser => {
+            expect(testUser).toBeUndefined();
+        });
+    });
+
+    it("Should read all test users correctly", () => {
         testUserService.readAll().subscribe(testUsers => {
             expect(testUsers).toEqual([johnSmith]);
         });
     });
 
-    it("Should update item correctly", () => {
+    it("Should update the test user correctly", () => {
         const jamesSmith: TestUserModel = { ...johnSmith, firstName: "James" };
         combineLatest({
             testUser: testUserService.update(jamesSmith),
@@ -85,7 +88,7 @@ describe("Base API Service", () => {
         });
     });
 
-    it("Should delete item correctly", () => {
+    it("Should delete the test user correctly", () => {
         combineLatest({
             testUser: testUserService.delete("98945f79-6293-4e98-8756-bc471d956fda"),
             testUsers: testUserService.readAll()
