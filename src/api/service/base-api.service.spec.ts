@@ -14,7 +14,7 @@ interface TestUserMockModel extends BaseMockModel {
     lastName: string;
 }
 
-class TestUserMockService extends BaseMockService<TestUserMockModel> {
+export class TestUserMockService extends BaseMockService<TestUserMockModel> {
     constructor() {
         super([
             {
