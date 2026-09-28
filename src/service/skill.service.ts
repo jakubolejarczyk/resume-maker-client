@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 
 import { BaseService } from "./base.service";
-import { UserApiService } from "../api/service/user-api.service";
+import { SkillApiService } from "../api/service/skill-api.service";
 
 @Injectable({ providedIn: "root" })
-export class UserService extends BaseService {
+export class SkillService extends BaseService {
     constructor() {
-        super(UserApiService);
+        super(SkillApiService);
     }
 }
