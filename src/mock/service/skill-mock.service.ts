@@ -21,6 +21,7 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 id: "cf9cd6f5-e97e-4cea-bdbd-78f13c20cbc1",
                 category: "Developer Tools",
                 skills: [
+                    "Git",
                     "Vitest",
                     "ESLint",
                     "typescript-eslint"
