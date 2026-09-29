@@ -22,4 +22,10 @@ export class BaseService<T extends BaseApiModel = BaseApiModel> {
             switchMap(items => this.store.dispatch(new this.readAllAction(items)))
         );
     }
+
+    delete(id: string): Observable<void> {
+        return this.baseApiService.delete(id).pipe(
+            switchMap(() => this.readAll())
+        );
+    }
 }

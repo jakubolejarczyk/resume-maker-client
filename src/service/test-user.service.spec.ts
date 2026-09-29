@@ -34,4 +34,11 @@ describe("Test User Service", () => {
             ]);
         });
     });
+
+    it("Should delete the test user correctly", () => {
+        testUserService.delete("98945f79-6293-4e98-8756-bc471d956fda").subscribe(() => {
+            const testUsers = store.selectSnapshot(TestUserStoreState.getTestUsers);
+            expect(testUsers).toEqual([]);
+        });
+    });
 });
