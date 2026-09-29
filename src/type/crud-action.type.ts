@@ -1,1 +1,0 @@
-export type CrudActionType = "create" | "read" | "update" | "delete";

@@ -1,25 +1,25 @@
 import { inject, ProviderToken } from "@angular/core";
 import { Store } from "@ngxs/store";
+import { Observable, switchMap } from "rxjs";
 
 import { BaseApiService } from "../api/service/base-api.service";
 import { BaseApiModel } from "../api/model/base-api.model";
-import { Observable } from "rxjs";
+import { TUnknown } from "../type/common.type";
 
-export abstract class BaseService<T extends BaseApiModel = BaseApiModel> {
+export class BaseService<T extends BaseApiModel = BaseApiModel> {
     protected baseApiService: BaseApiService<T>;
     protected store = inject(Store);
 
-    constructor(protected token: ProviderToken<BaseApiService<T>>) {
+    constructor(
+        public token: ProviderToken<BaseApiService<T>>,
+        private readonly readAllAction: new (items: T[]) => TUnknown
+    ) {
         this.baseApiService = inject(token);
     }
 
-    abstract create(): Observable<T>;
-
-    abstract read(id: string): Observable<T | undefined>;
-
-    abstract readAll(): Observable<T[]>;
-
-    abstract update(): Observable<T>;
-
-    abstract delete(id: string): Observable<T | undefined>;
+    readAll(): Observable<void> {
+        return this.baseApiService.readAll().pipe(
+            switchMap(items => this.store.dispatch(new this.readAllAction(items)))
+        );
+    }
 }

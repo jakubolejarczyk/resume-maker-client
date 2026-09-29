@@ -22,38 +22,6 @@ describe("Test User Service", () => {
         store = TestBed.inject(Store);
     });
 
-    it("Should read the test user correctly", () => {
-        testUserService.read("98945f79-6293-4e98-8756-bc471d956fda").subscribe(testUser => {
-            const testUsers = store.selectSnapshot(TestUserStoreState.getTestUsers);
-            expect(testUser).toEqual({
-                id: "98945f79-6293-4e98-8756-bc471d956fda",
-                firstName: "John",
-                lastName: "Smith"
-            });
-            expect(testUsers).toEqual([
-                {
-                    id: "98945f79-6293-4e98-8756-bc471d956fda",
-                    firstName: "John",
-                    lastName: "Smith"
-                }
-            ]);
-        });
-    });
-
-    it("Should return undefined for not existing test user", () => {
-        testUserService.read("97fb3e17-75b2-4228-877a-fbb86b0148b7").subscribe(testUser => {
-            const testUsers = store.selectSnapshot(TestUserStoreState.getTestUsers);
-            expect(testUser).toBeUndefined();
-            expect(testUsers).toEqual([
-                {
-                    id: "98945f79-6293-4e98-8756-bc471d956fda",
-                    firstName: "John",
-                    lastName: "Smith"
-                }
-            ]);
-        });
-    });
-
     it("Should read all test users correctly", () => {
         testUserService.readAll().subscribe(() => {
             const testUsers = store.selectSnapshot(TestUserStoreState.getTestUsers);
@@ -64,18 +32,6 @@ describe("Test User Service", () => {
                     lastName: "Smith"
                 }
             ]);
-        });
-    });
-
-    it("Should delete the test user correctly", () => {
-        testUserService.delete("98945f79-6293-4e98-8756-bc471d956fda").subscribe(testUser => {
-            const testUsers = store.selectSnapshot(TestUserStoreState.getTestUsers);
-            expect(testUser).toEqual({
-                id: "98945f79-6293-4e98-8756-bc471d956fda",
-                firstName: "John",
-                lastName: "Smith"
-            });
-            expect(testUsers).toEqual([]);
         });
     });
 });

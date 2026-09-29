@@ -20,6 +20,6 @@ export class TestUserStoreState {
   @Action(ReadAllTestUserStoreAction)
   readAll(context: StateContext<TestUserStoreModel>, action: ReadAllTestUserStoreAction) {
     const state = context.getState();
-    context.setState({ ...state, testUsers: action.testUsers });
+    context.setState({ ...state, testUsers: action.items });
   }
 }
