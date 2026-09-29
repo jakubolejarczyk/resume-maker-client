@@ -26,7 +26,7 @@ export class TestUserMockService extends BaseMockService<TestUserMockModel> {
     }
 }
 
-interface TestUserApiModel extends BaseApiModel {
+export interface TestUserApiModel extends BaseApiModel {
     firstName: string;
     lastName: string;
 }

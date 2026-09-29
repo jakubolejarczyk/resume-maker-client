@@ -1,31 +1,34 @@
 import { inject, ProviderToken } from "@angular/core";
+import { Store } from "@ngxs/store";
 
 import { BaseApiService } from "../api/service/base-api.service";
+import { BaseApiModel } from "../api/model/base-api.model";
 
-export class BaseService {
-    private baseApiService: BaseApiService;
+export class BaseService<T extends BaseApiModel = BaseApiModel> {
+    protected baseApiService: BaseApiService<T>;
+    protected store = inject(Store);
 
-    constructor(protected token: ProviderToken<BaseApiService>) {
+    constructor(protected token: ProviderToken<BaseApiService<T>>) {
         this.baseApiService = inject(token);
     }
 
     create() {
-        return true;
+        throw new Error("Not implemented.");
     }
 
     read() {
-        return true;
+        throw new Error("Not implemented.");
     }
 
     readAll() {
-        return true;
+        throw new Error("Not implemented.");
     }
 
     update() {
-        return true;
+        throw new Error("Not implemented.");
     }
 
     delete() {
-        return true
+        throw new Error("Not implemented.");
     }
 }
