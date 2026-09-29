@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { switchMap } from "rxjs";
+import { map, Observable, switchMap, tap } from "rxjs";
 
 import { BaseService } from "./base.service";
 import { TestUserApiModel, TestUserApiService } from "../api/service/base-api.service.spec";
@@ -11,9 +11,37 @@ export class TestUserService extends BaseService<TestUserApiModel> {
         super(TestUserApiService);
     }
 
-    override readAll() {
+    override create(): Observable<TestUserApiModel> {
+        throw new Error("Method not implemented.");
+    }
+    
+    override read(id: string): Observable<TestUserApiModel | undefined> {
+        return this.baseApiService.read(id).pipe(
+            switchMap(testUser => {
+                return this.readAll().pipe(
+                    map(() => testUser)
+                );
+            })
+        );
+    }
+    
+    override readAll(): Observable<TestUserApiModel[]> {
         return this.baseApiService.readAll().pipe(
-            switchMap(testUsers => this.store.dispatch(new ReadAllTestUserStoreAction(testUsers)))
+            tap(testUsers => this.store.dispatch(new ReadAllTestUserStoreAction(testUsers)))
+        );
+    }
+    
+    override update(): Observable<TestUserApiModel> {
+        throw new Error("Method not implemented.");
+    }
+    
+    override delete(id: string): Observable<TestUserApiModel | undefined> {
+        return this.baseApiService.delete(id).pipe(
+            switchMap(testUser => {
+                return this.readAll().pipe(
+                    map(() => testUser)
+                );
+            })
         );
     }
 }

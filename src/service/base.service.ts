@@ -3,8 +3,9 @@ import { Store } from "@ngxs/store";
 
 import { BaseApiService } from "../api/service/base-api.service";
 import { BaseApiModel } from "../api/model/base-api.model";
+import { Observable } from "rxjs";
 
-export class BaseService<T extends BaseApiModel = BaseApiModel> {
+export abstract class BaseService<T extends BaseApiModel = BaseApiModel> {
     protected baseApiService: BaseApiService<T>;
     protected store = inject(Store);
 
@@ -12,23 +13,13 @@ export class BaseService<T extends BaseApiModel = BaseApiModel> {
         this.baseApiService = inject(token);
     }
 
-    create() {
-        throw new Error("Not implemented.");
-    }
+    abstract create(): Observable<T>;
 
-    read() {
-        throw new Error("Not implemented.");
-    }
+    abstract read(id: string): Observable<T | undefined>;
 
-    readAll() {
-        throw new Error("Not implemented.");
-    }
+    abstract readAll(): Observable<T[]>;
 
-    update() {
-        throw new Error("Not implemented.");
-    }
+    abstract update(): Observable<T>;
 
-    delete() {
-        throw new Error("Not implemented.");
-    }
+    abstract delete(id: string): Observable<T | undefined>;
 }
