@@ -24,7 +24,8 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "Git",
                     "Vitest",
                     "ESLint",
-                    "typescript-eslint"
+                    "typescript-eslint",
+                    "Microsoft Visual Studio Code"
                 ],
                 userId: "10229cd3-5321-4692-9996-6d14d01558aa"
             },
