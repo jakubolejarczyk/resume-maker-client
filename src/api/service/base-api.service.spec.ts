@@ -33,6 +33,7 @@ describe("Base Api Service", () => {
             ]
         });
         service = TestBed.inject(AnimalApiService);
+        service.baseMockService.nextId = 2;
     });
 
     it("Should return a success response and return the item to create for create method.", () => {
@@ -76,14 +77,17 @@ describe("Base Api Service", () => {
         });
     });
 
-    // it("Should return an error response and return an empty array if no items are found for read all method.", () => {
-    //     service = new BaseMockService<AnimalMockModel>([], 0);
-    //     expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
-    //         success: false,
-    //         message: "No items found.",
-    //         body: []
-    //     });
-    // });
+    it("Should return an error response and return an empty array if no items are found for read all method.", () => {
+        service.baseMockService.items = [];
+        service.baseMockService.nextId = 0;
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+                success: false,
+                message: "No items found.",
+                body: []
+            });
+        });
+    });
 
     it("Should return a success response and return all items if items are found for read all method.", () => {
         service.readAll().subscribe(response => {

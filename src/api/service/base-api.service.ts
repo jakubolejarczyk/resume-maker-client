@@ -5,9 +5,9 @@ import { BaseMockService } from "../../mock/service/base-mock.service";
 import { BaseApiModel } from "../model/base-api.model";
 
 export class BaseApiService<TModel extends BaseApiModel> {
-    private baseMockService: BaseMockService<TModel>;
+    baseMockService: BaseMockService<TModel>;
 
-    constructor(protected readonly token: ProviderToken<BaseMockService<TModel>>) {
+    constructor(private readonly token: ProviderToken<BaseMockService<TModel>>) {
         this.baseMockService = inject(token);
     }
 

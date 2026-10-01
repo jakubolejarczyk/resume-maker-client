@@ -11,7 +11,7 @@ export class AnimalMockService extends BaseMockService<AnimalMockModel> {
         super([
             { id: 0, name: "Dog" },
             { id: 1, name: "Cat" }
-        ], 2);
+        ]);
     }
 }
 
@@ -20,6 +20,7 @@ describe("Base Mock Service", () => {
 
     beforeEach(() => {
         service = new AnimalMockService();
+        service.nextId = 2;
     });
 
     it("Should return a success response and return the item to create for create method.", () => {
@@ -56,7 +57,8 @@ describe("Base Mock Service", () => {
     });
 
     it("Should return an error response and return an empty array if no items are found for read all method.", () => {
-        service = new BaseMockService<AnimalMockModel>([], 0);
+        service = new BaseMockService<AnimalMockModel>([]);
+        service.nextId = 0;
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
             success: false,
             message: "No items found.",

@@ -2,12 +2,13 @@ import { BaseMockModel } from "../model/base-mock.model";
 import { ResponseMockModel } from "../model/response-mock.model";
 
 export class BaseMockService<TModel extends BaseMockModel> {
-    constructor(private items: TModel[], private nextId: number) {}
+    nextId = 0;
+
+    constructor(public items: TModel[]) {}
 
     create(itemToCreate: Omit<TModel, "id">): ResponseMockModel<TModel> {
-        const newUser = { ...itemToCreate, id: this.nextId } as TModel;
+        const newUser = { ...itemToCreate, id: this.nextId++ } as TModel;
         this.items.push(newUser);
-        this.nextId++;
         const response: ResponseMockModel<TModel> = {
             success: true,
             message: "Successfully created item.",
