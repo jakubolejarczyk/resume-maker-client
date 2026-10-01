@@ -6,5 +6,5 @@ export interface ExperienceMockModel extends BaseMockModel {
     endDate?: string;
     jobTitle: string;
     description: string[];
-    userId: string;
+    userId: number;
 }

@@ -3,7 +3,7 @@ import { provideStore, Store } from "@ngxs/store";
 import { Mocked } from "vitest";
 
 import { TestUserService } from "./test-user.service";
-import { TestUserApiService, TestUserMockService } from "../api/service/base-api.service.spec";
+import { TestUserApiService, TestUserMockService } from "../api/service/base-api.service.specold";
 import { TestUserStoreState } from "../store/state/test-user-store.state";
 import { UUIDUtil } from "../util/uuid.util";
 

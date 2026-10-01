@@ -8,7 +8,7 @@ export class UserMockService extends BaseMockService<UserMockModel> {
     constructor() {
         super([
             {
-                id: "10229cd3-5321-4692-9996-6d14d01558aa",
+                id: 0,
                 firstName: "Jakub",
                 lastName: "Olejarczyk",
                 jobTitle: "Senior Software Engineer",

@@ -8,7 +8,7 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
     constructor() {
         super([
             {
-                id: "b5aa0f18-56b5-44f6-bc8d-83fa86e69873",
+                id: 0,
                 company: "APR System",
                 startDate: "2020-07-01",
                 endDate: "2025-02-01",
@@ -20,10 +20,10 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.",
                     "Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability."
                 ],
-                userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+                userId: 0
             },
             {
-                id: "52da20ef-5813-4caf-af35-fb6239be0f0b",
+                id: 1,
                 company: "Primaris",
                 startDate: "2025-06-01",
                 jobTitle: "Software Engineer",
@@ -34,7 +34,7 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.",
                     "Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions."
                 ],
-                userId: "10229cd3-5321-4692-9996-6d14d01558aa"
+                userId: 0
             }
         ]);
     }

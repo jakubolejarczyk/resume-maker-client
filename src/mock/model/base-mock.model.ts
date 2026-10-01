@@ -1,3 +1,3 @@
 export interface BaseMockModel {
-    id: string;
+    id: number;
 }
