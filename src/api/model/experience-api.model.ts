@@ -6,5 +6,5 @@ export interface ExperienceApiModel extends BaseApiModel {
     endDate?: string;
     jobTitle: string;
     description: string[];
-    userId: string;
+    userId: number;
 }

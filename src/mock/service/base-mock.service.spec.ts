@@ -6,7 +6,7 @@ export interface AnimalMockModel extends BaseMockModel {
     name: string;
 }
 
-class AnimalMockService extends BaseMockService<AnimalMockModel> {
+export class AnimalMockService extends BaseMockService<AnimalMockModel> {
     constructor() {
         super([
             { id: 0, name: "Dog" },

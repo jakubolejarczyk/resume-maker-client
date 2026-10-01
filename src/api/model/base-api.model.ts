@@ -1,3 +1,3 @@
 export interface BaseApiModel {
-    id: string;
+    id: number;
 }

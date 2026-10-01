@@ -25,6 +25,6 @@ export class EducationMockService extends BaseMockService<EducationMockModel> {
                 institutionName: "Kielce University of Technology",
                 userId: 0
             }
-        ]);
+        ], 0);
     }
 }

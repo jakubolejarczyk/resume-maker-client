@@ -1,32 +1,33 @@
 import { inject, ProviderToken } from "@angular/core";
+import { of } from "rxjs";
 
-import { BaseApiModel } from "../model/base-api.model";
 import { BaseMockService } from "../../mock/service/base-mock.service";
+import { BaseApiModel } from "../model/base-api.model";
 
-export class BaseApiService<T extends BaseApiModel = BaseApiModel> {
-    private baseMockService: BaseMockService<T>;
+export class BaseApiService<TModel extends BaseApiModel> {
+    private baseMockService: BaseMockService<TModel>;
 
-    constructor(protected token: ProviderToken<BaseMockService<T>>) {
+    constructor(protected readonly token: ProviderToken<BaseMockService<TModel>>) {
         this.baseMockService = inject(token);
     }
 
-    create(itemToCreate: Omit<T, "id">) {
-        return this.baseMockService.create(itemToCreate);
+    create(itemToCreate: Omit<TModel, "id">) {
+        return of(this.baseMockService.create(itemToCreate));
     }
 
-    read(id: string) {
-        return this.baseMockService.read(id);
+    read(id: number) {
+        return of(this.baseMockService.read(id));
     }
 
     readAll() {
-        return this.baseMockService.readAll();
+        return of(this.baseMockService.readAll());
     }
 
-    update(itemToUpdate: T) {
-        return this.baseMockService.update(itemToUpdate);
+    update(itemToUpdate: TModel) {
+        return of(this.baseMockService.update(itemToUpdate));
     }
 
-    delete(id: string) {
-        return this.baseMockService.delete(id);
+    delete(id: number) {
+        return of(this.baseMockService.delete(id));
     }
 }

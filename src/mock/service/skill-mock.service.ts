@@ -47,6 +47,6 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 ],
                 userId: 0
             }
-        ]);
+        ], 0);
     }
 }
