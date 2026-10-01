@@ -2,7 +2,7 @@ import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
-import { DeleteUser } from "../../store/action/user-store.action";
+import { DeleteUser } from "../../store/action/animal-store.action";
 import { UsersDtoService } from "../../domain/users/service/users-dto.service";
 
 @Component({

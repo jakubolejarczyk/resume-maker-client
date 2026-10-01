@@ -11,6 +11,8 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 id: 0,
                 category: "Programming Language",
                 skills: [
+                    "JavaScript",
+                    "TypeScript",
                     "C#"
                 ],
                 userId: 0
@@ -47,6 +49,6 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 ],
                 userId: 0
             }
-        ], 0);
+        ]);
     }
 }

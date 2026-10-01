@@ -1,8 +1,9 @@
 import { inject, ProviderToken } from "@angular/core";
-import { of } from "rxjs";
+import { Observable, of } from "rxjs";
 
 import { BaseMockService } from "../../mock/service/base-mock.service";
 import { BaseApiModel } from "../model/base-api.model";
+import { ResponseApiModel } from "../model/response-api.model";
 
 export class BaseApiService<TModel extends BaseApiModel> {
     baseMockService: BaseMockService<TModel>;
@@ -11,23 +12,23 @@ export class BaseApiService<TModel extends BaseApiModel> {
         this.baseMockService = inject(token);
     }
 
-    create(itemToCreate: Omit<TModel, "id">) {
+    create(itemToCreate: Omit<TModel, "id">): Observable<ResponseApiModel<TModel | undefined>> {
         return of(this.baseMockService.create(itemToCreate));
     }
 
-    read(id: number) {
+    read(id: number): Observable<ResponseApiModel<TModel | undefined>> {
         return of(this.baseMockService.read(id));
     }
 
-    readAll() {
+    readAll(): Observable<ResponseApiModel<TModel[]>> {
         return of(this.baseMockService.readAll());
     }
 
-    update(itemToUpdate: TModel) {
+    update(itemToUpdate: TModel): Observable<ResponseApiModel<TModel | undefined>> {
         return of(this.baseMockService.update(itemToUpdate));
     }
 
-    delete(id: number) {
+    delete(id: number): Observable<ResponseApiModel<TModel | undefined>> {
         return of(this.baseMockService.delete(id));
     }
 }

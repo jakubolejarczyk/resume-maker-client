@@ -9,7 +9,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/store/state/animal-store.state.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
