@@ -10,13 +10,7 @@ import { SkillStoreAction } from "../action/skill-store.action";
 
 @State<SkillStoreModel>({
   name: "skillStoreState",
-  defaults: {
-    success: true,
-    message: "",
-    isLoading: false,
-    items: [],
-    selectedItem: undefined
-  }
+  defaults: BaseStoreState.initState()
 })
 @Injectable({ providedIn: "root" })
 export class SkillStoreState extends BaseStoreState<SkillApiModel> {

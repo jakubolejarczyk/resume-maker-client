@@ -7,6 +7,16 @@ import { BaseStoreAction } from "../action/base-store.action";
 
 @Injectable()
 export class BaseStoreState<TModel extends BaseApiModel> {
+  static initState() {
+    return {
+      success: true,
+      message: "",
+      isLoading: false,
+      items: [],
+      selectedItem: undefined
+    };
+  }
+
   static getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return {
       success: state.success,

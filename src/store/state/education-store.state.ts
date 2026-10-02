@@ -10,13 +10,7 @@ import { EducationStoreAction } from "../action/education-store.action";
 
 @State<EducationStoreModel>({
   name: "educationStoreState",
-  defaults: {
-    success: true,
-    message: "",
-    isLoading: false,
-    items: [],
-    selectedItem: undefined
-  }
+  defaults: BaseStoreState.initState()
 })
 @Injectable({ providedIn: "root" })
 export class EducationStoreState extends BaseStoreState<EducationApiModel> {

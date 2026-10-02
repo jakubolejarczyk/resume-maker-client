@@ -10,13 +10,7 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
-  defaults: {
-    success: true,
-    message: "",
-    isLoading: false,
-    items: [],
-    selectedItem: undefined
-  }
+  defaults: BaseStoreState.initState()
 })
 @Injectable({ providedIn: "root" })
 export class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {

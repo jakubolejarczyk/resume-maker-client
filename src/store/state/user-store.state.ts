@@ -10,13 +10,7 @@ import { UserStoreAction } from "../action/user-store.action";
 
 @State<UserStoreModel>({
   name: "userStoreState",
-  defaults: {
-    success: true,
-    message: "",
-    isLoading: false,
-    items: [],
-    selectedItem: undefined
-  }
+  defaults: BaseStoreState.initState()
 })
 @Injectable({ providedIn: "root" })
 export class UserStoreState extends BaseStoreState<UserApiModel> {
