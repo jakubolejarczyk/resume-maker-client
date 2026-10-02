@@ -58,7 +58,7 @@ export namespace AnimalStoreAction {
   }
 })
 @Injectable()
-class AnimalStoreState extends BaseStoreState<AnimalApiModel> {
+export class AnimalStoreState extends BaseStoreState<AnimalApiModel> {
   @Selector()
   static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return super.getStatus(state);
@@ -115,16 +115,13 @@ class AnimalStoreState extends BaseStoreState<AnimalApiModel> {
   }
 }
 
+export const STORE_PROVIDERS = [AnimalStoreState, provideStore([AnimalStoreState])];
+
 describe("Store", () => {
     let store: Store;
 
     beforeEach(() => {
-      TestBed.configureTestingModule({
-          providers: [
-            AnimalStoreState,
-            provideStore([AnimalStoreState])
-          ]
-      });
+      TestBed.configureTestingModule({ providers: STORE_PROVIDERS });
       store = TestBed.inject(Store);
     });
 

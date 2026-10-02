@@ -15,6 +15,8 @@ export class AnimalMockService extends BaseMockService<AnimalMockModel> {
     }
 }
 
+export const MOCK_PROVIDERS = [AnimalMockService];
+
 describe("Base Mock Service", () => {
     let service: AnimalMockService;
 

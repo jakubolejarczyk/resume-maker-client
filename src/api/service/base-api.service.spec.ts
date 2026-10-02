@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
 
 import { BaseApiModel } from "../model/base-api.model";
 import { BaseApiService } from "./base-api.service";
-import { AnimalMockService } from "../../mock/service/base-mock.service.spec";
-import { TestBed } from "@angular/core/testing";
+import { AnimalMockService, MOCK_PROVIDERS } from "../../mock/service/base-mock.service.spec";
 import { ResponseApiModel } from "../model/response-api.model";
 
 export interface AnimalApiModel extends BaseApiModel {
@@ -17,16 +17,13 @@ export class AnimalApiService extends BaseApiService<AnimalApiModel> {
     }
 }
 
+export const API_PROVIDERS = [...MOCK_PROVIDERS, AnimalApiService];
+
 describe("Base Api Service", () => {
     let service: AnimalApiService;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            providers: [
-                AnimalMockService,
-                AnimalApiService
-            ]
-        });
+        TestBed.configureTestingModule({ providers: API_PROVIDERS });
         service = TestBed.inject(AnimalApiService);
         service.baseMockService.nextId = 2;
     });
