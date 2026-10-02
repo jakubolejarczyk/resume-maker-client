@@ -1,14 +1,14 @@
 import { Action, provideStore, Selector, State, StateContext, Store } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
+import { switchMap, tap } from "rxjs";
 
 import { AnimalApiModel } from "../../api/service/base-api.service.spec";
 import { BaseStoreModel } from "../model/base-store.model";
-import { switchMap, tap } from "rxjs";
 
 type AnimalStoreModel = BaseStoreModel<AnimalApiModel>;
 
-const ACTION_TYPE = "[AnimalStoreAction]";
+const ACTION_TYPE = "[AnimalStoreState]";
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 namespace AnimalStoreAction {
@@ -24,16 +24,34 @@ namespace AnimalStoreAction {
     constructor(public isLoading: boolean) {}
   }
 
-  export class AddItems {
-    static readonly type = `${ACTION_TYPE} AddItems`;
+  export class SetItems {
+    static readonly type = `${ACTION_TYPE} SetItems`;
 
     constructor(public items: AnimalApiModel[]) {}
   }
 
-  export class DeleteItems {
-    static readonly type = `${ACTION_TYPE} DeleteItems`;
+  export class AddItem {
+    static readonly type = `${ACTION_TYPE} AddItem`;
 
-    constructor(public items: AnimalApiModel[]) {}
+    constructor(public item: AnimalApiModel) {}
+  }
+
+  export class UpdateItem {
+    static readonly type = `${ACTION_TYPE} UpdateItem`;
+
+    constructor(public item: AnimalApiModel) {}
+  }
+
+  export class DeleteItem {
+    static readonly type = `${ACTION_TYPE} DeleteItem`;
+
+    constructor(public id: number) {}
+  }
+
+  export class SetSelectedItem {
+    static readonly type = `${ACTION_TYPE} SetSelectedItem`;
+
+    constructor(public selectedItem: AnimalApiModel | undefined) {}
   }
 }
 
@@ -44,7 +62,8 @@ namespace AnimalStoreAction {
     message: "",
     isLoading: false,
     items: [
-      { id: 0, name: "dog" }
+      { id: 0, name: "dog" },
+      { id: 1, name: "cat" }
     ],
     selectedItem: undefined
   }
@@ -77,11 +96,7 @@ class AnimalStoreState {
   @Action(AnimalStoreAction.SetStatus)
   setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {
     const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      success: action.success,
-      message: action.message
-    });
+    ctx.setState({ ...state, success: action.success, message: action.message });
   }
 
   @Action(AnimalStoreAction.SetIsLoading)
@@ -93,21 +108,52 @@ class AnimalStoreState {
     });
   }
 
-  @Action(AnimalStoreAction.AddItems)
-  addItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItems) {
+  @Action(AnimalStoreAction.SetItems)
+  setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      items: [...state.items, ...action.items]
+      items: action.items
     });
   }
 
-  @Action(AnimalStoreAction.DeleteItems)
-  deleteItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItems) {
+  @Action(AnimalStoreAction.AddItem)
+  addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {
+    const state = ctx.getState();
+    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
+    if (actionItemExistsInState) return;
+    ctx.setState({
+      ...state,
+      items: [...state.items, action.item]
+    });
+  }
+
+  @Action(AnimalStoreAction.UpdateItem)
+  updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {
+    const state = ctx.getState();
+    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
+    if (actionItemNotExistInState) return;
+    ctx.setState({
+      ...state,
+      items: state.items.map(item => item.id === action.item.id ? action.item : item)
+    });
+  }
+
+  @Action(AnimalStoreAction.DeleteItem)
+  deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      items: state.items.filter(stateItem => !action.items.some(actionItem => actionItem.id === stateItem.id))
+      items: state.items.filter(item => item.id !== action.id)
+    });
+  }
+
+  @Action(AnimalStoreAction.SetSelectedItem)
+  selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      selectedItem: action.selectedItem
     });
   }
 }
@@ -125,51 +171,123 @@ describe("Store", () => {
       store = TestBed.inject(Store);
     });
 
-    it("Should select the init value of the get status selector", () => {
+    it("Should select the value of the status from the store.", () => {
       const status = store.selectSnapshot(AnimalStoreState.getStatus);
-      expect(status).toEqual({ success: true, message: "" });
+      expect(status).toEqual({
+        success: true,
+        message: ""
+      });
     });
 
-    it("Should select the init value of the get is loading selector", () => {
+    it("Should select the value of the is loading from the store.", () => {
       const isLoading = store.selectSnapshot(AnimalStoreState.getIsLoading);
       expect(isLoading).toBeFalsy();
     });
 
-    it("Should select the init value of the get items selector", () => {
+    it("Should select the value of the items from the store.", () => {
       const items = store.selectSnapshot(AnimalStoreState.getItems);
-      expect(items).toEqual([{ id: 0, name: "dog" }]);
+      expect(items).toEqual([
+        { id: 0, name: "dog" },
+        { id: 1, name: "cat" }
+      ]);
     });
 
-    it("Should select the init value of the get selected item selector", () => {
+    it("Should select the value of the selected item from the store.", () => {
       const selectedItem = store.selectSnapshot(AnimalStoreState.getSelectedItem);
       expect(selectedItem).toBeUndefined();
     });
 
-    it("Should correctry set the status", () => {
-      store.dispatch(new AnimalStoreAction.SetStatus(true, "Lorem ipsum")).pipe(
+    it("Should correctry set the status in the store.", () => {
+      store.dispatch(new AnimalStoreAction.SetStatus(true, "The animals were fetched correctly.")).pipe(
         switchMap(() => store.selectOnce(AnimalStoreState.getStatus)),
-        tap(status => expect(status).toEqual({ success: true, message: "Lorem ipsum" }))
+        tap(status => expect(status).toEqual({ success: true, message: "The animals were fetched correctly." }))
       ).subscribe();
     });
 
-    it("Should correctry set the is loading", () => {
+    it("Should correctry set the is loading in the store.", () => {
       store.dispatch(new AnimalStoreAction.SetIsLoading(true)).pipe(
         switchMap(() => store.selectOnce(AnimalStoreState.getIsLoading)),
-        tap(status => expect(status).toBeTruthy())
+        tap(isLoading => expect(isLoading).toBeTruthy())
       ).subscribe();
     });
 
-    it("Should correctry add items", () => {
-      store.dispatch(new AnimalStoreAction.AddItems([{ id: 1, name: "cat" }])).pipe(
+    it("Should correctry set the items in the store.", () => {
+      store.dispatch(new AnimalStoreAction.SetItems([
+        { id: 0, name: "bird" },
+        { id: 1, name: "rabbit" }
+      ])).pipe(
         switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
-        tap(items => expect(items).toEqual([{ id: 0, name: "dog" }, { id: 1, name: "cat" }]))
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "bird" },
+          { id: 1, name: "rabbit" }
+        ]))
       ).subscribe();
     });
 
-    it("Should correctry delete items", () => {
-      store.dispatch(new AnimalStoreAction.DeleteItems([{ id: 0, name: "dog" }])).pipe(
+    it("Should correctry add the item to the store if not exists.", () => {
+      store.dispatch(new AnimalStoreAction.AddItem({ id: 2, name: "rabbit" })).pipe(
         switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
-        tap(items => expect(items).toEqual([]))
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "dog" },
+          { id: 1, name: "cat" },
+          { id: 2, name: "rabbit" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry skip adding the item to the store if already exists.", () => {
+      store.dispatch(new AnimalStoreAction.AddItem({ id: 0, name: "dog" })).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "dog" },
+          { id: 1, name: "cat" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry update the item in the store if exists.", () => {
+      store.dispatch(new AnimalStoreAction.UpdateItem({ id: 0, name: "rabbit" })).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "rabbit" },
+          { id: 1, name: "cat" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry skip updating the item in the store if not exists.", () => {
+      store.dispatch(new AnimalStoreAction.UpdateItem({ id: 2, name: "rabbit" })).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "dog" },
+          { id: 1, name: "cat" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry delete the item in the store if exists.", () => {
+      store.dispatch(new AnimalStoreAction.DeleteItem(0)).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
+        tap(items => expect(items).toEqual([
+          { id: 1, name: "cat" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry skip deleting the item in the store if not exists.", () => {
+      store.dispatch(new AnimalStoreAction.DeleteItem(2)).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
+        tap(items => expect(items).toEqual([
+          { id: 0, name: "dog" },
+          { id: 1, name: "cat" }
+        ]))
+      ).subscribe();
+    });
+
+    it("Should correctry select the item in the store.", () => {
+      store.dispatch(new AnimalStoreAction.SetSelectedItem({ id: 0, name: "dog" })).pipe(
+        switchMap(() => store.selectOnce(AnimalStoreState.getSelectedItem)),
+        tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "dog" }))
       ).subscribe();
     });
 });
