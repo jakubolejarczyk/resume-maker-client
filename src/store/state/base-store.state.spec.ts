@@ -3,56 +3,43 @@ import { Injectable } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { switchMap, tap } from "rxjs";
 
+import { BaseStoreAction } from "../action/base-store.action";
 import { AnimalApiModel } from "../../api/service/base-api.service.spec";
 import { BaseStoreModel } from "../model/base-store.model";
 
 type AnimalStoreModel = BaseStoreModel<AnimalApiModel>;
 
-const ACTION_TYPE = "[AnimalStoreState]";
-
 // eslint-disable-next-line @typescript-eslint/no-namespace
-namespace AnimalStoreAction {
-  export class SetStatus {
-    static readonly type = `${ACTION_TYPE} SetStatus`;
+export namespace AnimalStoreAction {
+    const ACTION_TYPE = "[AnimalStoreState]";
 
-    constructor(public success: boolean, public message: string) {}
-  }
+    export class SetStatus extends BaseStoreAction.SetStatus {
+        static readonly type = `${ACTION_TYPE} SetStatus`;
+    }
 
-  export class SetIsLoading {
-    static readonly type = `${ACTION_TYPE} SetIsLoading`;
+    export class SetIsLoading extends BaseStoreAction.SetIsLoading {
+        static readonly type = `${ACTION_TYPE} SetIsLoading`;
+    }
 
-    constructor(public isLoading: boolean) {}
-  }
+    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {
+        static readonly type = `${ACTION_TYPE} SetItems`;
+    }
 
-  export class SetItems {
-    static readonly type = `${ACTION_TYPE} SetItems`;
+    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {
+        static readonly type = `${ACTION_TYPE} AddItem`;
+    }
 
-    constructor(public items: AnimalApiModel[]) {}
-  }
+    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {
+        static readonly type = `${ACTION_TYPE} UpdateItem`;
+    }
 
-  export class AddItem {
-    static readonly type = `${ACTION_TYPE} AddItem`;
+    export class DeleteItem extends BaseStoreAction.DeleteItem {
+        static readonly type = `${ACTION_TYPE} DeleteItem`;
+    }
 
-    constructor(public item: AnimalApiModel) {}
-  }
-
-  export class UpdateItem {
-    static readonly type = `${ACTION_TYPE} UpdateItem`;
-
-    constructor(public item: AnimalApiModel) {}
-  }
-
-  export class DeleteItem {
-    static readonly type = `${ACTION_TYPE} DeleteItem`;
-
-    constructor(public id: number) {}
-  }
-
-  export class SetSelectedItem {
-    static readonly type = `${ACTION_TYPE} SetSelectedItem`;
-
-    constructor(public selectedItem: AnimalApiModel | undefined) {}
-  }
+    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {
+        static readonly type = `${ACTION_TYPE} SetSelectedItem`;
+    }
 }
 
 @State<AnimalStoreModel>({

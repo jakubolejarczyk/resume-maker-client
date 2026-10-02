@@ -1,48 +1,35 @@
 import { UserApiModel } from "../../api/model/user-api.model";
+import { BaseStoreAction } from "./base-store.action";
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace UserStoreAction {
     const ACTION_TYPE = "[UserStoreState]";
 
-    export class SetStatus {
+    export class SetStatus extends BaseStoreAction.SetStatus {
         static readonly type = `${ACTION_TYPE} SetStatus`;
-
-        constructor(public success: boolean, public message: string) {}
     }
 
-    export class SetIsLoading {
+    export class SetIsLoading extends BaseStoreAction.SetIsLoading {
         static readonly type = `${ACTION_TYPE} SetIsLoading`;
-
-        constructor(public isLoading: boolean) {}
     }
 
-    export class SetItems {
+    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {
         static readonly type = `${ACTION_TYPE} SetItems`;
-
-        constructor(public items: UserApiModel[]) {}
     }
 
-    export class AddItem {
+    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {
         static readonly type = `${ACTION_TYPE} AddItem`;
-
-        constructor(public item: UserApiModel) {}
     }
 
-    export class UpdateItem {
+    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {
         static readonly type = `${ACTION_TYPE} UpdateItem`;
-
-        constructor(public item: UserApiModel) {}
     }
 
-    export class DeleteItem {
+    export class DeleteItem extends BaseStoreAction.DeleteItem {
         static readonly type = `${ACTION_TYPE} DeleteItem`;
-
-        constructor(public id: number) {}
     }
 
-    export class SetSelectedItem {
+    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {
         static readonly type = `${ACTION_TYPE} SetSelectedItem`;
-
-        constructor(public selectedItem: UserApiModel | undefined) {}
     }
 }
