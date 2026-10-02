@@ -2,6 +2,10 @@ import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { SkillStoreModel } from "../model/skill-store.model";
+import { BaseStoreState } from "./base-store.state";
+import { SkillApiModel } from "../../api/model/skill-api.model";
+import { BaseApiModel } from "../../api/model/base-api.model";
+import { BaseStoreModel } from "../model/base-store.model";
 import { SkillStoreAction } from "../action/skill-store.action";
 
 @State<SkillStoreModel>({
@@ -15,91 +19,59 @@ import { SkillStoreAction } from "../action/skill-store.action";
   }
 })
 @Injectable({ providedIn: "root" })
-export class SkillStoreState {
+export class SkillStoreState extends BaseStoreState<SkillApiModel> {
   @Selector()
-  static getStatus(state: SkillStoreModel) {
-    return {
-      success: state.success,
-      message: state.message
-    };
-  }
-  
-  @Selector()
-  static getIsLoading(state: SkillStoreModel) {
-    return state.isLoading;
+  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getStatus(state);
   }
 
   @Selector()
-  static getItems(state: SkillStoreModel) {
-    return state.items;
+  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getIsLoading(state);
   }
-  
+
   @Selector()
-  static getSelectedItem(state: SkillStoreModel) {
-    return state.selectedItem;
+  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getItems(state);
+  }
+
+  @Selector()
+  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getSelectedItem(state);
   }
 
   @Action(SkillStoreAction.SetStatus)
-  setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {
-    const state = ctx.getState();
-    ctx.setState({ ...state, success: action.success, message: action.message });
+  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {
+    super.setStatus(ctx, action);
   }
 
   @Action(SkillStoreAction.SetIsLoading)
-  setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      isLoading: action.isLoading
-    });
+  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {
+    super.setIsLoading(ctx, action);
   }
 
   @Action(SkillStoreAction.SetItems)
-  setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: action.items
-    });
+  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {
+    super.setItems(ctx, action);
   }
 
   @Action(SkillStoreAction.AddItem)
-  addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {
-    const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
-    if (actionItemExistsInState) return;
-    ctx.setState({
-      ...state,
-      items: [...state.items, action.item]
-    });
+  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {
+    super.addItem(ctx, action);
   }
 
   @Action(SkillStoreAction.UpdateItem)
-  updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {
-    const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
-    if (actionItemNotExistInState) return;
-    ctx.setState({
-      ...state,
-      items: state.items.map(item => item.id === action.item.id ? action.item : item)
-    });
+  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {
+    super.updateItem(ctx, action);
   }
 
   @Action(SkillStoreAction.DeleteItem)
-  deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: state.items.filter(item => item.id !== action.id)
-    });
+  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {
+    super.deleteItem(ctx, action);
   }
 
   @Action(SkillStoreAction.SetSelectedItem)
-  selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      selectedItem: action.selectedItem
-    });
+  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {
+    super.selectedItem(ctx, action);
   }
 }

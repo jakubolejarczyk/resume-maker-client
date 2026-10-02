@@ -6,6 +6,8 @@ import { switchMap, tap } from "rxjs";
 import { BaseStoreAction } from "../action/base-store.action";
 import { AnimalApiModel } from "../../api/service/base-api.service.spec";
 import { BaseStoreModel } from "../model/base-store.model";
+import { BaseStoreState } from "./base-store.state";
+import { BaseApiModel } from "../../api/model/base-api.model";
 
 type AnimalStoreModel = BaseStoreModel<AnimalApiModel>;
 
@@ -56,92 +58,60 @@ export namespace AnimalStoreAction {
   }
 })
 @Injectable()
-class AnimalStoreState {
+class AnimalStoreState extends BaseStoreState<AnimalApiModel> {
   @Selector()
-  static getStatus(state: AnimalStoreModel) {
-    return {
-      success: state.success,
-      message: state.message
-    };
-  }
-  
-  @Selector()
-  static getIsLoading(state: AnimalStoreModel) {
-    return state.isLoading;
+  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getStatus(state);
   }
 
   @Selector()
-  static getItems(state: AnimalStoreModel) {
-    return state.items;
+  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getIsLoading(state);
   }
-  
+
   @Selector()
-  static getSelectedItem(state: AnimalStoreModel) {
-    return state.selectedItem;
+  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getItems(state);
+  }
+
+  @Selector()
+  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getSelectedItem(state);
   }
 
   @Action(AnimalStoreAction.SetStatus)
-  setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {
-    const state = ctx.getState();
-    ctx.setState({ ...state, success: action.success, message: action.message });
+  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {
+    super.setStatus(ctx, action);
   }
 
   @Action(AnimalStoreAction.SetIsLoading)
-  setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      isLoading: action.isLoading
-    });
+  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {
+    super.setIsLoading(ctx, action);
   }
 
   @Action(AnimalStoreAction.SetItems)
-  setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: action.items
-    });
+  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {
+    super.setItems(ctx, action);
   }
 
   @Action(AnimalStoreAction.AddItem)
-  addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {
-    const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
-    if (actionItemExistsInState) return;
-    ctx.setState({
-      ...state,
-      items: [...state.items, action.item]
-    });
+  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {
+    super.addItem(ctx, action);
   }
 
   @Action(AnimalStoreAction.UpdateItem)
-  updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {
-    const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
-    if (actionItemNotExistInState) return;
-    ctx.setState({
-      ...state,
-      items: state.items.map(item => item.id === action.item.id ? action.item : item)
-    });
+  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {
+    super.updateItem(ctx, action);
   }
 
   @Action(AnimalStoreAction.DeleteItem)
-  deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: state.items.filter(item => item.id !== action.id)
-    });
+  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {
+    super.deleteItem(ctx, action);
   }
 
   @Action(AnimalStoreAction.SetSelectedItem)
-  selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      selectedItem: action.selectedItem
-    });
+  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {
+    super.selectedItem(ctx, action);
   }
 }
 

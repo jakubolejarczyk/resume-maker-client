@@ -2,6 +2,10 @@ import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { EducationStoreModel } from "../model/education-store.model";
+import { BaseStoreState } from "./base-store.state";
+import { EducationApiModel } from "../../api/model/education-api.model";
+import { BaseApiModel } from "../../api/model/base-api.model";
+import { BaseStoreModel } from "../model/base-store.model";
 import { EducationStoreAction } from "../action/education-store.action";
 
 @State<EducationStoreModel>({
@@ -15,91 +19,59 @@ import { EducationStoreAction } from "../action/education-store.action";
   }
 })
 @Injectable({ providedIn: "root" })
-export class EducationStoreState {
+export class EducationStoreState extends BaseStoreState<EducationApiModel> {
   @Selector()
-  static getStatus(state: EducationStoreModel) {
-    return {
-      success: state.success,
-      message: state.message
-    };
-  }
-  
-  @Selector()
-  static getIsLoading(state: EducationStoreModel) {
-    return state.isLoading;
+  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getStatus(state);
   }
 
   @Selector()
-  static getItems(state: EducationStoreModel) {
-    return state.items;
+  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getIsLoading(state);
   }
-  
+
   @Selector()
-  static getSelectedItem(state: EducationStoreModel) {
-    return state.selectedItem;
+  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getItems(state);
+  }
+
+  @Selector()
+  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getSelectedItem(state);
   }
 
   @Action(EducationStoreAction.SetStatus)
-  setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {
-    const state = ctx.getState();
-    ctx.setState({ ...state, success: action.success, message: action.message });
+  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {
+    super.setStatus(ctx, action);
   }
 
   @Action(EducationStoreAction.SetIsLoading)
-  setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      isLoading: action.isLoading
-    });
+  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {
+    super.setIsLoading(ctx, action);
   }
 
   @Action(EducationStoreAction.SetItems)
-  setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: action.items
-    });
+  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {
+    super.setItems(ctx, action);
   }
 
   @Action(EducationStoreAction.AddItem)
-  addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {
-    const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
-    if (actionItemExistsInState) return;
-    ctx.setState({
-      ...state,
-      items: [...state.items, action.item]
-    });
+  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {
+    super.addItem(ctx, action);
   }
 
   @Action(EducationStoreAction.UpdateItem)
-  updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {
-    const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
-    if (actionItemNotExistInState) return;
-    ctx.setState({
-      ...state,
-      items: state.items.map(item => item.id === action.item.id ? action.item : item)
-    });
+  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {
+    super.updateItem(ctx, action);
   }
 
   @Action(EducationStoreAction.DeleteItem)
-  deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: state.items.filter(item => item.id !== action.id)
-    });
+  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {
+    super.deleteItem(ctx, action);
   }
 
   @Action(EducationStoreAction.SetSelectedItem)
-  selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      selectedItem: action.selectedItem
-    });
+  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {
+    super.selectedItem(ctx, action);
   }
 }

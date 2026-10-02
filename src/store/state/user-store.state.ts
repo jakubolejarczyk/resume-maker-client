@@ -2,6 +2,10 @@ import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { UserStoreModel } from "../model/user-store.model";
+import { BaseStoreState } from "./base-store.state";
+import { UserApiModel } from "../../api/model/user-api.model";
+import { BaseApiModel } from "../../api/model/base-api.model";
+import { BaseStoreModel } from "../model/base-store.model";
 import { UserStoreAction } from "../action/user-store.action";
 
 @State<UserStoreModel>({
@@ -15,91 +19,59 @@ import { UserStoreAction } from "../action/user-store.action";
   }
 })
 @Injectable({ providedIn: "root" })
-export class UserStoreState {
+export class UserStoreState extends BaseStoreState<UserApiModel> {
   @Selector()
-  static getStatus(state: UserStoreModel) {
-    return {
-      success: state.success,
-      message: state.message
-    };
-  }
-  
-  @Selector()
-  static getIsLoading(state: UserStoreModel) {
-    return state.isLoading;
+  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getStatus(state);
   }
 
   @Selector()
-  static getItems(state: UserStoreModel) {
-    return state.items;
+  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getIsLoading(state);
   }
-  
+
   @Selector()
-  static getSelectedItem(state: UserStoreModel) {
-    return state.selectedItem;
+  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getItems(state);
+  }
+
+  @Selector()
+  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getSelectedItem(state);
   }
 
   @Action(UserStoreAction.SetStatus)
-  setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {
-    const state = ctx.getState();
-    ctx.setState({ ...state, success: action.success, message: action.message });
+  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {
+    super.setStatus(ctx, action);
   }
 
   @Action(UserStoreAction.SetIsLoading)
-  setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      isLoading: action.isLoading
-    });
+  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {
+    super.setIsLoading(ctx, action);
   }
 
   @Action(UserStoreAction.SetItems)
-  setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: action.items
-    });
+  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {
+    super.setItems(ctx, action);
   }
 
   @Action(UserStoreAction.AddItem)
-  addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {
-    const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
-    if (actionItemExistsInState) return;
-    ctx.setState({
-      ...state,
-      items: [...state.items, action.item]
-    });
+  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {
+    super.addItem(ctx, action);
   }
 
   @Action(UserStoreAction.UpdateItem)
-  updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {
-    const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
-    if (actionItemNotExistInState) return;
-    ctx.setState({
-      ...state,
-      items: state.items.map(item => item.id === action.item.id ? action.item : item)
-    });
+  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {
+    super.updateItem(ctx, action);
   }
 
   @Action(UserStoreAction.DeleteItem)
-  deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: state.items.filter(item => item.id !== action.id)
-    });
+  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {
+    super.deleteItem(ctx, action);
   }
 
   @Action(UserStoreAction.SetSelectedItem)
-  selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      selectedItem: action.selectedItem
-    });
+  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {
+    super.selectedItem(ctx, action);
   }
 }
