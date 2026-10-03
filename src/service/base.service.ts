@@ -1,25 +1,35 @@
-import { inject } from "@angular/core";
+import { inject, ProviderToken } from "@angular/core";
 import { Store } from "@ngxs/store";
+import { of, switchMap } from "rxjs";
 
 import { BaseApiModel } from "../api/model/base-api.model";
 import { BaseStoreModel } from "../store/model/base-store.model";
 import { BaseStoreAction } from "../store/action/base-store.action";
+import { BaseApiService } from "../api/service/base-api.service";
 
 type TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };
 type TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;
 type TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];
 type TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;
 
-export class BaseService {
+export class BaseService<TModel extends BaseApiModel> {
+    baseApiService: BaseApiService<TModel>;
+
     store = inject(Store);
 
     constructor(
+        private readonly token: ProviderToken<BaseApiService<TModel>>,
         private readonly baseGetStatus: TBaseGetStatus,
         private readonly baseGetIsLoading: TBaseGetIsLoading,
         private readonly baseGetItems: TBaseGetItems,
         private readonly baseGetSelectedItem: TBaseGetSelectedItem,
-        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus
-    ) {}
+        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,
+        private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,
+        private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,
+        private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>
+    ) {
+        this.baseApiService = inject(token);
+    }
 
     getStatus() {
         return this.store.select(this.baseGetStatus);
@@ -37,7 +47,20 @@ export class BaseService {
         return this.store.select(this.baseGetSelectedItem);
     }
 
-    setStatus(success: boolean, message: string) {
-        return this.store.dispatch(new this.baseSetStatus(success, message));
+    readAll() {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.readAll()),
+            switchMap(response => {
+                this.store.dispatch(new this.baseSetItems(response.body));
+                return of(response);
+            }),
+            switchMap(response => {
+                const { success, message } = response;
+                this.store.dispatch(new this.baseSetStatus(success, message));
+                return of(true);
+            }),
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
     }
 }

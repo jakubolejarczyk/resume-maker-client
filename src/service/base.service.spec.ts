@@ -3,18 +3,22 @@ import { switchMap, tap } from "rxjs";
 import { TestBed } from "@angular/core/testing";
 
 import { AnimalStoreAction, AnimalStoreState, STORE_PROVIDERS } from "../store/state/base-store.state.spec";
-import { API_PROVIDERS } from "../api/service/base-api.service.spec";
+import { AnimalApiModel, AnimalApiService, API_PROVIDERS } from "../api/service/base-api.service.spec";
 import { BaseService } from "./base.service";
 
 @Injectable()
-class AnimalService extends BaseService {
+class AnimalService extends BaseService<AnimalApiModel> {
     constructor() {
         super(
+            AnimalApiService,
             AnimalStoreState.getStatus,
             AnimalStoreState.getIsLoading,
             AnimalStoreState.getItems,
             AnimalStoreState.getSelectedItem,
-            AnimalStoreAction.SetStatus
+            AnimalStoreAction.SetStatus,
+            AnimalStoreAction.SetIsLoading,
+            AnimalStoreAction.SetItems,
+            AnimalStoreAction.SetSelectedItem
         );
     }
 }
@@ -60,12 +64,21 @@ describe("Service", () => {
     });
 
     it("Should correctly change the status in the store.", () => {
-        service.setStatus(false, "Login failed").pipe(
+        service.readAll().pipe(
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
-                success: false,
-                message: "Login failed"
-            }))
+                success: true,
+                message: "Successfully retrieved all items."
+            })),
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog" },
+                { id: 1, name: "Cat" }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem ).toBeUndefined())
         ).subscribe();
     });
 });
