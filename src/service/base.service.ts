@@ -1,26 +1,43 @@
-import { inject, ProviderToken } from "@angular/core";
+import { inject } from "@angular/core";
 import { Store } from "@ngxs/store";
 
-import { BaseApiService } from "../api/service/base-api.service";
 import { BaseApiModel } from "../api/model/base-api.model";
-import { switchMap } from "rxjs";
+import { BaseStoreModel } from "../store/model/base-store.model";
+import { BaseStoreAction } from "../store/action/base-store.action";
 
-export class BaseService<TModel extends BaseApiModel> {
-    baseApiService: BaseApiService<TModel>;
+type TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };
+type TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;
+type TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];
+type TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;
 
+export class BaseService {
     store = inject(Store);
 
     constructor(
-        private readonly token: ProviderToken<BaseApiService<TModel>>,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        private readonly aaa: any
-    ) {
-        this.baseApiService = inject(token);
+        private readonly baseGetStatus: TBaseGetStatus,
+        private readonly baseGetIsLoading: TBaseGetIsLoading,
+        private readonly baseGetItems: TBaseGetItems,
+        private readonly baseGetSelectedItem: TBaseGetSelectedItem,
+        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus
+    ) {}
+
+    getStatus() {
+        return this.store.select(this.baseGetStatus);
     }
 
-    readAll() {
-        return this.baseApiService.readAll().pipe(
-            switchMap(response => this.store.dispatch(new this.aaa(response.body)))
-        );
+    getIsLoading() {
+        return this.store.select(this.baseGetIsLoading);
+    }
+
+    getItems() {
+        return this.store.select(this.baseGetItems);
+    }
+
+    getSelectedItem() {
+        return this.store.select(this.baseGetSelectedItem);
+    }
+
+    setStatus(success: boolean, message: string) {
+        return this.store.dispatch(new this.baseSetStatus(success, message));
     }
 }
