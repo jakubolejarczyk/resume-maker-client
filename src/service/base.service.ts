@@ -50,6 +50,25 @@ export class BaseService<TModel extends BaseApiModel> {
         return this.store.select(this.baseGetSelectedItem);
     }
 
+    create(itemToCreate: Omit<TModel, "id">) {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.create(itemToCreate)),
+            switchMap(response => {
+                if (response.body) {
+                    this.store.dispatch(new this.baseAddItem(response.body));
+                }
+                return of(response);
+            }),
+            switchMap(response => {
+                const { success, message } = response;
+                this.store.dispatch(new this.baseSetStatus(success, message));
+                return of(true);
+            }),
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
     readAll() {
         return of(true).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),

@@ -34,6 +34,7 @@ describe("Service", () => {
     beforeEach(() => {
         TestBed.configureTestingModule({ providers: SERVICE_PROVIDERS });
         service = TestBed.inject(AnimalService);
+        service.baseApiService.baseMockService.nextId = 2;
     });
 
     it("Should return a status containing success and message from the store.", () => {
@@ -66,6 +67,29 @@ describe("Service", () => {
         });
     });
 
+    it("Should correctly create item from the store and save it in the external service.", () => {
+        service.create({ name: "Bird" }).pipe(
+            switchMap(() => service.getStatus()),
+            tap(status => expect(status).toEqual({
+                success: true,
+                message: "Successfully created item."
+            })),
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => {
+                console.log(items);
+                expect(items).toEqual([
+                    { id: 0, name: "Dog" },
+                    { id: 1, name: "Cat" },
+                    { id: 2, name: "Bird" }
+                ]);
+            }),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
     it("Should correctly read all items from api and save it to the store.", () => {
         service.readAll().pipe(
             switchMap(() => service.getStatus()),
@@ -95,13 +119,10 @@ describe("Service", () => {
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
-            tap(items => {
-                console.log(items);
-                expect(items).toEqual([
-                    { id: 0, name: "Bird" },
-                    { id: 1, name: "Cat" }
-                ])
-            }),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Bird" },
+                { id: 1, name: "Cat" }
+            ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
         ).subscribe();
