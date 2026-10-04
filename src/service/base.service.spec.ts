@@ -78,7 +78,6 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => {
-                console.log(items);
                 expect(items).toEqual([
                     { id: 0, name: "Dog" },
                     { id: 1, name: "Cat" },
@@ -125,6 +124,20 @@ describe("Service", () => {
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should correctly select item from the store and save it in the selected item.", () => {
+        service.selectItem({ id: 0, name: "Dog" }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog" },
+                { id: 1, name: "Cat" }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "Dog" }))
         ).subscribe();
     });
 });
