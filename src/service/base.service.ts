@@ -69,6 +69,22 @@ export class BaseService<TModel extends BaseApiModel> {
         );
     }
 
+    read(id: number) {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.read(id)),
+            switchMap(response => {
+                const { success, message } = response;
+                this.store.dispatch(new this.baseSetStatus(success, message));
+                return of(response.body);
+            }),
+            switchMap(body => {
+                this.store.dispatch(new this.baseSetIsLoading(false));
+                return of(body);
+            })
+        );
+    }
+
     readAll() {
         return of(true).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),

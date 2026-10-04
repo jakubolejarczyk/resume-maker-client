@@ -89,6 +89,21 @@ describe("Service", () => {
         ).subscribe();
     });
 
+    it("Should correctly read item from api.", () => {
+        service.read(1).pipe(
+            tap(item => expect(item).toEqual({ id: 1, name: "Cat" })),
+            switchMap(() => service.getStatus()),
+            tap(status => expect(status).toEqual({
+                success: true,
+                message: "Successfully retrieved item."
+            })),
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
     it("Should correctly read all items from api and save it to the store.", () => {
         service.readAll().pipe(
             switchMap(() => service.getStatus()),
