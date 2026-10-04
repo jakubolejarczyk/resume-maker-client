@@ -26,6 +26,9 @@ export class BaseService<TModel extends BaseApiModel> {
         private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,
         private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,
         private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,
+        private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,
+        private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,
+        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,
         private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>
     ) {
         this.baseApiService = inject(token);
@@ -53,6 +56,25 @@ export class BaseService<TModel extends BaseApiModel> {
             switchMap(() => this.baseApiService.readAll()),
             switchMap(response => {
                 this.store.dispatch(new this.baseSetItems(response.body));
+                return of(response);
+            }),
+            switchMap(response => {
+                const { success, message } = response;
+                this.store.dispatch(new this.baseSetStatus(success, message));
+                return of(true);
+            }),
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
+    update(itemToUpdate: TModel) {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.update(itemToUpdate)),
+            switchMap(response => {
+                if (response.body) {
+                    this.store.dispatch(new this.baseUpdateItem(response.body));
+                }
                 return of(response);
             }),
             switchMap(response => {

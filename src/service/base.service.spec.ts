@@ -18,6 +18,9 @@ class AnimalService extends BaseService<AnimalApiModel> {
             AnimalStoreAction.SetStatus,
             AnimalStoreAction.SetIsLoading,
             AnimalStoreAction.SetItems,
+            AnimalStoreAction.AddItem,
+            AnimalStoreAction.UpdateItem,
+            AnimalStoreAction.DeleteItem,
             AnimalStoreAction.SetSelectedItem
         );
     }
@@ -51,8 +54,8 @@ describe("Service", () => {
     it("Should return items from the store.", () => {
         service.getItems().subscribe(items => {
             expect(items).toEqual([
-                { id: 0, name: "dog" },
-                { id: 1, name: "cat" }
+                { id: 0, name: "Dog" },
+                { id: 1, name: "Cat" }
             ]);
         });
     });
@@ -63,7 +66,7 @@ describe("Service", () => {
         });
     });
 
-    it("Should correctly change the status in the store.", () => {
+    it("Should correctly read all items from api and save it to the store.", () => {
         service.readAll().pipe(
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
@@ -78,7 +81,29 @@ describe("Service", () => {
                 { id: 1, name: "Cat" }
             ])),
             switchMap(() => service.getSelectedItem()),
-            tap(selectedItem => expect(selectedItem ).toBeUndefined())
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should correctly update item from the store and save it in the external service.", () => {
+        service.update({ id: 0, name: "Bird" }).pipe(
+            switchMap(() => service.getStatus()),
+            tap(status => expect(status).toEqual({
+                success: true,
+                message: "Successfully updated item."
+            })),
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => {
+                console.log(items);
+                expect(items).toEqual([
+                    { id: 0, name: "Bird" },
+                    { id: 1, name: "Cat" }
+                ])
+            }),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
         ).subscribe();
     });
 });
