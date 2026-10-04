@@ -142,6 +142,24 @@ describe("Service", () => {
         ).subscribe();
     });
 
+    it("Should correctly delete item from the store and save it in the external service.", () => {
+        service.delete(1).pipe(
+            switchMap(() => service.getStatus()),
+            tap(status => expect(status).toEqual({
+                success: true,
+                message: "Successfully deleted item."
+            })),
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog" }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
     it("Should correctly select item from the store and save it in the selected item.", () => {
         service.selectItem({ id: 0, name: "Dog" }).pipe(
             switchMap(() => service.getIsLoading()),

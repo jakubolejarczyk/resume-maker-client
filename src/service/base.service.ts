@@ -121,6 +121,25 @@ export class BaseService<TModel extends BaseApiModel> {
         );
     }
 
+    delete(id: number) {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.delete(id)),
+            switchMap(response => {
+                if (response.body) {
+                    this.store.dispatch(new this.baseDeleteItem(response.body.id));
+                }
+                return of(response);
+            }),
+            switchMap(response => {
+                const { success, message } = response;
+                this.store.dispatch(new this.baseSetStatus(success, message));
+                return of(true);
+            }),
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
     selectItem(itemToSelect: TModel) {
         return of(true).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
