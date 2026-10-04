@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { Root } from '../root/root';
+import { Root } from "../root/root";
 
 @Component({
   selector: 'app',
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  template: '<app-root></app-root>',
   imports: [Root],
 })
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class

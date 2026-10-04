@@ -1,21 +1,14 @@
-import { applicationConfig, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
-import { ProviderConfig } from "../config/provider.config";
-import { WindowDirective } from "../directive/window.directive";
 import { Root } from "./root";
+import { getProvider } from "../config/provider.config";
 
 const meta: Meta<Root> = {
     title: "root",
     component: Root,
     decorators: [
-        applicationConfig(ProviderConfig.getProvider()),
-        moduleMetadata({
-            imports: [WindowDirective]
-        })
-    ],
-    parameters: {
-        layout: "fullscreen"
-    }
+        applicationConfig(getProvider())
+    ]
 };
 
 export default meta;

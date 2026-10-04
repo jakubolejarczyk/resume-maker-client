@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
 
-import { ProviderConfig } from '../config/provider.config';
+import { getProvider } from '../config/provider.config';
 
-export const appConfig: ApplicationConfig = ProviderConfig.getProvider();
+export const appConfig: ApplicationConfig = getProvider();
