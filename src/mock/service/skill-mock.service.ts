@@ -24,7 +24,8 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "Angular",
                     "RxJS",
                     "NGXS",
-                    "PrimeNG"
+                    "PrimeNG",
+                    "Storybook"
                 ],
                 userId: 0
             },
