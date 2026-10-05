@@ -7,10 +7,14 @@
     "rootDir": "./",
     "types": []
   },
-  "include": [
-    "src/**/*.ts"
-, "src/store/state/animal-store.state.ts"  ],
-  "exclude": [
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts", "src/store/state/animal-store.state.ts"],
+  "exclude": ["src/**/*.spec.ts"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }

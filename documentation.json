@@ -5051,7 +5051,7 @@
         },
         {
             "name": "SkillMockService",
-            "id": "injectable-SkillMockService-8444eb0efe6dab7f35bb1c7c38f5dba43813f6da53f3cddb6c0137731ed940433c076e0310995f85897bec2e07d7a9cfcf66205d57e61a49d0efdd9aef0f9717",
+            "id": "injectable-SkillMockService-ea19826d8181158d045c44756c90f4c74c1c0e9cc425ff5083eb2978816bb2ba145912d2795e5851fa032a6c9670b2f8c10760048b6e40ad2f5ff97a14767ff0",
             "file": "src/mock/service/skill-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -5264,7 +5264,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                userId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\",\r\n                    \"PrimeNG\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Node.js\",\r\n                    \"npm\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                userId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                userId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -10642,8 +10642,9 @@
     "components": [
         {
             "name": "App",
-            "id": "component-App-6fe9e69ed0da640694a2e94978d5c73449e97937181aae2975bb41d2d2f2a0a1f679345af08296f7ef7d9d5ba20963f3afb4d1baa39e31b6469f81cdc889bdcd",
+            "id": "component-App-69d1b0f2ff7086efd7a5e364e5703d8444f0518f903163fd760d24d2b0a0820cbca486453fe1f05440f8e3dbf12876dbdb9e1ca98563e296cc6445fa489e954b",
             "file": "src/app/app.ts",
+            "changeDetection": "ChangeDetectionStrategy.Eager",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -10675,7 +10676,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { Root } from \"../root/root\";\r\n\r\n@Component({\r\n  selector: 'app',\r\n  template: '<app-root></app-root>',\r\n  imports: [Root],\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class App {}",
+            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\nimport { Root } from '../root/root';\n\n@Component({\n  selector: 'app',\n  template: '<app-root></app-root>',\n  changeDetection: ChangeDetectionStrategy.Eager,\n  imports: [Root],\n})\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\nexport class App {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10692,8 +10693,9 @@
         },
         {
             "name": "Root",
-            "id": "component-Root-1e5047cda72ec48ec5f0317058d487bcb9d4c8dd0077692ffee1b16fbbfe38446efb56a1c38f6b0328ac59c5eb3bb30088cdb48a50644ce6e3fbcd52dd44217a",
+            "id": "component-Root-9deda7b7057a47bec1dd27cad5a86fdd77e4b13e4a49bb0bff23d78387e381cbe5ad3ef524da9b125cbca35a79d1b0c557b929f545f3ff3322b5f4e3bfae7897",
             "file": "src/root/root.ts",
+            "changeDetection": "ChangeDetectionStrategy.Eager",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -10722,7 +10724,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n@Component({\r\n    selector: \"app-root\",\r\n    templateUrl: \"./root.html\"\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class Root {}",
+            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  changeDetection: ChangeDetectionStrategy.Eager,\n  templateUrl: './root.html',\n})\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\nexport class Root {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
