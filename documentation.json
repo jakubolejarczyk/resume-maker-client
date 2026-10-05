@@ -10693,7 +10693,7 @@
         },
         {
             "name": "Root",
-            "id": "component-Root-9deda7b7057a47bec1dd27cad5a86fdd77e4b13e4a49bb0bff23d78387e381cbe5ad3ef524da9b125cbca35a79d1b0c557b929f545f3ff3322b5f4e3bfae7897",
+            "id": "component-Root-ce5b5e25a8c7de18c1944a0f478c598ddd23c7d61bf74f01a6390610933c2158689a632c2ac76b89d84fa5c903680b3bdea6a7f274f75432de0c380c82a6d101",
             "file": "src/root/root.ts",
             "changeDetection": "ChangeDetectionStrategy.Eager",
             "encapsulation": [],
@@ -10720,11 +10720,16 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "ButtonDirective",
+                    "type": "directive"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  changeDetection: ChangeDetectionStrategy.Eager,\n  templateUrl: './root.html',\n})\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\nexport class Root {}\n",
+            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\r\nimport { ButtonDirective } from 'primeng/button';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  changeDetection: ChangeDetectionStrategy.Eager,\r\n  templateUrl: './root.html',\r\n  imports: [ButtonDirective]\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class Root {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10736,9 +10741,14 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "ButtonDirective",
+                        "type": "directive"
+                    }
+                ]
             },
-            "templateData": "<p>app-root works!</p>"
+            "templateData": "<p>app-root works!</p>\r\n<button pButton>Check</button>"
         }
     ],
     "modules": [],
@@ -10800,6 +10810,28 @@
                 "defaultValue": "getProvider()"
             },
             {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.development.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n    primengLicenseKey: \"eyJpZCI6ImQ3OTJjMGM5LThiZTEtNGFkOS1hMzVmLTE3YjQ0ZDQ2ZTEwZiIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3OTExOTcwMTMsImV4cCI6MTgyMjczMzAxM30.nwkdAgnJBBWtbKqIHaiqbAaQ7NlBMNdRg0dNfus4aEEEcLbcWhkX3cD-FfXpfh1GZl-OoZ8O2VXnvfO26FkSBA\"\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n    primengLicenseKey: \"\"\n}"
+            },
+            {
                 "name": "getProvider",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -10808,7 +10840,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "unknown",
-                "defaultValue": "(): ApplicationConfig => {\r\n    return {\r\n        providers: [\r\n            provideBrowserGlobalErrorListeners(),\r\n            provideRouter(routesConfig, withHashLocation()),\r\n            provideStore([\r\n                UserStoreState,\r\n                SkillStoreState,\r\n                ExperienceStoreState,\r\n                EducationStoreState\r\n            ], withNgxsReduxDevtoolsPlugin())\r\n        ]\r\n    };\r\n}"
+                "defaultValue": "(): ApplicationConfig => {\r\n    return {\r\n        providers: [\r\n            provideBrowserGlobalErrorListeners(),\r\n            provideRouter(routesConfig, withHashLocation()),\r\n            provideStore([\r\n                UserStoreState,\r\n                SkillStoreState,\r\n                ExperienceStoreState,\r\n                EducationStoreState\r\n            ], withNgxsReduxDevtoolsPlugin()),\r\n            providePrimeNG({\r\n                theme: {\r\n                    preset: Aura\r\n                },\r\n                license: environment.primengLicenseKey\r\n            })\r\n        ]\r\n    };\r\n}"
             },
             {
                 "name": "routesConfig",
@@ -10996,6 +11028,32 @@
                     "defaultValue": "getProvider()"
                 }
             ],
+            "src/environments/environment.development.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.development.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n    primengLicenseKey: \"eyJpZCI6ImQ3OTJjMGM5LThiZTEtNGFkOS1hMzVmLTE3YjQ0ZDQ2ZTEwZiIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3OTExOTcwMTMsImV4cCI6MTgyMjczMzAxM30.nwkdAgnJBBWtbKqIHaiqbAaQ7NlBMNdRg0dNfus4aEEEcLbcWhkX3cD-FfXpfh1GZl-OoZ8O2VXnvfO26FkSBA\"\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n    primengLicenseKey: \"\"\n}"
+                }
+            ],
             "src/config/provider.config.ts": [
                 {
                     "name": "getProvider",
@@ -11006,7 +11064,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
-                    "defaultValue": "(): ApplicationConfig => {\r\n    return {\r\n        providers: [\r\n            provideBrowserGlobalErrorListeners(),\r\n            provideRouter(routesConfig, withHashLocation()),\r\n            provideStore([\r\n                UserStoreState,\r\n                SkillStoreState,\r\n                ExperienceStoreState,\r\n                EducationStoreState\r\n            ], withNgxsReduxDevtoolsPlugin())\r\n        ]\r\n    };\r\n}"
+                    "defaultValue": "(): ApplicationConfig => {\r\n    return {\r\n        providers: [\r\n            provideBrowserGlobalErrorListeners(),\r\n            provideRouter(routesConfig, withHashLocation()),\r\n            provideStore([\r\n                UserStoreState,\r\n                SkillStoreState,\r\n                ExperienceStoreState,\r\n                EducationStoreState\r\n            ], withNgxsReduxDevtoolsPlugin()),\r\n            providePrimeNG({\r\n                theme: {\r\n                    preset: Aura\r\n                },\r\n                license: environment.primengLicenseKey\r\n            })\r\n        ]\r\n    };\r\n}"
                 }
             ],
             "src/config/routes.config.ts": [
@@ -11285,6 +11343,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "routesConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.development.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
