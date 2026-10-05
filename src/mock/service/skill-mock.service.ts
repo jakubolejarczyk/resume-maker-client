@@ -23,7 +23,8 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 skills: [
                     "Angular",
                     "RxJS",
-                    "NGXS"
+                    "NGXS",
+                    "PrimeNG"
                 ],
                 userId: 0
             },
@@ -32,6 +33,8 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 category: "Developer Tools",
                 skills: [
                     "Git",
+                    "Node.js",
+                    "npm",
                     "Vitest",
                     "ESLint",
                     "typescript-eslint",
