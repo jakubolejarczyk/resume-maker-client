@@ -10692,8 +10692,177 @@
             }
         },
         {
+            "name": "ButtonDumbComponent",
+            "id": "component-ButtonDumbComponent-11460a9536cbc413d09d930a5dad4abc272faaf6fc2dc093be702f76548fd44fca86e711de4a5959e1c7a76ad90f3ec937a4b0617788d9b0d55042155588553f",
+            "file": "src/component/dumb/button/button-dumb.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "button-dumb-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button-dumb.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "rawdescription": "\n",
+                    "required": true
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { ButtonModule } from 'primeng/button';\r\n\r\n@Component({\r\n    selector: \"button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    disabled = input(false);\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "ButtonSmartComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "ButtonModule",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<button pButton [disabled]=\"disabled()\">{{ label() }}</button>"
+        },
+        {
+            "name": "ButtonSmartComponent",
+            "id": "component-ButtonSmartComponent-37e3a16fe91667dfd6e41a0473f45287537ceff9e0f823508456a7f3b98682a6812b9f07f6a5e796f6e58828f613e4c14c57001be42fe7d3fb7b1c01e77bbc61",
+            "file": "src/component/smart/button/button-smart.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "button-smart-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button-smart.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n",
+                    "required": true
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonDumbComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { ButtonDumbComponent } from \"../../dumb/button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"button-smart-component\",\r\n    templateUrl: \"./button-smart.component.html\",\r\n    imports: [ButtonDumbComponent]\r\n})\r\nexport class ButtonSmartComponent {\r\n    label = input.required<string>();\r\n\r\n    disabled = input(false);\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "ButtonDumbComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "<button-dumb-component [label]=\"label()\" [disabled]=\"disabled()\"></button-dumb-component>"
+        },
+        {
             "name": "InputTextDumbComponent",
-            "id": "component-InputTextDumbComponent-1a86775dac7365db69abd6e4186fabe6843253c67663142f713bd163a1f2e59fdeafad72e6d9a5e1bd05e42a8ee9bbe84cd3a4378e9779de077d956af357d25f",
+            "id": "component-InputTextDumbComponent-b20babcdab4805ea2e1544e52774124b062f2ec277713be22802055fec48525d53b5a2bffa94b0644b6df411e8188636117f8c404e3e526992b01457e7331e6c",
             "file": "src/component/dumb/input-text/input-text-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -10713,6 +10882,20 @@
             "inputsClass": [
                 {
                     "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "invalid",
                     "coverageIgnore": false,
                     "defaultValue": "false",
                     "deprecated": false,
@@ -10744,7 +10927,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {\r\n    disabled = input(false);\r\n}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {\r\n    invalid = input(false);\r\n\r\n    disabled = input(false);\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10763,11 +10946,11 @@
                     }
                 ]
             },
-            "templateData": "<input pInputText [disabled]=\"disabled()\" />"
+            "templateData": "<input pInputText [invalid]=\"invalid()\" [disabled]=\"disabled()\" />"
         },
         {
             "name": "InputTextSmartComponent",
-            "id": "component-InputTextSmartComponent-3715df9e8234769cde428a53ea79d8773e171cef2e4c09df4373be76123f3b9658a24d55f73e2fe56edf759a54fa729deea7f474fd49d035acb1b782c156b763",
+            "id": "component-InputTextSmartComponent-d990dd575981dbd71c667f0c476aa439ea1d2cdb3dfb8ea8648967274d29d1fdcdb1c3a85017eb377a303591f0c86fc58fc206d8dee2b2dd2457a92b4ac4175c",
             "file": "src/component/smart/input-text/input-text-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -10787,6 +10970,20 @@
             "inputsClass": [
                 {
                     "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "invalid",
                     "coverageIgnore": false,
                     "defaultValue": "false",
                     "deprecated": false,
@@ -10818,7 +11015,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {\r\n    disabled = input(false);\r\n}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {\r\n    invalid = input(false);\r\n\r\n    disabled = input(false);\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10832,7 +11029,7 @@
                     }
                 ]
             },
-            "templateData": "<input-text-dumb-component [disabled]=\"disabled()\"></input-text-dumb-component>"
+            "templateData": "<input-text-dumb-component [invalid]=\"invalid()\" [disabled]=\"disabled()\"></input-text-dumb-component>"
         },
         {
             "name": "Root",
@@ -11471,12 +11668,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/component/dumb/button/button-dumb.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonDumbComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/component/dumb/input-text/input-text-dumb.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputTextDumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/smart/button/button-smart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonSmartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -11485,7 +11700,7 @@
                 "linktype": "component",
                 "name": "InputTextSmartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
