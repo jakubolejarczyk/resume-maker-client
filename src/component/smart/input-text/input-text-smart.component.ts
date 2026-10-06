@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, input } from "@angular/core";
 
 import { InputTextDumbComponent } from "../../dumb/input-text/input-text-dumb.component";
 
@@ -7,5 +7,8 @@ import { InputTextDumbComponent } from "../../dumb/input-text/input-text-dumb.co
     templateUrl: "./input-text-smart.component.html",
     imports: [InputTextDumbComponent]
 })
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class InputTextSmartComponent {}
+export class InputTextSmartComponent {
+    invalid = input(false);
+
+    disabled = input(false);
+}

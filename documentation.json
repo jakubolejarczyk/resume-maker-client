@@ -10693,7 +10693,7 @@
         },
         {
             "name": "InputTextDumbComponent",
-            "id": "component-InputTextDumbComponent-35162e36ca11a9dd336f2cc4492eac21798d60d8f0c1e7adfa876d33967bb2d02fe4cf1f619c01a4b48022074420c67865a6ee7aa6cdf6aa9d8d43c49c53ddb7",
+            "id": "component-InputTextDumbComponent-1a86775dac7365db69abd6e4186fabe6843253c67663142f713bd163a1f2e59fdeafad72e6d9a5e1bd05e42a8ee9bbe84cd3a4378e9779de077d956af357d25f",
             "file": "src/component/dumb/input-text/input-text-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -10710,7 +10710,22 @@
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -10729,7 +10744,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class InputTextDumbComponent {}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {\r\n    disabled = input(false);\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10748,11 +10763,11 @@
                     }
                 ]
             },
-            "templateData": "<input pInputText />"
+            "templateData": "<input pInputText [disabled]=\"disabled()\" />"
         },
         {
             "name": "InputTextSmartComponent",
-            "id": "component-InputTextSmartComponent-049e3ec1865c0f77c154448a0404bb1e3cf106265d862be202c88c5c34ce1341366fa22aa90ed8306ce8048f4400051af28cb3bdd235b49b12dd7030ca7b9923",
+            "id": "component-InputTextSmartComponent-3715df9e8234769cde428a53ea79d8773e171cef2e4c09df4373be76123f3b9658a24d55f73e2fe56edf759a54fa729deea7f474fd49d035acb1b782c156b763",
             "file": "src/component/smart/input-text/input-text-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -10769,7 +10784,22 @@
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -10788,7 +10818,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class InputTextSmartComponent {}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {\r\n    disabled = input(false);\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -10802,7 +10832,7 @@
                     }
                 ]
             },
-            "templateData": "<input-text-dumb-component></input-text-dumb-component>"
+            "templateData": "<input-text-dumb-component [disabled]=\"disabled()\"></input-text-dumb-component>"
         },
         {
             "name": "Root",
@@ -11446,7 +11476,7 @@
                 "linktype": "component",
                 "name": "InputTextDumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -11455,7 +11485,7 @@
                 "linktype": "component",
                 "name": "InputTextSmartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

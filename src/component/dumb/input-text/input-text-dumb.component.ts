@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, input } from "@angular/core";
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
@@ -6,5 +6,8 @@ import { InputTextModule } from 'primeng/inputtext';
     templateUrl: "./input-text-dumb.component.html",
     imports: [InputTextModule]
 })
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class InputTextDumbComponent {}
+export class InputTextDumbComponent {
+    invalid = input(false);
+
+    disabled = input(false);
+}
