@@ -15,6 +15,7 @@ export class SkillService extends BaseService<SkillApiModel> {
             SkillStoreState.getIsLoading,
             SkillStoreState.getItems,
             SkillStoreState.getSelectedItem,
+            SkillStoreState.getColumns,
             SkillStoreAction.SetStatus,
             SkillStoreAction.SetIsLoading,
             SkillStoreAction.SetItems,

@@ -11,24 +11,54 @@ import { SkillStoreState } from "../store/state/skill-store.state";
 import { ExperienceStoreState } from "../store/state/experience-store.state";
 import { EducationStoreState } from "../store/state/education-store.state";
 import { environment } from "../environments/environment";
+import { AnimalStoreState } from "../store/state/animal-store.state";
+import { ANIMAL_SERVICE_PROVIDER } from "../service/animal-service.provider";
 
 export const getProvider = (): ApplicationConfig => {
     return {
         providers: [
-            provideBrowserGlobalErrorListeners(),
-            provideRouter(routesConfig, withHashLocation()),
-            provideStore([
-                UserStoreState,
-                SkillStoreState,
-                ExperienceStoreState,
-                EducationStoreState
-            ], withNgxsReduxDevtoolsPlugin()),
-            providePrimeNG({
-                theme: {
-                    preset: Aura
-                },
-                license: environment.primengLicenseKey
-            })
+            ...getBaseProvider(),
+            ...getProvideStore()
         ]
     };
+};
+
+export const getStorybookProvider = (): ApplicationConfig => {
+    return {
+        providers: [
+            ...getBaseProvider(),
+            ...getStorybookProvideStore(),
+            ...ANIMAL_SERVICE_PROVIDER
+        ]
+    };
+};
+
+const getBaseProvider = (): ApplicationConfig["providers"] => {
+    return [
+        provideBrowserGlobalErrorListeners(),
+        provideRouter(routesConfig, withHashLocation()),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            },
+            license: environment.primengLicenseKey
+        })
+    ];
+};
+
+const getProvideStore = (): ApplicationConfig["providers"] => {
+    return [
+        provideStore([
+            UserStoreState,
+            SkillStoreState,
+            ExperienceStoreState,
+            EducationStoreState
+        ], withNgxsReduxDevtoolsPlugin())
+    ];
+};
+
+const getStorybookProvideStore = (): ApplicationConfig["providers"] => {
+    return [
+        provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())
+    ];
 };

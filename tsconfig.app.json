@@ -7,7 +7,7 @@
     "rootDir": "./",
     "types": []
   },
-  "include": ["src/**/*.ts", "src/store/state/animal-store.state.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts"],
   "angularCompilerOptions": {
     "extendedDiagnostics": {

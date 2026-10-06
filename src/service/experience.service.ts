@@ -15,6 +15,7 @@ export class ExperienceService extends BaseService<ExperienceApiModel> {
             ExperienceStoreState.getIsLoading,
             ExperienceStoreState.getItems,
             ExperienceStoreState.getSelectedItem,
+            ExperienceStoreState.getColumns,
             ExperienceStoreAction.SetStatus,
             ExperienceStoreAction.SetIsLoading,
             ExperienceStoreAction.SetItems,

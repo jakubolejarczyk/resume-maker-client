@@ -10,7 +10,10 @@ import { SkillStoreAction } from "../action/skill-store.action";
 
 @State<SkillStoreModel>({
   name: "skillStoreState",
-  defaults: BaseStoreState.initState()
+  defaults: BaseStoreState.initState([
+    "category",
+    "skills"
+  ])
 })
 @Injectable({ providedIn: "root" })
 export class SkillStoreState extends BaseStoreState<SkillApiModel> {
@@ -37,6 +40,11 @@ export class SkillStoreState extends BaseStoreState<SkillApiModel> {
   @Action(SkillStoreAction.SetStatus)
   override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {
     super.setStatus(ctx, action);
+  }
+
+  @Selector()
+  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getColumns(state);
   }
 
   @Action(SkillStoreAction.SetIsLoading)

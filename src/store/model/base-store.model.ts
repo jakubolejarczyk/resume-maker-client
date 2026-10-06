@@ -4,4 +4,5 @@ export interface BaseStoreModel<TItem> {
     isLoading: boolean;
     items: TItem[];
     selectedItem: TItem | undefined;
+    columns: string[];
 }

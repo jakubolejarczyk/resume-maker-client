@@ -15,6 +15,7 @@ export class UserService extends BaseService<UserApiModel> {
             UserStoreState.getIsLoading,
             UserStoreState.getItems,
             UserStoreState.getSelectedItem,
+            UserStoreState.getColumns,
             UserStoreAction.SetStatus,
             UserStoreAction.SetIsLoading,
             UserStoreAction.SetItems,

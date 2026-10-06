@@ -7,13 +7,14 @@ import { BaseStoreAction } from "../action/base-store.action";
 
 @Injectable()
 export class BaseStoreState<TModel extends BaseApiModel> {
-  static initState() {
+  static initState<TItem>(columns: string[]): BaseStoreModel<TItem> {
     return {
       success: true,
       message: "",
       isLoading: false,
       items: [],
-      selectedItem: undefined
+      selectedItem: undefined,
+      columns
     };
   }
 
@@ -34,6 +35,10 @@ export class BaseStoreState<TModel extends BaseApiModel> {
 
   static getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return state.selectedItem;
+  }
+
+  static getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return state.columns;
   }
 
   setStatus(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetStatus) {

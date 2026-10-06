@@ -15,6 +15,7 @@ export class EducationService extends BaseService<EducationApiModel> {
             EducationStoreState.getIsLoading,
             EducationStoreState.getItems,
             EducationStoreState.getSelectedItem,
+            EducationStoreState.getColumns,
             EducationStoreAction.SetStatus,
             EducationStoreAction.SetIsLoading,
             EducationStoreAction.SetItems,

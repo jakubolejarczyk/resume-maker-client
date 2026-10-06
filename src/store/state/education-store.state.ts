@@ -10,7 +10,13 @@ import { EducationStoreAction } from "../action/education-store.action";
 
 @State<EducationStoreModel>({
   name: "educationStoreState",
-  defaults: BaseStoreState.initState()
+  defaults: BaseStoreState.initState([
+    "startYear",
+    "endYear",
+    "fieldOfStudy",
+    "degree",
+    "institutionName"
+  ])
 })
 @Injectable({ providedIn: "root" })
 export class EducationStoreState extends BaseStoreState<EducationApiModel> {
@@ -32,6 +38,11 @@ export class EducationStoreState extends BaseStoreState<EducationApiModel> {
   @Selector()
   static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return super.getSelectedItem(state);
+  }
+
+  @Selector()
+  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getColumns(state);
   }
 
   @Action(EducationStoreAction.SetStatus)

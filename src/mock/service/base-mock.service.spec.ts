@@ -1,21 +1,7 @@
-import { BaseMockModel } from "../model/base-mock.model";
+import { AnimalMockService } from "../service/animal-mock.service";
+import { AnimalMockModel } from "../model/animal-mock.model";
 import { ResponseMockModel } from "../model/response-mock.model";
 import { BaseMockService } from "./base-mock.service";
-
-export interface AnimalMockModel extends BaseMockModel {
-    name: string;
-}
-
-export class AnimalMockService extends BaseMockService<AnimalMockModel> {
-    constructor() {
-        super([
-            { id: 0, name: "Dog" },
-            { id: 1, name: "Cat" }
-        ]);
-    }
-}
-
-export const MOCK_PROVIDERS = [AnimalMockService];
 
 describe("Base Mock Service", () => {
     let service: AnimalMockService;

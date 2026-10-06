@@ -10,7 +10,13 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
-  defaults: BaseStoreState.initState()
+  defaults: BaseStoreState.initState([
+    "company",
+    "startDate",
+    "endDate",
+    "jobTitle",
+    "description"
+  ])
 })
 @Injectable({ providedIn: "root" })
 export class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {
@@ -32,6 +38,11 @@ export class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {
   @Selector()
   static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return super.getSelectedItem(state);
+  }
+
+  @Selector()
+  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getColumns(state);
   }
 
   @Action(ExperienceStoreAction.SetStatus)

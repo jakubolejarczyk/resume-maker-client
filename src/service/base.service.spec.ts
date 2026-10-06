@@ -1,38 +1,14 @@
-import { Injectable } from "@angular/core";
 import { switchMap, tap } from "rxjs";
 import { TestBed } from "@angular/core/testing";
 
-import { AnimalStoreAction, AnimalStoreState, STORE_PROVIDERS } from "../store/state/base-store.state.spec";
-import { AnimalApiModel, AnimalApiService, API_PROVIDERS } from "../api/service/base-api.service.spec";
-import { BaseService } from "./base.service";
-
-@Injectable()
-class AnimalService extends BaseService<AnimalApiModel> {
-    constructor() {
-        super(
-            AnimalApiService,
-            AnimalStoreState.getStatus,
-            AnimalStoreState.getIsLoading,
-            AnimalStoreState.getItems,
-            AnimalStoreState.getSelectedItem,
-            AnimalStoreAction.SetStatus,
-            AnimalStoreAction.SetIsLoading,
-            AnimalStoreAction.SetItems,
-            AnimalStoreAction.AddItem,
-            AnimalStoreAction.UpdateItem,
-            AnimalStoreAction.DeleteItem,
-            AnimalStoreAction.SetSelectedItem
-        );
-    }
-}
-
-export const SERVICE_PROVIDERS = [API_PROVIDERS, STORE_PROVIDERS, AnimalService];
+import { AnimalService } from "./animal.service";
+import { ANIMAL_SERVICE_PROVIDER } from "./animal-service.provider";
 
 describe("Service", () => {
     let service: AnimalService;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({ providers: SERVICE_PROVIDERS });
+        TestBed.configureTestingModule({ providers: ANIMAL_SERVICE_PROVIDER });
         service = TestBed.inject(AnimalService);
         service.baseApiService.baseMockService.nextId = 2;
     });
@@ -64,6 +40,12 @@ describe("Service", () => {
     it("Should return the selected item from the store.", () => {
         service.getSelectedItem().subscribe(selectedItem => {
             expect(selectedItem).toBeUndefined();
+        });
+    });
+
+    it("Should return the columns from the store.", () => {
+        service.getColumns().subscribe(columns => {
+            expect(columns).toEqual(["id", "name"]);
         });
     });
 

@@ -10,7 +10,17 @@ import { UserStoreAction } from "../action/user-store.action";
 
 @State<UserStoreModel>({
   name: "userStoreState",
-  defaults: BaseStoreState.initState()
+  defaults: BaseStoreState.initState([
+    "firstName",
+    "lastName",
+    "jobTitle",
+    "phoneNumber",
+    "email",
+    "city",
+    "country",
+    "links",
+    "summary"
+  ])
 })
 @Injectable({ providedIn: "root" })
 export class UserStoreState extends BaseStoreState<UserApiModel> {
@@ -32,6 +42,11 @@ export class UserStoreState extends BaseStoreState<UserApiModel> {
   @Selector()
   static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return super.getSelectedItem(state);
+  }
+
+  @Selector()
+  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+    return super.getColumns(state);
   }
 
   @Action(UserStoreAction.SetStatus)

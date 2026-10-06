@@ -11,6 +11,7 @@ type TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel
 type TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;
 type TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];
 type TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;
+type TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => string[];
 
 export class BaseService<TModel extends BaseApiModel> {
     baseApiService: BaseApiService<TModel>;
@@ -23,6 +24,7 @@ export class BaseService<TModel extends BaseApiModel> {
         private readonly baseGetIsLoading: TBaseGetIsLoading,
         private readonly baseGetItems: TBaseGetItems,
         private readonly baseGetSelectedItem: TBaseGetSelectedItem,
+        private readonly baseGetColumns: TBaseGetColumns,
         private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,
         private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,
         private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,
@@ -48,6 +50,10 @@ export class BaseService<TModel extends BaseApiModel> {
 
     getSelectedItem() {
         return this.store.select(this.baseGetSelectedItem);
+    }
+
+    getColumns() {
+        return this.store.select(this.baseGetColumns);
     }
 
     create(itemToCreate: Omit<TModel, "id">) {
