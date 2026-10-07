@@ -7,7 +7,7 @@ import { BaseStoreAction } from "../action/base-store.action";
 
 @Injectable()
 export class BaseStoreState<TModel extends BaseApiModel> {
-  static initState<TItem>(columns: string[]): BaseStoreModel<TItem> {
+  static initState<TItem>(columns: BaseStoreModel<TItem>["columns"]): BaseStoreModel<TItem> {
     return {
       success: true,
       message: "",

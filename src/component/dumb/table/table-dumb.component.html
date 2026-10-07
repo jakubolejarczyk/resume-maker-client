@@ -2,14 +2,18 @@
     <ng-template #header>
         <tr>
             @for (column of columns(); track column) {
-                <th>{{ column }}</th>
+                @if (column.isVisible) {
+                    <th>{{ column.label }}</th>
+                }
             }
         </tr>
     </ng-template>
     <ng-template #body let-product>
         <tr>
             @for (column of columns(); track column) {
-                <td>{{ product[column] }}</td>
+                @if (column.isVisible) {
+                    <td>{{ product[column.id] }}</td>
+                }
             }
         </tr>
     </ng-template>

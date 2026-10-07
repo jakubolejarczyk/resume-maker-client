@@ -11,11 +11,11 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
   defaults: BaseStoreState.initState([
-    "company",
-    "startDate",
-    "endDate",
-    "jobTitle",
-    "description"
+    { id: "company", label: "Company", isVisible: true },
+    { id: "startDate", label: "Start Date", isVisible: true },
+    { id: "endDate", label: "End Date", isVisible: true },
+    { id: "jobTitle", label: "Job Title", isVisible: true },
+    { id: "description", label: "Description", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

@@ -11,8 +11,8 @@ import { SkillStoreAction } from "../action/skill-store.action";
 @State<SkillStoreModel>({
   name: "skillStoreState",
   defaults: BaseStoreState.initState([
-    "category",
-    "skills"
+    { id: "category", label: "Category", isVisible: true },
+    { id: "skills", label: "Skills", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

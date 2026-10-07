@@ -11,11 +11,11 @@ import { EducationStoreAction } from "../action/education-store.action";
 @State<EducationStoreModel>({
   name: "educationStoreState",
   defaults: BaseStoreState.initState([
-    "startYear",
-    "endYear",
-    "fieldOfStudy",
-    "degree",
-    "institutionName"
+    { id: "startYear", label: "Start Year", isVisible: true },
+    { id: "endYear", label: "End Year", isVisible: true },
+    { id: "fieldOfStudy", label: "Field Of Study", isVisible: true },
+    { id: "degree", label: "Degree", isVisible: true },
+    { id: "institutionName", label: "Institution Name", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

@@ -11,7 +11,7 @@ type TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel
 type TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;
 type TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];
 type TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;
-type TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => string[];
+type TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => BaseStoreModel<TModel>["columns"];
 
 export class BaseService<TModel extends BaseApiModel> {
     baseApiService: BaseApiService<TModel>;

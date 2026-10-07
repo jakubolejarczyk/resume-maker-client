@@ -1,14 +1,15 @@
 import { Component, input } from "@angular/core";
 import { TableModule } from 'primeng/table';
+import { BaseApiModel } from "../../../api/model/base-api.model";
+import { BaseStoreModel } from "../../../store/model/base-store.model";
 
 @Component({
     selector: "table-dumb-component",
     templateUrl: "./table-dumb.component.html",
     imports: [TableModule]
 })
-export class TableDumbComponent {
-    columns = input.required<string[]>();
+export class TableDumbComponent<TModel extends BaseApiModel> {
+    columns = input.required<BaseStoreModel<TModel>["columns"]>();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    items = input.required<any>();
+    items = input.required<BaseApiModel[]>();
 }

@@ -11,15 +11,14 @@ import { UserStoreAction } from "../action/user-store.action";
 @State<UserStoreModel>({
   name: "userStoreState",
   defaults: BaseStoreState.initState([
-    "firstName",
-    "lastName",
-    "jobTitle",
-    "phoneNumber",
-    "email",
-    "city",
-    "country",
-    "links",
-    "summary"
+    { id: "firstName", label: "First Name", isVisible: true },
+    { id: "lastName", label: "Last Name", isVisible: true },
+    { id: "jobTitle", label: "Job Title", isVisible: true },
+    { id: "phoneNumber", label: "Phone Number", isVisible: true },
+    { id: "email", label: "Email", isVisible: true },
+    { id: "city", label: "City", isVisible: true },
+    { id: "country", label: "Country", isVisible: true },
+    { id: "summary", label: "Summary", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

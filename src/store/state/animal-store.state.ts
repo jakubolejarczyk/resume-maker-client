@@ -19,7 +19,10 @@ import { AnimalStoreAction } from "../action/animal-store.action";
       { id: 1, name: "Cat" }
     ],
     selectedItem: undefined,
-    columns: ["id", "name"]
+    columns: [
+      { id: "id", label: "Id", isVisible: true },
+      { id: "name", label: "Name", isVisible: true }
+    ]
   }
 })
 @Injectable()
