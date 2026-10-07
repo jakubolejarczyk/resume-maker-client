@@ -13705,7 +13705,7 @@
         },
         {
             "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-0f658874f4c4655eb7d157a9a1ea17af71ec8e88ebbb0f1ffa26c20897d9f354029c017feeefc92989afadf58d8ced314231ea8d5381d0b3cae69ee5078a906f",
+            "id": "component-TableDumbComponent-1f8d40f870f80a790be04b33b815855792e61c5c0cdeb0c5191be529761ec02dd23002b079c07d9e7aed819427a5e8764d1e81e43ae7e339e7069fd1f81d13ab",
             "file": "src/component/dumb/table/table-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13732,7 +13732,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 13,
                     "rawdescription": "\n",
                     "required": true
                 },
@@ -13741,11 +13741,11 @@
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "BaseApiModel[]",
+                    "type": "TModel[]",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -13768,7 +13768,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<BaseApiModel[]>();\r\n}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13787,7 +13787,7 @@
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-product>\r\n        <tr>\r\n            @for (column of columns(); track column) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ product[column.id] }}</td>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "TableSmartComponent",

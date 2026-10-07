@@ -45,7 +45,10 @@ describe("Service", () => {
 
     it("Should return the columns from the store.", () => {
         service.getColumns().subscribe(columns => {
-            expect(columns).toEqual(["id", "name"]);
+            expect(columns).toEqual([
+                { id: "id", label: "Id", isVisible: true },
+                { id: "name", label: "Name", isVisible: true }
+            ]);
         });
     });
 
