@@ -13646,7 +13646,7 @@
         },
         {
             "name": "Root",
-            "id": "component-Root-ce5b5e25a8c7de18c1944a0f478c598ddd23c7d61bf74f01a6390610933c2158689a632c2ac76b89d84fa5c903680b3bdea6a7f274f75432de0c380c82a6d101",
+            "id": "component-Root-71cc6dc8fa5221cdfc92da5481a251570af8d72af288bf294ef18a49717d109e1912ef371233a4a4698529bc975e2b3080202a0e032ec2405784f5d418e13bb6",
             "file": "src/root/root.ts",
             "changeDetection": "ChangeDetectionStrategy.Eager",
             "encapsulation": [],
@@ -13665,7 +13665,21 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "userService",
+                    "coverageIgnore": false,
+                    "defaultValue": "UserService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n"
+                }
+            ],
             "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
@@ -13677,12 +13691,16 @@
                 {
                     "name": "ButtonDirective",
                     "type": "directive"
+                },
+                {
+                    "name": "TableSmartComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\r\nimport { ButtonDirective } from 'primeng/button';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  changeDetection: ChangeDetectionStrategy.Eager,\r\n  templateUrl: './root.html',\r\n  imports: [ButtonDirective]\r\n})\r\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\r\nexport class Root {}\r\n",
+            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\r\nimport { ButtonDirective } from 'primeng/button';\r\n\r\nimport { TableSmartComponent } from '../component/smart/table/table-smart.component';\r\nimport { UserService } from '../service/user.service';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  changeDetection: ChangeDetectionStrategy.Eager,\r\n  templateUrl: './root.html',\r\n  imports: [ButtonDirective, TableSmartComponent]\r\n})\r\nexport class Root {\r\n  userService = UserService\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13698,10 +13716,14 @@
                     {
                         "name": "ButtonDirective",
                         "type": "directive"
+                    },
+                    {
+                        "name": "TableSmartComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p>app-root works!</p>\r\n<button pButton>Check</button>"
+            "templateData": "<p>app-root works!</p>\r\n<button pButton>Check</button>\r\n<table-smart-component [baseServiceType]=\"userService\"></table-smart-component>"
         },
         {
             "name": "TableDumbComponent",
@@ -13943,7 +13965,12 @@
                 "OnDestroy"
             ],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "Root",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "TableDumbComponent",
@@ -15095,7 +15122,7 @@
                 "linktype": "component",
                 "name": "Root",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

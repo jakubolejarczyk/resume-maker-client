@@ -1,11 +1,15 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ButtonDirective } from 'primeng/button';
 
+import { TableSmartComponent } from '../component/smart/table/table-smart.component';
+import { UserService } from '../service/user.service';
+
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './root.html',
-  imports: [ButtonDirective]
+  imports: [ButtonDirective, TableSmartComponent]
 })
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class Root {}
+export class Root {
+  userService = UserService
+}
