@@ -10,20 +10,10 @@ import { AnimalStoreAction } from "../action/animal-store.action";
 
 @State<AnimalStoreModel>({
   name: "animalStoreState",
-  defaults: {
-    success: true,
-    message: "",
-    isLoading: false,
-    items: [
-      { id: 0, name: "Dog" },
-      { id: 1, name: "Cat" }
-    ],
-    selectedItem: undefined,
-    columns: [
-      { id: "id", label: "Id", isVisible: true },
-      { id: "name", label: "Name", isVisible: true }
-    ]
-  }
+  defaults: BaseStoreState.initState([
+    { id: "id", label: "Id", isVisible: true },
+    { id: "name", label: "Name", isVisible: true }
+  ])
 })
 @Injectable()
 export class AnimalStoreState extends BaseStoreState<AnimalApiModel> {

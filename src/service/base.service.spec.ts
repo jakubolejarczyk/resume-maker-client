@@ -11,13 +11,14 @@ describe("Service", () => {
         TestBed.configureTestingModule({ providers: ANIMAL_SERVICE_PROVIDER });
         service = TestBed.inject(AnimalService);
         service.baseApiService.baseMockService.nextId = 2;
+        service.readAll().subscribe().unsubscribe();
     });
 
     it("Should return a status containing success and message from the store.", () => {
         service.getStatus().subscribe(status => {
             expect(status).toEqual({
                 success: true,
-                message: ""
+                message: "Successfully retrieved all items."
             });
         });
     });

@@ -1,5 +1,5 @@
 import { Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
-import { combineLatest, Subscription } from "rxjs";
+import { combineLatest, Subscription, switchMap } from "rxjs";
 
 import { TableDumbComponent } from "../../dumb/table/table-dumb.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
@@ -26,10 +26,13 @@ export class TableSmartComponent<TModel extends BaseApiModel> implements OnInit,
 
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());
-        this.sub = combineLatest({
-            columns: this.baseService.getColumns(),
-            items: this.baseService.getItems()
-        }).subscribe(({ columns, items }) => {
+        this.baseService.readAll();
+        this.sub = this.baseService.readAll().pipe(
+            switchMap(() => combineLatest({
+                columns: this.baseService.getColumns(),
+                items: this.baseService.getItems()
+            }))
+        ).subscribe(({ columns, items }) => {
             this.columns = columns;
             this.items = items;
         });

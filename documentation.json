@@ -2213,7 +2213,7 @@
         },
         {
             "name": "AnimalStoreState",
-            "id": "injectable-AnimalStoreState-5c9eace5e8d69bd182e7a2952a9d470e3b01b9998262986d5053d2b10317b455a30a7026a830854eb19a257a3f3a9a640f44ccea8e70591dc8ecf3fc05b3f7fd",
+            "id": "injectable-AnimalStoreState-e409eb1bf62d4337a9e393342057deafbd1940cbf01561df27f7058f6a77e4de4b2efa1e01e817eaef0f36c69469a2c1cddf3fdf7b0c9f7ba630978a6f0f7f8d",
             "file": "src/store/state/animal-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -2242,7 +2242,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2309,7 +2309,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 81,
+                    "line": 71,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2370,7 +2370,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 51,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2421,7 +2421,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 36,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2472,7 +2472,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 41,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2523,7 +2523,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 46,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2574,7 +2574,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 31,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2631,7 +2631,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 86,
+                    "line": 76,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2698,7 +2698,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2765,7 +2765,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2832,7 +2832,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2899,7 +2899,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 66,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2990,7 +2990,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: {\r\n    success: true,\r\n    message: \"\",\r\n    isLoading: false,\r\n    items: [\r\n      { id: 0, name: \"Dog\" },\r\n      { id: 1, name: \"Cat\" }\r\n    ],\r\n    selectedItem: undefined,\r\n    columns: [\r\n      { id: \"id\", label: \"Id\", isVisible: true },\r\n      { id: \"name\", label: \"Name\", isVisible: true }\r\n    ]\r\n  }\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<AnimalApiModel>"
             ],
@@ -13791,7 +13791,7 @@
         },
         {
             "name": "TableSmartComponent",
-            "id": "component-TableSmartComponent-743ed0eaa3b14bf312ff4ad022921a2bfab6558218b869a95df95ffeef7ebd1353399e4964590ec10f9fc16196287419bbe82e759ff99c420042db9b78c5bb8a",
+            "id": "component-TableSmartComponent-82528d8882cc35c609b3e0a08ad1946088078060cab94df826aeac9c1dce32f00fddd66faff2d7ba55cc2e52482e1732aae5628ba1e40777b1279c1e6d4e2e95",
             "file": "src/component/smart/table/table-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13898,7 +13898,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13933,7 +13933,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = combineLatest({\r\n            columns: this.baseService.getColumns(),\r\n            items: this.baseService.getItems()\r\n        }).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",

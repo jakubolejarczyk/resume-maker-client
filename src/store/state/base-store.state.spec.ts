@@ -12,6 +12,10 @@ describe("Store", () => {
     beforeEach(() => {
       TestBed.configureTestingModule({ providers: ANIMAL_STORE_PROVIDER });
       store = TestBed.inject(Store);
+      store.dispatch(new AnimalStoreAction.SetItems([
+        { id: 0, name: "Dog" },
+        { id: 1, name: "Cat" }
+      ]));
     });
 
     it("Should select the value of the status from the store.", () => {
