@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from "@angular/core";
-import { provideRouter, withHashLocation } from "@angular/router";
+import { provideRouter } from "@angular/router";
 import { provideStore } from "@ngxs/store";
 import { withNgxsReduxDevtoolsPlugin } from "@ngxs/devtools-plugin";
 import { providePrimeNG } from 'primeng/config';
@@ -36,7 +36,7 @@ export const getStorybookProvider = (): ApplicationConfig => {
 const getBaseProvider = (): ApplicationConfig["providers"] => {
     return [
         provideBrowserGlobalErrorListeners(),
-        provideRouter(routesConfig, withHashLocation()),
+        provideRouter(routesConfig),
         providePrimeNG({
             theme: {
                 preset: Aura
