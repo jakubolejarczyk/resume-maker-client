@@ -41,4 +41,10 @@ export class TableSmartComponent<TModel extends BaseApiModel> implements OnInit,
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
+
+    onDelete(id: number) {
+        this.baseService.delete(id).subscribe(() => {
+            alert("To remove :d");
+        });
+    }
 }

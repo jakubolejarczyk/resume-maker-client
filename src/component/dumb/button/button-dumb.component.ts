@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { Component, input, output } from "@angular/core";
 import { ButtonModule, ButtonSeverity } from 'primeng/button';
 
 @Component({
@@ -14,4 +14,10 @@ export class ButtonDumbComponent {
     severity = input<ButtonSeverity>();
 
     disabled = input(false);
+
+    event = output();
+
+    onClick() {
+        this.event.emit();
+    }
 }
