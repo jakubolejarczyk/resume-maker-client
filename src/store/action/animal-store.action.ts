@@ -1,7 +1,6 @@
 import { AnimalApiModel } from "../../api/model/animal-api.model";
 import { BaseStoreAction } from "./base-store.action";
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace AnimalStoreAction {
     const ACTION_TYPE = "[AnimalStoreState]";
 

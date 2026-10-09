@@ -1,7 +1,6 @@
 import { UserApiModel } from "../../api/model/user-api.model";
 import { BaseStoreAction } from "./base-store.action";
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace UserStoreAction {
     const ACTION_TYPE = "[UserStoreState]";
 

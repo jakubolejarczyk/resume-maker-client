@@ -1,7 +1,6 @@
 import { SkillApiModel } from "../../api/model/skill-api.model";
 import { BaseStoreAction } from "./base-store.action";
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SkillStoreAction {
     const ACTION_TYPE = "[SkillStoreState]";
 

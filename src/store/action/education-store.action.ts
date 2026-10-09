@@ -1,7 +1,6 @@
 import { EducationApiModel } from "../../api/model/education-api.model";
 import { BaseStoreAction } from "./base-store.action";
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace EducationStoreAction {
     const ACTION_TYPE = "[EducationStoreState]";
 

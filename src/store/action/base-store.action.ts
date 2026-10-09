@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace BaseStoreAction {
     export class SetStatus {
         constructor(public success: boolean, public message: string) {}

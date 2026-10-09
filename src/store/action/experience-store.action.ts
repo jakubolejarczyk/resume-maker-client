@@ -1,7 +1,6 @@
 import { ExperienceApiModel } from "../../api/model/experience-api.model";
 import { BaseStoreAction } from "./base-store.action";
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace ExperienceStoreAction {
     const ACTION_TYPE = "[ExperienceStoreState]";
 
