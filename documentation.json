@@ -13353,6 +13353,10 @@
                     {
                         "name": "ButtonSmartComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "TableDumbComponent",
+                        "type": "component"
                     }
                 ],
                 "outgoing": [
@@ -13821,7 +13825,7 @@
         },
         {
             "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-f8ac1bdb95ce70e77cd69919e888de5024a64b4de9b2b1d02459009068b44ed3c8230c7c1c2d1cb834223419323542f85cb03b2812edb58fc0a831f8b1f50295",
+            "id": "component-TableDumbComponent-4909ada9fa14dccc062057f2e0172194cba4f0dc357a5cbbd79ad5df06f8ac3a0e25a2b95f271e59f289e007085ec9578c76b3a4afbd79bfd4feb6344f3a54af",
             "file": "src/component/dumb/table/table-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13829,7 +13833,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "table-dumb-component",
+            "selector": "app-table-dumb-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -13868,7 +13872,7 @@
             ],
             "outputsClass": [
                 {
-                    "name": "onDeleteEvent",
+                    "name": "deleteEvent",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -13929,12 +13933,16 @@
                 {
                     "name": "TableModule",
                     "type": "module"
+                },
+                {
+                    "name": "ButtonDumbComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n// import { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    onDeleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.onDeleteEvent.emit(id);\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    deleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.deleteEvent.emit(id);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13950,14 +13958,18 @@
                     {
                         "name": "TableModule",
                         "type": "module"
+                    },
+                    {
+                        "name": "ButtonDumbComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <!-- <button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></button-dumb-component> -->\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></app-button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "TableSmartComponent",
-            "id": "component-TableSmartComponent-4fd0d2f8bb9b4a5336444b4b932975b0d791af432a0a5774e577a72170135ca0cce6b1d5b1c29c587ebd23c473e9a1d743d22b5f9335c830f04147c89f81c300",
+            "id": "component-TableSmartComponent-cbe24be5905c78cd79305bb7505d326ef318babbf9d96380b94ea885ce373a16fe072c6f4966a6936ec1fb2eaee37fed3bf5b93dff50f5c8a39696376f30d13b",
             "file": "src/component/smart/table/table-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -14064,7 +14076,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -14099,7 +14111,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -14134,7 +14146,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe(() => {\r\n            alert(\"To remove :d\");\r\n        });\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe().unsubscribe();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -14165,7 +14177,7 @@
                     }
                 ]
             },
-            "templateData": "<table-dumb-component [columns]=\"columns\" [items]=\"items\" (onDeleteEvent)=\"onDelete($event)\"></table-dumb-component>"
+            "templateData": "<app-table-dumb-component [columns]=\"columns\" [items]=\"items\" (deleteEvent)=\"onDelete($event)\"></app-table-dumb-component>"
         },
         {
             "name": "UsersPageComponent",
