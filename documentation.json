@@ -13506,88 +13506,20 @@
             "templateData": "<button-dumb-component\r\n    [label]=\"label()\"\r\n    [link]=\"link()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n></button-dumb-component>"
         },
         {
-            "name": "EducationsPageComponent",
-            "id": "component-EducationsPageComponent-595210fa7fb0200f58cf45922e6127b28ad76fa1de0689a0e0c7f9a05515c6e1c30240f4288e9b5553e12fcb7b7fdc5b7aa5fa3b646770a85b85436fee88385a",
-            "file": "src/component/page/educations/educations-page.component.ts",
+            "name": "DomainViewComponent",
+            "id": "component-DomainViewComponent-0ea6264afd6119ca8f8e3aa9158615794ff6eae2a485cfd90cbc33c1f2f57ca79a955c54cae0ab98f8220cde95662b76a20bbcc8c051fe791487c618b0c9c52a",
+            "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "educations-page-component",
+            "selector": "app-domain-view-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./educations-page.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "baseServiceType",
-                    "coverageIgnore": false,
-                    "defaultValue": "EducationService",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "rawdescription": "\n"
-                }
-            ],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "EntityViewComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { EducationService } from \"../../../service/education.service\";\r\n\r\n@Component({\r\n    selector: \"educations-page-component\",\r\n    templateUrl: \"./educations-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class EducationsPageComponent {\r\n    baseServiceType = EducationService;\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": [
-                    {
-                        "name": "EntityViewComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
-        },
-        {
-            "name": "EntityViewComponent",
-            "id": "component-EntityViewComponent-10bd2fbfaeb0066f0b29350bd712c9480bdfc3576b72f5e87dcc456f800eb555a85c09afe2055ec9246d2355745b17fd4e8526489cf7a8491f30df0f5e25d351",
-            "file": "src/component/view/entity/entity-view.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "entity-view-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./entity-view.component.html"
+                "./domain-view.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -13625,7 +13557,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { TableSmartComponent } from \"../../smart/table/table-smart.component\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\n\r\n@Component({\r\n    selector: \"entity-view-component\",\r\n    templateUrl: \"./entity-view.component.html\",\r\n    imports: [TableSmartComponent]\r\n})\r\nexport class EntityViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { TableSmartComponent } from \"../../smart/table/table-smart.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableSmartComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13656,11 +13588,79 @@
                     }
                 ]
             },
-            "templateData": "<table-smart-component [baseServiceType]=\"baseServiceType()\"></table-smart-component>"
+            "templateData": "<app-table-smart-component [baseServiceType]=\"baseServiceType()\"></app-table-smart-component>"
+        },
+        {
+            "name": "EducationsPageComponent",
+            "id": "component-EducationsPageComponent-0bb2d1e788db3b5d5eb3927b8ffb26539b65234505c9b8d8ac8e44da93c670520dc4efa145fe4529e8f93137466d4eeeef081aa142aa95f8b574e0e86ea6672b",
+            "file": "src/component/page/educations/educations-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-educations-page-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./educations-page.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "baseServiceType",
+                    "coverageIgnore": false,
+                    "defaultValue": "EducationService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "DomainViewComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { DomainViewComponent } from \"../../view/domain/domain-view.component\";\r\nimport { EducationService } from \"../../../service/education.service\";\r\n\r\n@Component({\r\n    selector: \"app-educations-page-component\",\r\n    templateUrl: \"./educations-page.component.html\",\r\n    imports: [DomainViewComponent]\r\n})\r\nexport class EducationsPageComponent {\r\n    baseServiceType = EducationService;\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "DomainViewComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
             "name": "ExperiencesPageComponent",
-            "id": "component-ExperiencesPageComponent-b9004c052b0a6fae014a6c1b0866409b6ea497d33636529ada72b4639e514e72934a63195cdf82c623155deedb86517ec7491e6cc6cb1ed1684518175b007401",
+            "id": "component-ExperiencesPageComponent-078e886bf610d7a580f92d6784a4271bbfe7e9cb2c923b876eebf9074efdd4990eb33e840d6c32f4965f681a7fb440d05bf512df41084cad7c61c2f765e2c869",
             "file": "src/component/page/experiences/experiences-page.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13703,14 +13703,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "EntityViewComponent",
+                    "name": "DomainViewComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { ExperienceService } from \"../../../service/experience.service\";\r\n\r\n@Component({\r\n    selector: \"app-experiences-page-component\",\r\n    templateUrl: \"./experiences-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class ExperiencesPageComponent {\r\n    baseServiceType = ExperienceService;\r\n}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { DomainViewComponent } from \"../../view/domain/domain-view.component\";\r\nimport { ExperienceService } from \"../../../service/experience.service\";\r\n\r\n@Component({\r\n    selector: \"app-experiences-page-component\",\r\n    templateUrl: \"./experiences-page.component.html\",\r\n    imports: [DomainViewComponent]\r\n})\r\nexport class ExperiencesPageComponent {\r\n    baseServiceType = ExperienceService;\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13719,12 +13719,12 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "EntityViewComponent",
+                        "name": "DomainViewComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
+            "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
             "name": "InputTextDumbComponent",
@@ -13957,7 +13957,7 @@
         },
         {
             "name": "SkillsPageComponent",
-            "id": "component-SkillsPageComponent-0085d38a4add489ccfdf059974e88bdf0c25fbbbb2e8fc3bf55cbe9cd33ea94a757f0e3589f92d785ce3adb215f23a8596531192a1a42c7defbad3400eca3fe7",
+            "id": "component-SkillsPageComponent-79fa87dcf52444b8182674bc3c812cd92edae76fd28fa53bf94c6519011e263f58b7b8a2b82ab55879a598a4bc507f7c309e7df8d7ad297c3652452ab5c27396",
             "file": "src/component/page/skills/skills-page.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -14000,14 +14000,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "EntityViewComponent",
+                    "name": "DomainViewComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { SkillService } from \"../../../service/skill.service\";\r\n\r\n@Component({\r\n    selector: \"app-skills-page-component\",\r\n    templateUrl: \"./skills-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class SkillsPageComponent {\r\n    baseServiceType = SkillService;\r\n}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { SkillService } from \"../../../service/skill.service\";\r\nimport { DomainViewComponent } from \"../../view/domain/domain-view.component\";\r\n\r\n@Component({\r\n    selector: \"app-skills-page-component\",\r\n    templateUrl: \"./skills-page.component.html\",\r\n    imports: [DomainViewComponent]\r\n})\r\nexport class SkillsPageComponent {\r\n    baseServiceType = SkillService;\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -14016,12 +14016,12 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "EntityViewComponent",
+                        "name": "DomainViewComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
+            "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
             "name": "TableDumbComponent",
@@ -14169,7 +14169,7 @@
         },
         {
             "name": "TableSmartComponent",
-            "id": "component-TableSmartComponent-3e980fbca7761f9e757dc224fe0993983bd9ff6b1cbb2e444b38dc4e2aec5d716a48a6ae9f1a5945244f4b08c912d806f7006ace17e40829b1980b4cbe5d6301",
+            "id": "component-TableSmartComponent-4fd0d2f8bb9b4a5336444b4b932975b0d791af432a0a5774e577a72170135ca0cce6b1d5b1c29c587ebd23c473e9a1d743d22b5f9335c830f04147c89f81c300",
             "file": "src/component/smart/table/table-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -14177,7 +14177,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "table-smart-component",
+            "selector": "app-table-smart-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -14346,7 +14346,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe(() => {\r\n            alert(\"To remove :d\");\r\n        });\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe(() => {\r\n            alert(\"To remove :d\");\r\n        });\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -14358,7 +14358,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "EntityViewComponent",
+                        "name": "DomainViewComponent",
                         "type": "component"
                     }
                 ],
@@ -14381,7 +14381,7 @@
         },
         {
             "name": "UsersPageComponent",
-            "id": "component-UsersPageComponent-df27d6c9f1c8bd1d17f53b419c24b1f048c125ec63b011d9dd1a9adbfdee2926afa7522357f3034f8426c053f0f59d7690dd47afe2f89bdf6fceaf551eac48a9",
+            "id": "component-UsersPageComponent-a6088f04df699b274645ffec873146de664c3eb8e8e2cd260141aeba6fc3ebffb0c61511be8aacb792ec34f352a6ceebfe4201de99a7ad4f05ee2ba7dc4ed8e8",
             "file": "src/component/page/users/users-page.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -14424,14 +14424,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "EntityViewComponent",
+                    "name": "DomainViewComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { UserService } from \"../../../service/user.service\";\r\n\r\n@Component({\r\n    selector: \"app-users-page-component\",\r\n    templateUrl: \"./users-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class UsersPageComponent {\r\n    baseServiceType = UserService;\r\n}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { DomainViewComponent } from \"../../view/domain/domain-view.component\";\r\nimport { UserService } from \"../../../service/user.service\";\r\n\r\n@Component({\r\n    selector: \"app-users-page-component\",\r\n    templateUrl: \"./users-page.component.html\",\r\n    imports: [DomainViewComponent]\r\n})\r\nexport class UsersPageComponent {\r\n    baseServiceType = UserService;\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -14440,12 +14440,12 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "EntityViewComponent",
+                        "name": "DomainViewComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
+            "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         }
     ],
     "modules": [],
@@ -15446,10 +15446,10 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/view/entity/entity-view.component.ts",
+                "filePath": "src/component/view/domain/domain-view.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "EntityViewComponent",
+                "name": "DomainViewComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"

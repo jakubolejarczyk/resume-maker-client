@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
 
-import { EntityViewComponent } from "../../view/entity/entity-view.component";
+import { DomainViewComponent } from "../../view/domain/domain-view.component";
 import { ExperienceService } from "../../../service/experience.service";
 
 @Component({
     selector: "app-experiences-page-component",
     templateUrl: "./experiences-page.component.html",
-    imports: [EntityViewComponent]
+    imports: [DomainViewComponent]
 })
 export class ExperiencesPageComponent {
     baseServiceType = ExperienceService;

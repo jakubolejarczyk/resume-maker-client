@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
 
-import { EntityViewComponent } from "../../view/entity/entity-view.component";
 import { SkillService } from "../../../service/skill.service";
+import { DomainViewComponent } from "../../view/domain/domain-view.component";
 
 @Component({
     selector: "app-skills-page-component",
     templateUrl: "./skills-page.component.html",
-    imports: [EntityViewComponent]
+    imports: [DomainViewComponent]
 })
 export class SkillsPageComponent {
     baseServiceType = SkillService;

@@ -7,7 +7,7 @@ import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
 
 @Component({
-    selector: "table-smart-component",
+    selector: "app-table-smart-component",
     templateUrl: "./table-smart.component.html",
     imports: [TableDumbComponent]
 })
