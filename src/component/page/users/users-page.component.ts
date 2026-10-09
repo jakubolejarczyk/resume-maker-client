@@ -4,7 +4,7 @@ import { EntityViewComponent } from "../../view/entity/entity-view.component";
 import { UserService } from "../../../service/user.service";
 
 @Component({
-    selector: "users-page-component",
+    selector: "app-users-page-component",
     templateUrl: "./users-page.component.html",
     imports: [EntityViewComponent]
 })
