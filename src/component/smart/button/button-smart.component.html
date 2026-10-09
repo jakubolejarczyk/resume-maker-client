@@ -1,6 +1,1 @@
-<button-dumb-component
-    [label]="label()"
-    [link]="link()"
-    [severity]="severity()"
-    [disabled]="disabled()"
-></button-dumb-component>
+<app-button-dumb-component [label]="label()" [severity]="severity()" (event)="onEvent()"></app-button-dumb-component>

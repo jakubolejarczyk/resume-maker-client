@@ -15,17 +15,14 @@ export default meta;
 type Story = StoryObj<ButtonSmartComponent>;
 
 export const Default: Story = {
-    args: { label: "Click me!" }
-};
-
-export const Link: Story = {
-    args: { ...Default.args, link: true }
+    args: {
+        label: "Click me!"
+    }
 };
 
 export const Severity: Story = {
-    args: { ...Default.args, severity: "danger" }
-};
-
-export const Disabled: Story = {
-    args: { ...Default.args, disabled: true }
+    args: {
+        label: "Click me!",
+        severity: "danger"
+    }
 };

@@ -10093,13 +10093,13 @@
     "classes": [
         {
             "name": "AddItem",
-            "id": "class-AddItem-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-AddItem-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "AddItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -10114,7 +10114,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -10160,7 +10160,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 15,
+                "line": 14,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -10188,7 +10188,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 15,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -10210,13 +10210,13 @@
         },
         {
             "name": "AddItem",
-            "id": "class-AddItem-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-AddItem-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "AddItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -10231,7 +10231,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -10254,13 +10254,13 @@
         },
         {
             "name": "AddItem",
-            "id": "class-AddItem-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-AddItem-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "AddItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -10275,7 +10275,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -10298,13 +10298,13 @@
         },
         {
             "name": "AddItem",
-            "id": "class-AddItem-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-AddItem-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "AddItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -10319,7 +10319,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -10342,13 +10342,13 @@
         },
         {
             "name": "AddItem",
-            "id": "class-AddItem-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-AddItem-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "AddItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -10363,7 +10363,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11415,13 +11415,13 @@
         },
         {
             "name": "DeleteItem",
-            "id": "class-DeleteItem-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-DeleteItem-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "DeleteItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -11436,7 +11436,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11479,7 +11479,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 23,
+                "line": 22,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -11507,7 +11507,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 23,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -11529,13 +11529,13 @@
         },
         {
             "name": "DeleteItem",
-            "id": "class-DeleteItem-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-DeleteItem-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "DeleteItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -11550,7 +11550,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11573,13 +11573,13 @@
         },
         {
             "name": "DeleteItem",
-            "id": "class-DeleteItem-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-DeleteItem-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "DeleteItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -11594,7 +11594,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11617,13 +11617,13 @@
         },
         {
             "name": "DeleteItem",
-            "id": "class-DeleteItem-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-DeleteItem-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "DeleteItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -11638,7 +11638,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11661,13 +11661,13 @@
         },
         {
             "name": "DeleteItem",
-            "id": "class-DeleteItem-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-DeleteItem-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "DeleteItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -11682,7 +11682,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11705,13 +11705,13 @@
         },
         {
             "name": "SetIsLoading",
-            "id": "class-SetIsLoading-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-SetIsLoading-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetIsLoading",
             "inputsClass": [],
             "outputsClass": [],
@@ -11726,7 +11726,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11769,7 +11769,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 7,
+                "line": 6,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -11797,7 +11797,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 7,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -11819,13 +11819,13 @@
         },
         {
             "name": "SetIsLoading",
-            "id": "class-SetIsLoading-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-SetIsLoading-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetIsLoading",
             "inputsClass": [],
             "outputsClass": [],
@@ -11840,7 +11840,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11863,13 +11863,13 @@
         },
         {
             "name": "SetIsLoading",
-            "id": "class-SetIsLoading-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-SetIsLoading-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetIsLoading",
             "inputsClass": [],
             "outputsClass": [],
@@ -11884,7 +11884,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11907,13 +11907,13 @@
         },
         {
             "name": "SetIsLoading",
-            "id": "class-SetIsLoading-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-SetIsLoading-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetIsLoading",
             "inputsClass": [],
             "outputsClass": [],
@@ -11928,7 +11928,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11951,13 +11951,13 @@
         },
         {
             "name": "SetIsLoading",
-            "id": "class-SetIsLoading-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-SetIsLoading-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetIsLoading",
             "inputsClass": [],
             "outputsClass": [],
@@ -11972,7 +11972,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 12,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -11995,13 +11995,13 @@
         },
         {
             "name": "SetItems",
-            "id": "class-SetItems-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-SetItems-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetItems",
             "inputsClass": [],
             "outputsClass": [],
@@ -12016,7 +12016,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12062,7 +12062,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 11,
+                "line": 10,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -12090,7 +12090,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -12112,13 +12112,13 @@
         },
         {
             "name": "SetItems",
-            "id": "class-SetItems-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-SetItems-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetItems",
             "inputsClass": [],
             "outputsClass": [],
@@ -12133,7 +12133,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12156,13 +12156,13 @@
         },
         {
             "name": "SetItems",
-            "id": "class-SetItems-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-SetItems-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetItems",
             "inputsClass": [],
             "outputsClass": [],
@@ -12177,7 +12177,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12200,13 +12200,13 @@
         },
         {
             "name": "SetItems",
-            "id": "class-SetItems-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-SetItems-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetItems",
             "inputsClass": [],
             "outputsClass": [],
@@ -12221,7 +12221,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12244,13 +12244,13 @@
         },
         {
             "name": "SetItems",
-            "id": "class-SetItems-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-SetItems-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetItems",
             "inputsClass": [],
             "outputsClass": [],
@@ -12265,7 +12265,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12288,13 +12288,13 @@
         },
         {
             "name": "SetSelectedItem",
-            "id": "class-SetSelectedItem-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-SetSelectedItem-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetSelectedItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12309,7 +12309,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12355,7 +12355,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 27,
+                "line": 26,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -12383,7 +12383,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 27,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -12405,13 +12405,13 @@
         },
         {
             "name": "SetSelectedItem",
-            "id": "class-SetSelectedItem-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-SetSelectedItem-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetSelectedItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12426,7 +12426,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12449,13 +12449,13 @@
         },
         {
             "name": "SetSelectedItem",
-            "id": "class-SetSelectedItem-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-SetSelectedItem-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetSelectedItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12470,7 +12470,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12493,13 +12493,13 @@
         },
         {
             "name": "SetSelectedItem",
-            "id": "class-SetSelectedItem-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-SetSelectedItem-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetSelectedItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12514,7 +12514,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12537,13 +12537,13 @@
         },
         {
             "name": "SetSelectedItem",
-            "id": "class-SetSelectedItem-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-SetSelectedItem-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetSelectedItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12558,7 +12558,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 33,
+                    "line": 32,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12581,13 +12581,13 @@
         },
         {
             "name": "SetStatus",
-            "id": "class-SetStatus-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-SetStatus-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetStatus",
             "inputsClass": [],
             "outputsClass": [],
@@ -12602,7 +12602,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12653,7 +12653,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 3,
+                "line": 2,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -12692,7 +12692,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 3,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -12707,7 +12707,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 3,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -12729,13 +12729,13 @@
         },
         {
             "name": "SetStatus",
-            "id": "class-SetStatus-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-SetStatus-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetStatus",
             "inputsClass": [],
             "outputsClass": [],
@@ -12750,7 +12750,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12773,13 +12773,13 @@
         },
         {
             "name": "SetStatus",
-            "id": "class-SetStatus-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-SetStatus-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetStatus",
             "inputsClass": [],
             "outputsClass": [],
@@ -12794,7 +12794,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12817,13 +12817,13 @@
         },
         {
             "name": "SetStatus",
-            "id": "class-SetStatus-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-SetStatus-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetStatus",
             "inputsClass": [],
             "outputsClass": [],
@@ -12838,7 +12838,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12861,13 +12861,13 @@
         },
         {
             "name": "SetStatus",
-            "id": "class-SetStatus-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-SetStatus-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "SetStatus",
             "inputsClass": [],
             "outputsClass": [],
@@ -12882,7 +12882,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 8,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12905,13 +12905,13 @@
         },
         {
             "name": "UpdateItem",
-            "id": "class-UpdateItem-3641c57d8ae2c14b2b47e7748b5ad14beabac8359645ecbd5c62ca4dfa923d28c7a8ddd5129b9e41b233a4ebd16f2b779202482920edeaab98d7b3cbe3a53ae0",
+            "id": "class-UpdateItem-09870222b717c0fe05fd7098d7b53f9b1c6992264e919fa5e4ce54fc0cae7a859e153a8790c0ead0c77549676b2a6e81e697511b6d78ac41f1379beaeb5bed32",
             "file": "src/store/action/animal-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace AnimalStoreAction {\r\n    const ACTION_TYPE = \"[AnimalStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<AnimalApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "UpdateItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -12926,7 +12926,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -12972,7 +12972,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 19,
+                "line": 18,
                 "rawdescription": "\n",
                 "jsdoctags": [
                     {
@@ -13000,7 +13000,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 19,
                     "rawdescription": "\n",
                     "modifierKind": [
                         125
@@ -13022,13 +13022,13 @@
         },
         {
             "name": "UpdateItem",
-            "id": "class-UpdateItem-aa2e8c3192554aea647c82e355d02973689010e28df04cda06a759b023b53b705569f55d357bc1dbafd87bed52fe5a91469e0121859de29e43b3ca6a84524d41-2",
+            "id": "class-UpdateItem-1af7aff74da17eae43764992e72be831b0130e4cfd7e28da53df1b1f9b185d6f4ef175da7ea0b396a3b0505d6da513bdbd942d0b2e702f5e13eb3e8cb6fd9fd5-2",
             "file": "src/store/action/education-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace EducationStoreAction {\r\n    const ACTION_TYPE = \"[EducationStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<EducationApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "UpdateItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -13043,7 +13043,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -13066,13 +13066,13 @@
         },
         {
             "name": "UpdateItem",
-            "id": "class-UpdateItem-44fc6296aeb0eae617e22a83e0af7322ebf6ad8fc3762c330659c1430d55c2329c1f54e9912ae9dfc859878787fb81c736db762c4f432bf6f7e2dd5c9f72dfdf-3",
+            "id": "class-UpdateItem-823f3e58b628d7d44108a5f4e8267280672ba0cbbada2cc6cc7a19a1cc9a758e57b4ce10d610881dd3634743e19479d6d9641f2897d2495ff93827537312296c-3",
             "file": "src/store/action/experience-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace ExperienceStoreAction {\r\n    const ACTION_TYPE = \"[ExperienceStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<ExperienceApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "UpdateItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -13087,7 +13087,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -13110,13 +13110,13 @@
         },
         {
             "name": "UpdateItem",
-            "id": "class-UpdateItem-a26bcd2188b98bc7891e35b4dbceedc23cd5305c686dcfc47067283e8bc4d8da901ba51ec46b8325e4d6ed41e101dcd885b23c69ce5ce686ceeafd99239b7e24-4",
+            "id": "class-UpdateItem-62fd18e7af5f60b904d7a044708cefd211c03774c1bef569464cd28f7420ad5f18bd1f7bbde8bc046d003cbc1849d711821512b62598edb08b5cf5c9edfd80b3-4",
             "file": "src/store/action/skill-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace SkillStoreAction {\r\n    const ACTION_TYPE = \"[SkillStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "UpdateItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -13131,7 +13131,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -13154,13 +13154,13 @@
         },
         {
             "name": "UpdateItem",
-            "id": "class-UpdateItem-b4cbee67487554c83acf2f59ef03751967f782ed951ff8d825848e0f5b276dcf32120d2188adb3fc4e5cd5ddcd740ef748df5f2c7d2c9d6263bd748821374f15-5",
+            "id": "class-UpdateItem-a01984f87bad4381c53bf1a9a0406623bd6dd4b0db988e02da838a8a8d584ab08363c646042a2b81c8a45e78c14bce5617087fd74484d0f68307f26abed874e8-5",
             "file": "src/store/action/user-store.action.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\n// eslint-disable-next-line @typescript-eslint/no-namespace\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
+            "sourceCode": "import { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseStoreAction } from \"./base-store.action\";\r\n\r\nexport namespace UserStoreAction {\r\n    const ACTION_TYPE = \"[UserStoreState]\";\r\n\r\n    export class SetStatus extends BaseStoreAction.SetStatus {\r\n        static readonly type = `${ACTION_TYPE} SetStatus`;\r\n    }\r\n\r\n    export class SetIsLoading extends BaseStoreAction.SetIsLoading {\r\n        static readonly type = `${ACTION_TYPE} SetIsLoading`;\r\n    }\r\n\r\n    export class SetItems extends BaseStoreAction.SetItems<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetItems`;\r\n    }\r\n\r\n    export class AddItem extends BaseStoreAction.AddItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} AddItem`;\r\n    }\r\n\r\n    export class UpdateItem extends BaseStoreAction.UpdateItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} UpdateItem`;\r\n    }\r\n\r\n    export class DeleteItem extends BaseStoreAction.DeleteItem {\r\n        static readonly type = `${ACTION_TYPE} DeleteItem`;\r\n    }\r\n\r\n    export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<UserApiModel> {\r\n        static readonly type = `${ACTION_TYPE} SetSelectedItem`;\r\n    }\r\n}",
             "displayName": "UpdateItem",
             "inputsClass": [],
             "outputsClass": [],
@@ -13175,7 +13175,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "modifierKind": [
                         126,
@@ -13253,7 +13253,7 @@
         },
         {
             "name": "ButtonDumbComponent",
-            "id": "component-ButtonDumbComponent-9f93da91486aff496348ae722a8b49d51f605899b7dd9672d00a569446c2c1fb643ebae27928466ff5ed83d10c9ce8d431fa2ec11826f9b5b4a3c4bc2a32aa19",
+            "id": "component-ButtonDumbComponent-f9a171663337a0efc96a250202ec1e1f7569d0394f225c89956e9ad8d995c13b36e28c231fdb6cbbec41f70ad00c15715f26a9a718b01e0b75e38d7972f04a28",
             "file": "src/component/dumb/button/button-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13261,7 +13261,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "button-dumb-component",
+            "selector": "app-button-dumb-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
@@ -13271,20 +13271,6 @@
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
-                {
-                    "name": "disabled",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n",
-                    "required": false
-                },
                 {
                     "name": "label",
                     "coverageIgnore": false,
@@ -13299,18 +13285,117 @@
                     "required": true
                 },
                 {
-                    "name": "link",
+                    "name": "severity",
                     "coverageIgnore": false,
-                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "boolean",
+                    "type": "ButtonSeverity",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 12,
                     "rawdescription": "\n",
                     "required": false
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "event",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from \"primeng/button\";\r\n\r\n@Component({\r\n    selector: \"app-button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "ButtonSmartComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "ButtonModule",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<button pButton [severity]=\"severity()\" (click)=\"onClick()\">{{ label() }}</button>"
+        },
+        {
+            "name": "ButtonSmartComponent",
+            "id": "component-ButtonSmartComponent-c070a6b46176128d564ea772eae8851717bac7cca57a54c1d8aed2446fb14c162b776bf3099ee078fb8af3e87f39d2fcc6162388626de736cbcc1b8edf01fc5b",
+            "file": "src/component/smart/button/button-smart.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button-smart-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button-smart.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "required": true
                 },
                 {
                     "name": "severity",
@@ -13335,7 +13420,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 16,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -13343,137 +13428,19 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "onClick",
+                    "name": "onEvent",
                     "coverageIgnore": false,
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": ""
                 }
             ],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "ButtonModule",
-                    "type": "module"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from 'primeng/button';\r\n\r\n@Component({\r\n    selector: \"button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    link = input(false);\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    disabled = input(false);\r\n\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "ButtonSmartComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "TableDumbComponent",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "ButtonModule",
-                        "type": "module"
-                    }
-                ]
-            },
-            "templateData": "<button pButton [link]=\"link()\" [severity]=\"severity()\" [disabled]=\"disabled()\" (click)=\"onClick()\">{{ label() }}</button>"
-        },
-        {
-            "name": "ButtonSmartComponent",
-            "id": "component-ButtonSmartComponent-7b7643b60707375c529fe12d508a063e41047c655623459ee1f6a961c49cbd6491353f93b907fab327899f8912ede4f1623dacbd089b4f3e22c6cbc153339bcd",
-            "file": "src/component/smart/button/button-smart.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "button-smart-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./button-smart.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "label",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "rawdescription": "\n",
-                    "required": true
-                },
-                {
-                    "name": "link",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "severity",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ButtonSeverity",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -13489,7 +13456,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { ButtonSeverity } from \"primeng/button\";\r\n\r\nimport { ButtonDumbComponent } from \"../../dumb/button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"button-smart-component\",\r\n    templateUrl: \"./button-smart.component.html\",\r\n    imports: [ButtonDumbComponent]\r\n})\r\nexport class ButtonSmartComponent {\r\n    label = input.required<string>();\r\n\r\n    link = input(false);\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    disabled = input(false);\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonSeverity } from \"primeng/button\";\r\n\r\nimport { ButtonDumbComponent } from \"../../dumb/button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-button-smart-component\",\r\n    templateUrl: \"./button-smart.component.html\",\r\n    imports: [ButtonDumbComponent]\r\n})\r\nexport class ButtonSmartComponent {\r\n    label = input.required<string>();\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    event = output();\r\n\r\n    onEvent() {\r\n        this.event.emit();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13503,7 +13470,7 @@
                     }
                 ]
             },
-            "templateData": "<button-dumb-component\r\n    [label]=\"label()\"\r\n    [link]=\"link()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n></button-dumb-component>"
+            "templateData": "<app-button-dumb-component [label]=\"label()\" [severity]=\"severity()\" (event)=\"onEvent()\"></app-button-dumb-component>"
         },
         {
             "name": "DomainViewComponent",
@@ -13727,177 +13694,6 @@
             "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
-            "name": "InputTextDumbComponent",
-            "id": "component-InputTextDumbComponent-b20babcdab4805ea2e1544e52774124b062f2ec277713be22802055fec48525d53b5a2bffa94b0644b6df411e8188636117f8c404e3e526992b01457e7331e6c",
-            "file": "src/component/dumb/input-text/input-text-dumb.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "input-text-dumb-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./input-text-dumb.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "invalid",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 10,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "InputTextModule",
-                    "type": "module"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {\r\n    invalid = input(false);\r\n\r\n    disabled = input(false);\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "InputTextSmartComponent",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "InputTextModule",
-                        "type": "module"
-                    }
-                ]
-            },
-            "templateData": "<input pInputText [invalid]=\"invalid()\" [disabled]=\"disabled()\" />"
-        },
-        {
-            "name": "InputTextSmartComponent",
-            "id": "component-InputTextSmartComponent-d990dd575981dbd71c667f0c476aa439ea1d2cdb3dfb8ea8648967274d29d1fdcdb1c3a85017eb377a303591f0c86fc58fc206d8dee2b2dd2457a92b4ac4175c",
-            "file": "src/component/smart/input-text/input-text-smart.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "input-text-smart-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./input-text-smart.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "invalid",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 11,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "InputTextDumbComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {\r\n    invalid = input(false);\r\n\r\n    disabled = input(false);\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": [
-                    {
-                        "name": "InputTextDumbComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<input-text-dumb-component [invalid]=\"invalid()\" [disabled]=\"disabled()\"></input-text-dumb-component>"
-        },
-        {
             "name": "RootComponent",
             "id": "component-RootComponent-e45ff46fda013ded8a32424797131fdaa8e4b7b55a06b689e4915e545fe0ca211a275bbfa6aa4034deb9458d2161e6a6d5c2598708b8581b7c9dca7c17184414",
             "file": "src/root/root.component.ts",
@@ -14025,7 +13821,7 @@
         },
         {
             "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-47c4d94fa218bbf06c02aad6d6f6937a776bac036b29f1cc6e0d7e2fbfa79672c5a3bdadf265111c723036e0abf99891183678bf3b40b22e1eb896bdc5a7e204",
+            "id": "component-TableDumbComponent-f8ac1bdb95ce70e77cd69919e888de5024a64b4de9b2b1d02459009068b44ed3c8230c7c1c2d1cb834223419323542f85cb03b2812edb58fc0a831f8b1f50295",
             "file": "src/component/dumb/table/table-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -14133,16 +13929,12 @@
                 {
                     "name": "TableModule",
                     "type": "module"
-                },
-                {
-                    "name": "ButtonDumbComponent",
-                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    onDeleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.onDeleteEvent.emit(id);\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n// import { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    onDeleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.onDeleteEvent.emit(id);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -14158,14 +13950,10 @@
                     {
                         "name": "TableModule",
                         "type": "module"
-                    },
-                    {
-                        "name": "ButtonDumbComponent",
-                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <!-- <button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></button-dumb-component> -->\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "TableSmartComponent",
@@ -15361,16 +15149,7 @@
                 "linktype": "component",
                 "name": "ButtonDumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/dumb/input-text/input-text-dumb.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "InputTextDumbComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -15425,15 +15204,6 @@
                 "name": "ButtonSmartComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/smart/input-text/input-text-smart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "InputTextSmartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
                 "status": "low"
             },
             {
