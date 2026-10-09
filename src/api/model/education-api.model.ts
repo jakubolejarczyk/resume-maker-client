@@ -6,5 +6,5 @@ export interface EducationApiModel extends BaseApiModel {
     fieldOfStudy: string;
     degree: string;
     institutionName: string;
-    userId: number;
+    resumeId: number;
 }

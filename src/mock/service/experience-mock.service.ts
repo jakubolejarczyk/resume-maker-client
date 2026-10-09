@@ -20,7 +20,7 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.",
                     "Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability."
                 ],
-                userId: 0
+                resumeId: 0
             },
             {
                 id: 1,
@@ -34,7 +34,7 @@ export class ExperienceMockService extends BaseMockService<ExperienceMockModel> 
                     "Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.",
                     "Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions."
                 ],
-                userId: 0
+                resumeId: 0
             }
         ]);
     }

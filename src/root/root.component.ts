@@ -4,7 +4,8 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { Briefcase } from '@primeicons/angular/briefcase';
 import { Users } from '@primeicons/angular/users';
-import { GraduationCap } from '@primeicons/angular/graduation-cap';
+import { GraduationCap } from '@primeicons/angular/graduation-cap'
+import { File } from '@primeicons/angular/file';
 import { Code } from '@primeicons/angular/code';
 import { Sidebar } from '@primeicons/angular/sidebar';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
@@ -21,6 +22,7 @@ import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
         Users,
         GraduationCap,
         Code,
+        File,
         Sidebar,
         RouterOutlet,
         RouterLinkWithHref

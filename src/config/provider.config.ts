@@ -13,6 +13,7 @@ import { EducationStoreState } from "../store/state/education-store.state";
 import { environment } from "../environments/environment";
 import { AnimalStoreState } from "../store/state/animal-store.state";
 import { ANIMAL_SERVICE_PROVIDER } from "../service/animal-service.provider";
+import { ResumeStoreState } from "../store/state/resume-store.state";
 
 export const getProvider = (): ApplicationConfig => {
     return {
@@ -52,7 +53,8 @@ const getProvideStore = (): ApplicationConfig["providers"] => {
             UserStoreState,
             SkillStoreState,
             ExperienceStoreState,
-            EducationStoreState
+            EducationStoreState,
+            ResumeStoreState
         ], withNgxsReduxDevtoolsPlugin())
     ];
 };

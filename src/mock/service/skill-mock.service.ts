@@ -15,7 +15,7 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "TypeScript",
                     "C#"
                 ],
-                userId: 0
+                resumeId: 0
             },
             {
                 id: 1,
@@ -27,7 +27,7 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "PrimeNG",
                     "Storybook"
                 ],
-                userId: 0
+                resumeId: 0
             },
             {
                 id: 2,
@@ -42,7 +42,7 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "Visual Studio",
                     "Microsoft Visual Studio Code"
                 ],
-                userId: 0
+                resumeId: 0
             },
             {
                 id: 3,
@@ -51,7 +51,7 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                     "English",
                     "Polish"
                 ],
-                userId: 0
+                resumeId: 0
             }
         ]);
     }

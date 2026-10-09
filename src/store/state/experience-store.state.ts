@@ -16,7 +16,8 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
     { id: "startDate", label: "Start Date", isVisible: true },
     { id: "endDate", label: "End Date", isVisible: true },
     { id: "jobTitle", label: "Job Title", isVisible: true },
-    { id: "description", label: "Description", isVisible: true }
+    { id: "description", label: "Description", isVisible: true },
+    { id: "resumeId", label: "Resume Id", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

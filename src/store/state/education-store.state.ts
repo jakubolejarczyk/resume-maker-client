@@ -16,7 +16,8 @@ import { EducationStoreAction } from "../action/education-store.action";
     { id: "endYear", label: "End Year", isVisible: true },
     { id: "fieldOfStudy", label: "Field Of Study", isVisible: true },
     { id: "degree", label: "Degree", isVisible: true },
-    { id: "institutionName", label: "Institution Name", isVisible: true }
+    { id: "institutionName", label: "Institution Name", isVisible: true },
+    { id: "resumeId", label: "Resume Id", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })
