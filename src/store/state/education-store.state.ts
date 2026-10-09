@@ -11,6 +11,7 @@ import { EducationStoreAction } from "../action/education-store.action";
 @State<EducationStoreModel>({
   name: "educationStoreState",
   defaults: BaseStoreState.initState([
+    { id: "id", label: "Id", isVisible: true },
     { id: "startYear", label: "Start Year", isVisible: true },
     { id: "endYear", label: "End Year", isVisible: true },
     { id: "fieldOfStudy", label: "Field Of Study", isVisible: true },

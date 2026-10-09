@@ -11,6 +11,7 @@ import { SkillStoreAction } from "../action/skill-store.action";
 @State<SkillStoreModel>({
   name: "skillStoreState",
   defaults: BaseStoreState.initState([
+    { id: "id", label: "Id", isVisible: true },
     { id: "category", label: "Category", isVisible: true },
     { id: "skills", label: "Skills", isVisible: true }
   ])

@@ -11,6 +11,7 @@ import { UserStoreAction } from "../action/user-store.action";
 @State<UserStoreModel>({
   name: "userStoreState",
   defaults: BaseStoreState.initState([
+    { id: "id", label: "Id", isVisible: true },
     { id: "firstName", label: "First Name", isVisible: true },
     { id: "lastName", label: "Last Name", isVisible: true },
     { id: "jobTitle", label: "Job Title", isVisible: true },

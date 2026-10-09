@@ -11,6 +11,7 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
   defaults: BaseStoreState.initState([
+    { id: "id", label: "Id", isVisible: true },
     { id: "company", label: "Company", isVisible: true },
     { id: "startDate", label: "Start Date", isVisible: true },
     { id: "endDate", label: "End Date", isVisible: true },
