@@ -59,6 +59,12 @@ const getProvideStore = (): ApplicationConfig["providers"] => {
 
 const getStorybookProvideStore = (): ApplicationConfig["providers"] => {
     return [
-        provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())
+        provideStore([
+            UserStoreState,
+            SkillStoreState,
+            ExperienceStoreState,
+            EducationStoreState,
+            AnimalStoreState
+        ], withNgxsReduxDevtoolsPlugin())
     ];
 };

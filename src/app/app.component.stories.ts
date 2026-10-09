@@ -1,17 +1,17 @@
 import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
-import { Root } from "./root";
+import { AppComponent } from "./app.component";
 import { getProvider } from "../config/provider.config";
 
-const meta: Meta<Root> = {
-    title: "root",
-    component: Root,
+const meta: Meta<AppComponent> = {
+    title: "component/app",
+    component: AppComponent,
     decorators: [
         applicationConfig(getProvider())
     ]
 };
 
 export default meta;
-type Story = StoryObj<Root>;
+type Story = StoryObj<AppComponent>;
 
 export const Default: Story = {};

@@ -13200,10 +13200,10 @@
     "directives": [],
     "components": [
         {
-            "name": "App",
-            "id": "component-App-69d1b0f2ff7086efd7a5e364e5703d8444f0518f903163fd760d24d2b0a0820cbca486453fe1f05440f8e3dbf12876dbdb9e1ca98563e296cc6445fa489e954b",
-            "file": "src/app/app.ts",
-            "changeDetection": "ChangeDetectionStrategy.Eager",
+            "name": "AppComponent",
+            "id": "component-AppComponent-98af8878f4047d74779284f62bb3ff6b36aaf3dab2227eec9c69df14a3308e4831ae68ea4a5529163d8d6f4eb6651910fce40aff1625933337127d1a7d1301e1",
+            "file": "src/app/app.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -13212,7 +13212,7 @@
             "selector": "app",
             "styleUrls": [],
             "styles": [],
-            "template": "<app-root></app-root>",
+            "template": "<app-root-component></app-root-component>",
             "templateUrl": [],
             "templateVariables": [],
             "viewProviders": [],
@@ -13229,13 +13229,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "Root"
+                    "name": "RootComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\nimport { Root } from '../root/root';\n\n@Component({\n  selector: 'app',\n  template: '<app-root></app-root>',\n  changeDetection: ChangeDetectionStrategy.Eager,\n  imports: [Root],\n})\n// eslint-disable-next-line @typescript-eslint/no-extraneous-class\nexport class App {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\nimport { RootComponent } from '../root/root.component';\r\n\r\n@Component({\r\n  selector: 'app',\r\n  template: '<app-root-component></app-root-component>',\r\n  imports: [RootComponent],\r\n})\r\nexport class AppComponent {}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13244,7 +13245,7 @@
                 "incoming": [],
                 "outgoing": [
                     {
-                        "name": "Root",
+                        "name": "RootComponent",
                         "type": "component"
                     }
                 ]
@@ -13252,7 +13253,7 @@
         },
         {
             "name": "ButtonDumbComponent",
-            "id": "component-ButtonDumbComponent-b5e72411efff20fb5a576cc3dcf5cb3e7cd2d4aeb7f5a2bdcc552d7883ce2ea25275ee65263acaa0ca87fcaf35e0ca707f6479c92fd3360363db8776c3df34b0",
+            "id": "component-ButtonDumbComponent-9f93da91486aff496348ae722a8b49d51f605899b7dd9672d00a569446c2c1fb643ebae27928466ff5ed83d10c9ce8d431fa2ec11826f9b5b4a3c4bc2a32aa19",
             "file": "src/component/dumb/button/button-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13325,9 +13326,36 @@
                     "required": false
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "event",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -13343,7 +13371,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from 'primeng/button';\r\n\r\n@Component({\r\n    selector: \"button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    link = input(false);\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    disabled = input(false);\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from 'primeng/button';\r\n\r\n@Component({\r\n    selector: \"button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    link = input(false);\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    disabled = input(false);\r\n\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13352,6 +13380,10 @@
                 "incoming": [
                     {
                         "name": "ButtonSmartComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "TableDumbComponent",
                         "type": "component"
                     }
                 ],
@@ -13362,7 +13394,7 @@
                     }
                 ]
             },
-            "templateData": "<button\r\n    pButton\r\n    [link]=\"link()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n>\r\n    {{ label() }}\r\n</button>"
+            "templateData": "<button pButton [link]=\"link()\" [severity]=\"severity()\" [disabled]=\"disabled()\" (click)=\"onClick()\">{{ label() }}</button>"
         },
         {
             "name": "ButtonSmartComponent",
@@ -13472,6 +13504,83 @@
                 ]
             },
             "templateData": "<button-dumb-component\r\n    [label]=\"label()\"\r\n    [link]=\"link()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n></button-dumb-component>"
+        },
+        {
+            "name": "EntityViewComponent",
+            "id": "component-EntityViewComponent-10bd2fbfaeb0066f0b29350bd712c9480bdfc3576b72f5e87dcc456f800eb555a85c09afe2055ec9246d2355745b17fd4e8526489cf7a8491f30df0f5e25d351",
+            "file": "src/component/view/entity/entity-view.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "entity-view-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./entity-view.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "baseServiceType",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "typeof BaseService<TModel>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": true
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "TableSmartComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { TableSmartComponent } from \"../../smart/table/table-smart.component\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\n\r\n@Component({\r\n    selector: \"entity-view-component\",\r\n    templateUrl: \"./entity-view.component.html\",\r\n    imports: [TableSmartComponent]\r\n})\r\nexport class EntityViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "SkillsPageComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "UsersPageComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "TableSmartComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "<table-smart-component [baseServiceType]=\"baseServiceType()\"></table-smart-component>"
         },
         {
             "name": "InputTextDumbComponent",
@@ -13645,20 +13754,78 @@
             "templateData": "<input-text-dumb-component [invalid]=\"invalid()\" [disabled]=\"disabled()\"></input-text-dumb-component>"
         },
         {
-            "name": "Root",
-            "id": "component-Root-71cc6dc8fa5221cdfc92da5481a251570af8d72af288bf294ef18a49717d109e1912ef371233a4a4698529bc975e2b3080202a0e032ec2405784f5d418e13bb6",
-            "file": "src/root/root.ts",
-            "changeDetection": "ChangeDetectionStrategy.Eager",
+            "name": "RootComponent",
+            "id": "component-RootComponent-e45ff46fda013ded8a32424797131fdaa8e4b7b55a06b689e4915e545fe0ca211a275bbfa6aa4034deb9458d2161e6a6d5c2598708b8581b7c9dca7c17184414",
+            "file": "src/root/root.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-root",
+            "selector": "app-root-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./root.html"
+                "./root.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { RouterOutlet } from \"@angular/router\";\r\n\r\n@Component({\r\n  selector: 'app-root-component',\r\n  templateUrl: './root.component.html',\r\n  imports: [RouterOutlet]\r\n})\r\nexport class RootComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "AppComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "RouterOutlet",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<router-outlet></router-outlet>"
+        },
+        {
+            "name": "SkillsPageComponent",
+            "id": "component-SkillsPageComponent-f121163d70da5a623cbcc09c628d2a18482e9975afc87f34446887312cac2d11168eff3a78c74c75e8b43f2a99fc61ce268b227854f29e20c0cc68144b071d71",
+            "file": "src/component/page/skills/skills-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "skills-page-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./skills-page.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -13667,16 +13834,16 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "userService",
+                    "name": "baseServiceType",
                     "coverageIgnore": false,
-                    "defaultValue": "UserService",
+                    "defaultValue": "SkillService",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 12,
                     "rawdescription": "\n"
                 }
             ],
@@ -13689,45 +13856,32 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "ButtonDirective",
-                    "type": "directive"
-                },
-                {
-                    "name": "TableSmartComponent",
+                    "name": "EntityViewComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\r\nimport { ButtonDirective } from 'primeng/button';\r\n\r\nimport { TableSmartComponent } from '../component/smart/table/table-smart.component';\r\nimport { UserService } from '../service/user.service';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  changeDetection: ChangeDetectionStrategy.Eager,\r\n  templateUrl: './root.html',\r\n  imports: [ButtonDirective, TableSmartComponent]\r\n})\r\nexport class Root {\r\n  userService = UserService\r\n}\r\n",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { SkillService } from \"../../../service/skill.service\";\r\n\r\n@Component({\r\n    selector: \"skills-page-component\",\r\n    templateUrl: \"./skills-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class SkillsPageComponent {\r\n    baseServiceType = SkillService;\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [
-                    {
-                        "name": "App",
-                        "type": "component"
-                    }
-                ],
+                "incoming": [],
                 "outgoing": [
                     {
-                        "name": "ButtonDirective",
-                        "type": "directive"
-                    },
-                    {
-                        "name": "TableSmartComponent",
+                        "name": "EntityViewComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<p>app-root works!</p>\r\n<button pButton>Check</button>\r\n<table-smart-component [baseServiceType]=\"userService\"></table-smart-component>"
+            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
         },
         {
             "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-1f8d40f870f80a790be04b33b815855792e61c5c0cdeb0c5191be529761ec02dd23002b079c07d9e7aed819427a5e8764d1e81e43ae7e339e7069fd1f81d13ab",
+            "id": "component-TableDumbComponent-47c4d94fa218bbf06c02aad6d6f6937a776bac036b29f1cc6e0d7e2fbfa79672c5a3bdadf265111c723036e0abf99891183678bf3b40b22e1eb896bdc5a7e204",
             "file": "src/component/dumb/table/table-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13754,7 +13908,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 14,
                     "rawdescription": "\n",
                     "required": true
                 },
@@ -13767,14 +13921,64 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 16,
                     "rawdescription": "\n",
                     "required": true
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onDeleteEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onDelete",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
@@ -13785,12 +13989,16 @@
                 {
                     "name": "TableModule",
                     "type": "module"
+                },
+                {
+                    "name": "ButtonDumbComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    onDeleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.onDeleteEvent.emit(id);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13806,14 +14014,18 @@
                     {
                         "name": "TableModule",
                         "type": "module"
+                    },
+                    {
+                        "name": "ButtonDumbComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "TableSmartComponent",
-            "id": "component-TableSmartComponent-82528d8882cc35c609b3e0a08ad1946088078060cab94df826aeac9c1dce32f00fddd66faff2d7ba55cc2e52482e1732aae5628ba1e40777b1279c1e6d4e2e95",
+            "id": "component-TableSmartComponent-3e980fbca7761f9e757dc224fe0993983bd9ff6b1cbb2e444b38dc4e2aec5d716a48a6ae9f1a5945244f4b08c912d806f7006ace17e40829b1980b4cbe5d6301",
             "file": "src/component/smart/table/table-smart.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -13938,6 +14150,41 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": ""
+                },
+                {
+                    "name": "onDelete",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "coverageIgnore": false,
@@ -13955,7 +14202,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.baseService.readAll();\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            }))\r\n        ).subscribe(({ columns, items }) => {\r\n            this.columns = columns;\r\n            this.items = items;\r\n        });\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe(() => {\r\n            alert(\"To remove :d\");\r\n        });\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -13967,7 +14214,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "Root",
+                        "name": "EntityViewComponent",
                         "type": "component"
                     }
                 ],
@@ -13986,7 +14233,75 @@
                     }
                 ]
             },
-            "templateData": "<table-dumb-component [columns]=\"columns\" [items]=\"items\"></table-dumb-component>"
+            "templateData": "<table-dumb-component [columns]=\"columns\" [items]=\"items\" (onDeleteEvent)=\"onDelete($event)\"></table-dumb-component>"
+        },
+        {
+            "name": "UsersPageComponent",
+            "id": "component-UsersPageComponent-237a4941a139681a06c6169fa697e79be6edca9ab243d23c901e040994bf7660090bc56e40053026a5d0b2dc247c6133d836218e1b7cb119732a6b85416d2df2",
+            "file": "src/component/page/users/users-page.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "users-page-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./users-page.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "baseServiceType",
+                    "coverageIgnore": false,
+                    "defaultValue": "UserService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "EntityViewComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { EntityViewComponent } from \"../../view/entity/entity-view.component\";\r\nimport { UserService } from \"../../../service/user.service\";\r\n\r\n@Component({\r\n    selector: \"users-page-component\",\r\n    templateUrl: \"./users-page.component.html\",\r\n    imports: [EntityViewComponent]\r\n})\r\nexport class UsersPageComponent {\r\n    baseServiceType = UserService;\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "EntityViewComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "<entity-view-component [baseServiceType]=\"baseServiceType\"></entity-view-component>"
         }
     ],
     "modules": [],
@@ -14099,7 +14414,7 @@
                 "coverageIgnore": false,
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ApplicationConfig",
+                "type": "unknown",
                 "defaultValue": "getProvider()"
             },
             {
@@ -14133,7 +14448,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "unknown",
-                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig, withHashLocation()),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
+                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
             },
             {
                 "name": "getProvider",
@@ -14177,7 +14492,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "unknown",
-                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())\r\n    ];\r\n}"
+                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideStore([\r\n            UserStoreState,\r\n            SkillStoreState,\r\n            ExperienceStoreState,\r\n            EducationStoreState,\r\n            AnimalStoreState\r\n        ], withNgxsReduxDevtoolsPlugin())\r\n    ];\r\n}"
             },
             {
                 "name": "routesConfig",
@@ -14188,7 +14503,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Routes",
-                "defaultValue": "[]"
+                "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersPageComponent\r\n    },\r\n    {\r\n        path: \"skills\",\r\n        component: SkillsPageComponent\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
             }
         ],
         "functions": [],
@@ -14452,7 +14767,7 @@
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ApplicationConfig",
+                    "type": "unknown",
                     "defaultValue": "getProvider()"
                 }
             ],
@@ -14492,7 +14807,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
-                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig, withHashLocation()),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
+                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
                 },
                 {
                     "name": "getProvider",
@@ -14536,7 +14851,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
-                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())\r\n    ];\r\n}"
+                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideStore([\r\n            UserStoreState,\r\n            SkillStoreState,\r\n            ExperienceStoreState,\r\n            EducationStoreState,\r\n            AnimalStoreState\r\n        ], withNgxsReduxDevtoolsPlugin())\r\n    ];\r\n}"
                 }
             ],
             "src/config/routes.config.ts": [
@@ -14549,7 +14864,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Routes",
-                    "defaultValue": "[]"
+                    "defaultValue": "[\r\n    {\r\n        path: \"\",\r\n        redirectTo: \"/users\",\r\n        pathMatch: \"full\"\r\n    },\r\n    {\r\n        path: \"users\",\r\n        component: UsersPageComponent\r\n    },\r\n    {\r\n        path: \"skills\",\r\n        component: SkillsPageComponent\r\n    },\r\n    {\r\n        path: \"**\",\r\n        redirectTo: \"/\",\r\n        pathMatch: \"full\"\r\n    }\r\n]"
                 }
             ]
         },
@@ -14703,7 +15018,36 @@
     "routes": {
         "name": "<root>",
         "kind": "module",
-        "children": []
+        "children": [
+            {
+                "name": "/users",
+                "kind": "route-redirect",
+                "path": "",
+                "redirectTo": "/users",
+                "pathMatch": "full",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "users",
+                "kind": "route-path",
+                "component": "UsersPageComponent",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "skills",
+                "kind": "route-path",
+                "component": "SkillsPageComponent",
+                "filename": "src/config/routes.config.ts"
+            },
+            {
+                "name": "/",
+                "kind": "route-redirect",
+                "path": "**",
+                "redirectTo": "/",
+                "pathMatch": "full",
+                "filename": "src/config/routes.config.ts"
+            }
+        ]
     },
     "coverage": {
         "count": 0,
@@ -14837,6 +15181,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/app.config.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -14847,21 +15200,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/app.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "App",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/component/dumb/button/button-dumb.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonDumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -14879,7 +15223,25 @@
                 "linktype": "component",
                 "name": "TableDumbComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/page/skills/skills-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SkillsPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/page/users/users-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "UsersPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -14906,7 +15268,16 @@
                 "linktype": "component",
                 "name": "TableSmartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/view/entity/entity-view.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EntityViewComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -15117,12 +15488,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/root/root.ts",
+                "filePath": "src/root/root.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "Root",
+                "name": "RootComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
