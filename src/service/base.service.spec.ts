@@ -32,8 +32,8 @@ describe("Service", () => {
     it("Should return items from the store.", () => {
         service.getItems().subscribe(items => {
             expect(items).toEqual([
-                { id: 0, name: "Dog", order: 0 },
-                { id: 1, name: "Cat", order: 1 }
+                { id: 1, name: "Cat", order: 1 },
+                { id: 0, name: "Dog", order: 0 }
             ]);
         });
     });
@@ -66,9 +66,9 @@ describe("Service", () => {
             switchMap(() => service.getItems()),
             tap(items => {
                 expect(items).toEqual([
-                    { id: 0, name: "Dog", order: 0 },
+                    { id: 2, name: "Bird", order: 2 },
                     { id: 1, name: "Cat", order: 1 },
-                    { id: 2, name: "Bird", order: 2 }
+                    { id: 0, name: "Dog", order: 0 }
                 ]);
             }),
             switchMap(() => service.getSelectedItem()),
@@ -102,8 +102,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog", order: 0 },
-                { id: 1, name: "Cat", order: 1 }
+                { id: 1, name: "Cat", order: 1 },
+                { id: 0, name: "Dog", order: 0 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -121,8 +121,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Bird", order: 0 },
-                { id: 1, name: "Cat", order: 1 }
+                { id: 1, name: "Cat", order: 1 },
+                { id: 0, name: "Bird", order: 0 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -153,8 +153,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog", order: 0 },
-                { id: 1, name: "Cat", order: 1 }
+                { id: 1, name: "Cat", order: 1 },
+                { id: 0, name: "Dog", order: 0 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "Dog", order: 0 }))
