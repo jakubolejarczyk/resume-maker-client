@@ -1,18 +1,18 @@
 import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
-import { ButtonSmartComponent } from "./button-smart.component";
+import { ButtonFormComponent } from "./button-form.component";
 import { getProvider } from "../../../config/provider.config";
 
-const meta: Meta<ButtonSmartComponent> = {
-    title: "component/smart/button",
-    component: ButtonSmartComponent,
+const meta: Meta<ButtonFormComponent> = {
+    title: "component/form/button",
+    component: ButtonFormComponent,
     decorators: [
         applicationConfig(getProvider())
     ]
 };
 
 export default meta;
-type Story = StoryObj<ButtonSmartComponent>;
+type Story = StoryObj<ButtonFormComponent>;
 
 export const Default: Story = {
     args: {
@@ -24,5 +24,12 @@ export const Severity: Story = {
     args: {
         label: "Click me!",
         severity: "danger"
+    }
+};
+
+export const Disabled: Story = {
+    args: {
+        label: "Click me!",
+        disabled: true
     }
 };

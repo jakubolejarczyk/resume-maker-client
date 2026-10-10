@@ -15527,20 +15527,20 @@
             }
         },
         {
-            "name": "ButtonDumbComponent",
-            "id": "component-ButtonDumbComponent-f9a171663337a0efc96a250202ec1e1f7569d0394f225c89956e9ad8d995c13b36e28c231fdb6cbbec41f70ad00c15715f26a9a718b01e0b75e38d7972f04a28",
-            "file": "src/component/dumb/button/button-dumb.component.ts",
+            "name": "ButtonFormComponent",
+            "id": "component-ButtonFormComponent-8f59a241cff16d0599d5f6fa1a41cd13b11477439eb2905bb535da66ae417c3e94b3171d6047ed955902939f94a47fdb2a20921faadd866886b34bfd25d74e2b",
+            "file": "src/component/form/button/button-form.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-button-dumb-component",
+            "selector": "app-button-form-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./button-dumb.component.html"
+                "./button-form.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -15568,9 +15568,9 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "rawdescription": "\n",
-                    "required": false
+                    "required": true
                 }
             ],
             "outputsClass": [
@@ -15582,7 +15582,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 12,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -15596,7 +15596,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 14,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -15618,7 +15618,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from \"primeng/button\";\r\n\r\n@Component({\r\n    selector: \"app-button-dumb-component\",\r\n    templateUrl: \"./button-dumb.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonDumbComponent {\r\n    label = input.required<string>();\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity } from \"primeng/button\";\r\n\r\n@Component({\r\n    selector: \"app-button-form-component\",\r\n    templateUrl: \"./button-form.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonFormComponent {\r\n    label = input.required<string>();\r\n    severity = input.required<ButtonSeverity>();\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -15626,11 +15626,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "ButtonSmartComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "TableDumbComponent",
+                        "name": "TableDataComponent",
                         "type": "component"
                     }
                 ],
@@ -15641,119 +15637,11 @@
                     }
                 ]
             },
-            "templateData": "<button pButton [severity]=\"severity()\" (click)=\"onClick()\">{{ label() }}</button>"
-        },
-        {
-            "name": "ButtonSmartComponent",
-            "id": "component-ButtonSmartComponent-c070a6b46176128d564ea772eae8851717bac7cca57a54c1d8aed2446fb14c162b776bf3099ee078fb8af3e87f39d2fcc6162388626de736cbcc1b8edf01fc5b",
-            "file": "src/component/smart/button/button-smart.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-button-smart-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./button-smart.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "label",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "rawdescription": "\n",
-                    "required": true
-                },
-                {
-                    "name": "severity",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ButtonSeverity",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "event",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onEvent",
-                    "coverageIgnore": false,
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 18,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": ""
-                }
-            ],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "ButtonDumbComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonSeverity } from \"primeng/button\";\r\n\r\nimport { ButtonDumbComponent } from \"../../dumb/button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-button-smart-component\",\r\n    templateUrl: \"./button-smart.component.html\",\r\n    imports: [ButtonDumbComponent]\r\n})\r\nexport class ButtonSmartComponent {\r\n    label = input.required<string>();\r\n\r\n    severity = input<ButtonSeverity>();\r\n\r\n    event = output();\r\n\r\n    onEvent() {\r\n        this.event.emit();\r\n    }\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": [
-                    {
-                        "name": "ButtonDumbComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<app-button-dumb-component [label]=\"label()\" [severity]=\"severity()\" (event)=\"onEvent()\"></app-button-dumb-component>"
+            "templateData": "<button pButton (click)=\"onClick()\" [severity]=\"severity()\">{{ label() }}</button>"
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-0ea6264afd6119ca8f8e3aa9158615794ff6eae2a485cfd90cbc33c1f2f57ca79a955c54cae0ab98f8220cde95662b76a20bbcc8c051fe791487c618b0c9c52a",
+            "id": "component-DomainViewComponent-bde34ed5e7f44a0989a23769ea0bdd323408dfbea10692d6c549c0ae2bfde6eed81cca6d78a6d1f80ec9c1ca97b079e48689a5039263f15c8e8d2f46b472cc33",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -15796,14 +15684,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "TableSmartComponent",
+                    "name": "TableDataComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { TableSmartComponent } from \"../../smart/table/table-smart.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableSmartComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n}",
+            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -15833,12 +15721,12 @@
                 ],
                 "outgoing": [
                     {
-                        "name": "TableSmartComponent",
+                        "name": "TableDataComponent",
                         "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-table-smart-component [baseServiceType]=\"baseServiceType()\"></app-table-smart-component>"
+            "templateData": "<app-table-data-component [baseServiceType]=\"baseServiceType()\"></app-table-data-component>"
         },
         {
             "name": "EducationsPageComponent",
@@ -15977,20 +15865,20 @@
             "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
-            "name": "InputTextDumbComponent",
-            "id": "component-InputTextDumbComponent-8312dd1826957b6c45aa6d711810afe11756cecbb4918c88a9635d6cfac983d15581cabd20f005ec06386fa67e0e40590bf7453e8b83eb355d1a69a6a079c701",
-            "file": "src/component/dumb/input-text/input-text-dumb.component.ts",
+            "name": "InputTextFormComponent",
+            "id": "component-InputTextFormComponent-107159b7d61e17ae2ce53d02f244f032d3fe8ef51619b5c411b21eef0438303dd8627339b0d454a69faeb80fe475ba108a7d0582a53610c54631d28bce0b8e94",
+            "file": "src/component/form/input-text/input-text-form.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-input-text-dumb-component",
+            "selector": "app-input-text-form-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./input-text-dumb.component.html"
+                "./input-text-form.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -16014,7 +15902,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"app-input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"app-input-text-form-component\",\r\n    templateUrl: \"./input-text-form.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextFormComponent {}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16022,11 +15910,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "InputTextSmartComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "TableDumbComponent",
+                        "name": "TableDataComponent",
                         "type": "component"
                     }
                 ],
@@ -16038,60 +15922,6 @@
                 ]
             },
             "templateData": "<input pInputText />"
-        },
-        {
-            "name": "InputTextSmartComponent",
-            "id": "component-InputTextSmartComponent-e450661460da440dc957fd8bc53187203342c9f46274cbf727ffaeb18e67c0fc1cfc2233522cb8a321f866d8131565b05654e2651e60d72233e7cbbce05e9e64",
-            "file": "src/component/smart/input-text/input-text-smart.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-input-text-smart-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./input-text-smart.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "InputTextDumbComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [],
-                "outgoing": [
-                    {
-                        "name": "InputTextDumbComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<app-input-text-dumb-component></app-input-text-dumb-component>"
         },
         {
             "name": "ResumesPageComponent",
@@ -16384,172 +16214,20 @@
             "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
-            "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-a824c8c36f6c9005596b43915310b7876ce0e1916850f0ae28b8648a02280629b09bbeb1718dd8495704588d10288fd1a24d3df44313a036e08b838e2aa4371c",
-            "file": "src/component/dumb/table/table-dumb.component.ts",
+            "name": "TableDataComponent",
+            "id": "component-TableDataComponent-260669ad43fc23cf109104747fb0fd1ef6896691238b546f16fc63fd9599890b86b305548a4af9bc4cd2cdbf0d0023e1e5d7f2e708a0602713ea88d536910e1a",
+            "file": "src/component/data/table/table-data.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-table-dumb-component",
+            "selector": "app-table-data-component",
             "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./table-dumb.component.html"
-            ],
-            "templateVariables": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "columns",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "BaseStoreModel<TModel>[\"columns\"]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "rawdescription": "\n",
-                    "required": true
-                },
-                {
-                    "name": "items",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "TModel[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "rawdescription": "\n",
-                    "required": true
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "deleteEvent",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19,
-                    "rawdescription": "\n",
-                    "required": false
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onDelete",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "number",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 21,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "number",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "coverageIgnore": false,
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": true,
-            "imports": [
-                {
-                    "name": "TableModule",
-                    "type": "module"
-                },
-                {
-                    "name": "ButtonDumbComponent",
-                    "type": "component"
-                },
-                {
-                    "name": "InputTextDumbComponent",
-                    "type": "component"
-                }
-            ],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\nimport { InputTextDumbComponent } from \"../input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent, InputTextDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    deleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.deleteEvent.emit(id);\r\n    }\r\n}",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": [],
-            "relationships": {
-                "incoming": [
-                    {
-                        "name": "TableSmartComponent",
-                        "type": "component"
-                    }
-                ],
-                "outgoing": [
-                    {
-                        "name": "TableModule",
-                        "type": "module"
-                    },
-                    {
-                        "name": "ButtonDumbComponent",
-                        "type": "component"
-                    },
-                    {
-                        "name": "InputTextDumbComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>\r\n                        <app-input-text-dumb-component></app-input-text-dumb-component>\r\n                    </th>\r\n                }\r\n            }\r\n            <th>\r\n                <app-button-dumb-component label=\"Create\" severity=\"secondary\"></app-button-dumb-component>\r\n            </th>\r\n        </tr>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></app-button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
-        },
-        {
-            "name": "TableSmartComponent",
-            "id": "component-TableSmartComponent-cbe24be5905c78cd79305bb7505d326ef318babbf9d96380b94ea885ce373a16fe072c6f4966a6936ec1fb2eaee37fed3bf5b93dff50f5c8a39696376f30d13b",
-            "file": "src/component/smart/table/table-smart.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-table-smart-component",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./table-smart.component.html"
+                "./table-data.component.html"
             ],
             "templateVariables": [],
             "viewProviders": [],
@@ -16564,7 +16242,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 24,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -16592,7 +16270,7 @@
                     "indexKey": "columns",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 21,
                     "rawdescription": "\n"
                 },
                 {
@@ -16605,7 +16283,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 17,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16620,7 +16298,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 22,
                     "rawdescription": "\n"
                 },
                 {
@@ -16632,7 +16310,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n"
                 }
             ],
@@ -16644,7 +16322,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16657,46 +16335,11 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": ""
-                },
-                {
-                    "name": "onDelete",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "id",
-                            "type": "number",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 46,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "id",
-                            "type": "number",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "coverageIgnore": false,
@@ -16707,14 +16350,22 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "TableDumbComponent",
+                    "name": "TableModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonFormComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "InputTextFormComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDumbComponent } from \"../../dumb/table/table-dumb.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-smart-component\",\r\n    templateUrl: \"./table-smart.component.html\",\r\n    imports: [TableDumbComponent]\r\n})\r\nexport class TableSmartComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    baseService!: BaseService<TModel>;\r\n\r\n    sub!: Subscription;\r\n\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n\r\n    items!: BaseApiModel[];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(id: number) {\r\n        this.baseService.delete(id).subscribe().unsubscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { InputTextFormComponent } from \"../../form/input-text/input-text-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent, InputTextFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseService!: BaseService<TModel>;\r\n    sub!: Subscription;\r\n    columns!: BaseStoreModel<TModel>[\"columns\"];\r\n    items!: BaseApiModel[];\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16732,7 +16383,15 @@
                 ],
                 "outgoing": [
                     {
-                        "name": "TableDumbComponent",
+                        "name": "TableModule",
+                        "type": "module"
+                    },
+                    {
+                        "name": "ButtonFormComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "InputTextFormComponent",
                         "type": "component"
                     },
                     {
@@ -16745,7 +16404,7 @@
                     }
                 ]
             },
-            "templateData": "<app-table-dumb-component [columns]=\"columns\" [items]=\"items\" (deleteEvent)=\"onDelete($event)\"></app-table-dumb-component>"
+            "templateData": "<p-table [value]=\"items\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>\r\n                        <app-input-text-form-component></app-input-text-form-component>\r\n                    </th>\r\n                }\r\n            }\r\n            <th>\r\n                <app-button-form-component label=\"Create\" severity=\"secondary\"></app-button-form-component>\r\n            </th>\r\n        </tr>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-form-component label=\"Delete\" severity=\"danger\"></app-button-form-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "UsersPageComponent",
@@ -17800,30 +17459,30 @@
                 "status": "low"
             },
             {
-                "filePath": "src/component/dumb/button/button-dumb.component.ts",
+                "filePath": "src/component/data/table/table-data.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "ButtonDumbComponent",
+                "name": "TableDataComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/form/button/button-form.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonFormComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
                 "status": "low"
             },
             {
-                "filePath": "src/component/dumb/input-text/input-text-dumb.component.ts",
+                "filePath": "src/component/form/input-text/input-text-form.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "InputTextDumbComponent",
+                "name": "InputTextFormComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/dumb/table/table-dumb.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TableDumbComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -17869,33 +17528,6 @@
                 "name": "UsersPageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/smart/button/button-smart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonSmartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/smart/input-text/input-text-smart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "InputTextSmartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/component/smart/table/table-smart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TableSmartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/10",
                 "status": "low"
             },
             {

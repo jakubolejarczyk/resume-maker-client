@@ -11,16 +11,16 @@ import { UserStoreAction } from "../action/user-store.action";
 @State<UserStoreModel>({
   name: "userStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: true, type: "string" },
+    { id: "id", label: "Id", isVisible: false, type: "string" },
     { id: "firstName", label: "First Name", isVisible: true, type: "string" },
     { id: "lastName", label: "Last Name", isVisible: true, type: "string" },
-    { id: "jobTitle", label: "Job Title", isVisible: true, type: "string" },
-    { id: "phoneNumber", label: "Phone Number", isVisible: true, type: "string" },
+    { id: "jobTitle", label: "Job Title", isVisible: false, type: "string" },
+    { id: "phoneNumber", label: "Phone Number", isVisible: false, type: "string" },
     { id: "email", label: "Email", isVisible: true, type: "string" },
-    { id: "city", label: "City", isVisible: true, type: "string" },
-    { id: "country", label: "Country", isVisible: true, type: "string" },
-    { id: "summary", label: "Summary", isVisible: true, type: "string" },
-    { id: "order", label: "Order", isVisible: true, type: "string" }
+    { id: "city", label: "City", isVisible: false, type: "string" },
+    { id: "country", label: "Country", isVisible: false, type: "string" },
+    { id: "summary", label: "Summary", isVisible: false, type: "string" },
+    { id: "order", label: "Order", isVisible: false, type: "string" }
   ])
 })
 @Injectable({ providedIn: "root" })

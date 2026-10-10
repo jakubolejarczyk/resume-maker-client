@@ -1,20 +1,20 @@
 import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
-import { TableSmartComponent } from "./table-smart.component";
 import { getStorybookProvider } from "../../../config/provider.config";
 import { AnimalApiModel } from "../../../api/model/animal-api.model";
 import { AnimalService } from "../../../service/animal.service";
+import { TableDataComponent } from "./table-data.component";
 
-const meta: Meta<TableSmartComponent<AnimalApiModel>> = {
-    title: "component/smart/table",
-    component: TableSmartComponent,
+const meta: Meta<TableDataComponent<AnimalApiModel>> = {
+    title: "component/data/table",
+    component: TableDataComponent,
     decorators: [
         applicationConfig(getStorybookProvider())
     ]
 };
 
 export default meta;
-type Story = StoryObj<TableSmartComponent<AnimalApiModel>>;
+type Story = StoryObj<TableDataComponent<AnimalApiModel>>;
 
 export const Default: Story = {
     args: {

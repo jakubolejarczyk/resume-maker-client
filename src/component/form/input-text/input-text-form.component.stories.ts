@@ -1,17 +1,17 @@
 import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
-import { InputTextSmartComponent } from "./input-text-smart.component";
+import { InputTextFormComponent } from "./input-text-form.component";
 import { getProvider } from "../../../config/provider.config";
 
-const meta: Meta<InputTextSmartComponent> = {
-    title: "component/smart/input-text",
-    component: InputTextSmartComponent,
+const meta: Meta<InputTextFormComponent> = {
+    title: "component/form/input-text",
+    component: InputTextFormComponent,
     decorators: [
         applicationConfig(getProvider())
     ]
 };
 
 export default meta;
-type Story = StoryObj<InputTextSmartComponent>;
+type Story = StoryObj<InputTextFormComponent>;
 
 export const Default: Story = {};

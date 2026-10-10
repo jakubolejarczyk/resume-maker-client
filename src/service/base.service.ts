@@ -155,4 +155,14 @@ export class BaseService<TModel extends BaseApiModel> {
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
         );
     }
+
+    isFirstItem(item: TModel) {
+        return of(item.order === 0);
+    }
+
+    isLastItem(item: TModel) {
+        return this.getItems().pipe(
+            map(items => items.length > 0 ? items[0].order === item.order : false)
+        );
+    }
 }

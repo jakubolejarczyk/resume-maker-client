@@ -11,14 +11,14 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: true, type: "string" },
+    { id: "id", label: "Id", isVisible: false, type: "string" },
     { id: "company", label: "Company", isVisible: true, type: "string" },
-    { id: "startDate", label: "Start Date", isVisible: true, type: "string" },
-    { id: "endDate", label: "End Date", isVisible: true, type: "string" },
+    { id: "startDate", label: "Start Date", isVisible: false, type: "string" },
+    { id: "endDate", label: "End Date", isVisible: false, type: "string" },
     { id: "jobTitle", label: "Job Title", isVisible: true, type: "string" },
-    { id: "description", label: "Description", isVisible: true, type: "string" },
-    { id: "order", label: "Order", isVisible: true, type: "string" },
-    { id: "resumeId", label: "Resume Id", isVisible: true, type: "string" }
+    { id: "description", label: "Description", isVisible: false, type: "string" },
+    { id: "order", label: "Order", isVisible: false, type: "string" },
+    { id: "resumeId", label: "Resume Id", isVisible: false, type: "string" }
   ])
 })
 @Injectable({ providedIn: "root" })

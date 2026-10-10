@@ -2,15 +2,14 @@ import { Component, input, output } from "@angular/core";
 import { ButtonModule, ButtonSeverity } from "primeng/button";
 
 @Component({
-    selector: "app-button-dumb-component",
-    templateUrl: "./button-dumb.component.html",
+    selector: "app-button-form-component",
+    templateUrl: "./button-form.component.html",
     imports: [ButtonModule]
 })
-export class ButtonDumbComponent {
+export class ButtonFormComponent {
     label = input.required<string>();
-
     severity = input<ButtonSeverity>();
-
+    disabled = input<boolean | null>(false);
     event = output();
 
     onClick() {
