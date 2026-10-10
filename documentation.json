@@ -279,12 +279,12 @@
         },
         {
             "name": "BaseStoreColumnModel",
-            "id": "interface-BaseStoreColumnModel-cfe630c919109bfd7177c96a2b8d34749d2390ad16e8939e891dead60091a04e6a2ee30f64749606b9e694133868243a8a0f0047571e90a66fad7b9554348cf9",
+            "id": "interface-BaseStoreColumnModel-1d03507f0832e835869e4cb271bbb4f7f8d7621d70bb7d57438bf230f1805979a9979eff8cfdf908bbefc42117187a191a6f2793da519064bf264aa6fc98b986",
             "file": "src/store/model/base-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
+            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    type: string;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
             "displayName": "BaseStoreColumnModel",
             "properties": [
                 {
@@ -322,6 +322,18 @@
                     "description": "",
                     "line": 3,
                     "rawdescription": "\n"
+                },
+                {
+                    "name": "type",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "rawdescription": "\n"
                 }
             ],
             "indexSignatures": [],
@@ -335,12 +347,12 @@
         },
         {
             "name": "BaseStoreModel",
-            "id": "interface-BaseStoreModel-cfe630c919109bfd7177c96a2b8d34749d2390ad16e8939e891dead60091a04e6a2ee30f64749606b9e694133868243a8a0f0047571e90a66fad7b9554348cf9",
+            "id": "interface-BaseStoreModel-1d03507f0832e835869e4cb271bbb4f7f8d7621d70bb7d57438bf230f1805979a9979eff8cfdf908bbefc42117187a191a6f2793da519064bf264aa6fc98b986",
             "file": "src/store/model/base-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
+            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    type: string;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
             "displayName": "BaseStoreModel<TItem>",
             "typeParameters": [
                 "TItem"
@@ -355,7 +367,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 14,
                     "rawdescription": "\n"
                 },
                 {
@@ -367,7 +379,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 11,
                     "rawdescription": "\n"
                 },
                 {
@@ -379,7 +391,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "rawdescription": "\n"
                 },
                 {
@@ -391,7 +403,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 10,
                     "rawdescription": "\n"
                 },
                 {
@@ -403,7 +415,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 13,
                     "rawdescription": "\n"
                 },
                 {
@@ -415,7 +427,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "rawdescription": "\n"
                 }
             ],
@@ -2256,7 +2268,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2294,7 +2306,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2323,7 +2335,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2371,7 +2383,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2412,7 +2424,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2441,7 +2453,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2466,7 +2478,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2504,7 +2516,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2557,7 +2569,7 @@
         },
         {
             "name": "AnimalStoreState",
-            "id": "injectable-AnimalStoreState-edef557147c456673f7be586f9923e87d6d252ea303e0bf44f2202e0a72d6936cb9a560d3bc18fe13c7203aa73fa575dbd9506d3a6a459983226d1bcc5a87a3b",
+            "id": "injectable-AnimalStoreState-e7da19cc5fbf53394906429420f5990bb1705c7bbf8f4cf240dcb9b59302e4bb375b7a689d61be60250e2f32474e6c03f08b7c023503088a2798a0ec3d7cc0ff",
             "file": "src/store/state/animal-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -3334,7 +3346,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"name\", label: \"Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<AnimalApiModel>"
             ],
@@ -4503,7 +4515,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4541,7 +4553,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4570,7 +4582,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4618,7 +4630,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4659,7 +4671,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4688,7 +4700,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4713,7 +4725,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4751,7 +4763,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4805,7 +4817,7 @@
         },
         {
             "name": "EducationStoreState",
-            "id": "injectable-EducationStoreState-585b2b6dd5ceefc5e7fe6e742b302e1f5676bc39eb9b5a023c131770c10577436354c3cd20321fcfa573e0428f4759d62be7cddda2f19faacdabb86fd2b209e0",
+            "id": "injectable-EducationStoreState-4d252df821e5dd4d1c306f6d9dd584b2a8e887837303bc26ab0d0ed5fa4e7dfe359b60f7a6e4b70c5ea20ea0cbb4983310f37d191fdbd3452a6d1ddf343f0549",
             "file": "src/store/state/education-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -5582,7 +5594,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"startYear\", label: \"Start Year\", isVisible: true },\r\n    { id: \"endYear\", label: \"End Year\", isVisible: true },\r\n    { id: \"fieldOfStudy\", label: \"Field Of Study\", isVisible: true },\r\n    { id: \"degree\", label: \"Degree\", isVisible: true },\r\n    { id: \"institutionName\", label: \"Institution Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"startYear\", label: \"Start Year\", isVisible: true, type: \"string\" },\r\n    { id: \"endYear\", label: \"End Year\", isVisible: true, type: \"string\" },\r\n    { id: \"fieldOfStudy\", label: \"Field Of Study\", isVisible: true, type: \"string\" },\r\n    { id: \"degree\", label: \"Degree\", isVisible: true, type: \"string\" },\r\n    { id: \"institutionName\", label: \"Institution Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<EducationApiModel>"
             ],
@@ -6114,7 +6126,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6152,7 +6164,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6181,7 +6193,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6229,7 +6241,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6270,7 +6282,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6299,7 +6311,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6324,7 +6336,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6362,7 +6374,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6416,7 +6428,7 @@
         },
         {
             "name": "ExperienceStoreState",
-            "id": "injectable-ExperienceStoreState-c000a725d848cdd9e40bcfd7bb3aa8f7d27d84c13ef6530fa2093f8164f2bbd08dccbf51dfd3ecc1c53f499c75c21360166dfa6c9766fc30f7ef7c40dbc095ce",
+            "id": "injectable-ExperienceStoreState-3916328efefc778190c14c58435f06018143917afcfa2bcdb092b1cd2d3e9997e594c4c865110b8d9ecd41549f9751359d2530015b3092abb1b3dec2e0b78fed",
             "file": "src/store/state/experience-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -7193,7 +7205,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"company\", label: \"Company\", isVisible: true },\r\n    { id: \"startDate\", label: \"Start Date\", isVisible: true },\r\n    { id: \"endDate\", label: \"End Date\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"description\", label: \"Description\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"company\", label: \"Company\", isVisible: true, type: \"string\" },\r\n    { id: \"startDate\", label: \"Start Date\", isVisible: true, type: \"string\" },\r\n    { id: \"endDate\", label: \"End Date\", isVisible: true, type: \"string\" },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true, type: \"string\" },\r\n    { id: \"description\", label: \"Description\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ExperienceApiModel>"
             ],
@@ -7725,7 +7737,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7763,7 +7775,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7792,7 +7804,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7840,7 +7852,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7881,7 +7893,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7910,7 +7922,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7935,7 +7947,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7973,7 +7985,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8027,7 +8039,7 @@
         },
         {
             "name": "ResumeStoreState",
-            "id": "injectable-ResumeStoreState-8bb557962e55bcb1f637689a93f5723df096b9a6928c57e5fc97c9f58da728a15895a7a1468e0e97052fe98b613e41ceb3fdff9f426c40cf22273a378a722773",
+            "id": "injectable-ResumeStoreState-30ddb5b6090ad8c732d9fed5d9751bc19be68f3b29439e064c0f7aa25f98f89c53e01fb2a4dcbfef1b01ddec1623f71467b51770179942be0a1f4219a00a5ca7",
             "file": "src/store/state/resume-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -8804,7 +8816,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"userId\", label: \"User Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"name\", label: \"Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" },\r\n    { id: \"userId\", label: \"User Id\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ResumeApiModel>"
             ],
@@ -9336,7 +9348,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9374,7 +9386,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9403,7 +9415,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9451,7 +9463,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9492,7 +9504,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9521,7 +9533,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9546,7 +9558,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9584,7 +9596,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9638,7 +9650,7 @@
         },
         {
             "name": "SkillStoreState",
-            "id": "injectable-SkillStoreState-92727072d341dec1b3ad708d0999eb5931e947ecfb3a9efb22a5628030cefe2b028edd07cb1aff5e02af1dff8d78b6582d9d44723cacda13a85b586c21cd1f6c",
+            "id": "injectable-SkillStoreState-1a6491aa87b5291c44285f1a4c95b7a4ebb2a5c6bfff52af4f8f8d3892d3979f01393da5eb7b88910a56357010afbd23e6fb954218402b9f21628b1ecfa40577",
             "file": "src/store/state/skill-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -10415,7 +10427,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"category\", label: \"Category\", isVisible: true },\r\n    { id: \"skills\", label: \"Skills\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"category\", label: \"Category\", isVisible: true, type: \"string\" },\r\n    { id: \"skills\", label: \"Skills\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<SkillApiModel>"
             ],
@@ -10947,7 +10959,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10985,7 +10997,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11014,7 +11026,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11062,7 +11074,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11103,7 +11115,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11132,7 +11144,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11157,7 +11169,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11195,7 +11207,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11249,7 +11261,7 @@
         },
         {
             "name": "UserStoreState",
-            "id": "injectable-UserStoreState-026f5b10593738ad52775099266d6f02ea6c6f04b0cf511e93065cbf0ef81fc9b45a34a41e9e5fdf5f9be9904eb74200ea6d06a54e47a1c4df9f378d90873038",
+            "id": "injectable-UserStoreState-ca1f601d12307309acf6856f626f7171b6857c064c879db278ef71997cd05cf3a6ba4b82628648b80bd8d177f47837fd4b84f07ac99698e72562ca3a3b81c8d9",
             "file": "src/store/state/user-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -12026,7 +12038,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"firstName\", label: \"First Name\", isVisible: true },\r\n    { id: \"lastName\", label: \"Last Name\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"phoneNumber\", label: \"Phone Number\", isVisible: true },\r\n    { id: \"email\", label: \"Email\", isVisible: true },\r\n    { id: \"city\", label: \"City\", isVisible: true },\r\n    { id: \"country\", label: \"Country\", isVisible: true },\r\n    { id: \"summary\", label: \"Summary\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true, type: \"string\" },\r\n    { id: \"firstName\", label: \"First Name\", isVisible: true, type: \"string\" },\r\n    { id: \"lastName\", label: \"Last Name\", isVisible: true, type: \"string\" },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true, type: \"string\" },\r\n    { id: \"phoneNumber\", label: \"Phone Number\", isVisible: true, type: \"string\" },\r\n    { id: \"email\", label: \"Email\", isVisible: true, type: \"string\" },\r\n    { id: \"city\", label: \"City\", isVisible: true, type: \"string\" },\r\n    { id: \"country\", label: \"Country\", isVisible: true, type: \"string\" },\r\n    { id: \"summary\", label: \"Summary\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: true, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<UserApiModel>"
             ],
@@ -12849,13 +12861,13 @@
         },
         {
             "name": "BaseService",
-            "id": "class-BaseService-7c52b5a3ece0831b105a060fc23b8932ce2bb8e3f106a9956903994b6d2971f2639c83dfbf60532366b5e100b6e6b955246496c483115094199958b62dfc2aa3",
+            "id": "class-BaseService-df1496e5d5444469a657ddc2e76681073c210968b82954a102cbfeb2e64301102ae25098a6ffd621bf83eafc9ae814b3d0d125868c242bfbdad26235f0c65d11",
             "file": "src/service/base.service.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { inject, ProviderToken } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { of, switchMap } from \"rxjs\";\r\n\r\nimport { BaseApiModel } from \"../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../store/model/base-store.model\";\r\nimport { BaseStoreAction } from \"../store/action/base-store.action\";\r\nimport { BaseApiService } from \"../api/service/base-api.service\";\r\n\r\ntype TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };\r\ntype TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;\r\ntype TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];\r\ntype TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;\r\ntype TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => BaseStoreModel<TModel>[\"columns\"];\r\n\r\nexport class BaseService<TModel extends BaseApiModel> {\r\n    baseApiService: BaseApiService<TModel>;\r\n\r\n    store = inject(Store);\r\n\r\n    constructor(\r\n        private readonly token: ProviderToken<BaseApiService<TModel>>,\r\n        private readonly baseGetStatus: TBaseGetStatus,\r\n        private readonly baseGetIsLoading: TBaseGetIsLoading,\r\n        private readonly baseGetItems: TBaseGetItems,\r\n        private readonly baseGetSelectedItem: TBaseGetSelectedItem,\r\n        private readonly baseGetColumns: TBaseGetColumns,\r\n        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\r\n        private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\r\n        private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,\r\n        private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,\r\n        private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,\r\n        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,\r\n        private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>\r\n    ) {\r\n        this.baseApiService = inject(token);\r\n    }\r\n\r\n    getStatus() {\r\n        return this.store.select(this.baseGetStatus);\r\n    }\r\n\r\n    getIsLoading() {\r\n        return this.store.select(this.baseGetIsLoading);\r\n    }\r\n\r\n    getItems() {\r\n        return this.store.select(this.baseGetItems);\r\n    }\r\n\r\n    getSelectedItem() {\r\n        return this.store.select(this.baseGetSelectedItem);\r\n    }\r\n\r\n    getColumns() {\r\n        return this.store.select(this.baseGetColumns);\r\n    }\r\n\r\n    create(itemToCreate: Omit<TModel, \"id\">) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.create(itemToCreate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseAddItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    read(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.read(id)),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(response.body);\r\n            }),\r\n            switchMap(body => {\r\n                this.store.dispatch(new this.baseSetIsLoading(false));\r\n                return of(body);\r\n            })\r\n        );\r\n    }\r\n\r\n    readAll() {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.readAll()),\r\n            switchMap(response => {\r\n                this.store.dispatch(new this.baseSetItems(response.body));\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    update(itemToUpdate: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.update(itemToUpdate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseUpdateItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    delete(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.delete(id)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseDeleteItem(response.body.id));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    selectItem(itemToSelect: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n}",
+            "sourceCode": "import { inject, ProviderToken } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { map, of, switchMap } from \"rxjs\";\r\n\r\nimport { BaseApiModel } from \"../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../store/model/base-store.model\";\r\nimport { BaseStoreAction } from \"../store/action/base-store.action\";\r\nimport { BaseApiService } from \"../api/service/base-api.service\";\r\n\r\ntype TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };\r\ntype TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;\r\ntype TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];\r\ntype TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;\r\ntype TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => BaseStoreModel<TModel>[\"columns\"];\r\n\r\nexport class BaseService<TModel extends BaseApiModel> {\r\n    baseApiService: BaseApiService<TModel>;\r\n\r\n    store = inject(Store);\r\n\r\n    constructor(\r\n        private readonly token: ProviderToken<BaseApiService<TModel>>,\r\n        private readonly baseGetStatus: TBaseGetStatus,\r\n        private readonly baseGetIsLoading: TBaseGetIsLoading,\r\n        private readonly baseGetItems: TBaseGetItems,\r\n        private readonly baseGetSelectedItem: TBaseGetSelectedItem,\r\n        private readonly baseGetColumns: TBaseGetColumns,\r\n        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\r\n        private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\r\n        private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,\r\n        private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,\r\n        private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,\r\n        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,\r\n        private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>\r\n    ) {\r\n        this.baseApiService = inject(token);\r\n    }\r\n\r\n    getStatus() {\r\n        return this.store.select(this.baseGetStatus);\r\n    }\r\n\r\n    getIsLoading() {\r\n        return this.store.select(this.baseGetIsLoading);\r\n    }\r\n\r\n    getItems() {\r\n        return this.store.select(this.baseGetItems).pipe(\r\n            map(items => items.sort((prev, next) => next.order - prev.order))\r\n        );\r\n    }\r\n\r\n    getSelectedItem() {\r\n        return this.store.select(this.baseGetSelectedItem);\r\n    }\r\n\r\n    getColumns() {\r\n        return this.store.select(this.baseGetColumns);\r\n    }\r\n\r\n    create(itemToCreate: Omit<TModel, \"id\">) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.create(itemToCreate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseAddItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    read(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.read(id)),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(response.body);\r\n            }),\r\n            switchMap(body => {\r\n                this.store.dispatch(new this.baseSetIsLoading(false));\r\n                return of(body);\r\n            })\r\n        );\r\n    }\r\n\r\n    readAll() {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.readAll()),\r\n            switchMap(response => {\r\n                this.store.dispatch(new this.baseSetItems(response.body));\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    update(itemToUpdate: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.update(itemToUpdate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseUpdateItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    delete(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.delete(id)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseDeleteItem(response.body.id));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    selectItem(itemToSelect: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n}",
             "displayName": "BaseService<TModel extends BaseApiModel>",
             "typeParameters": [
                 "TModel extends BaseApiModel"
@@ -13165,7 +13177,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13200,7 +13212,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 132,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13226,7 +13238,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13265,7 +13277,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13300,7 +13312,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13326,7 +13338,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13348,7 +13360,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 149,
+                    "line": 151,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13383,7 +13395,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 111,
+                    "line": 113,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -15965,6 +15977,123 @@
             "templateData": "<app-domain-view-component [baseServiceType]=\"baseServiceType\"></app-domain-view-component>"
         },
         {
+            "name": "InputTextDumbComponent",
+            "id": "component-InputTextDumbComponent-8312dd1826957b6c45aa6d711810afe11756cecbb4918c88a9635d6cfac983d15581cabd20f005ec06386fa67e0e40590bf7453e8b83eb355d1a69a6a079c701",
+            "file": "src/component/dumb/input-text/input-text-dumb.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input-text-dumb-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input-text-dumb.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "InputTextModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { InputTextModule } from 'primeng/inputtext';\r\n\r\n@Component({\r\n    selector: \"app-input-text-dumb-component\",\r\n    templateUrl: \"./input-text-dumb.component.html\",\r\n    imports: [InputTextModule]\r\n})\r\nexport class InputTextDumbComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "InputTextSmartComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "TableDumbComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "InputTextModule",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<input pInputText />"
+        },
+        {
+            "name": "InputTextSmartComponent",
+            "id": "component-InputTextSmartComponent-e450661460da440dc957fd8bc53187203342c9f46274cbf727ffaeb18e67c0fc1cfc2233522cb8a321f866d8131565b05654e2651e60d72233e7cbbce05e9e64",
+            "file": "src/component/smart/input-text/input-text-smart.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input-text-smart-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input-text-smart.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "InputTextDumbComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\nimport { InputTextDumbComponent } from \"../../dumb/input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-input-text-smart-component\",\r\n    templateUrl: \"./input-text-smart.component.html\",\r\n    imports: [InputTextDumbComponent]\r\n})\r\nexport class InputTextSmartComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "InputTextDumbComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "<app-input-text-dumb-component></app-input-text-dumb-component>"
+        },
+        {
             "name": "ResumesPageComponent",
             "id": "component-ResumesPageComponent-dcb1a3eea5efbf6c06722488af9f95ddc4a9ea960f756b3a2bc9e2b23d0f9fa4bcc5f7e4c479cd377999e5372fe00c736b9b77e9d4874249f5d3ddbdf6f5a186",
             "file": "src/component/page/resumes/resumes-page.component.ts",
@@ -16256,7 +16385,7 @@
         },
         {
             "name": "TableDumbComponent",
-            "id": "component-TableDumbComponent-4909ada9fa14dccc062057f2e0172194cba4f0dc357a5cbbd79ad5df06f8ac3a0e25a2b95f271e59f289e007085ec9578c76b3a4afbd79bfd4feb6344f3a54af",
+            "id": "component-TableDumbComponent-a824c8c36f6c9005596b43915310b7876ce0e1916850f0ae28b8648a02280629b09bbeb1718dd8495704588d10288fd1a24d3df44313a036e08b838e2aa4371c",
             "file": "src/component/dumb/table/table-dumb.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16283,7 +16412,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "rawdescription": "\n",
                     "required": true
                 },
@@ -16296,7 +16425,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 17,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -16311,7 +16440,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 19,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -16334,7 +16463,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16368,12 +16497,16 @@
                 {
                     "name": "ButtonDumbComponent",
                     "type": "component"
+                },
+                {
+                    "name": "InputTextDumbComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    deleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.deleteEvent.emit(id);\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ButtonDumbComponent } from \"../button/button-dumb.component\";\r\nimport { InputTextDumbComponent } from \"../input-text/input-text-dumb.component\";\r\n\r\n@Component({\r\n    selector: \"app-table-dumb-component\",\r\n    templateUrl: \"./table-dumb.component.html\",\r\n    imports: [TableModule, ButtonDumbComponent, InputTextDumbComponent]\r\n})\r\nexport class TableDumbComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n\r\n    items = input.required<TModel[]>();\r\n\r\n    deleteEvent = output<number>();\r\n\r\n    onDelete(id: number) {\r\n        this.deleteEvent.emit(id);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16393,10 +16526,14 @@
                     {
                         "name": "ButtonDumbComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "InputTextDumbComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></app-button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>\r\n                        <app-input-text-dumb-component></app-input-text-dumb-component>\r\n                    </th>\r\n                }\r\n            }\r\n            <th>\r\n                <app-button-dumb-component label=\"Create\" severity=\"secondary\"></app-button-dumb-component>\r\n            </th>\r\n        </tr>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-dumb-component label=\"Delete\" severity=\"danger\" (event)=\"onDelete(item.id)\"></app-button-dumb-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "TableSmartComponent",
@@ -17672,6 +17809,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/component/dumb/input-text/input-text-dumb.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputTextDumbComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/component/dumb/table/table-dumb.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -17732,6 +17878,15 @@
                 "name": "ButtonSmartComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/smart/input-text/input-text-smart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputTextSmartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -18626,7 +18781,7 @@
                 "linktype": "interface",
                 "name": "BaseStoreColumnModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

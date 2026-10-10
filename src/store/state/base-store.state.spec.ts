@@ -47,9 +47,9 @@ describe("Store", () => {
     it("Should select the value of the columns from the store.", () => {
       const columns = store.selectSnapshot(AnimalStoreState.getColumns);
       expect(columns).toEqual([
-        { id: "id", label: "Id", isVisible: true },
-        { id: "name", label: "Name", isVisible: true },
-        { id: "order", label: "Order", isVisible: true }
+        { id: "id", label: "Id", isVisible: true, type: "string" },
+        { id: "name", label: "Name", isVisible: true, type: "string" },
+        { id: "order", label: "Order", isVisible: true, type: "string" }
       ]);
     });
 

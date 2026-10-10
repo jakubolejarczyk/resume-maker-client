@@ -2,6 +2,7 @@ interface BaseStoreColumnModel {
     id: string;
     label: string;
     isVisible: boolean;
+    type: string;
 }
 
 export interface BaseStoreModel<TItem> {

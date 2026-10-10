@@ -11,10 +11,10 @@ import { ResumeStoreAction } from "../action/resume-store.action";
 @State<ResumeStoreModel>({
   name: "resumeStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: true },
-    { id: "name", label: "Name", isVisible: true },
-    { id: "order", label: "Order", isVisible: true },
-    { id: "userId", label: "User Id", isVisible: true }
+    { id: "id", label: "Id", isVisible: true, type: "string" },
+    { id: "name", label: "Name", isVisible: true, type: "string" },
+    { id: "order", label: "Order", isVisible: true, type: "string" },
+    { id: "userId", label: "User Id", isVisible: true, type: "string" }
   ])
 })
 @Injectable({ providedIn: "root" })

@@ -3,6 +3,18 @@
         <tr>
             @for (column of columns(); track column.id) {
                 @if (column.isVisible) {
+                    <th>
+                        <app-input-text-dumb-component></app-input-text-dumb-component>
+                    </th>
+                }
+            }
+            <th>
+                <app-button-dumb-component label="Create" severity="secondary"></app-button-dumb-component>
+            </th>
+        </tr>
+        <tr>
+            @for (column of columns(); track column.id) {
+                @if (column.isVisible) {
                     <th>{{ column.label }}</th>
                 }
             }
