@@ -32,8 +32,8 @@ describe("Service", () => {
     it("Should return items from the store.", () => {
         service.getItems().subscribe(items => {
             expect(items).toEqual([
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ]);
         });
     });
@@ -48,13 +48,14 @@ describe("Service", () => {
         service.getColumns().subscribe(columns => {
             expect(columns).toEqual([
                 { id: "id", label: "Id", isVisible: true },
-                { id: "name", label: "Name", isVisible: true }
+                { id: "name", label: "Name", isVisible: true },
+                { id: "order", label: "Order", isVisible: true }
             ]);
         });
     });
 
     it("Should correctly create item from the store and save it in the external service.", () => {
-        service.create({ name: "Bird" }).pipe(
+        service.create({ name: "Bird", order: 2 }).pipe(
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
                 success: true,
@@ -65,9 +66,9 @@ describe("Service", () => {
             switchMap(() => service.getItems()),
             tap(items => {
                 expect(items).toEqual([
-                    { id: 0, name: "Dog" },
-                    { id: 1, name: "Cat" },
-                    { id: 2, name: "Bird" }
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 },
+                    { id: 2, name: "Bird", order: 2 }
                 ]);
             }),
             switchMap(() => service.getSelectedItem()),
@@ -77,7 +78,7 @@ describe("Service", () => {
 
     it("Should correctly read item from api.", () => {
         service.read(1).pipe(
-            tap(item => expect(item).toEqual({ id: 1, name: "Cat" })),
+            tap(item => expect(item).toEqual({ id: 1, name: "Cat", order: 1 })),
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
                 success: true,
@@ -101,8 +102,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -110,7 +111,7 @@ describe("Service", () => {
     });
 
     it("Should correctly update item from the store and save it in the external service.", () => {
-        service.update({ id: 0, name: "Bird" }).pipe(
+        service.update({ id: 0, name: "Bird", order: 0 }).pipe(
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
                 success: true,
@@ -120,8 +121,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Bird" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Bird", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -139,7 +140,7 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog" }
+                { id: 0, name: "Dog", order: 0 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -147,16 +148,16 @@ describe("Service", () => {
     });
 
     it("Should correctly select item from the store and save it in the selected item.", () => {
-        service.selectItem({ id: 0, name: "Dog" }).pipe(
+        service.selectItem({ id: 0, name: "Dog", order: 0 }).pipe(
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ])),
             switchMap(() => service.getSelectedItem()),
-            tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "Dog" }))
+            tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "Dog", order: 0 }))
         ).subscribe();
     });
 });

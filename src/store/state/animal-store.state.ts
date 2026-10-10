@@ -12,7 +12,8 @@ import { AnimalStoreAction } from "../action/animal-store.action";
   name: "animalStoreState",
   defaults: BaseStoreState.initState([
     { id: "id", label: "Id", isVisible: true },
-    { id: "name", label: "Name", isVisible: true }
+    { id: "name", label: "Name", isVisible: true },
+    { id: "order", label: "Order", isVisible: true }
   ])
 })
 @Injectable()

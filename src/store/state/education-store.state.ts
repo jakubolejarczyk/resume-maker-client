@@ -17,6 +17,7 @@ import { EducationStoreAction } from "../action/education-store.action";
     { id: "fieldOfStudy", label: "Field Of Study", isVisible: true },
     { id: "degree", label: "Degree", isVisible: true },
     { id: "institutionName", label: "Institution Name", isVisible: true },
+    { id: "order", label: "Order", isVisible: true },
     { id: "resumeId", label: "Resume Id", isVisible: true }
   ])
 })

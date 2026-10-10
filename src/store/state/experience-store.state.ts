@@ -17,6 +17,7 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
     { id: "endDate", label: "End Date", isVisible: true },
     { id: "jobTitle", label: "Job Title", isVisible: true },
     { id: "description", label: "Description", isVisible: true },
+    { id: "order", label: "Order", isVisible: true },
     { id: "resumeId", label: "Resume Id", isVisible: true }
   ])
 })

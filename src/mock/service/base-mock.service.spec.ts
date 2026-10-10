@@ -12,18 +12,18 @@ describe("Base Mock Service", () => {
     });
 
     it("Should return a success response and return the item to create for create method.", () => {
-        expect(service.create({ name: "Bird" })).toEqual<ResponseMockModel<AnimalMockModel>>({
+        expect(service.create({ name: "Bird", order: 2 })).toEqual<ResponseMockModel<AnimalMockModel>>({
             success: true,
             message: "Successfully created item.",
-            body: { id: 2, name: "Bird" }
+            body: { id: 2, name: "Bird", order: 2 }
         });
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" },
-                { id: 2, name: "Bird" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 },
+                { id: 2, name: "Bird", order: 2 }
             ]
         });
     });
@@ -40,7 +40,7 @@ describe("Base Mock Service", () => {
         expect(service.read(0)).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: true,
             message: "Successfully retrieved item.",
-            body: { id: 0, name: "Dog" }
+            body: { id: 0, name: "Dog", order: 0 }
         });
     });
 
@@ -59,14 +59,14 @@ describe("Base Mock Service", () => {
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ]
         });
     });
 
     it("Should return an error response and return undefined body if item to update was not found for update method.", () => {
-        expect(service.update({ id: 2, name: "Bird" })).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
+        expect(service.update({ id: 2, name: "Bird", order: 2 })).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: false,
             message: "Item to update not found.",
             body: undefined
@@ -75,24 +75,24 @@ describe("Base Mock Service", () => {
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ]
         });
     });
 
     it("Should return a success response and return the item to update if it is found for update method.", () => {
-        expect(service.update({ id: 0, name: "Updated Dog" })).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
+        expect(service.update({ id: 0, name: "Updated Dog", order: 0 })).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: true,
             message: "Successfully updated item.",
-            body: { id: 0, name: "Updated Dog" }
+            body: { id: 0, name: "Updated Dog", order: 0 }
         });
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 0, name: "Updated Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Updated Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ]
         });
     });
@@ -107,8 +107,8 @@ describe("Base Mock Service", () => {
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 0, name: "Dog" },
-                { id: 1, name: "Cat" }
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
             ]
         });
     });
@@ -117,13 +117,13 @@ describe("Base Mock Service", () => {
         expect(service.delete(0)).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: true,
             message: "Successfully deleted item.",
-            body: { id: 0, name: "Dog" }
+            body: { id: 0, name: "Dog", order: 0 }
         });
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 1, name: "Cat" }
+                { id: 1, name: "Cat", order: 1 }
             ]
         });
     });

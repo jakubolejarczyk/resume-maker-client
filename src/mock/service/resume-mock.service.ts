@@ -10,6 +10,7 @@ export class ResumeMockService extends BaseMockService<ResumeMockModel> {
             {
                 id: 0,
                 name: "Resume Jakub Olejarczyk ENG",
+                order: 0,
                 userId: 0
             }
         ]);

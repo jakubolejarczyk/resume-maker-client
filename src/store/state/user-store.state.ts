@@ -19,7 +19,8 @@ import { UserStoreAction } from "../action/user-store.action";
     { id: "email", label: "Email", isVisible: true },
     { id: "city", label: "City", isVisible: true },
     { id: "country", label: "Country", isVisible: true },
-    { id: "summary", label: "Summary", isVisible: true }
+    { id: "summary", label: "Summary", isVisible: true },
+    { id: "order", label: "Order", isVisible: true }
   ])
 })
 @Injectable({ providedIn: "root" })

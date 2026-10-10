@@ -14,6 +14,7 @@ export class EducationMockService extends BaseMockService<EducationMockModel> {
                 fieldOfStudy: "Computer Science",
                 degree: "Bachelor of Engineering",
                 institutionName: "Jan Kochanowski University of Kielce",
+                order: 0,
                 resumeId: 0
             },
             {
@@ -23,6 +24,7 @@ export class EducationMockService extends BaseMockService<EducationMockModel> {
                 fieldOfStudy: "Computer Science",
                 degree: "Master of Science",
                 institutionName: "Kielce University of Technology",
+                order: 1,
                 resumeId: 0
             }
         ]);

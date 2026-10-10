@@ -14,6 +14,7 @@ import { SkillStoreAction } from "../action/skill-store.action";
     { id: "id", label: "Id", isVisible: true },
     { id: "category", label: "Category", isVisible: true },
     { id: "skills", label: "Skills", isVisible: true },
+    { id: "order", label: "Order", isVisible: true },
     { id: "resumeId", label: "Resume Id", isVisible: true }
   ])
 })

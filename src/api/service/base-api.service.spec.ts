@@ -15,11 +15,11 @@ describe("Base Api Service", () => {
     });
 
     it("Should return a success response and return the item to create for create method.", () => {
-        service.create({ name: "Bird" }).subscribe(response => {
+        service.create({ name: "Bird", order: 2 }).subscribe(response => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel>>({
                 success: true,
                 message: "Successfully created item.",
-                body: { id: 2, name: "Bird" }
+                body: { id: 2, name: "Bird", order: 2 }
             });
         });
         service.readAll().subscribe(response => {
@@ -27,9 +27,9 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 0, name: "Dog" },
-                    { id: 1, name: "Cat" },
-                    { id: 2, name: "Bird" }
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 },
+                    { id: 2, name: "Bird", order: 2 }
                 ]
             });
         });
@@ -50,7 +50,7 @@ describe("Base Api Service", () => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: true,
                 message: "Successfully retrieved item.",
-                body: { id: 0, name: "Dog" }
+                body: { id: 0, name: "Dog", order: 0 }
             });
         });
     });
@@ -73,15 +73,15 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 0, name: "Dog" },
-                    { id: 1, name: "Cat" }
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
                 ]
             });
         });
     });
 
     it("Should return an error response and return undefined body if item to update was not found for update method.", () => {
-        service.update({ id: 2, name: "Bird" }).subscribe(response => {
+        service.update({ id: 2, name: "Bird", order: 2 }).subscribe(response => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: false,
                 message: "Item to update not found.",
@@ -93,19 +93,19 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 0, name: "Dog" },
-                    { id: 1, name: "Cat" }
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
                 ]
             });
         });
     });
 
     it("Should return a success response and return the item to update if it is found for update method.", () => {
-        service.update({ id: 0, name: "Updated Dog" }).subscribe(response => {
+        service.update({ id: 0, name: "Updated Dog", order: 0 }).subscribe(response => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: true,
                 message: "Successfully updated item.",
-                body: { id: 0, name: "Updated Dog" }
+                body: { id: 0, name: "Updated Dog", order: 0 }
             });
         });
         service.readAll().subscribe(response => {
@@ -113,8 +113,8 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 0, name: "Updated Dog" },
-                    { id: 1, name: "Cat" }
+                    { id: 0, name: "Updated Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
                 ]
             });
         });
@@ -133,8 +133,8 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 0, name: "Dog" },
-                    { id: 1, name: "Cat" }
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
                 ]
             });
         });
@@ -145,7 +145,7 @@ describe("Base Api Service", () => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: true,
                 message: "Successfully deleted item.",
-                body: { id: 0, name: "Dog" }
+                body: { id: 0, name: "Dog", order: 0 }
             });
         });
         service.readAll().subscribe(response => {
@@ -153,7 +153,7 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 1, name: "Cat" }
+                    { id: 1, name: "Cat", order: 1 }
                 ]
             });
         });

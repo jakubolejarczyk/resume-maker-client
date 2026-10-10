@@ -13,6 +13,7 @@ import { ResumeStoreAction } from "../action/resume-store.action";
   defaults: BaseStoreState.initState([
     { id: "id", label: "Id", isVisible: true },
     { id: "name", label: "Name", isVisible: true },
+    { id: "order", label: "Order", isVisible: true },
     { id: "userId", label: "User Id", isVisible: true }
   ])
 })

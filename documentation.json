@@ -37,6 +37,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -91,6 +106,21 @@
                     "inheritance": {
                         "file": "BaseMockModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -111,12 +141,12 @@
         },
         {
             "name": "BaseApiModel",
-            "id": "interface-BaseApiModel-7b3855fb9a52208cb52b11a6c1597e2d679177456522178005971c8e217f51f9d0d316de8c614d3a302f722f0219f25f11d9dea235959338372c874430373475",
+            "id": "interface-BaseApiModel-5f4ef3fde1ece39dfedcf2307e12b31f823e749e9453807f3698c15a90ec41aee930bbbb8a963e813d96fe1b50cd70adbac385cb04ec6176ac6d0e79d2495cef",
             "file": "src/api/model/base-api.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface BaseApiModel {\r\n    id: number;\r\n}",
+            "sourceCode": "export interface BaseApiModel {\r\n    id: number;\r\n    order: number;\r\n}",
             "displayName": "BaseApiModel",
             "properties": [
                 {
@@ -129,6 +159,18 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n"
                 }
             ],
@@ -168,12 +210,12 @@
         },
         {
             "name": "BaseMockModel",
-            "id": "interface-BaseMockModel-8511848ed97b6fe2447ef6a97d096d5761da3a5684382c025bd9b5d4801705c8a8b1cb1bea0704b48c5481c806249c93521882c7ac72a43844fa5eb4eaeab7db",
+            "id": "interface-BaseMockModel-d59fa067fcb3e7e4db72ad722ec364aca0889fabca717d68b73229fac0254e2e40354b00aceac3075685ead892918350baf526dfeb6dd80252860da45f49e75b",
             "file": "src/mock/model/base-mock.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface BaseMockModel {\r\n    id: number;\r\n}",
+            "sourceCode": "export interface BaseMockModel {\r\n    id: number;\r\n    order: number;\r\n}",
             "displayName": "BaseMockModel",
             "properties": [
                 {
@@ -186,6 +228,18 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n"
                 }
             ],
@@ -470,6 +524,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -580,6 +649,21 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n",
                     "inheritance": {
                         "file": "BaseMockModel"
@@ -698,6 +782,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -808,6 +907,21 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n",
                     "inheritance": {
                         "file": "BaseMockModel"
@@ -996,6 +1110,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -1058,6 +1187,21 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n",
                     "inheritance": {
                         "file": "BaseMockModel"
@@ -1140,6 +1284,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -1214,6 +1373,21 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n",
                     "inheritance": {
                         "file": "BaseMockModel"
@@ -1368,6 +1542,21 @@
                     "inheritance": {
                         "file": "BaseApiModel"
                     }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseApiModel"
+                    }
                 }
             ],
             "indexSignatures": [],
@@ -1514,6 +1703,21 @@
                     "optional": false,
                     "description": "",
                     "line": 2,
+                    "rawdescription": "\n",
+                    "inheritance": {
+                        "file": "BaseMockModel"
+                    }
+                },
+                {
+                    "name": "order",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3,
                     "rawdescription": "\n",
                     "inheritance": {
                         "file": "BaseMockModel"
@@ -1760,7 +1964,7 @@
         },
         {
             "name": "AnimalMockService",
-            "id": "injectable-AnimalMockService-9baa0bf5646741d7328d47d9ae83696aa6d728b943ea9f2ebba76af9c3de1f11d4f1911501b3c49e14ae927ba1303507f753eda9aa54cb3c2fc79c1fe7d6cac7",
+            "id": "injectable-AnimalMockService-a4d7289c6a09b54acb1ce7091617eb68f9504826e5f8f284fe5dcbc66471cbbe9a3cbafd00d0ce52766dc87f52ab2df4f196b92f15059da17a591eb047b8b5ea",
             "file": "src/mock/service/animal-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -1973,7 +2177,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseMockService } from \"./base-mock.service\";\r\nimport { AnimalMockModel } from \"../model/animal-mock.model\";\r\n\r\n@Injectable()\r\nexport class AnimalMockService extends BaseMockService<AnimalMockModel> {\r\n    constructor() {\r\n        super([\r\n            { id: 0, name: \"Dog\" },\r\n            { id: 1, name: \"Cat\" }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseMockService } from \"./base-mock.service\";\r\nimport { AnimalMockModel } from \"../model/animal-mock.model\";\r\n\r\n@Injectable()\r\nexport class AnimalMockService extends BaseMockService<AnimalMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                name: \"Dog\",\r\n                order: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                name: \"Cat\",\r\n                order: 1\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -2353,7 +2557,7 @@
         },
         {
             "name": "AnimalStoreState",
-            "id": "injectable-AnimalStoreState-e409eb1bf62d4337a9e393342057deafbd1940cbf01561df27f7058f6a77e4de4b2efa1e01e817eaef0f36c69469a2c1cddf3fdf7b0c9f7ba630978a6f0f7f8d",
+            "id": "injectable-AnimalStoreState-edef557147c456673f7be586f9923e87d6d252ea303e0bf44f2202e0a72d6936cb9a560d3bc18fe13c7203aa73fa575dbd9506d3a6a459983226d1bcc5a87a3b",
             "file": "src/store/state/animal-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -2382,7 +2586,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2449,7 +2653,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 72,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2510,7 +2714,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 41,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2561,7 +2765,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2612,7 +2816,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 31,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2663,7 +2867,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 36,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2714,7 +2918,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 21,
+                    "line": 22,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2771,7 +2975,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 77,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2838,7 +3042,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2905,7 +3109,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2972,7 +3176,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3039,7 +3243,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3130,7 +3334,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<AnimalApiModel>"
             ],
@@ -4006,7 +4210,7 @@
         },
         {
             "name": "EducationMockService",
-            "id": "injectable-EducationMockService-daa334cb1226efa04c9fe2412429fd08032cf39fdb690715eab2627b52a9de021ebc515e8bd095101395b88a2f70ef0a9f55961387879828212345327a777bfc",
+            "id": "injectable-EducationMockService-3bea06c5237f055f85a0e31c214facd6e5c3a98d46b44dd2e2098c55013226d728fda4fd568c6639d2c11ac379b3adfb445f163af990256b4a5f3e7fd601c2df",
             "file": "src/mock/service/education-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -4219,7 +4423,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationMockModel } from \"../model/education-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationMockService extends BaseMockService<EducationMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                startYear: 2017,\r\n                endYear: 2021,\r\n                fieldOfStudy: \"Computer Science\",\r\n                degree: \"Bachelor of Engineering\",\r\n                institutionName: \"Jan Kochanowski University of Kielce\",\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                startYear: 2024,\r\n                endYear: 2026,\r\n                fieldOfStudy: \"Computer Science\",\r\n                degree: \"Master of Science\",\r\n                institutionName: \"Kielce University of Technology\",\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationMockModel } from \"../model/education-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationMockService extends BaseMockService<EducationMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                startYear: 2017,\r\n                endYear: 2021,\r\n                fieldOfStudy: \"Computer Science\",\r\n                degree: \"Bachelor of Engineering\",\r\n                institutionName: \"Jan Kochanowski University of Kielce\",\r\n                order: 0,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                startYear: 2024,\r\n                endYear: 2026,\r\n                fieldOfStudy: \"Computer Science\",\r\n                degree: \"Master of Science\",\r\n                institutionName: \"Kielce University of Technology\",\r\n                order: 1,\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -4601,7 +4805,7 @@
         },
         {
             "name": "EducationStoreState",
-            "id": "injectable-EducationStoreState-e89947306d745c206b5e187290c71ca411c9d651b6f1d922d729c28bb82d4e877c3983e174cad2c84eed2f4e1127bae91da00a52f59737a322c54af55fe3076e",
+            "id": "injectable-EducationStoreState-585b2b6dd5ceefc5e7fe6e742b302e1f5676bc39eb9b5a023c131770c10577436354c3cd20321fcfa573e0428f4759d62be7cddda2f19faacdabb86fd2b209e0",
             "file": "src/store/state/education-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -4630,7 +4834,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4697,7 +4901,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 77,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4758,7 +4962,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 46,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4809,7 +5013,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 31,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4860,7 +5064,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 36,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4911,7 +5115,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 41,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4962,7 +5166,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5019,7 +5223,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 81,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5086,7 +5290,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5153,7 +5357,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5220,7 +5424,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5287,7 +5491,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 72,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5378,7 +5582,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"startYear\", label: \"Start Year\", isVisible: true },\r\n    { id: \"endYear\", label: \"End Year\", isVisible: true },\r\n    { id: \"fieldOfStudy\", label: \"Field Of Study\", isVisible: true },\r\n    { id: \"degree\", label: \"Degree\", isVisible: true },\r\n    { id: \"institutionName\", label: \"Institution Name\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"startYear\", label: \"Start Year\", isVisible: true },\r\n    { id: \"endYear\", label: \"End Year\", isVisible: true },\r\n    { id: \"fieldOfStudy\", label: \"Field Of Study\", isVisible: true },\r\n    { id: \"degree\", label: \"Degree\", isVisible: true },\r\n    { id: \"institutionName\", label: \"Institution Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<EducationApiModel>"
             ],
@@ -5617,7 +5821,7 @@
         },
         {
             "name": "ExperienceMockService",
-            "id": "injectable-ExperienceMockService-ef368ae0e2058a6e5366014dcd4473250ce2150cfe4e235d63d98b34a0912c8add1b59e02d50dba843dd9237a6107c1a6d1cbaac11b62d3af95f6970258f5bf8",
+            "id": "injectable-ExperienceMockService-3cf4ee4d688448deaf5875b5d17aab2bf7079de4d7d607d3bae5cc2d68aa54e60093b3e0046062b242afe874df88e9ff8b26a342eea7ff35d5e4b988a1234a40",
             "file": "src/mock/service/experience-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -5830,7 +6034,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceMockModel } from \"../model/experience-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceMockService extends BaseMockService<ExperienceMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                company: \"APR System\",\r\n                startDate: \"2020-07-01\",\r\n                endDate: \"2025-02-01\",\r\n                jobTitle: \"Software Engineer\",\r\n                description: [\r\n                    \"Developed and maintained full-stack applications using Angular and ASP.NET, working across frontend components, business logic, backend services, REST APIs, and data integration.\",\r\n                    \"Designed and implemented a model-driven code generation platform that automatically generated frontend and backend structures from UML/domain models, reducing development time and allowing developers to focus on business logic.\",\r\n                    \"Developed internal npm tooling to standardize and streamline development workflows, improving team productivity and ensuring a consistent, well-structured process across the software delivery lifecycle.\",\r\n                    \"Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.\",\r\n                    \"Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability.\"\r\n                ],\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                company: \"Primaris\",\r\n                startDate: \"2025-06-01\",\r\n                jobTitle: \"Software Engineer\",\r\n                description: [\r\n                    \"Designed, developed, deployed, and maintained UiPath RPA solutions using .NET/C# to automate repetitive, time-consuming manual processes, reducing manual effort for non-technical employees and streamlining business workflows.\",\r\n                    \"Developed an internal C#/.NET library with custom UiPath activities that enabled seamless integration with KSeF 2.0, providing reusable components for implementing KSeF functionality across RPA workflows.\",\r\n                    \"Developed and maintained a UiPath automation for KSeF 2.0 that automated key KSeF operations, reducing time-consuming manual work and streamlining the company's invoicing processes.\",\r\n                    \"Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.\",\r\n                    \"Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions.\"\r\n                ],\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceMockModel } from \"../model/experience-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceMockService extends BaseMockService<ExperienceMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                company: \"APR System\",\r\n                startDate: \"2020-07-01\",\r\n                endDate: \"2025-02-01\",\r\n                jobTitle: \"Software Engineer\",\r\n                description: [\r\n                    \"Developed and maintained full-stack applications using Angular and ASP.NET, working across frontend components, business logic, backend services, REST APIs, and data integration.\",\r\n                    \"Designed and implemented a model-driven code generation platform that automatically generated frontend and backend structures from UML/domain models, reducing development time and allowing developers to focus on business logic.\",\r\n                    \"Developed internal npm tooling to standardize and streamline development workflows, improving team productivity and ensuring a consistent, well-structured process across the software delivery lifecycle.\",\r\n                    \"Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.\",\r\n                    \"Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability.\"\r\n                ],\r\n                order: 0,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                company: \"Primaris\",\r\n                startDate: \"2025-06-01\",\r\n                jobTitle: \"Software Engineer\",\r\n                description: [\r\n                    \"Designed, developed, deployed, and maintained UiPath RPA solutions using .NET/C# to automate repetitive, time-consuming manual processes, reducing manual effort for non-technical employees and streamlining business workflows.\",\r\n                    \"Developed an internal C#/.NET library with custom UiPath activities that enabled seamless integration with KSeF 2.0, providing reusable components for implementing KSeF functionality across RPA workflows.\",\r\n                    \"Developed and maintained a UiPath automation for KSeF 2.0 that automated key KSeF operations, reducing time-consuming manual work and streamlining the company's invoicing processes.\",\r\n                    \"Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.\",\r\n                    \"Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions.\"\r\n                ],\r\n                order: 1,\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -6212,7 +6416,7 @@
         },
         {
             "name": "ExperienceStoreState",
-            "id": "injectable-ExperienceStoreState-f1a6934b8f60bf16006fc93bc37d1cd5344aedaf73df25788a2ac3c5e6d9ddf07d6fbadd28562ac130f2495e76588dfd2fafdce312d07cbaf9557fbe7ad83d0e",
+            "id": "injectable-ExperienceStoreState-c000a725d848cdd9e40bcfd7bb3aa8f7d27d84c13ef6530fa2093f8164f2bbd08dccbf51dfd3ecc1c53f499c75c21360166dfa6c9766fc30f7ef7c40dbc095ce",
             "file": "src/store/state/experience-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -6241,7 +6445,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6308,7 +6512,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 77,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6369,7 +6573,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 46,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6420,7 +6624,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 31,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6471,7 +6675,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 36,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6522,7 +6726,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 41,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6573,7 +6777,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6630,7 +6834,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 81,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6697,7 +6901,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6764,7 +6968,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6831,7 +7035,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 51,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6898,7 +7102,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 72,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6989,7 +7193,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"company\", label: \"Company\", isVisible: true },\r\n    { id: \"startDate\", label: \"Start Date\", isVisible: true },\r\n    { id: \"endDate\", label: \"End Date\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"description\", label: \"Description\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"company\", label: \"Company\", isVisible: true },\r\n    { id: \"startDate\", label: \"Start Date\", isVisible: true },\r\n    { id: \"endDate\", label: \"End Date\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"description\", label: \"Description\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ExperienceApiModel>"
             ],
@@ -7228,7 +7432,7 @@
         },
         {
             "name": "ResumeMockService",
-            "id": "injectable-ResumeMockService-917d9c80f30464cdf744addff1d4dc810de224ce72e974a245abcdeb069fe4a7720ddd736dac6b80de127cdd0c4142ff6a08f5befc1855828ae6b5a74851ad6a",
+            "id": "injectable-ResumeMockService-e8e8922ab37613bfc4c7c2d3160b8431246bc9ebe75aeb162891f1b2c875d5301d4339d246024617a12bf6a983b6b4a7bdd775b8df8112c8089d76c413ca70ee",
             "file": "src/mock/service/resume-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -7441,7 +7645,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { ResumeMockModel } from \"../model/resume-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeMockService extends BaseMockService<ResumeMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                name: \"Resume Jakub Olejarczyk ENG\",\r\n                userId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { ResumeMockModel } from \"../model/resume-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeMockService extends BaseMockService<ResumeMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                name: \"Resume Jakub Olejarczyk ENG\",\r\n                order: 0,\r\n                userId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -7823,7 +8027,7 @@
         },
         {
             "name": "ResumeStoreState",
-            "id": "injectable-ResumeStoreState-338836cf2bae0d87f7491d36373659b341476f09f648c4649876106523f013e7568d366166eb3915cdddba78d0f7447713ac32b2d26eae6deda7fac75c458d8c",
+            "id": "injectable-ResumeStoreState-8bb557962e55bcb1f637689a93f5723df096b9a6928c57e5fc97c9f58da728a15895a7a1468e0e97052fe98b613e41ceb3fdff9f426c40cf22273a378a722773",
             "file": "src/store/state/resume-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -7852,7 +8056,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 63,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7919,7 +8123,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 73,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7980,7 +8184,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 42,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8031,7 +8235,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 27,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8082,7 +8286,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 32,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8133,7 +8337,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 37,
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8184,7 +8388,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8241,7 +8445,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8308,7 +8512,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8375,7 +8579,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8442,7 +8646,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 48,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8509,7 +8713,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 68,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8600,7 +8804,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true },\r\n    { id: \"userId\", label: \"User Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"name\", label: \"Name\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"userId\", label: \"User Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ResumeApiModel>"
             ],
@@ -8839,7 +9043,7 @@
         },
         {
             "name": "SkillMockService",
-            "id": "injectable-SkillMockService-e222118a4bb80615c31f038e4125cd44bf1b6843dcf81afe7bc0b01c56ed91ded393c0aaa8580174e5b6c829075c27278e35d7ae351c06e032a61563056489d5",
+            "id": "injectable-SkillMockService-1701eed385e4dc46f5ca7aebe5a093af64139cd6d67cafd4a467a7b182ab16570da15e75ccc9197b5612018f41da39fa92823182b3cd9ffe3a9d36d62a75f1c5",
             "file": "src/mock/service/skill-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -9052,7 +9256,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\",\r\n                    \"PrimeNG\",\r\n                    \"Storybook\"\r\n                ],\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Node.js\",\r\n                    \"npm\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                order: 0,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\",\r\n                    \"PrimeNG\",\r\n                    \"Storybook\"\r\n                ],\r\n                order: 1,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Node.js\",\r\n                    \"npm\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                order: 2,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                order: 3,\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -9434,7 +9638,7 @@
         },
         {
             "name": "SkillStoreState",
-            "id": "injectable-SkillStoreState-267d9d7008ea9c7b769a24652bffeac867bd1f65bfcdbc85e386297cef16c1322e163eed5a6d9fbce7e059a424393f31b2d551426dee5ef9f1799dfe2c3e1ada",
+            "id": "injectable-SkillStoreState-92727072d341dec1b3ad708d0999eb5931e947ecfb3a9efb22a5628030cefe2b028edd07cb1aff5e02af1dff8d78b6582d9d44723cacda13a85b586c21cd1f6c",
             "file": "src/store/state/skill-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -9463,7 +9667,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 63,
+                    "line": 64,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9530,7 +9734,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 73,
+                    "line": 74,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9591,7 +9795,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 48,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9642,7 +9846,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9693,7 +9897,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 33,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9744,7 +9948,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 38,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9795,7 +9999,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 23,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9852,7 +10056,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9919,7 +10123,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9986,7 +10190,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10053,7 +10257,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10120,7 +10324,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10211,7 +10415,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"category\", label: \"Category\", isVisible: true },\r\n    { id: \"skills\", label: \"Skills\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"category\", label: \"Category\", isVisible: true },\r\n    { id: \"skills\", label: \"Skills\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<SkillApiModel>"
             ],
@@ -10450,7 +10654,7 @@
         },
         {
             "name": "UserMockService",
-            "id": "injectable-UserMockService-eb89068f9a640c97bf9e6371af72ad18f6ce8989ee22e4d8247fc92a7ad25f5678fdac6f6d138fd57690842efad0255187cf94e624a2d4b5c35b97a4a935d529",
+            "id": "injectable-UserMockService-169c7d2591db92b9c8e4e2c34a4ace9f9367a0dd42d312d19c5912fbf2b33d7d0e1a46f95fb78fd98e1f5e77a38cebb964b92a223397793ca980b8f02f4a6abc",
             "file": "src/mock/service/user-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -10663,7 +10867,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { UserMockModel } from \"../model/user-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserMockService extends BaseMockService<UserMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                firstName: \"Jakub\",\r\n                lastName: \"Olejarczyk\",\r\n                jobTitle: \"Senior Software Engineer\",\r\n                phoneNumber: \"+48 501 007 197\",\r\n                email: \"jakub.olejarczyk@outlook.com\",\r\n                city: \"Kielce\",\r\n                country: \"Poland\",\r\n                links: [\r\n                    \"olejarczykjakub.com\",\r\n                    \"linkedin.com/in/jakub-olejarczyk\",\r\n                    \"github.com/jakubolejarczyk\",\r\n                    \"leetcode.com/u/JakubOlejarczyk\"\r\n                ],\r\n                summary: \"Senior Software Engineer with 6+ years of experience in full-stack web development, specializing in Angular on the frontend and ASP.NET on the backend. Experienced in designing and developing scalable web applications, RESTful APIs, and backend services, with a strong focus on clean architecture, performance, maintainability, and code quality. Proven ability to contribute across the full software development lifecycle and collaborate effectively with cross-functional teams to deliver scalable and maintainable solutions.\"\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { UserMockModel } from \"../model/user-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserMockService extends BaseMockService<UserMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                firstName: \"Jakub\",\r\n                lastName: \"Olejarczyk\",\r\n                jobTitle: \"Senior Software Engineer\",\r\n                phoneNumber: \"+48 501 007 197\",\r\n                email: \"jakub.olejarczyk@outlook.com\",\r\n                city: \"Kielce\",\r\n                country: \"Poland\",\r\n                links: [\r\n                    \"olejarczykjakub.com\",\r\n                    \"linkedin.com/in/jakub-olejarczyk\",\r\n                    \"github.com/jakubolejarczyk\",\r\n                    \"leetcode.com/u/JakubOlejarczyk\"\r\n                ],\r\n                summary: \"Senior Software Engineer with 6+ years of experience in full-stack web development, specializing in Angular on the frontend and ASP.NET on the backend. Experienced in designing and developing scalable web applications, RESTful APIs, and backend services, with a strong focus on clean architecture, performance, maintainability, and code quality. Proven ability to contribute across the full software development lifecycle and collaborate effectively with cross-functional teams to deliver scalable and maintainable solutions.\",\r\n                order: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -11045,7 +11249,7 @@
         },
         {
             "name": "UserStoreState",
-            "id": "injectable-UserStoreState-1f485e06685fcf21e4a6fac4ec8ef7b657ba3c9325c636337cbfc6aa289a837c089f26ab7f8428304501cbca366a27d217fcbaeae1b6d9544bd3cf56d78a14d0",
+            "id": "injectable-UserStoreState-026f5b10593738ad52775099266d6f02ea6c6f04b0cf511e93065cbf0ef81fc9b45a34a41e9e5fdf5f9be9904eb74200ea6d06a54e47a1c4df9f378d90873038",
             "file": "src/store/state/user-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -11074,7 +11278,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11141,7 +11345,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11202,7 +11406,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 48,
+                    "line": 49,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11253,7 +11457,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 33,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11304,7 +11508,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 38,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11355,7 +11559,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 43,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11406,7 +11610,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11463,7 +11667,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 83,
+                    "line": 84,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11530,7 +11734,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11597,7 +11801,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 63,
+                    "line": 64,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11664,7 +11868,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11731,7 +11935,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 73,
+                    "line": 74,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11822,7 +12026,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"firstName\", label: \"First Name\", isVisible: true },\r\n    { id: \"lastName\", label: \"Last Name\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"phoneNumber\", label: \"Phone Number\", isVisible: true },\r\n    { id: \"email\", label: \"Email\", isVisible: true },\r\n    { id: \"city\", label: \"City\", isVisible: true },\r\n    { id: \"country\", label: \"Country\", isVisible: true },\r\n    { id: \"summary\", label: \"Summary\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: true },\r\n    { id: \"firstName\", label: \"First Name\", isVisible: true },\r\n    { id: \"lastName\", label: \"Last Name\", isVisible: true },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true },\r\n    { id: \"phoneNumber\", label: \"Phone Number\", isVisible: true },\r\n    { id: \"email\", label: \"Email\", isVisible: true },\r\n    { id: \"city\", label: \"City\", isVisible: true },\r\n    { id: \"country\", label: \"Country\", isVisible: true },\r\n    { id: \"summary\", label: \"Summary\", isVisible: true },\r\n    { id: \"order\", label: \"Order\", isVisible: true }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<UserApiModel>"
             ],
@@ -17300,7 +17504,7 @@
                 "linktype": "interface",
                 "name": "AnimalApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -17309,7 +17513,7 @@
                 "linktype": "interface",
                 "name": "BaseApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -17318,7 +17522,7 @@
                 "linktype": "interface",
                 "name": "EducationApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -17327,7 +17531,7 @@
                 "linktype": "interface",
                 "name": "ExperienceApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -17345,7 +17549,7 @@
                 "linktype": "interface",
                 "name": "ResumeApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -17354,7 +17558,7 @@
                 "linktype": "interface",
                 "name": "SkillApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -17363,7 +17567,7 @@
                 "linktype": "interface",
                 "name": "UserApiModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -17634,7 +17838,7 @@
                 "linktype": "interface",
                 "name": "AnimalMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -17643,7 +17847,7 @@
                 "linktype": "interface",
                 "name": "BaseMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -17652,7 +17856,7 @@
                 "linktype": "interface",
                 "name": "EducationMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -17661,7 +17865,7 @@
                 "linktype": "interface",
                 "name": "ExperienceMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -17679,7 +17883,7 @@
                 "linktype": "interface",
                 "name": "ResumeMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -17688,7 +17892,7 @@
                 "linktype": "interface",
                 "name": "SkillMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -17697,7 +17901,7 @@
                 "linktype": "interface",
                 "name": "UserMockModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
