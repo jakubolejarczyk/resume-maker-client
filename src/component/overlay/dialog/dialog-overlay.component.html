@@ -5,12 +5,14 @@
                 <span class="font-bold whitespace-nowrap">{{ label() }}</span>
             </div>
         </ng-template>
-        @for (column of columns(); track column.id) {
-            <div class="flex items-center gap-4 mb-2">
-                <label for="email" class="font-semibold w-24 text-sm">{{ column.label }}</label>
-                <input pInputText id="email" class="flex-auto" autocomplete="off" />
-            </div>
-        }
+        <form>
+            @for (column of columns(); track column.id) {
+                <div class="flex items-center gap-4 mb-2">
+                    <label for="email" class="font-semibold w-24 text-sm">{{ column.label }}</label>
+                    <input pInputText id="email" class="flex-auto" autocomplete="off" />
+                </div>
+            }
+        </form>
         <ng-template #footer>
             <button type="button" pButton [text]="true" severity="secondary" (click)="onCancel()">Cancel</button>
             <button type="button" pButton [outlined]="true" severity="secondary" (click)="onSave()">Save</button>

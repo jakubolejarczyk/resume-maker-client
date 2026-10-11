@@ -1,8 +1,8 @@
 <app-dialog-overlay-component
     [label]="label"
     [columns]="columns"
-    [itemToUpdate]="itemToUpdate"
-    (onCancelEvent)="itemToUpdate = undefined"
+    [item]="item"
+    (onCancelEvent)="onCancelEvent()"
 ></app-dialog-overlay-component>
 <app-table-data-component
     [columns]="columns"

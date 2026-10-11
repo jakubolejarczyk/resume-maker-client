@@ -14,7 +14,7 @@ import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.comp
     imports: [TableDataComponent, DialogOverlayComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
-    private cdr = inject(ChangeDetectorRef);
+    private readonly cdr = inject(ChangeDetectorRef);
     private readonly injector = inject(Injector);
     private baseService!: BaseService<TModel>;
     private sub!: Subscription;
@@ -27,7 +27,7 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     items: BaseApiModel[] = [];
 
     label = "";
-    itemToUpdate: TModel | undefined;
+    item: TModel | undefined;
 
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());
@@ -49,7 +49,7 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     onUpdateEvent(item: TModel) {
         this.label = "Update";
-        this.itemToUpdate = item;
+        this.item = item;
     }
 
     onDeleteEvent(item: TModel) {
@@ -58,5 +58,9 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
             "Confirm Delete",
             "Delete",
             () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));
+    }
+
+    onCancelEvent() {
+        this.item = undefined;
     }
 }

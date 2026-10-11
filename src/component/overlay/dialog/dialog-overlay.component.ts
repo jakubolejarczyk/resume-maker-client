@@ -16,7 +16,7 @@ import { BaseStoreModel } from "../../../store/model/base-store.model";
 export class DialogOverlayComponent<TModel extends BaseApiModel> {
     label = input.required<string>();
     columns = input.required<BaseStoreModel<TModel>["columns"]>();
-    itemToUpdate = input<TModel>();
+    item = input<TModel>();
 
     onCancelEvent = output();
 
@@ -29,6 +29,6 @@ export class DialogOverlayComponent<TModel extends BaseApiModel> {
     }
 
     isVisible() {
-        return this.itemToUpdate() !== undefined;
+        return this.item() !== undefined;
     }
 }
