@@ -8,10 +8,12 @@
             </ng-template>
             <form>
                 @for (column of columns(); track column.id) {
-                    <div class="flex items-center gap-4 mb-2">
-                        <label for="email" class="font-semibold w-24 text-sm">{{ column.label }}</label>
-                        <input pInputText id="email" class="flex-auto" autocomplete="off" [value]="getItemValue(column)" />
-                    </div>
+                    @if (column.isEditable) {
+                        <div class="flex items-center gap-4 mb-2">
+                            <label for="email" class="font-semibold w-24 text-sm">{{ column.label }}</label>
+                            <input pInputText id="email" class="flex-auto" autocomplete="off" [value]="getItemValue(column)" />
+                        </div>
+                    }
                 }
             </form>
             <ng-template #footer>
