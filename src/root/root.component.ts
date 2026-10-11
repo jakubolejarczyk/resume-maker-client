@@ -9,9 +9,10 @@ import { File } from '@primeicons/angular/file';
 import { Code } from '@primeicons/angular/code';
 import { Sidebar } from '@primeicons/angular/sidebar';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @Component({
-  selector: "app-root-component",
+    selector: "app-root-component",
     templateUrl: "./root.component.html",
     standalone: true,
     imports: [
@@ -25,7 +26,8 @@ import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
         File,
         Sidebar,
         RouterOutlet,
-        RouterLinkWithHref
+        RouterLinkWithHref,
+        ConfirmDialogModule
     ]
 })
 export class RootComponent {

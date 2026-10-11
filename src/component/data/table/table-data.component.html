@@ -20,16 +20,22 @@
                 <div style="display: flex; gap: 0.5rem;">
                     <app-button-form-component label="Show" severity="secondary"></app-button-form-component>
                     <app-button-form-component label="Update" severity="secondary"></app-button-form-component>
-                    <app-button-form-component label="Delete" severity="secondary"></app-button-form-component>
+                    <app-button-form-component
+                        label="Delete"
+                        severity="secondary"
+                        [showConfirm]="true"
+                        confirmMessage="aaa"
+                        confirmHeader="bbb"
+                    ></app-button-form-component>
                     <app-button-form-component
                         label="Move up"
                         severity="secondary"
-                        [disabled]="baseService.isLastItem(item) | async"
+                        /* [disabled]="baseService.isLastItem(item) | async" */
                     ></app-button-form-component>
                     <app-button-form-component
                         label="Move down"
                         severity="secondary"
-                        [disabled]="baseService.isFirstItem(item) | async"
+                        /* [disabled]="baseService.isFirstItem(item) | async" */
                     ></app-button-form-component>
                 </div>
             </td>

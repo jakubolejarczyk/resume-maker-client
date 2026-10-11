@@ -11,4 +11,8 @@ import { TableDataComponent } from "../../data/table/table-data.component";
 })
 export class DomainViewComponent<TModel extends BaseApiModel> {
     baseServiceType = input.required<typeof BaseService<TModel>>();
+
+    onDelete(item: TModel) {
+        alert(item.id);
+    }
 }

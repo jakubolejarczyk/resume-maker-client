@@ -1,7 +1,6 @@
-import { Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
+import { Component, inject, Injector, input, OnDestroy, OnInit, output } from "@angular/core";
 import { TableModule } from 'primeng/table';
 import { combineLatest, map, of, Subscription, switchMap } from "rxjs";
-import { AsyncPipe } from "@angular/common";
 
 import { ButtonFormComponent } from "../../form/button/button-form.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
@@ -11,7 +10,7 @@ import { BaseStoreModel } from "../../../store/model/base-store.model";
 @Component({
     selector: "app-table-data-component",
     templateUrl: "./table-data.component.html",
-    imports: [TableModule, ButtonFormComponent, AsyncPipe]
+    imports: [TableModule, ButtonFormComponent]
 })
 export class TableDataComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
     private injector = inject(Injector);
@@ -24,6 +23,8 @@ export class TableDataComponent<TModel extends BaseApiModel> implements OnInit, 
     items: BaseApiModel[] = [];
 
     baseServiceType = input.required<typeof BaseService<TModel>>();
+
+    onDeleteEvent = output<TModel>();
 
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());

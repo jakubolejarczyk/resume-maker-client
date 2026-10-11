@@ -1,1 +1,8 @@
-<button pButton (click)="onClick()" [severity]="severity()" [disabled]="disabled()" size="small">{{ label() }}</button>
+<p-confirmdialog />
+<button
+    pButton
+    (click)="onClick($event)"
+    [size]="size()"
+    [severity]="severity()"
+    [disabled]="disabled()"
+>{{ label() }}</button>
