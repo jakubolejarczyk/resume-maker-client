@@ -9,8 +9,9 @@ import { File } from '@primeicons/angular/file';
 import { Code } from '@primeicons/angular/code';
 import { Sidebar } from '@primeicons/angular/sidebar';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
-import { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';
+
 import { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';
+import { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';
 
 @Component({
     selector: "app-root-component",

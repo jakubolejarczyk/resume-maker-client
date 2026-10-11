@@ -6,11 +6,12 @@ import { BaseApiModel } from "../../../api/model/base-api.model";
 import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
 import { ConfirmationUtil } from "../../../util/confirmation.util";
+import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.component";
 
 @Component({
     selector: "app-domain-view-component",
     templateUrl: "./domain-view.component.html",
-    imports: [TableDataComponent]
+    imports: [TableDataComponent, DialogOverlayComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
     private cdr = inject(ChangeDetectorRef);
@@ -24,6 +25,8 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     columns: BaseStoreModel<TModel>["columns"] = [];
     items: BaseApiModel[] = [];
+
+    itemToUpdate: TModel | undefined;
 
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());
@@ -43,7 +46,11 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
         this.sub.unsubscribe();
     }
 
-    onDelete(item: TModel) {
+    onUpdateEvent(item: TModel) {
+        this.itemToUpdate = item;
+    }
+
+    onDeleteEvent(item: TModel) {
         this.confirmationUtil.confirm(
             "Are you sure you want to proceed with the deletion? This action cannot be undone.",
             "Confirm Delete",

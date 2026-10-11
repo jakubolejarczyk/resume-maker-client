@@ -1,0 +1,22 @@
+<div class="flex justify-center">
+    <p-dialog [visible]="itemToUpdate() !== undefined" [modal]="true" [style]="{ width: '25rem' }" [resizable]="false" (onHide)="onCancel()">
+        <ng-template #header>
+            <div class="inline-flex items-center justify-center gap-2">
+                <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+            </div>
+        </ng-template>
+        <span class="text-surface-500 dark:text-surface-400 block mb-8 text-sm">Update your information.</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="username" class="font-semibold w-24 text-sm">Username</label>
+            <input pInputText id="username" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex items-center gap-4 mb-2">
+            <label for="email" class="font-semibold w-24 text-sm">Email</label>
+            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+        </div>
+        <ng-template #footer>
+            <button type="button" pButton [text]="true" severity="secondary" (click)="onCancel()">Cancel</button>
+            <button type="button" pButton [outlined]="true" severity="secondary" (click)="onSave()">Save</button>
+        </ng-template>
+    </p-dialog>
+</div>

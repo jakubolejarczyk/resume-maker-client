@@ -16402,8 +16402,153 @@
             }
         },
         {
+            "name": "DialogOverlayComponent",
+            "id": "component-DialogOverlayComponent-0aa3bc5871855d9599263ce0601677457f9e8bc5c3904f6a390d2df643d2b44e74bb01d949ad96e008518c66b05fa1203bb5b07566c0147129c5f479f5d78a48",
+            "file": "src/component/overlay/dialog/dialog-overlay.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dialog-overlay-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./dialog-overlay.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "email",
+                    "coverageIgnore": false,
+                    "defaultValue": "'amanda@example.com'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "name",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Amanda Miller'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "visible",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "showDialog",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                }
+            ],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ConfirmDialogModule",
+                    "type": "module"
+                },
+                {
+                    "name": "DialogModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "InputTextModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { FormsModule } from \"@angular/forms\";\r\nimport { ButtonModule } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { DialogModule } from \"primeng/dialog\";\r\nimport { InputTextModule } from \"primeng/inputtext\";\r\n\r\n@Component({\r\n    selector: \"app-dialog-overlay-component\",\r\n    templateUrl: \"./dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]\r\n})\r\nexport class DialogOverlayComponent {\r\n    visible = false;\r\n\r\n    name = 'Amanda Miller';\r\n    \r\n    email = 'amanda@example.com';\r\n\r\n    showDialog() {\r\n        this.visible = true;\r\n    }\r\n}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "RootComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "ConfirmDialogModule",
+                        "type": "module"
+                    },
+                    {
+                        "name": "DialogModule",
+                        "type": "module"
+                    },
+                    {
+                        "name": "ButtonModule",
+                        "type": "module"
+                    },
+                    {
+                        "name": "InputTextModule",
+                        "type": "module"
+                    },
+                    {
+                        "name": "FormsModule",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<div class=\"flex justify-center\">\r\n    <button type=\"button\" pButton (click)=\"showDialog()\">Show</button>\r\n    <p-dialog [(visible)]=\"visible\" [modal]=\"true\" [style]=\"{ width: '25rem' }\">\r\n        <ng-template #header>\r\n            <div class=\"inline-flex items-center justify-center gap-2\">\r\n                <span class=\"font-bold whitespace-nowrap\">Amy Elsner</span>\r\n            </div>\r\n        </ng-template>\r\n        <span class=\"text-surface-500 dark:text-surface-400 block mb-8 text-sm\">Update your information.</span>\r\n        <div class=\"flex items-center gap-4 mb-4\">\r\n            <label for=\"username\" class=\"font-semibold w-24 text-sm\">Username</label>\r\n            <input pInputText id=\"username\" class=\"flex-auto\" autocomplete=\"off\" />\r\n        </div>\r\n        <div class=\"flex items-center gap-4 mb-2\">\r\n            <label for=\"email\" class=\"font-semibold w-24 text-sm\">Email</label>\r\n            <input pInputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" />\r\n        </div>\r\n        <ng-template #footer>\r\n            <button type=\"button\" pButton [text]=\"true\" severity=\"secondary\" (click)=\"visible = false\">Cancel</button>\r\n            <button type=\"button\" pButton [outlined]=\"true\" severity=\"secondary\" (click)=\"visible = false\">Save</button>\r\n        </ng-template>\r\n    </p-dialog>\r\n</div>"
+        },
+        {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-6c0f749ce70ec735e57474fccbbb278437599237a4c7a54b5050ab37a39c58fa0e5a8d96ea88b117c3bff4a3ff985cd4608db6769e10d816f23d210475279861",
+            "id": "component-DomainViewComponent-c81021ad1038f4a1eadb084e2e17dcd79a7a1bbb4afda9b90d2fc4005c35a228985603cf180a27ece9896de4b0b4665527490265fd6fd91d93321f7f724404a0",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16587,6 +16732,41 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onUpdate",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
                     "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -16622,7 +16802,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n}",
+            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onUpdate(item: TModel) {\r\n        alert(item.id);\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16669,7 +16849,7 @@
                     }
                 ]
             },
-            "templateData": "<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onDeleteEvent)=\"onDelete($event)\"\r\n></app-table-data-component>"
+            "templateData": "<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onUpdateEvent)=\"onUpdate($event)\"\r\n    (onDeleteEvent)=\"onDelete($event)\"\r\n></app-table-data-component>"
         },
         {
             "name": "EducationsPageComponent",
@@ -16931,7 +17111,7 @@
         },
         {
             "name": "RootComponent",
-            "id": "component-RootComponent-9c03e904b70f731477e459a5e4e7137cef4e8a90165ce583ce9269dfca70e188193c72e4e1d8a1bde77af7bc082a96db52b05e053c1087de721e53f9898d8e2d",
+            "id": "component-RootComponent-238a7822b81474d370e2490f00e03af1c14f4017254fb9aefff8791e0112603c1a0653a3ec3285c05270f1353a79e0ea73110dcbab06febc645b7b35acf3dcb3",
             "file": "src/root/root.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16961,7 +17141,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 36,
+                    "line": 39,
                     "rawdescription": "\n"
                 }
             ],
@@ -17016,12 +17196,16 @@
                 {
                     "name": "ToastMessagesComponent",
                     "type": "component"
+                },
+                {
+                    "name": "DialogOverlayComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\nimport { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';\r\nimport { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogOverlayComponent,\r\n        ToastMessagesComponent\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
+            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\n\r\nimport { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';\r\nimport { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';\r\nimport { DialogOverlayComponent } from '../component/overlay/dialog/dialog-overlay.component';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogOverlayComponent,\r\n        ToastMessagesComponent,\r\n        DialogOverlayComponent\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -17031,7 +17215,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 36,
+                "line": 39,
                 "rawdescription": "\n"
             },
             "extends": [],
@@ -17094,10 +17278,14 @@
                     {
                         "name": "ToastMessagesComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "DialogOverlayComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-toast-messages-component></app-toast-messages-component>\r\n<app-confirm-dialog-overlay-component></app-confirm-dialog-overlay-component>\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
+            "templateData": "<app-toast-messages-component></app-toast-messages-component>\r\n<app-confirm-dialog-overlay-component></app-confirm-dialog-overlay-component>\r\n<app-dialog-overlay-component></app-dialog-overlay-component>\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
         },
         {
             "name": "SkillsPageComponent",
@@ -17169,7 +17357,7 @@
         },
         {
             "name": "TableDataComponent",
-            "id": "component-TableDataComponent-8329ffd00165c6555a9f408f340f235d16d3cd29e80c44f54db50a208565034f2803336d975804bae484b977de02da01bc115229c484d822a0b18982cdf2079e",
+            "id": "component-TableDataComponent-6c1dbd501fd01e218654c736c9f5c9e2f5e58615c13444cd76f92cd1ffaa80f181de413ca3062926b762619ee1a07cc0302a07d7fa069cb986108c5c91c87e9e",
             "file": "src/component/data/table/table-data.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -17224,6 +17412,19 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
+                    "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "onUpdateEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
                     "line": 17,
                     "rawdescription": "\n",
                     "required": false
@@ -17247,7 +17448,42 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19,
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onUpdate",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -17286,7 +17522,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    items = input.required<BaseApiModel[]>();\r\n\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    items = input.required<BaseApiModel[]>();\r\n\r\n    onUpdateEvent = output<TModel>();\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    onUpdate(item: TModel) {\r\n        this.onUpdateEvent.emit(item);\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -17309,7 +17545,7 @@
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-form-component\r\n                    label=\"Delete\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onDelete(item)\"\r\n                ></app-button-form-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-form-component\r\n                    label=\"Update\"\r\n                    size=\"small\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onUpdate(item)\"\r\n                ></app-button-form-component>\r\n                <app-button-form-component\r\n                    label=\"Delete\"\r\n                    size=\"small\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onDelete(item)\"\r\n                ></app-button-form-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "ToastMessagesComponent",
@@ -18426,7 +18662,7 @@
                 "linktype": "component",
                 "name": "TableDataComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -18463,6 +18699,15 @@
                 "name": "ConfirmDialogOverlayComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/overlay/dialog/dialog-overlay.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DialogOverlayComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -18516,7 +18761,7 @@
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {

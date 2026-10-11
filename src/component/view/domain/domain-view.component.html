@@ -1,5 +1,10 @@
+<app-dialog-overlay-component
+    [itemToUpdate]="itemToUpdate"
+    (onCancelEvent)="itemToUpdate = undefined"
+></app-dialog-overlay-component>
 <app-table-data-component
     [columns]="columns"
     [items]="items"
-    (onDeleteEvent)="onDelete($event)"
+    (onUpdateEvent)="onUpdateEvent($event)"
+    (onDeleteEvent)="onDeleteEvent($event)"
 ></app-table-data-component>

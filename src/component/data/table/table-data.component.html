@@ -18,6 +18,12 @@
             }
             <td>
                 <app-button-form-component
+                    label="Update"
+                    size="small"
+                    severity="secondary"
+                    (event)="onUpdate(item)"
+                ></app-button-form-component>
+                <app-button-form-component
                     label="Delete"
                     size="small"
                     severity="secondary"

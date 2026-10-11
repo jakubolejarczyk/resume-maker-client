@@ -14,7 +14,12 @@ export class TableDataComponent<TModel extends BaseApiModel> {
     columns = input.required<BaseStoreModel<TModel>["columns"]>();
     items = input.required<BaseApiModel[]>();
 
+    onUpdateEvent = output<TModel>();
     onDeleteEvent = output<TModel>();
+
+    onUpdate(item: TModel) {
+        this.onUpdateEvent.emit(item);
+    }
 
     onDelete(item: TModel) {
         this.onDeleteEvent.emit(item);
