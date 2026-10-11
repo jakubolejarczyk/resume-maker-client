@@ -7,9 +7,7 @@ import { TableDataComponent } from "./table-data.component";
 const meta: Meta<TableDataComponent<AnimalApiModel>> = {
     title: "component/data/table",
     component: TableDataComponent,
-    decorators: [
-        applicationConfig(getStorybookProvider())
-    ]
+    decorators: [applicationConfig(getStorybookProvider())]
 };
 
 export default meta;

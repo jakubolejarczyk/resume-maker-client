@@ -130,7 +130,7 @@ describe("Service", () => {
     });
 
     it("Should correctly delete item from the store and save it in the external service.", () => {
-        service.delete(1).pipe(
+        service.delete({ id: 1, name: "Cat", order: 1 }).pipe(
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
                 success: true,

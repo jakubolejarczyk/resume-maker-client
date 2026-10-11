@@ -16253,7 +16253,7 @@
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-424eb13bbdf38e3f3f865204228c1ca6922c06c43ec98fdff819f054ca7c75825114a1d79f6055e656d060311dd264d8346a5e6deb7355be7e0c019fc0ed2018",
+            "id": "component-DomainViewComponent-671823ffb665912251bb3e080d2a7e2908e6e4202976557a09b82a61b2ce93d8a6d800da187107a8e1de3653730e9af410aa7dfe007920871eec9e128d8ff53a",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16264,30 +16264,190 @@
             "selector": "app-domain-view-component",
             "styleUrls": [],
             "styles": [],
-            "template": "",
-            "templateUrl": [],
+            "templateUrl": [
+                "./domain-view.component.html"
+            ],
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "baseServiceType",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "typeof BaseService<TModel>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "rawdescription": "\n",
+                    "required": true
+                }
+            ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "baseService",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BaseService<TModel>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "columns",
+                    "coverageIgnore": false,
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BaseStoreModel",
+                    "indexKey": "columns",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "injector",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(Injector)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "items",
+                    "coverageIgnore": false,
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BaseApiModel[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "sub",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                },
+                {
+                    "name": "onDelete",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "TableDataComponent",
+                    "type": "component"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    template: \"\"\r\n    // templateUrl: \"./domain-view.component.html\",\r\n    // imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent { //<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    // ngOnInit(): void {\r\n    //     throw new Error(\"Method not implemented.\");\r\n    // }\r\n    // ngOnDestroy(): void {\r\n    //     throw new Error(\"Method not implemented.\");\r\n    // }\r\n    // private injector = inject(Injector);\r\n    \r\n    // baseService!: BaseService<TModel>;\r\n\r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // onDelete(item: TModel) {\r\n    //     alert(item.id);\r\n    // }\r\n\r\n    // sub!: Subscription;\r\n    \r\n    // columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    \r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // items: BaseApiModel[] = [];\r\n\r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // onDeleteEvent = output<TModel>();\r\n\r\n    // ngOnInit() {\r\n    //     this.baseService = this.injector.get(this.baseServiceType());\r\n    //     this.sub = of(true).pipe(\r\n    //         switchMap(() => this.baseService.readAll()),\r\n    //         switchMap(() => combineLatest({\r\n    //             columns: this.baseService.getColumns(),\r\n    //             items: this.baseService.getItems()\r\n    //         })),\r\n    //         map(({ columns, items }) => {\r\n    //             this.columns = columns;\r\n    //             this.items = items;\r\n    //         })\r\n    //     ).subscribe();\r\n    // }\r\n\r\n    // ngOnDestroy() {\r\n    //     this.sub.unsubscribe();\r\n    // }\r\n\r\n    // onDelete(item: TModel) {\r\n    //     this.onDeleteEvent.emit(item);\r\n    // }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.baseService.delete(item.id);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
             "relationships": {
                 "incoming": [
                     {
@@ -16311,8 +16471,22 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": []
-            }
+                "outgoing": [
+                    {
+                        "name": "TableDataComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "OnInit",
+                        "type": "interface"
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "type": "interface"
+                    }
+                ]
+            },
+            "templateData": "<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onDeleteEvent)=\"onDelete($event)\"\r\n></app-table-data-component>"
         },
         {
             "name": "EducationsPageComponent",
@@ -16935,7 +17109,12 @@
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "DomainViewComponent",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "TableModule",
@@ -17200,6 +17379,17 @@
                 "defaultValue": "getProvider()"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/component/view/domain/domain-view.component.storiesod.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        baseServiceType: AnimalService\r\n    }\r\n}"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -17277,6 +17467,17 @@
                 "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())\r\n    ];\r\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/component/view/domain/domain-view.component.storiesod.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DomainViewComponent<BaseApiModel>>",
+                "defaultValue": "{\r\n    title: \"component/view/domain\",\r\n    component: DomainViewComponent<BaseApiModel>,\r\n    decorators: [applicationConfig(getStorybookProvider())]\r\n}"
+            },
+            {
                 "name": "routesConfig",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -17349,6 +17550,19 @@
                 "coverageIgnore": false,
                 "rawtype": "BaseStoreModel<SkillApiModel>",
                 "file": "src/store/model/skill-store.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<DomainViewComponent<BaseApiModel>>",
+                "file": "src/component/view/domain/domain-view.component.storiesod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "rawdescription": "",
@@ -17579,6 +17793,30 @@
                     "defaultValue": "getProvider()"
                 }
             ],
+            "src/component/view/domain/domain-view.component.storiesod.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/component/view/domain/domain-view.component.storiesod.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        baseServiceType: AnimalService\r\n    }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/component/view/domain/domain-view.component.storiesod.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DomainViewComponent<BaseApiModel>>",
+                    "defaultValue": "{\r\n    title: \"component/view/domain\",\r\n    component: DomainViewComponent<BaseApiModel>,\r\n    decorators: [applicationConfig(getStorybookProvider())]\r\n}"
+                }
+            ],
             "src/environments/environment.development.ts": [
                 {
                     "name": "environment",
@@ -17747,6 +17985,21 @@
                     "coverageIgnore": false,
                     "rawtype": "BaseStoreModel<SkillApiModel>",
                     "file": "src/store/model/skill-store.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "src/component/view/domain/domain-view.component.storiesod.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<DomainViewComponent<BaseApiModel>>",
+                    "file": "src/component/view/domain/domain-view.component.storiesod.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "",
@@ -18149,12 +18402,42 @@
                 "status": "low"
             },
             {
+                "filePath": "src/component/view/domain/domain-view.component.storiesod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/view/domain/domain-view.component.storiesod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/view/domain/domain-view.component.storiesod.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/component/view/domain/domain-view.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
