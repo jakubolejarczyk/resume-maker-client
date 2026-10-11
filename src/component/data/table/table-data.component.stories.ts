@@ -20,12 +20,14 @@ export const Default: Story = {
                 id: "id",
                 label: "Id",
                 isVisible: true,
+                isEditable: true,
                 type: "string"
             },
             {
                 id: "order",
                 label: "Order",
                 isVisible: true,
+                isEditable: true,
                 type: "string"
             }
         ],

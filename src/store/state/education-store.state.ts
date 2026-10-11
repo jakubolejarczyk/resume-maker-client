@@ -11,14 +11,62 @@ import { EducationStoreAction } from "../action/education-store.action";
 @State<EducationStoreModel>({
   name: "educationStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: false, type: "string" },
-    { id: "startYear", label: "Start Year", isVisible: true, type: "string" },
-    { id: "endYear", label: "End Year", isVisible: true, type: "string" },
-    { id: "fieldOfStudy", label: "Field Of Study", isVisible: true, type: "string" },
-    { id: "degree", label: "Degree", isVisible: true, type: "string" },
-    { id: "institutionName", label: "Institution Name", isVisible: true, type: "string" },
-    { id: "order", label: "Order", isVisible: false, type: "string" },
-    { id: "resumeId", label: "Resume Id", isVisible: false, type: "string" }
+    {
+      id: "id",
+      label: "Id",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    },
+    {
+      id: "institutionName",
+      label: "Institution name",
+      isVisible: true,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "fieldOfStudy",
+      label: "Field of study",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "degree",
+      label: "Degree",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "startYear",
+      label: "Start year",
+      isVisible: false,
+      isEditable: true,
+      type: "number"
+    },
+    {
+      id: "endYear",
+      label: "End year",
+      isVisible: false,
+      isEditable: true,
+      type: "number"
+    },
+    {
+      id: "resumeId",
+      label: "Resume id",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    },
+    {
+      id: "order",
+      label: "Order",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    }
   ])
 })
 @Injectable({ providedIn: "root" })

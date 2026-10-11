@@ -11,14 +11,62 @@ import { ExperienceStoreAction } from "../action/experience-store.action";
 @State<ExperienceStoreModel>({
   name: "experienceStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: false, type: "string" },
-    { id: "company", label: "Company", isVisible: true, type: "string" },
-    { id: "startDate", label: "Start Date", isVisible: false, type: "string" },
-    { id: "endDate", label: "End Date", isVisible: false, type: "string" },
-    { id: "jobTitle", label: "Job Title", isVisible: true, type: "string" },
-    { id: "description", label: "Description", isVisible: false, type: "string" },
-    { id: "order", label: "Order", isVisible: false, type: "string" },
-    { id: "resumeId", label: "Resume Id", isVisible: false, type: "string" }
+    {
+      id: "id",
+      label: "Id",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    },
+    {
+      id: "company",
+      label: "Company",
+      isVisible: true,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "startDate",
+      label: "Start date",
+      isVisible: false,
+      isEditable: true,
+      type: "date"
+    },
+    {
+      id: "endDate",
+      label: "End date",
+      isVisible: false,
+      isEditable: true,
+      type: "date"
+    },
+    {
+      id: "jobTitle",
+      label: "Job title",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "description",
+      label: "Description",
+      isVisible: false,
+      isEditable: true,
+      type: "string[]"
+    },
+    {
+      id: "resumeId",
+      label: "Resume id",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    },
+    {
+      id: "order",
+      label: "Order",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    }
   ])
 })
 @Injectable({ providedIn: "root" })

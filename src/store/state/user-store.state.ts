@@ -11,16 +11,76 @@ import { UserStoreAction } from "../action/user-store.action";
 @State<UserStoreModel>({
   name: "userStoreState",
   defaults: BaseStoreState.initState([
-    { id: "id", label: "Id", isVisible: false, type: "string" },
-    { id: "firstName", label: "First Name", isVisible: true, type: "string" },
-    { id: "lastName", label: "Last Name", isVisible: true, type: "string" },
-    { id: "jobTitle", label: "Job Title", isVisible: false, type: "string" },
-    { id: "phoneNumber", label: "Phone Number", isVisible: false, type: "string" },
-    { id: "email", label: "Email", isVisible: true, type: "string" },
-    { id: "city", label: "City", isVisible: false, type: "string" },
-    { id: "country", label: "Country", isVisible: false, type: "string" },
-    { id: "summary", label: "Summary", isVisible: false, type: "string" },
-    { id: "order", label: "Order", isVisible: false, type: "string" }
+    {
+      id: "id",
+      label: "Id",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    },
+    {
+      id: "firstName",
+      label: "First name",
+      isVisible: true,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "lastName",
+      label: "Last name",
+      isVisible: true,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "jobTitle",
+      label: "Job title",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "phoneNumber",
+      label: "Phone number",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "email",
+      label: "Email",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "city",
+      label: "City",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "country",
+      label: "Country",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "summary",
+      label: "Summary",
+      isVisible: false,
+      isEditable: true,
+      type: "string"
+    },
+    {
+      id: "order",
+      label: "Order",
+      isVisible: false,
+      isEditable: false,
+      type: "number"
+    }
   ])
 })
 @Injectable({ providedIn: "root" })

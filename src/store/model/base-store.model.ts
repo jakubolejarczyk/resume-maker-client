@@ -1,8 +1,11 @@
+type BaseStoreColumnTypeModel = "string" | "string[]" | "number" | "date";
+
 export interface BaseStoreColumnModel {
     id: string;
     label: string;
     isVisible: boolean;
-    type: string;
+    isEditable: boolean;
+    type: BaseStoreColumnTypeModel;
 }
 
 export interface BaseStoreModel<TItem> {

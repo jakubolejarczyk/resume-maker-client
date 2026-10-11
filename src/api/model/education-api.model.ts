@@ -1,10 +1,10 @@
 import { BaseApiModel } from "./base-api.model";
 
 export interface EducationApiModel extends BaseApiModel {
-    startYear: number;
-    endYear: number;
+    institutionName: string;
     fieldOfStudy: string;
     degree: string;
-    institutionName: string;
+    startYear: number;
+    endYear: number;
     resumeId: number;
 }
