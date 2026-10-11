@@ -26,6 +26,7 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     columns: BaseStoreModel<TModel>["columns"] = [];
     items: BaseApiModel[] = [];
 
+    label = "";
     itemToUpdate: TModel | undefined;
 
     ngOnInit() {
@@ -47,6 +48,7 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     }
 
     onUpdateEvent(item: TModel) {
+        this.label = "Update";
         this.itemToUpdate = item;
     }
 

@@ -6,6 +6,7 @@ import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 
 import { BaseApiModel } from "../../../api/model/base-api.model";
+import { BaseStoreModel } from "../../../store/model/base-store.model";
 
 @Component({
     selector: "app-dialog-overlay-component",
@@ -13,6 +14,8 @@ import { BaseApiModel } from "../../../api/model/base-api.model";
     imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]
 })
 export class DialogOverlayComponent<TModel extends BaseApiModel> {
+    label = input.required<string>();
+    columns = input.required<BaseStoreModel<TModel>["columns"]>();
     itemToUpdate = input<TModel>();
 
     onCancelEvent = output();
@@ -23,5 +26,9 @@ export class DialogOverlayComponent<TModel extends BaseApiModel> {
 
     onSave() {
         this.onCancelEvent.emit();
+    }
+
+    isVisible() {
+        return this.itemToUpdate() !== undefined;
     }
 }
