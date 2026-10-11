@@ -1,43 +1,27 @@
-<p-table [value]="items" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
+<p-table [value]="items()" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template #header>
         <tr>
-            @for (column of columns; track column.id) {
+            @for (column of columns(); track column.id) {
                 @if (column.isVisible) {
                     <th>{{ column.label }}</th>
                 }
             }
-            <th style="width: 363px;">Actions</th>
+            <th>Actions</th>
         </tr>
     </ng-template>
     <ng-template #body let-item>
         <tr>
-            @for (column of columns; track column.id) {
+            @for (column of columns(); track column.id) {
                 @if (column.isVisible) {
                     <td>{{ item[column.id] }}</td>
                 }
             }
             <td>
-                <div style="display: flex; gap: 0.5rem;">
-                    <app-button-form-component label="Show" severity="secondary"></app-button-form-component>
-                    <app-button-form-component label="Update" severity="secondary"></app-button-form-component>
-                    <app-button-form-component
-                        label="Delete"
-                        severity="secondary"
-                        [showConfirm]="true"
-                        confirmMessage="aaa"
-                        confirmHeader="bbb"
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Move up"
-                        severity="secondary"
-                        /* [disabled]="baseService.isLastItem(item) | async" */
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Move down"
-                        severity="secondary"
-                        /* [disabled]="baseService.isFirstItem(item) | async" */
-                    ></app-button-form-component>
-                </div>
+                <app-button-form-component
+                    label="Delete"
+                    severity="secondary"
+                    (event)="onDelete(item)"
+                ></app-button-form-component>
             </td>
         </tr>
     </ng-template>

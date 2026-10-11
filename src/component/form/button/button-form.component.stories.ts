@@ -21,22 +21,13 @@ export const Default: Story = {
 };
 
 export const Severity: Story = {
-    args: {
-        ...DefaultArgs,
-        severity: "secondary"
-    }
+    args: { ...DefaultArgs, severity: "secondary" }
 };
 
 export const Small: Story = {
-    args: {
-        ...DefaultArgs,
-        size: "small"
-    }
+    args: { ...DefaultArgs, size: "small" }
 };
 
 export const Disabled: Story = {
-    args: {
-        ...DefaultArgs,
-        disabled: true
-    }
+    args: { ...DefaultArgs, disabled: true }
 };

@@ -2,7 +2,6 @@ import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 
 import { getStorybookProvider } from "../../../config/provider.config";
 import { AnimalApiModel } from "../../../api/model/animal-api.model";
-import { AnimalService } from "../../../service/animal.service";
 import { TableDataComponent } from "./table-data.component";
 
 const meta: Meta<TableDataComponent<AnimalApiModel>> = {
@@ -18,6 +17,29 @@ type Story = StoryObj<TableDataComponent<AnimalApiModel>>;
 
 export const Default: Story = {
     args: {
-        baseServiceType: AnimalService
+        columns: [
+            {
+                id: "id",
+                label: "Id",
+                isVisible: true,
+                type: "string"
+            },
+            {
+                id: "order",
+                label: "Order",
+                isVisible: true,
+                type: "string"
+            }
+        ],
+        items: [
+            {
+                id: 0,
+                order: 0
+            },
+            {
+                id: 1,
+                order: 1
+            }
+        ]
     }
 };

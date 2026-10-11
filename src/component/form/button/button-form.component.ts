@@ -15,7 +15,7 @@ export class ButtonFormComponent {
 
     event = output();
 
-    click() {
+    onClick() {
         this.event.emit();
     }
 }

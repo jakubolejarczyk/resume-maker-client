@@ -16054,7 +16054,7 @@
         },
         {
             "name": "ButtonFormComponent",
-            "id": "component-ButtonFormComponent-f2299880d123f2b2f2ce16ee1d52d4aaedd2dc995b03ea8fbd86a9b9b4050b1caa3092af0aed8eed3dbfbe630c7922c4825dac75d2b358b8a1f563d100c2a2b7",
+            "id": "component-ButtonFormComponent-bfd9469040d6f0761ea1263a44be459f8fcb0c4496038374f4d67358340cce739d028cf3a29a0dc7099f05c355ebfac30ca87e66160d9dd1a61dcfb6bb10baa3",
             "file": "src/component/form/button/button-form.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16073,48 +16073,6 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "confirmAcceptButtonLabel",
-                    "coverageIgnore": false,
-                    "defaultValue": "\"Save\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "confirmHeader",
-                    "coverageIgnore": false,
-                    "defaultValue": "\"Confirmation\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 25,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "confirmMessage",
-                    "coverageIgnore": false,
-                    "defaultValue": "\"Are you sure that you want to proceed?\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
                     "name": "disabled",
                     "coverageIgnore": false,
                     "defaultValue": "false",
@@ -16124,7 +16082,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 14,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16137,136 +16095,67 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 10,
                     "rawdescription": "\n",
                     "required": true
                 },
                 {
                     "name": "severity",
                     "coverageIgnore": false,
+                    "defaultValue": "\"primary\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ButtonSeverity",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
-                    "rawdescription": "\n",
-                    "required": false
-                },
-                {
-                    "name": "showConfirm",
-                    "coverageIgnore": false,
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "boolean",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 23,
+                    "line": 12,
                     "rawdescription": "\n",
                     "required": false
                 },
                 {
                     "name": "size",
                     "coverageIgnore": false,
+                    "defaultValue": "\"large\"",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ButtonSize",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 13,
                     "rawdescription": "\n",
                     "required": false
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "onClickEvent",
+                    "name": "event",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 16,
                     "rawdescription": "\n",
                     "required": false
                 }
             ],
-            "propertiesClass": [
-                {
-                    "name": "confirmationService",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(ConfirmationService)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123,
-                        148
-                    ]
-                },
-                {
-                    "name": "messageService",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(MessageService)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123,
-                        148
-                    ]
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
                     "name": "onClick",
                     "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
+                    "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
+                    "description": ""
                 }
             ],
             "coverageIgnore": false,
@@ -16284,7 +16173,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, input, output } from \"@angular/core\";\r\nimport { ConfirmationService, MessageService } from \"primeng/api\";\r\nimport { ButtonModule, ButtonSeverity, ButtonSize } from \"primeng/button\";\r\n// import { ConfirmDialogModule } from \"primeng/confirmdialog\";\r\n// import { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-button-form-component\",\r\n    templateUrl: \"./button-form.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonFormComponent {\r\n    private readonly confirmationService = inject(ConfirmationService);\r\n    private readonly messageService = inject(MessageService);\r\n\r\n    // Inputs required\r\n    label = input.required<string>();\r\n\r\n    // Input optional\r\n    size = input<ButtonSize>();\r\n    severity = input<ButtonSeverity>();\r\n    disabled = input(false);\r\n    showConfirm = input(false);\r\n    confirmMessage = input(\"Are you sure that you want to proceed?\");\r\n    confirmHeader = input(\"Confirmation\");\r\n    confirmAcceptButtonLabel = input(\"Save\");\r\n\r\n    // Outputs\r\n    onClickEvent = output();\r\n\r\n    onClick(event: Event) {\r\n        if (this.showConfirm()) {\r\n            this.confirmationService.confirm({\r\n                target: event.target as EventTarget,\r\n                message: this.confirmMessage(),\r\n                header: this.confirmHeader(),\r\n                closable: true,\r\n                closeOnEscape: true,\r\n                rejectButtonProps: {\r\n                    label: \"Cancel\",\r\n                    severity: \"secondary\",\r\n                    outlined: true\r\n                },\r\n                acceptButtonProps: {\r\n                    label: this.confirmAcceptButtonLabel(),\r\n                    severity: \"secondary\" \r\n                },\r\n                accept: () => {\r\n                    this.messageService.add({\r\n                        severity: \"info\",\r\n                        summary: \"Confirmed\",\r\n                        detail: \"You have accepted\"\r\n                    });\r\n                    this.onClickEvent.emit();\r\n                },\r\n                reject: () => {\r\n                    this.messageService.add({\r\n                        severity: \"error\",\r\n                        summary: \"Rejected\",\r\n                        detail: \"You have rejected\",\r\n                        life: 3000\r\n                    });\r\n                }\r\n            });\r\n            return;\r\n        } else {\r\n            this.onClickEvent.emit();\r\n        }\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { ButtonModule, ButtonSeverity, ButtonSize } from \"primeng/button\";\r\n\r\n@Component({\r\n    selector: \"app-button-form-component\",\r\n    templateUrl: \"./button-form.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonFormComponent {\r\n    label = input.required<string>();\r\n\r\n    severity = input<ButtonSeverity>(\"primary\");\r\n    size = input<ButtonSize>(\"large\");\r\n    disabled = input(false);\r\n\r\n    event = output();\r\n\r\n    onClick() {\r\n        this.event.emit();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16303,7 +16192,7 @@
                     }
                 ]
             },
-            "templateData": "<!-- <p-toast position=\"top-right\" />\r\n<p-confirmdialog /> -->\r\n<button\r\n    pButton\r\n    (click)=\"onClick($event)\"\r\n    [size]=\"size()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n>{{ label() }}</button>"
+            "templateData": "<button\r\n    pButton\r\n    (click)=\"onClick()\"\r\n    [severity]=\"severity()\"\r\n    [size]=\"size()\"\r\n    [disabled]=\"disabled()\"\r\n>{{ label() }}</button>"
         },
         {
             "name": "ConfirmDialogOverlayComponent",
@@ -16364,7 +16253,7 @@
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-635f0ff6caaba920b88f890f28907f97346e4dbab9647c46019c90fb10f6703b5fa2598576bc2470e55864c98b716beff23c148397fcc2dd14e698bce3f1fac4",
+            "id": "component-DomainViewComponent-424eb13bbdf38e3f3f865204228c1ca6922c06c43ec98fdff819f054ca7c75825114a1d79f6055e656d060311dd264d8346a5e6deb7355be7e0c019fc0ed2018",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16375,82 +16264,26 @@
             "selector": "app-domain-view-component",
             "styleUrls": [],
             "styles": [],
-            "templateUrl": [
-                "./domain-view.component.html"
-            ],
+            "template": "",
+            "templateUrl": [],
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "baseServiceType",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "typeof BaseService<TModel>",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "rawdescription": "\n",
-                    "required": true
-                }
-            ],
+            "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onDelete",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 15,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "TableDataComponent",
-                    "type": "component"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from \"@angular/core\";\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> {\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    onDelete(item: TModel) {\r\n        alert(item.id);\r\n    }\r\n}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\n\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    template: \"\"\r\n    // templateUrl: \"./domain-view.component.html\",\r\n    // imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent { //<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    // ngOnInit(): void {\r\n    //     throw new Error(\"Method not implemented.\");\r\n    // }\r\n    // ngOnDestroy(): void {\r\n    //     throw new Error(\"Method not implemented.\");\r\n    // }\r\n    // private injector = inject(Injector);\r\n    \r\n    // baseService!: BaseService<TModel>;\r\n\r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // onDelete(item: TModel) {\r\n    //     alert(item.id);\r\n    // }\r\n\r\n    // sub!: Subscription;\r\n    \r\n    // columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    \r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // items: BaseApiModel[] = [];\r\n\r\n    // baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    // onDeleteEvent = output<TModel>();\r\n\r\n    // ngOnInit() {\r\n    //     this.baseService = this.injector.get(this.baseServiceType());\r\n    //     this.sub = of(true).pipe(\r\n    //         switchMap(() => this.baseService.readAll()),\r\n    //         switchMap(() => combineLatest({\r\n    //             columns: this.baseService.getColumns(),\r\n    //             items: this.baseService.getItems()\r\n    //         })),\r\n    //         map(({ columns, items }) => {\r\n    //             this.columns = columns;\r\n    //             this.items = items;\r\n    //         })\r\n    //     ).subscribe();\r\n    // }\r\n\r\n    // ngOnDestroy() {\r\n    //     this.sub.unsubscribe();\r\n    // }\r\n\r\n    // onDelete(item: TModel) {\r\n    //     this.onDeleteEvent.emit(item);\r\n    // }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16478,14 +16311,8 @@
                         "type": "component"
                     }
                 ],
-                "outgoing": [
-                    {
-                        "name": "TableDataComponent",
-                        "type": "component"
-                    }
-                ]
-            },
-            "templateData": "<app-table-data-component [baseServiceType]=\"baseServiceType()\" (onDeleteEvent)=\"onDelete($event)\"></app-table-data-component>"
+                "outgoing": []
+            }
         },
         {
             "name": "EducationsPageComponent",
@@ -16985,7 +16812,7 @@
         },
         {
             "name": "TableDataComponent",
-            "id": "component-TableDataComponent-0a47e2cf6ed33609f3ec97f81fc85543b839620064fc9af56bd3177d9ce9ab951c1ed65fba728c6c4a069663e3145fdd6ad08c293f6d076ac422c644bdbfb492",
+            "id": "component-TableDataComponent-8329ffd00165c6555a9f408f340f235d16d3cd29e80c44f54db50a208565034f2803336d975804bae484b977de02da01bc115229c484d822a0b18982cdf2079e",
             "file": "src/component/data/table/table-data.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -17004,15 +16831,28 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "baseServiceType",
+                    "name": "columns",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "typeof BaseService<TModel>",
+                    "type": "BaseStoreModel<TModel>[\"columns\"]",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": true
+                },
+                {
+                    "name": "items",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BaseApiModel[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -17027,105 +16867,47 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 27,
+                    "line": 17,
                     "rawdescription": "\n",
                     "required": false
                 }
             ],
-            "propertiesClass": [
-                {
-                    "name": "baseService",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "BaseService<TModel>",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "rawdescription": "\n"
-                },
-                {
-                    "name": "columns",
-                    "coverageIgnore": false,
-                    "defaultValue": "[]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "BaseStoreModel",
-                    "indexKey": "columns",
-                    "optional": false,
-                    "description": "",
-                    "line": 21,
-                    "rawdescription": "\n"
-                },
-                {
-                    "name": "injector",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(Injector)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123
-                    ]
-                },
-                {
-                    "name": "items",
-                    "coverageIgnore": false,
-                    "defaultValue": "[]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "BaseApiModel[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 23,
-                    "rawdescription": "\n"
-                },
-                {
-                    "name": "sub",
-                    "coverageIgnore": false,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Subscription",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19,
-                    "rawdescription": "\n"
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "ngOnDestroy",
+                    "name": "onDelete",
                     "coverageIgnore": false,
-                    "args": [],
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
-                    "description": ""
-                },
-                {
-                    "name": "ngOnInit",
-                    "coverageIgnore": false,
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 29,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": ""
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "coverageIgnore": false,
@@ -17147,22 +16929,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseService!: BaseService<TModel>;\r\n    sub!: Subscription;\r\n    \r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    \r\n    items: BaseApiModel[] = [];\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    items = input.required<BaseApiModel[]>();\r\n\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "implements": [
-                "OnInit",
-                "OnDestroy"
-            ],
             "relationships": {
-                "incoming": [
-                    {
-                        "name": "DomainViewComponent",
-                        "type": "component"
-                    }
-                ],
+                "incoming": [],
                 "outgoing": [
                     {
                         "name": "TableModule",
@@ -17171,18 +16944,10 @@
                     {
                         "name": "ButtonFormComponent",
                         "type": "component"
-                    },
-                    {
-                        "name": "OnInit",
-                        "type": "interface"
-                    },
-                    {
-                        "name": "OnDestroy",
-                        "type": "interface"
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th style=\"width: 363px;\">Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <div style=\"display: flex; gap: 0.5rem;\">\r\n                    <app-button-form-component label=\"Show\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component label=\"Update\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Delete\"\r\n                        severity=\"secondary\"\r\n                        [showConfirm]=\"true\"\r\n                        confirmMessage=\"aaa\"\r\n                        confirmHeader=\"bbb\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move up\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isLastItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move down\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isFirstItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-form-component\r\n                    label=\"Delete\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onDelete(item)\"\r\n                ></app-button-form-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "ToastMessagesComponent",
@@ -18299,7 +18064,7 @@
                 "linktype": "component",
                 "name": "TableDataComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -18308,7 +18073,7 @@
                 "linktype": "component",
                 "name": "ButtonFormComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/13",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -18389,7 +18154,7 @@
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
