@@ -16403,7 +16403,7 @@
         },
         {
             "name": "DialogOverlayComponent",
-            "id": "component-DialogOverlayComponent-0aa3bc5871855d9599263ce0601677457f9e8bc5c3904f6a390d2df643d2b44e74bb01d949ad96e008518c66b05fa1203bb5b07566c0147129c5f479f5d78a48",
+            "id": "component-DialogOverlayComponent-86c8cbfe681167179f4fa0e403ac58b228553513dec19c8abc37351a5d99c427502095b814d7cf9740f5c77247aaf4aecd151e8c539c45f037d7668920c03496",
             "file": "src/component/overlay/dialog/dialog-overlay.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16420,58 +16420,97 @@
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
+            "inputsClass": [
                 {
-                    "name": "email",
+                    "name": "columns",
                     "coverageIgnore": false,
-                    "defaultValue": "'amanda@example.com'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "BaseStoreModel<TModel>[\"columns\"]",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 18,
-                    "rawdescription": "\n"
+                    "rawdescription": "\n",
+                    "required": true
                 },
                 {
-                    "name": "name",
+                    "name": "item",
                     "coverageIgnore": false,
-                    "defaultValue": "'Amanda Miller'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
-                    "rawdescription": "\n"
-                },
+                    "line": 17,
+                    "rawdescription": "\n",
+                    "required": true
+                }
+            ],
+            "outputsClass": [
                 {
-                    "name": "visible",
+                    "name": "onCancelEvent",
                     "coverageIgnore": false,
-                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
-                    "rawdescription": "\n"
+                    "line": 21,
+                    "rawdescription": "\n",
+                    "required": false
                 }
             ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "showDialog",
+                    "name": "isVisible",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                },
+                {
+                    "name": "onCancel",
                     "coverageIgnore": false,
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                },
+                {
+                    "name": "onSave",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16509,7 +16548,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { FormsModule } from \"@angular/forms\";\r\nimport { ButtonModule } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { DialogModule } from \"primeng/dialog\";\r\nimport { InputTextModule } from \"primeng/inputtext\";\r\n\r\n@Component({\r\n    selector: \"app-dialog-overlay-component\",\r\n    templateUrl: \"./dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]\r\n})\r\nexport class DialogOverlayComponent {\r\n    visible = false;\r\n\r\n    name = 'Amanda Miller';\r\n    \r\n    email = 'amanda@example.com';\r\n\r\n    showDialog() {\r\n        this.visible = true;\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { FormsModule } from \"@angular/forms\";\r\nimport { ButtonModule } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { DialogModule } from \"primeng/dialog\";\r\nimport { InputTextModule } from \"primeng/inputtext\";\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-dialog-overlay-component\",\r\n    templateUrl: \"./dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]\r\n})\r\nexport class DialogOverlayComponent<TModel extends BaseApiModel> {\r\n    label = input.required<string>();\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    item = input<TModel>();\r\n\r\n    onCancelEvent = output();\r\n\r\n    onCancel() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    onSave() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    isVisible() {\r\n        return this.item() !== undefined;\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16517,7 +16556,7 @@
             "relationships": {
                 "incoming": [
                     {
-                        "name": "RootComponent",
+                        "name": "DomainViewComponent",
                         "type": "component"
                     }
                 ],
@@ -16544,11 +16583,11 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"flex justify-center\">\r\n    <button type=\"button\" pButton (click)=\"showDialog()\">Show</button>\r\n    <p-dialog [(visible)]=\"visible\" [modal]=\"true\" [style]=\"{ width: '25rem' }\">\r\n        <ng-template #header>\r\n            <div class=\"inline-flex items-center justify-center gap-2\">\r\n                <span class=\"font-bold whitespace-nowrap\">Amy Elsner</span>\r\n            </div>\r\n        </ng-template>\r\n        <span class=\"text-surface-500 dark:text-surface-400 block mb-8 text-sm\">Update your information.</span>\r\n        <div class=\"flex items-center gap-4 mb-4\">\r\n            <label for=\"username\" class=\"font-semibold w-24 text-sm\">Username</label>\r\n            <input pInputText id=\"username\" class=\"flex-auto\" autocomplete=\"off\" />\r\n        </div>\r\n        <div class=\"flex items-center gap-4 mb-2\">\r\n            <label for=\"email\" class=\"font-semibold w-24 text-sm\">Email</label>\r\n            <input pInputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" />\r\n        </div>\r\n        <ng-template #footer>\r\n            <button type=\"button\" pButton [text]=\"true\" severity=\"secondary\" (click)=\"visible = false\">Cancel</button>\r\n            <button type=\"button\" pButton [outlined]=\"true\" severity=\"secondary\" (click)=\"visible = false\">Save</button>\r\n        </ng-template>\r\n    </p-dialog>\r\n</div>"
+            "templateData": "<div class=\"flex justify-center\">\r\n    <p-dialog [visible]=\"isVisible()\" [modal]=\"true\" [style]=\"{ width: '25rem' }\" [resizable]=\"false\" (onHide)=\"onCancel()\">\r\n        <ng-template #header>\r\n            <div class=\"inline-flex items-center justify-center gap-2\">\r\n                <span class=\"font-bold whitespace-nowrap\">{{ label() }}</span>\r\n            </div>\r\n        </ng-template>\r\n        <form>\r\n            @for (column of columns(); track column.id) {\r\n                <div class=\"flex items-center gap-4 mb-2\">\r\n                    <label for=\"email\" class=\"font-semibold w-24 text-sm\">{{ column.label }}</label>\r\n                    <input pInputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" />\r\n                </div>\r\n            }\r\n        </form>\r\n        <ng-template #footer>\r\n            <button type=\"button\" pButton [text]=\"true\" severity=\"secondary\" (click)=\"onCancel()\">Cancel</button>\r\n            <button type=\"button\" pButton [outlined]=\"true\" severity=\"secondary\" (click)=\"onSave()\">Save</button>\r\n        </ng-template>\r\n    </p-dialog>\r\n</div>"
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-c81021ad1038f4a1eadb084e2e17dcd79a7a1bbb4afda9b90d2fc4005c35a228985603cf180a27ece9896de4b0b4665527490265fd6fd91d93321f7f724404a0",
+            "id": "component-DomainViewComponent-3639fa0a03c625c784ade8626feaef9477fc68007e3586de94cad04823f8fab3c2d113ec1cc0654389afbf99d716661477eff8b72ac4e00d5cabc070bfae11f2",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16575,7 +16614,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 24,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -16591,7 +16630,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 19,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16607,10 +16646,11 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 17,
                     "rawdescription": "\n",
                     "modifierKind": [
-                        123
+                        123,
+                        148
                     ]
                 },
                 {
@@ -16623,7 +16663,7 @@
                     "indexKey": "columns",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 26,
                     "rawdescription": "\n"
                 },
                 {
@@ -16636,7 +16676,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 22,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
@@ -16653,12 +16693,24 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
                         148
                     ]
+                },
+                {
+                    "name": "item",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel | undefined",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30,
+                    "rawdescription": "\n"
                 },
                 {
                     "name": "items",
@@ -16670,7 +16722,20 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 27,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
                     "rawdescription": "\n"
                 },
                 {
@@ -16682,7 +16747,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 20,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16697,7 +16762,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 46,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16710,14 +16775,62 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": ""
                 },
                 {
-                    "name": "onDelete",
+                    "name": "onCancelEvent",
+                    "coverageIgnore": false,
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": ""
+                },
+                {
+                    "name": "onDeleteEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onUpdateEvent",
                     "coverageIgnore": false,
                     "args": [
                         {
@@ -16750,41 +16863,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "onUpdate",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 46,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "coverageIgnore": false,
@@ -16797,12 +16875,16 @@
                 {
                     "name": "TableDataComponent",
                     "type": "component"
+                },
+                {
+                    "name": "DialogOverlayComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onUpdate(item: TModel) {\r\n        alert(item.id);\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n}",
+            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\nimport { DialogOverlayComponent } from \"../../overlay/dialog/dialog-overlay.component\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent, DialogOverlayComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private readonly cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    label = \"\";\r\n    item: TModel | undefined;\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onUpdateEvent(item: TModel) {\r\n        this.label = \"Update\";\r\n        this.item = item;\r\n    }\r\n\r\n    onDeleteEvent(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n\r\n    onCancelEvent() {\r\n        this.item = undefined;\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16840,6 +16922,10 @@
                         "type": "component"
                     },
                     {
+                        "name": "DialogOverlayComponent",
+                        "type": "component"
+                    },
+                    {
                         "name": "OnInit",
                         "type": "interface"
                     },
@@ -16849,7 +16935,7 @@
                     }
                 ]
             },
-            "templateData": "<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onUpdateEvent)=\"onUpdate($event)\"\r\n    (onDeleteEvent)=\"onDelete($event)\"\r\n></app-table-data-component>"
+            "templateData": "<app-dialog-overlay-component\r\n    [label]=\"label\"\r\n    [columns]=\"columns\"\r\n    [item]=\"item\"\r\n    (onCancelEvent)=\"onCancelEvent()\"\r\n></app-dialog-overlay-component>\r\n<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onUpdateEvent)=\"onUpdateEvent($event)\"\r\n    (onDeleteEvent)=\"onDeleteEvent($event)\"\r\n></app-table-data-component>"
         },
         {
             "name": "EducationsPageComponent",
@@ -17111,7 +17197,7 @@
         },
         {
             "name": "RootComponent",
-            "id": "component-RootComponent-238a7822b81474d370e2490f00e03af1c14f4017254fb9aefff8791e0112603c1a0653a3ec3285c05270f1353a79e0ea73110dcbab06febc645b7b35acf3dcb3",
+            "id": "component-RootComponent-be392b5bd5990f8ced22aeddce71a0561a485236c1818fb70fd62390119796261d60b65307795ed11f0055104dfa5841427e3fc66673ed40e28b48f9039115d3",
             "file": "src/root/root.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -17141,7 +17227,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 39,
+                    "line": 37,
                     "rawdescription": "\n"
                 }
             ],
@@ -17196,16 +17282,12 @@
                 {
                     "name": "ToastMessagesComponent",
                     "type": "component"
-                },
-                {
-                    "name": "DialogOverlayComponent",
-                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\n\r\nimport { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';\r\nimport { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';\r\nimport { DialogOverlayComponent } from '../component/overlay/dialog/dialog-overlay.component';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogOverlayComponent,\r\n        ToastMessagesComponent,\r\n        DialogOverlayComponent\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
+            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\n\r\nimport { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';\r\nimport { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogOverlayComponent,\r\n        ToastMessagesComponent\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -17215,7 +17297,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 39,
+                "line": 37,
                 "rawdescription": "\n"
             },
             "extends": [],
@@ -17278,14 +17360,10 @@
                     {
                         "name": "ToastMessagesComponent",
                         "type": "component"
-                    },
-                    {
-                        "name": "DialogOverlayComponent",
-                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<app-toast-messages-component></app-toast-messages-component>\r\n<app-confirm-dialog-overlay-component></app-confirm-dialog-overlay-component>\r\n<app-dialog-overlay-component></app-dialog-overlay-component>\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
+            "templateData": "<app-toast-messages-component></app-toast-messages-component>\r\n<app-confirm-dialog-overlay-component></app-confirm-dialog-overlay-component>\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
         },
         {
             "name": "SkillsPageComponent",
@@ -18707,7 +18785,7 @@
                 "linktype": "component",
                 "name": "DialogOverlayComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -18761,7 +18839,7 @@
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/13",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {

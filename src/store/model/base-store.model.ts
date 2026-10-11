@@ -1,4 +1,4 @@
-interface BaseStoreColumnModel {
+export interface BaseStoreColumnModel {
     id: string;
     label: string;
     isVisible: boolean;

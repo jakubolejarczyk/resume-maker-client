@@ -6,7 +6,7 @@ import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 
 import { BaseApiModel } from "../../../api/model/base-api.model";
-import { BaseStoreModel } from "../../../store/model/base-store.model";
+import { BaseStoreColumnModel, BaseStoreModel } from "../../../store/model/base-store.model";
 
 @Component({
     selector: "app-dialog-overlay-component",
@@ -30,5 +30,12 @@ export class DialogOverlayComponent<TModel extends BaseApiModel> {
 
     isVisible() {
         return this.item() !== undefined;
+    }
+
+    getItemValue(column: BaseStoreColumnModel) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const item: any = this.item();
+        console.log(item);
+        return item[column.id];
     }
 }

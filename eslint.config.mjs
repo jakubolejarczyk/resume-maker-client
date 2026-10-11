@@ -8,7 +8,6 @@ export default defineConfig(
   {
     files: ["./src/**/*.{js,ts}"],
     linterOptions: {
-      noInlineConfig: true,
       reportUnusedDisableDirectives: "error"
     },
     extends: [
