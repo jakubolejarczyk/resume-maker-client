@@ -16307,7 +16307,7 @@
         },
         {
             "name": "ConfirmDialogOverlayComponent",
-            "id": "component-ConfirmDialogOverlayComponent-a2d9737312d2c9e8e6cbfc1319a149ec67ae43b00bfe64f31ebc85e7d2cda37d4648689b3234ee48309064d1302fced8ccbca18354cae591ed873b0e3c9009fe",
+            "id": "component-ConfirmDialogOverlayComponent-8daaf5f367564198b697483035108178ce9604c62e82096e3b77397c0b74e82d675482251c6a0ca16d5a85caabfde561478cd6c90751a6d4b570fda1193569ed",
             "file": "src/component/overlay/confirm-dialog/confirm-dialog-overlay.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16318,9 +16318,8 @@
             "selector": "app-confirm-dialog-overlay-component",
             "styleUrls": [],
             "styles": [],
-            "templateUrl": [
-                "./confirm-dialog-overlay.component.html"
-            ],
+            "template": "<p-confirmdialog />",
+            "templateUrl": [],
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -16343,21 +16342,25 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\n\r\n@Component({\r\n    selector: \"app-confirm-dialog-overlay-component\",\r\n    templateUrl: \"./confirm-dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule]\r\n})\r\nexport class ConfirmDialogOverlayComponent {}",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\n\r\n@Component({\r\n    selector: \"app-confirm-dialog-overlay-component\",\r\n    template: \"<p-confirmdialog />\",\r\n    imports: [ConfirmDialogModule]\r\n})\r\nexport class ConfirmDialogOverlayComponent {}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
             "relationships": {
-                "incoming": [],
+                "incoming": [
+                    {
+                        "name": "RootComponent",
+                        "type": "component"
+                    }
+                ],
                 "outgoing": [
                     {
                         "name": "ConfirmDialogModule",
                         "type": "module"
                     }
                 ]
-            },
-            "templateData": "<p-confirmdialog />"
+            }
         },
         {
             "name": "DomainViewComponent",
@@ -16744,7 +16747,7 @@
         },
         {
             "name": "RootComponent",
-            "id": "component-RootComponent-2b2390711eee62083cf1db98762d25926891d6597692bf996c16d6d19209bbbbe0ec5c7ba65c69e0d57f4547513b92f0715327e65f988bf939aa05abb023b817",
+            "id": "component-RootComponent-9c03e904b70f731477e459a5e4e7137cef4e8a90165ce583ce9269dfca70e188193c72e4e1d8a1bde77af7bc082a96db52b05e053c1087de721e53f9898d8e2d",
             "file": "src/root/root.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16823,18 +16826,18 @@
                     "name": "RouterLinkWithHref"
                 },
                 {
-                    "name": "ConfirmDialogModule",
-                    "type": "module"
+                    "name": "ConfirmDialogOverlayComponent",
+                    "type": "component"
                 },
                 {
-                    "name": "ToastModule",
-                    "type": "module"
+                    "name": "ToastMessagesComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogModule,\r\n        ToastModule\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
+            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\nimport { ConfirmDialogOverlayComponent } from '../component/overlay/confirm-dialog/confirm-dialog-overlay.component';\r\nimport { ToastMessagesComponent } from '../component/messages/toast/toast-messages.component';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogOverlayComponent,\r\n        ToastMessagesComponent\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16901,16 +16904,16 @@
                         "type": "module"
                     },
                     {
-                        "name": "ConfirmDialogModule",
-                        "type": "module"
+                        "name": "ConfirmDialogOverlayComponent",
+                        "type": "component"
                     },
                     {
-                        "name": "ToastModule",
-                        "type": "module"
+                        "name": "ToastMessagesComponent",
+                        "type": "component"
                     }
                 ]
             },
-            "templateData": "<p-toast position=\"top-right\" />\r\n<p-confirmdialog />\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
+            "templateData": "<app-toast-messages-component></app-toast-messages-component>\r\n<app-confirm-dialog-overlay-component></app-confirm-dialog-overlay-component>\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
         },
         {
             "name": "SkillsPageComponent",
@@ -17180,6 +17183,63 @@
                 ]
             },
             "templateData": "<p-table [value]=\"items\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th style=\"width: 363px;\">Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <div style=\"display: flex; gap: 0.5rem;\">\r\n                    <app-button-form-component label=\"Show\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component label=\"Update\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Delete\"\r\n                        severity=\"secondary\"\r\n                        [showConfirm]=\"true\"\r\n                        confirmMessage=\"aaa\"\r\n                        confirmHeader=\"bbb\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move up\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isLastItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move down\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isFirstItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+        },
+        {
+            "name": "ToastMessagesComponent",
+            "id": "component-ToastMessagesComponent-b2ec44d51dabd5b7f8c13036a7b9a9cf8eda06cb14fd74e5a65526c823e0fe3ece996095f7e93efc8a737cd79cd80c60ca9925f1fffe4b6eb9b6340124fffd7e",
+            "file": "src/component/messages/toast/toast-messages.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toast-messages-component",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p-toast />",
+            "templateUrl": [],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ToastModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-toast-messages-component\",\r\n    template: \"<p-toast />\",\r\n    imports: [ToastModule]\r\n})\r\nexport class ToastMessagesComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "RootComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": [
+                    {
+                        "name": "ToastModule",
+                        "type": "module"
+                    }
+                ]
+            }
         },
         {
             "name": "UsersPageComponent",
@@ -18256,6 +18316,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "InputTextFormComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/messages/toast/toast-messages.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToastMessagesComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

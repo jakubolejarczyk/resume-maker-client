@@ -1,9 +1,7 @@
-<!-- <p-toast position="top-right" />
-<p-confirmdialog /> -->
 <button
     pButton
-    (click)="onClick($event)"
-    [size]="size()"
+    (click)="click()"
     [severity]="severity()"
+    [size]="size()"
     [disabled]="disabled()"
 >{{ label() }}</button>
