@@ -4076,6 +4076,156 @@
             }
         },
         {
+            "name": "ConfirmationUtil",
+            "id": "injectable-ConfirmationUtil-27fbaa53a663896e42987887aad62f9f0d8d3788bda436c70f5f336adc04a007f542091251311b404fa18a82d595bd85d9c6b4b44eb67a6e82e6cd6ced38b374",
+            "file": "src/util/confirmation.util.ts",
+            "coverageIgnore": false,
+            "properties": [
+                {
+                    "name": "confirmationService",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(ConfirmationService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                },
+                {
+                    "name": "messageService",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(MessageService)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "confirm",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "acceptButtonLabel",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "callback",
+                            "type": "function",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 9,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "acceptButtonLabel",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "callback",
+                            "type": "function",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { inject, Injectable } from \"@angular/core\";\r\nimport { ConfirmationService, MessageService } from \"primeng/api\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ConfirmationUtil {\r\n    private readonly confirmationService = inject(ConfirmationService);\r\n    private readonly messageService = inject(MessageService);\r\n\r\n    confirm(message: string, header: string, acceptButtonLabel: string, callback: () => void) {\r\n        this.confirmationService.confirm({\r\n            message,\r\n            header,\r\n            closable: true,\r\n            closeOnEscape: true,\r\n            icon: \"pi pi-exclamation-triangle\",\r\n            rejectButtonProps: {\r\n                label: \"Cancel\",\r\n                severity: \"secondary\",\r\n                outlined: true\r\n            },\r\n            acceptButtonProps: {\r\n                label: acceptButtonLabel,\r\n                severity: \"secondary\"\r\n            },\r\n            accept: () => {\r\n                callback();\r\n                this.messageService.add({\r\n                    severity: \"secondary\",\r\n                    summary: \"Confirmed\",\r\n                    detail: \"You have accepted\"\r\n                });\r\n            },\r\n            reject: () => {\r\n                this.messageService.add({\r\n                    severity: \"error\",\r\n                    summary: \"Rejected\",\r\n                    detail: \"You have rejected\",\r\n                    life: 3000\r\n                });\r\n            }\r\n        });\r\n    }\r\n}",
+            "extends": [],
+            "providedIn": "root",
+            "type": "injectable",
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        },
+        {
             "name": "EducationApiService",
             "id": "injectable-EducationApiService-87defca48c72b97ef86996f05110d935c0dd03af9f4c46c26e57ef4c8e6590e524ac712b16ba96af9bac5e7335ea6f71cc9529e20a0b04a0185cc5aa95d293ae",
             "file": "src/api/service/education-api.service.ts",
@@ -16253,7 +16403,7 @@
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-5c59d7fb09a285dcb46801785e48744404120347feaf54cb71164219a8f3571cb0cbee50cc1608d372ddf00fe01cfa6961e62b9e73b881d99485d2f295d93e47",
+            "id": "component-DomainViewComponent-6c0f749ce70ec735e57474fccbbb278437599237a4c7a54b5050ab37a39c58fa0e5a8d96ea88b117c3bff4a3ff985cd4608db6769e10d816f23d210475279861",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16296,7 +16446,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 18,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16332,19 +16482,20 @@
                     "rawdescription": "\n"
                 },
                 {
-                    "name": "confirmationService",
+                    "name": "confirmationUtil",
                     "coverageIgnore": false,
-                    "defaultValue": "inject(ConfirmationService)",
+                    "defaultValue": "inject(ConfirmationUtil)",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 21,
                     "rawdescription": "\n",
                     "modifierKind": [
-                        123
+                        123,
+                        148
                     ]
                 },
                 {
@@ -16357,7 +16508,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 17,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
@@ -16378,22 +16529,6 @@
                     "rawdescription": "\n"
                 },
                 {
-                    "name": "messageService",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(MessageService)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123
-                    ]
-                },
-                {
                     "name": "sub",
                     "coverageIgnore": false,
                     "deprecated": false,
@@ -16402,7 +16537,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 19,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16487,7 +16622,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationService, MessageService } from \"primeng/api\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private cdr = inject(ChangeDetectorRef);\r\n    private confirmationService = inject(ConfirmationService);\r\n    private messageService = inject(MessageService);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.confirmationService.confirm({\r\n            message: 'Are you sure that you want to proceed?',\r\n            header: 'Confirmation',\r\n            closable: true,\r\n            closeOnEscape: true,\r\n            icon: 'pi pi-exclamation-triangle',\r\n            rejectButtonProps: {\r\n                label: 'Cancel',\r\n                severity: 'secondary',\r\n                outlined: true\r\n            },\r\n            acceptButtonProps: {\r\n                label: 'Save',\r\n                severity: 'secondary'\r\n            },\r\n            accept: () => {\r\n                this.baseService.delete(item).subscribe(() => this.cdr.markForCheck());\r\n                this.messageService.add({ severity: 'secondary', summary: 'Confirmed', detail: 'You have accepted' });\r\n            },\r\n            reject: () => {\r\n                this.messageService.add({\r\n                    severity: 'error',\r\n                    summary: 'Rejected',\r\n                    detail: 'You have rejected',\r\n                    life: 3000\r\n                });\r\n            }\r\n        });\r\n    }\r\n}",
+            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -18381,7 +18516,7 @@
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/13",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -19391,6 +19526,15 @@
                 "name": "UserStoreState",
                 "coveragePercent": 0,
                 "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "src/util/confirmation.util.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ConfirmationUtil",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             }
         ]
