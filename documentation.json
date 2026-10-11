@@ -16054,23 +16054,14 @@
         },
         {
             "name": "ButtonFormComponent",
-            "id": "component-ButtonFormComponent-f549cf8aad836cf85903474c4fe871c5be74678513db91cf716a6165d636c18c236ca624a035c08ef1d025da67eae9e15d6a00bb631481a685664c74951924b5",
+            "id": "component-ButtonFormComponent-f2299880d123f2b2f2ce16ee1d52d4aaedd2dc995b03ea8fbd86a9b9b4050b1caa3092af0aed8eed3dbfbe630c7922c4825dac75d2b358b8a1f563d100c2a2b7",
             "file": "src/component/form/button/button-form.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [
-                {
-                    "name": "ConfirmationService",
-                    "type": "injectable"
-                },
-                {
-                    "name": "MessageService",
-                    "type": "injectable"
-                }
-            ],
+            "providers": [],
             "selector": "app-button-form-component",
             "styleUrls": [],
             "styles": [],
@@ -16082,6 +16073,20 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "confirmAcceptButtonLabel",
+                    "coverageIgnore": false,
+                    "defaultValue": "\"Save\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
                     "name": "confirmHeader",
                     "coverageIgnore": false,
                     "defaultValue": "\"Confirmation\"",
@@ -16091,7 +16096,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 25,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16105,7 +16110,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
+                    "line": 24,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16119,7 +16124,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 22,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16132,7 +16137,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "rawdescription": "\n",
                     "required": true
                 },
@@ -16145,7 +16150,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 21,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16159,7 +16164,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 23,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -16172,7 +16177,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -16202,7 +16207,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 13,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
@@ -16219,7 +16224,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 14,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
@@ -16272,14 +16277,6 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "ToastModule",
-                    "type": "module"
-                },
-                {
-                    "name": "ConfirmDialogModule",
-                    "type": "module"
-                },
-                {
                     "name": "ButtonModule",
                     "type": "module"
                 }
@@ -16287,7 +16284,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, input, output } from \"@angular/core\";\r\nimport { ConfirmationService, MessageService } from \"primeng/api\";\r\nimport { ButtonModule, ButtonSeverity, ButtonSize } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from \"primeng/confirmdialog\";\r\nimport { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-button-form-component\",\r\n    templateUrl: \"./button-form.component.html\",\r\n    imports: [ToastModule, ConfirmDialogModule, ButtonModule],\r\n    providers: [ConfirmationService, MessageService]\r\n})\r\nexport class ButtonFormComponent {\r\n    private readonly confirmationService = inject(ConfirmationService);\r\n    private readonly messageService = inject(MessageService);\r\n\r\n    // Inputs required\r\n    label = input.required<string>();\r\n\r\n    // Input optional\r\n    size = input<ButtonSize>();\r\n    severity = input<ButtonSeverity>();\r\n    disabled = input(false);\r\n    showConfirm = input(false);\r\n    confirmMessage = input(\"Are you sure that you want to proceed?\");\r\n    confirmHeader = input(\"Confirmation\");\r\n\r\n    // Outputs\r\n    onClickEvent = output();\r\n\r\n    onClick(event: Event) {\r\n        if (this.showConfirm()) {\r\n            this.confirmationService.confirm({\r\n                target: event.target as EventTarget,\r\n                message: this.confirmMessage(),\r\n                header: this.confirmHeader(),\r\n                closable: true,\r\n                closeOnEscape: true,\r\n                icon: \"pi pi-exclamation-triangle\",\r\n                rejectButtonProps: {\r\n                    label: 'Cancel',\r\n                    severity: 'secondary',\r\n                    outlined: true\r\n                },\r\n                acceptButtonProps: {\r\n                    label: 'Save'\r\n                },\r\n                accept: () => {\r\n                    this.messageService.add({\r\n                        severity: 'info',\r\n                        summary: 'Confirmed',\r\n                        detail: 'You have accepted'\r\n                    });\r\n                    // this.onClickEvent.emit();\r\n                },\r\n                reject: () => {\r\n                    this.messageService.add({\r\n                        severity: 'error',\r\n                        summary: 'Rejected',\r\n                        detail: 'You have rejected',\r\n                        life: 3000\r\n                    });\r\n                }\r\n            });\r\n            return;\r\n        }\r\n        this.onClickEvent.emit();\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, input, output } from \"@angular/core\";\r\nimport { ConfirmationService, MessageService } from \"primeng/api\";\r\nimport { ButtonModule, ButtonSeverity, ButtonSize } from \"primeng/button\";\r\n// import { ConfirmDialogModule } from \"primeng/confirmdialog\";\r\n// import { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-button-form-component\",\r\n    templateUrl: \"./button-form.component.html\",\r\n    imports: [ButtonModule]\r\n})\r\nexport class ButtonFormComponent {\r\n    private readonly confirmationService = inject(ConfirmationService);\r\n    private readonly messageService = inject(MessageService);\r\n\r\n    // Inputs required\r\n    label = input.required<string>();\r\n\r\n    // Input optional\r\n    size = input<ButtonSize>();\r\n    severity = input<ButtonSeverity>();\r\n    disabled = input(false);\r\n    showConfirm = input(false);\r\n    confirmMessage = input(\"Are you sure that you want to proceed?\");\r\n    confirmHeader = input(\"Confirmation\");\r\n    confirmAcceptButtonLabel = input(\"Save\");\r\n\r\n    // Outputs\r\n    onClickEvent = output();\r\n\r\n    onClick(event: Event) {\r\n        if (this.showConfirm()) {\r\n            this.confirmationService.confirm({\r\n                target: event.target as EventTarget,\r\n                message: this.confirmMessage(),\r\n                header: this.confirmHeader(),\r\n                closable: true,\r\n                closeOnEscape: true,\r\n                rejectButtonProps: {\r\n                    label: \"Cancel\",\r\n                    severity: \"secondary\",\r\n                    outlined: true\r\n                },\r\n                acceptButtonProps: {\r\n                    label: this.confirmAcceptButtonLabel(),\r\n                    severity: \"secondary\" \r\n                },\r\n                accept: () => {\r\n                    this.messageService.add({\r\n                        severity: \"info\",\r\n                        summary: \"Confirmed\",\r\n                        detail: \"You have accepted\"\r\n                    });\r\n                    this.onClickEvent.emit();\r\n                },\r\n                reject: () => {\r\n                    this.messageService.add({\r\n                        severity: \"error\",\r\n                        summary: \"Rejected\",\r\n                        detail: \"You have rejected\",\r\n                        life: 3000\r\n                    });\r\n                }\r\n            });\r\n            return;\r\n        } else {\r\n            this.onClickEvent.emit();\r\n        }\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16301,28 +16298,66 @@
                 ],
                 "outgoing": [
                     {
-                        "name": "ToastModule",
-                        "type": "module"
-                    },
-                    {
-                        "name": "ConfirmDialogModule",
-                        "type": "module"
-                    },
-                    {
                         "name": "ButtonModule",
                         "type": "module"
-                    },
-                    {
-                        "name": "ConfirmationService",
-                        "type": "injectable"
-                    },
-                    {
-                        "name": "MessageService",
-                        "type": "injectable"
                     }
                 ]
             },
-            "templateData": "<p-toast position=\"top-right\" />\r\n<p-confirmdialog />\r\n<button\r\n    pButton\r\n    (click)=\"onClick($event)\"\r\n    [size]=\"size()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n>{{ label() }}</button>"
+            "templateData": "<!-- <p-toast position=\"top-right\" />\r\n<p-confirmdialog /> -->\r\n<button\r\n    pButton\r\n    (click)=\"onClick($event)\"\r\n    [size]=\"size()\"\r\n    [severity]=\"severity()\"\r\n    [disabled]=\"disabled()\"\r\n>{{ label() }}</button>"
+        },
+        {
+            "name": "ConfirmDialogOverlayComponent",
+            "id": "component-ConfirmDialogOverlayComponent-a2d9737312d2c9e8e6cbfc1319a149ec67ae43b00bfe64f31ebc85e7d2cda37d4648689b3234ee48309064d1302fced8ccbca18354cae591ed873b0e3c9009fe",
+            "file": "src/component/overlay/confirm-dialog/confirm-dialog-overlay.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-confirm-dialog-overlay-component",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./confirm-dialog-overlay.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ConfirmDialogModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\n\r\n@Component({\r\n    selector: \"app-confirm-dialog-overlay-component\",\r\n    templateUrl: \"./confirm-dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule]\r\n})\r\nexport class ConfirmDialogOverlayComponent {}",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "ConfirmDialogModule",
+                        "type": "module"
+                    }
+                ]
+            },
+            "templateData": "<p-confirmdialog />"
         },
         {
             "name": "DomainViewComponent",
@@ -16709,7 +16744,7 @@
         },
         {
             "name": "RootComponent",
-            "id": "component-RootComponent-9eec6857b8c118865cf4883ce9c7f1bb2e1aaf9a638433d33cdccee0b20f67b56b6e02adbd8585b8c538647bedd45a2cbf172cbf9ad86fbea1c10c883235c2ae",
+            "id": "component-RootComponent-2b2390711eee62083cf1db98762d25926891d6597692bf996c16d6d19209bbbbe0ec5c7ba65c69e0d57f4547513b92f0715327e65f988bf939aa05abb023b817",
             "file": "src/root/root.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16739,7 +16774,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 34,
+                    "line": 36,
                     "rawdescription": "\n"
                 }
             ],
@@ -16790,12 +16825,16 @@
                 {
                     "name": "ConfirmDialogModule",
                     "type": "module"
+                },
+                {
+                    "name": "ToastModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogModule\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
+            "sourceCode": "import { Component, signal } from '@angular/core';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { SidebarModule } from 'primeng/sidebar';\r\nimport { ButtonModule } from 'primeng/button';\r\nimport { Briefcase } from '@primeicons/angular/briefcase';\r\nimport { Users } from '@primeicons/angular/users';\r\nimport { GraduationCap } from '@primeicons/angular/graduation-cap'\r\nimport { File } from '@primeicons/angular/file';\r\nimport { Code } from '@primeicons/angular/code';\r\nimport { Sidebar } from '@primeicons/angular/sidebar';\r\nimport { RouterOutlet, RouterLinkWithHref } from '@angular/router';\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { ToastModule } from 'primeng/toast';\r\n\r\n@Component({\r\n    selector: \"app-root-component\",\r\n    templateUrl: \"./root.component.html\",\r\n    standalone: true,\r\n    imports: [\r\n        AvatarModule,\r\n        SidebarModule,\r\n        ButtonModule,\r\n        Briefcase,\r\n        Users,\r\n        GraduationCap,\r\n        Code,\r\n        File,\r\n        Sidebar,\r\n        RouterOutlet,\r\n        RouterLinkWithHref,\r\n        ConfirmDialogModule,\r\n        ToastModule\r\n    ]\r\n})\r\nexport class RootComponent {\r\n    isMobile = signal(false);\r\n\r\n    constructor() {\r\n        if (typeof window === 'undefined') return;\r\n        const mql = window.matchMedia('(max-width: 1023px)');\r\n        this.isMobile.set(mql.matches);\r\n        mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16805,7 +16844,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 34,
+                "line": 36,
                 "rawdescription": "\n"
             },
             "extends": [],
@@ -16864,10 +16903,14 @@
                     {
                         "name": "ConfirmDialogModule",
                         "type": "module"
+                    },
+                    {
+                        "name": "ToastModule",
+                        "type": "module"
                     }
                 ]
             },
-            "templateData": "<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
+            "templateData": "<p-toast position=\"top-right\" />\r\n<p-confirmdialog />\r\n<p-sidebar-layout>\r\n    @if (isMobile()) {\r\n        <p-sidebar-backdrop class=\"absolute!\" />\r\n    }\r\n    <p-sidebar id=\"mobile-nav\" [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\" [overlay]=\"isMobile()\" [open]=\"!isMobile()\" width=\"14rem\">\r\n        <p-sidebar-spacer />\r\n        <p-sidebar-aside>\r\n            <p-sidebar-panel>\r\n                <p-sidebar-header>\r\n                    <p-sidebar-menu>\r\n                        <p-sidebar-menu-item>\r\n                            <button pSidebarMenuButton class=\"p-1!\" routerLink=\"/\">\r\n                                <span class=\"font-semibold text-sm\">Resume Maker</span>\r\n                            </button>\r\n                        </p-sidebar-menu-item>\r\n                    </p-sidebar-menu>\r\n                </p-sidebar-header>\r\n                <p-sidebar-content>\r\n                    <p-sidebar-group>\r\n                        <p-sidebar-group-label>Menu</p-sidebar-group-label>\r\n                        <p-sidebar-group-content>\r\n                            <p-sidebar-menu>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/users\">\r\n                                        <svg data-p-icon=\"users\"></svg>\r\n                                        <span>Users</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/resumes\">\r\n                                        <svg data-p-icon=\"file\"></svg>\r\n                                        <span>Resumes</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/skills\">\r\n                                        <svg data-p-icon=\"briefcase\"></svg>\r\n                                        <span>Skills</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/experiences\">\r\n                                        <svg data-p-icon=\"code\"></svg>\r\n                                        <span>Experiences</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                                <p-sidebar-menu-item>\r\n                                    <button pSidebarMenuButton routerLink=\"/educations\">\r\n                                        <svg data-p-icon=\"graduation-cap\"></svg>\r\n                                        <span>Educations</span>\r\n                                    </button>\r\n                                </p-sidebar-menu-item>\r\n                            </p-sidebar-menu>\r\n                        </p-sidebar-group-content>\r\n                    </p-sidebar-group>\r\n                </p-sidebar-content>\r\n            </p-sidebar-panel>\r\n        </p-sidebar-aside>\r\n    </p-sidebar>\r\n    <p-sidebar-main>\r\n        <header class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\">\r\n            <button pButton pSidebarTrigger target=\"mobile-nav\" severity=\"secondary\" text size=\"small\">\r\n                <svg data-p-icon=\"sidebar\"></svg>\r\n            </button>\r\n        </header>\r\n        <router-outlet></router-outlet>\r\n    </p-sidebar-main>\r\n</p-sidebar-layout>"
         },
         {
             "name": "SkillsPageComponent",
@@ -16939,7 +16982,7 @@
         },
         {
             "name": "TableDataComponent",
-            "id": "component-TableDataComponent-7533ae44a8ad3b908d19a5d4f8127a3fcbfbbf0a7662606982597d133f2cb4030ddcef370cedc2a34a7dc2a15f106b996544a0373d8e2a3853c1caddc0233bf2",
+            "id": "component-TableDataComponent-0a47e2cf6ed33609f3ec97f81fc85543b839620064fc9af56bd3177d9ce9ab951c1ed65fba728c6c4a069663e3145fdd6ad08c293f6d076ac422c644bdbfb492",
             "file": "src/component/data/table/table-data.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16966,7 +17009,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 25,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -16981,7 +17024,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 28,
+                    "line": 27,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -16996,7 +17039,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 18,
                     "rawdescription": "\n"
                 },
                 {
@@ -17009,7 +17052,7 @@
                     "indexKey": "columns",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 21,
                     "rawdescription": "\n"
                 },
                 {
@@ -17022,7 +17065,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 16,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -17038,7 +17081,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 23,
                     "rawdescription": "\n"
                 },
                 {
@@ -17050,7 +17093,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 19,
                     "rawdescription": "\n"
                 }
             ],
@@ -17062,7 +17105,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -17075,46 +17118,11 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
                     "description": ""
-                },
-                {
-                    "name": "onDelete",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 49,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "coverageIgnore": false,
@@ -17131,16 +17139,12 @@
                 {
                     "name": "ButtonFormComponent",
                     "type": "component"
-                },
-                {
-                    "name": "AsyncPipe",
-                    "type": "pipe"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\nimport { AsyncPipe } from \"@angular/common\";\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent, AsyncPipe]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseService!: BaseService<TModel>;\r\n    sub!: Subscription;\r\n    \r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    \r\n    items: BaseApiModel[] = [];\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\nimport { combineLatest, map, of, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private injector = inject(Injector);\r\n\r\n    baseService!: BaseService<TModel>;\r\n    sub!: Subscription;\r\n    \r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    \r\n    items: BaseApiModel[] = [];\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = of(true).pipe(\r\n            switchMap(() => this.baseService.readAll()),\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -17166,10 +17170,6 @@
                         "type": "component"
                     },
                     {
-                        "name": "AsyncPipe",
-                        "type": "pipe"
-                    },
-                    {
                         "name": "OnInit",
                         "type": "interface"
                     },
@@ -17179,7 +17179,7 @@
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th style=\"width: 363px;\">Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <div style=\"display: flex; gap: 0.5rem;\">\r\n                    <app-button-form-component label=\"Show\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component label=\"Update\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Delete\"\r\n                        severity=\"secondary\"\r\n                        [showConfirmation]=\"true\"\r\n                        confirmationMessage=\"aaa\"\r\n                        confirmationHeader=\"bbb\"\r\n                        (onClickEvent)=\"onDelete(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move up\"\r\n                        severity=\"secondary\"\r\n                        [disabled]=\"baseService.isLastItem(item) | async\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move down\"\r\n                        severity=\"secondary\"\r\n                        [disabled]=\"baseService.isFirstItem(item) | async\"\r\n                    ></app-button-form-component>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th style=\"width: 363px;\">Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns; track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <div style=\"display: flex; gap: 0.5rem;\">\r\n                    <app-button-form-component label=\"Show\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component label=\"Update\" severity=\"secondary\"></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Delete\"\r\n                        severity=\"secondary\"\r\n                        [showConfirm]=\"true\"\r\n                        confirmMessage=\"aaa\"\r\n                        confirmHeader=\"bbb\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move up\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isLastItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move down\"\r\n                        severity=\"secondary\"\r\n                        /* [disabled]=\"baseService.isFirstItem(item) | async\" */\r\n                    ></app-button-form-component>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "UsersPageComponent",
@@ -17405,7 +17405,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "unknown",
-                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
+                "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        }),\r\n        ConfirmationService,\r\n        MessageService\r\n    ];\r\n}"
             },
             {
                 "name": "getProvider",
@@ -17790,7 +17790,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "unknown",
-                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        })\r\n    ];\r\n}"
+                    "defaultValue": "(): ApplicationConfig[\"providers\"] => {\r\n    return [\r\n        provideBrowserGlobalErrorListeners(),\r\n        provideRouter(routesConfig),\r\n        providePrimeNG({\r\n            theme: {\r\n                preset: Aura\r\n            },\r\n            license: environment.primengLicenseKey\r\n        }),\r\n        ConfirmationService,\r\n        MessageService\r\n    ];\r\n}"
                 },
                 {
                     "name": "getProvider",
@@ -18239,7 +18239,7 @@
                 "linktype": "component",
                 "name": "TableDataComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -18248,7 +18248,7 @@
                 "linktype": "component",
                 "name": "ButtonFormComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
@@ -18256,6 +18256,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "InputTextFormComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/component/overlay/confirm-dialog/confirm-dialog-overlay.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ConfirmDialogOverlayComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

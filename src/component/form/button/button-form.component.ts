@@ -1,13 +1,13 @@
 import { Component, inject, input, output } from "@angular/core";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { ButtonModule, ButtonSeverity, ButtonSize } from "primeng/button";
-import { ConfirmDialogModule } from "primeng/confirmdialog";
+// import { ConfirmDialogModule } from "primeng/confirmdialog";
 // import { ToastModule } from 'primeng/toast';
 
 @Component({
     selector: "app-button-form-component",
     templateUrl: "./button-form.component.html",
-    imports: [ConfirmDialogModule, ButtonModule]
+    imports: [ButtonModule]
 })
 export class ButtonFormComponent {
     private readonly confirmationService = inject(ConfirmationService);
