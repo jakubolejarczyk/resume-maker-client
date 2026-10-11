@@ -6,7 +6,7 @@
                     <th>{{ column.label }}</th>
                 }
             }
-            <th>Actions</th>
+            <th class="column__actions">Actions</th>
         </tr>
     </ng-template>
     <ng-template #body let-item>
@@ -17,18 +17,46 @@
                 }
             }
             <td>
-                <app-button-form-component
-                    label="Update"
-                    size="small"
-                    severity="secondary"
-                    (event)="onUpdate(item)"
-                ></app-button-form-component>
-                <app-button-form-component
-                    label="Delete"
-                    size="small"
-                    severity="secondary"
-                    (event)="onDelete(item)"
-                ></app-button-form-component>
+                <div class="actions__buttons">
+                    <app-button-form-component
+                        label="Select"
+                        size="small"
+                        severity="secondary"
+                        (event)="onSelect(item)"
+                    ></app-button-form-component>
+                    <app-button-form-component
+                        label="Show"
+                        size="small"
+                        severity="secondary"
+                        (event)="onShow(item)"
+                    ></app-button-form-component>
+                    <app-button-form-component
+                        label="Update"
+                        size="small"
+                        severity="secondary"
+                        (event)="onUpdate(item)"
+                    ></app-button-form-component>
+                    <app-button-form-component
+                        label="Delete"
+                        size="small"
+                        severity="secondary"
+                        (event)="onDelete(item)"
+                    ></app-button-form-component>
+                    <app-button-form-component
+                        label="Move up"
+                        size="small"
+                        severity="secondary"
+                        [disabled]="isFirstItem(item)"
+                        (event)="onMoveUp(item)"
+                    ></app-button-form-component>
+                    <app-button-form-component
+                        label="Move down"
+                        size="small"
+                        severity="secondary"
+                        [disabled]="isLastItem(item)"
+                        (event)="onMoveDown(item)"
+                    ></app-button-form-component>
+                </div>
             </td>
         </tr>
     </ng-template>

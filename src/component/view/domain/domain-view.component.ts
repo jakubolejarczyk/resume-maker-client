@@ -1,11 +1,10 @@
-import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
+import { Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
 import { combineLatest, map, Subscription, switchMap } from "rxjs";
 
 import { TableDataComponent } from "../../data/table/table-data.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
 import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
-import { ConfirmationUtil } from "../../../util/confirmation.util";
 import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.component";
 
 @Component({
@@ -14,12 +13,12 @@ import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.comp
     imports: [TableDataComponent, DialogOverlayComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
-    private readonly cdr = inject(ChangeDetectorRef);
+    // private readonly cdr = inject(ChangeDetectorRef);
     private readonly injector = inject(Injector);
     private baseService!: BaseService<TModel>;
     private sub!: Subscription;
 
-    private readonly confirmationUtil = inject(ConfirmationUtil);
+    // private readonly confirmationUtil = inject(ConfirmationUtil);
 
     baseServiceType = input.required<typeof BaseService<TModel>>();
 
@@ -47,20 +46,34 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
         this.sub.unsubscribe();
     }
 
+    onSelectEvent(item: TModel) {
+        console.log("select", item);
+    }
+
+    onShowEvent(item: TModel) {
+        console.log("show", item);
+    }
+
     onUpdateEvent(item: TModel) {
-        this.label = "Update";
-        this.item = item;
+        console.log("update", item);
+        // this.label = "Update";
+        // this.item = item;
     }
 
     onDeleteEvent(item: TModel) {
-        this.confirmationUtil.confirm(
-            "Are you sure you want to proceed with the deletion? This action cannot be undone.",
-            "Confirm Delete",
-            "Delete",
-            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));
+        console.log("delete", item);
+        // this.confirmationUtil.confirm(
+        //     "Are you sure you want to proceed with the deletion? This action cannot be undone.",
+        //     "Confirm Delete",
+        //     "Delete",
+        //     () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));
     }
 
-    onCancelEvent() {
-        this.item = undefined;
+    onMoveUpEvent(item: TModel) {
+        console.log("move up", item);
+    }
+
+    onMoveDownEvent(item: TModel) {
+        console.log("move down", item);
     }
 }

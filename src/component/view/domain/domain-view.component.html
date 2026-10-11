@@ -2,11 +2,14 @@
     [label]="label"
     [columns]="columns"
     [item]="item"
-    (onCancelEvent)="onCancelEvent()"
 ></app-dialog-overlay-component>
 <app-table-data-component
     [columns]="columns"
     [items]="items"
+    (onSelectEvent)="onSelectEvent($event)"
+    (onShowEvent)="onShowEvent($event)"
     (onUpdateEvent)="onUpdateEvent($event)"
     (onDeleteEvent)="onDeleteEvent($event)"
+    (onMoveUpEvent)="onMoveUpEvent($event)"
+    (onMoveDownEvent)="onMoveDownEvent($event)"
 ></app-table-data-component>

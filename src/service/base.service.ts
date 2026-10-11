@@ -1,6 +1,6 @@
 import { inject, ProviderToken } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { map, of, switchMap } from "rxjs";
+import { of, switchMap } from "rxjs";
 
 import { BaseApiModel } from "../api/model/base-api.model";
 import { BaseStoreModel } from "../store/model/base-store.model";
@@ -45,9 +45,7 @@ export class BaseService<TModel extends BaseApiModel> {
     }
 
     getItems() {
-        return this.store.select(this.baseGetItems).pipe(
-            map(items => items.sort((prev, next) => next.order - prev.order))
-        );
+        return this.store.select(this.baseGetItems);
     }
 
     getSelectedItem() {
@@ -153,16 +151,6 @@ export class BaseService<TModel extends BaseApiModel> {
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
             switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
-        );
-    }
-
-    isFirstItem(item: TModel) {
-        return of(item.order === 0);
-    }
-
-    isLastItem(item: TModel) {
-        return this.getItems().pipe(
-            map(items => items.length > 0 ? items[0].order === item.order : false)
         );
     }
 }

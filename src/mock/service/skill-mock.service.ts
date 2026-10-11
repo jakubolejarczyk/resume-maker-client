@@ -22,6 +22,9 @@ export class SkillMockService extends BaseMockService<SkillMockModel> {
                 id: 1,
                 category: "Frontend",
                 skills: [
+                    "HTML",
+                    "CSS",
+                    "SASS",
                     "Angular",
                     "RxJS",
                     "NGXS",

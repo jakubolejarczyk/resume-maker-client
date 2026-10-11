@@ -1,0 +1,14 @@
+.column {
+    &__actions {
+        width: 421px;
+    }
+}
+
+.actions {
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+}
