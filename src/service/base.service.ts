@@ -1,6 +1,6 @@
 import { inject, ProviderToken } from "@angular/core";
 import { Store } from "@ngxs/store";
-import { of, switchMap } from "rxjs";
+import { combineLatest, map, of, switchMap, tap } from "rxjs";
 
 import { BaseApiModel } from "../api/model/base-api.model";
 import { BaseStoreModel } from "../store/model/base-store.model";
@@ -30,7 +30,6 @@ export class BaseService<TModel extends BaseApiModel> {
         private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,
         private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,
         private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,
-        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,
         private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>
     ) {
         this.baseApiService = inject(token);
@@ -127,22 +126,13 @@ export class BaseService<TModel extends BaseApiModel> {
         );
     }
 
-    delete(item: TModel) {
-        return of(true).pipe(
+    delete(itemToDelete: TModel) {
+        return of(void 0).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-            switchMap(() => this.baseApiService.delete(item)),
-            switchMap(response => {
-                if (response.body) {
-                    this.store.dispatch(new this.baseDeleteItem(response.body.id));
-                }
-                return of(response);
-            }),
-            switchMap(response => {
-                const { success, message } = response;
-                this.store.dispatch(new this.baseSetStatus(success, message));
-                return of(true);
-            }),
-            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+            switchMap(() => this.baseApiService.delete(itemToDelete)),
+            switchMap(response => this.readAllItems().pipe(map(() => response))),
+            switchMap(response => this.deselectNotExistedItem().pipe(map(() => response))),
+            switchMap(response => this.store.dispatch(new this.baseSetIsLoading(false)).pipe(map(() => response)))
         );
     }
 
@@ -151,6 +141,28 @@ export class BaseService<TModel extends BaseApiModel> {
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
             switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
+    private readAllItems() {
+        return of(void 0).pipe(
+            switchMap(() => this.baseApiService.readAll()),
+            switchMap(response => this.store.dispatch(new this.baseSetItems(response.body)))
+        );
+    }
+
+    private deselectNotExistedItem() {
+        return of(void 0).pipe(
+            switchMap(() => combineLatest({
+                selectedItem: this.store.selectOnce(this.baseGetSelectedItem),
+                items: this.store.selectOnce(this.baseGetItems)
+            })),
+            tap(({ selectedItem, items }) => {
+                if (!selectedItem) return;
+                const selectedItemExists = items.some(item => item.id === selectedItem.id);
+                if (selectedItemExists) return;
+                this.store.dispatch(new this.baseSetSelectedItem(undefined))
+            })
         );
     }
 }

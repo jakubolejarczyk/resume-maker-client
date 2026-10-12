@@ -19,10 +19,6 @@ export namespace BaseStoreAction {
         constructor(public item: TModel) {}
     }
 
-    export class DeleteItem {
-        constructor(public id: number) {}
-    }
-
     export class SetSelectedItem<TModel> {
         constructor(public selectedItem: TModel | undefined) {}
     }

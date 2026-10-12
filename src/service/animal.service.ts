@@ -21,7 +21,6 @@ export class AnimalService extends BaseService<AnimalApiModel> {
             AnimalStoreAction.SetItems,
             AnimalStoreAction.AddItem,
             AnimalStoreAction.UpdateItem,
-            AnimalStoreAction.DeleteItem,
             AnimalStoreAction.SetSelectedItem
         );
     }

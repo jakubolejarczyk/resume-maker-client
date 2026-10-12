@@ -121,11 +121,6 @@ export class EducationStoreState extends BaseStoreState<EducationApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(EducationStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(EducationStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

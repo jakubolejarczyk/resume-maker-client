@@ -93,11 +93,6 @@ export class ResumeStoreState extends BaseStoreState<ResumeApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(ResumeStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(ResumeStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

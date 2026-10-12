@@ -24,10 +24,6 @@ export namespace SkillStoreAction {
         static readonly type = `${ACTION_TYPE} UpdateItem`;
     }
 
-    export class DeleteItem extends BaseStoreAction.DeleteItem {
-        static readonly type = `${ACTION_TYPE} DeleteItem`;
-    }
-
     export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillApiModel> {
         static readonly type = `${ACTION_TYPE} SetSelectedItem`;
     }

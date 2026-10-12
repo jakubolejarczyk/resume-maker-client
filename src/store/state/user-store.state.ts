@@ -135,11 +135,6 @@ export class UserStoreState extends BaseStoreState<UserApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(UserStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(UserStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

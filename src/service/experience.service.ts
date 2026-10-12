@@ -21,7 +21,6 @@ export class ExperienceService extends BaseService<ExperienceApiModel> {
             ExperienceStoreAction.SetItems,
             ExperienceStoreAction.AddItem,
             ExperienceStoreAction.UpdateItem,
-            ExperienceStoreAction.DeleteItem,
             ExperienceStoreAction.SetSelectedItem
         );
     }

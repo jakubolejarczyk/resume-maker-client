@@ -121,25 +121,6 @@ describe("Store", () => {
       ).subscribe();
     });
 
-    it("Should correctry delete the item in the store if exists.", () => {
-      store.dispatch(new AnimalStoreAction.DeleteItem(0)).pipe(
-        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
-        tap(items => expect(items).toEqual([
-          { id: 1, name: "Cat", order: 1 }
-        ]))
-      ).subscribe();
-    });
-
-    it("Should correctry skip deleting the item in the store if not exists.", () => {
-      store.dispatch(new AnimalStoreAction.DeleteItem(2)).pipe(
-        switchMap(() => store.selectOnce(AnimalStoreState.getItems)),
-        tap(items => expect(items).toEqual([
-          { id: 0, name: "Dog", order: 0 },
-          { id: 1, name: "Cat", order: 1 }
-        ]))
-      ).subscribe();
-    });
-
     it("Should correctry select the item in the store.", () => {
       store.dispatch(new AnimalStoreAction.SetSelectedItem({ id: 0, name: "Dog", order: 0 })).pipe(
         switchMap(() => store.selectOnce(AnimalStoreState.getSelectedItem)),

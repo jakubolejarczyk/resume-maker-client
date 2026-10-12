@@ -21,7 +21,6 @@ export class EducationService extends BaseService<EducationApiModel> {
             EducationStoreAction.SetItems,
             EducationStoreAction.AddItem,
             EducationStoreAction.UpdateItem,
-            EducationStoreAction.DeleteItem,
             EducationStoreAction.SetSelectedItem
         );
     }

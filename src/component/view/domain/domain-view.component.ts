@@ -1,4 +1,4 @@
-import { Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
 import { combineLatest, map, Subscription, switchMap } from "rxjs";
 
 import { TableDataComponent } from "../../data/table/table-data.component";
@@ -7,6 +7,7 @@ import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
 import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.component";
 import { ToolbarPanelComponent } from "../../panel/toolbar/toolbar-panel.component";
+import { ConfirmationUtil } from "../../../util/confirmation.util";
 
 @Component({
     selector: "app-domain-view-component",
@@ -14,12 +15,12 @@ import { ToolbarPanelComponent } from "../../panel/toolbar/toolbar-panel.compone
     imports: [TableDataComponent, DialogOverlayComponent, ToolbarPanelComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
-    // private readonly cdr = inject(ChangeDetectorRef);
+    private readonly cdr = inject(ChangeDetectorRef);
     private readonly injector = inject(Injector);
     private baseService!: BaseService<TModel>;
     private sub!: Subscription;
 
-    // private readonly confirmationUtil = inject(ConfirmationUtil);
+    private readonly confirmationUtil = inject(ConfirmationUtil);
 
     baseServiceType = input.required<typeof BaseService<TModel>>();
 
@@ -66,12 +67,11 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     }
 
     onDeleteEvent(item: TModel) {
-        console.log("delete", item);
-        // this.confirmationUtil.confirm(
-        //     "Are you sure you want to proceed with the deletion? This action cannot be undone.",
-        //     "Confirm Delete",
-        //     "Delete",
-        //     () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));
+        this.confirmationUtil.confirm(
+            "Are you sure you want to proceed with the deletion? This action cannot be undone.",
+            "Confirm Delete",
+            "Delete",
+            () => this.onDelete(item));
     }
 
     onMoveUpEvent(item: TModel) {
@@ -80,5 +80,11 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     onMoveDownEvent(item: TModel) {
         console.log("move down", item);
+    }
+
+    onDelete(item: TModel) {
+        this.baseService.delete(item).subscribe(() => {
+            this.cdr.markForCheck()
+        });
     }
 }

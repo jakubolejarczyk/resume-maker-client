@@ -21,7 +21,6 @@ export class SkillService extends BaseService<SkillApiModel> {
             SkillStoreAction.SetItems,
             SkillStoreAction.AddItem,
             SkillStoreAction.UpdateItem,
-            SkillStoreAction.DeleteItem,
             SkillStoreAction.SetSelectedItem
         );
     }

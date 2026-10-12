@@ -71,10 +71,10 @@ export class BaseMockService<TModel extends BaseMockModel> {
         return response;
     }
 
-    delete(id: number): ResponseMockModel<TModel | undefined> {
+    delete(id: number): ResponseMockModel<undefined> {
         const itemToDelete = this.items.find(item => item.id === id);
         if (itemToDelete === undefined) {
-            const response: ResponseMockModel<TModel | undefined> = {
+            const response: ResponseMockModel<undefined> = {
                 success: false,
                 message: "Failed to delete the item because it does not exist.",
                 body: undefined
@@ -87,10 +87,10 @@ export class BaseMockService<TModel extends BaseMockModel> {
                 const newCurr: TModel = { ...curr, order: index };
                 return [...acc, newCurr];
             }, []);
-        const response: ResponseMockModel<TModel | undefined> = {
+        const response: ResponseMockModel<undefined> = {
             success: true,
             message: "The item has been successfully deleted.",
-            body: itemToDelete
+            body: undefined
         };
         return response;
     }

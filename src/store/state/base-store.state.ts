@@ -86,14 +86,6 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     });
   }
 
-  deleteItem(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.DeleteItem) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      items: state.items.filter(item => item.id !== action.id)
-    });
-  }
-
   selectedItem(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetSelectedItem<TModel>) {
     const state = ctx.getState();
     ctx.setState({

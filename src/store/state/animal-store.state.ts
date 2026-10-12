@@ -86,11 +86,6 @@ export class AnimalStoreState extends BaseStoreState<AnimalApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(AnimalStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(AnimalStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

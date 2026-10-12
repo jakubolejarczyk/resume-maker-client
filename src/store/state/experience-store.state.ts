@@ -121,11 +121,6 @@ export class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(ExperienceStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(ExperienceStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

@@ -112,11 +112,6 @@ describe("Service", () => {
 
     it("Should correctly update item from the store and save it in the external service.", () => {
         service.update({ id: 0, name: "Bird", order: 0 }).pipe(
-            switchMap(() => service.getStatus()),
-            tap(status => expect(status).toEqual({
-                success: true,
-                message: "Successfully updated item."
-            })),
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
@@ -131,11 +126,6 @@ describe("Service", () => {
 
     it("Should correctly delete item from the store and save it in the external service.", () => {
         service.delete({ id: 1, name: "Cat", order: 1 }).pipe(
-            switchMap(() => service.getStatus()),
-            tap(status => expect(status).toEqual({
-                success: true,
-                message: "The item has been successfully deleted."
-            })),
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),

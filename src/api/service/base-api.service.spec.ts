@@ -122,7 +122,7 @@ describe("Base Api Service", () => {
 
     it("Should return an error response and return undefined body if item to delete was not found for delete method.", () => {
         service.delete({ id: 2, name: "Bird", order: 2 }).subscribe(response => {
-            expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
+            expect(response).toEqual<ResponseApiModel<undefined>>({
                 success: false,
                 message: "Failed to delete the item because it does not exist.",
                 body: undefined
@@ -142,10 +142,10 @@ describe("Base Api Service", () => {
 
     it("Should return a success response and return the item to delete if it is found for delete method.", () => {
         service.delete({ id: 0, name: "Dog", order: 0 }).subscribe(response => {
-            expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
+            expect(response).toEqual<ResponseApiModel<undefined>>({
                 success: true,
                 message: "The item has been successfully deleted.",
-                body: { id: 0, name: "Dog", order: 0 }
+                body: undefined
             });
         });
         service.readAll().subscribe(response => {

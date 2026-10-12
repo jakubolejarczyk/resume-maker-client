@@ -100,11 +100,6 @@ export class SkillStoreState extends BaseStoreState<SkillApiModel> {
     super.updateItem(ctx, action);
   }
 
-  @Action(SkillStoreAction.DeleteItem)
-  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {
-    super.deleteItem(ctx, action);
-  }
-
   @Action(SkillStoreAction.SetSelectedItem)
   override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {
     super.selectedItem(ctx, action);

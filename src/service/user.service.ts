@@ -21,7 +21,6 @@ export class UserService extends BaseService<UserApiModel> {
             UserStoreAction.SetItems,
             UserStoreAction.AddItem,
             UserStoreAction.UpdateItem,
-            UserStoreAction.DeleteItem,
             UserStoreAction.SetSelectedItem
         );
     }

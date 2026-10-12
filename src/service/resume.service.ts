@@ -21,7 +21,6 @@ export class ResumeService extends BaseService<ResumeApiModel> {
             ResumeStoreAction.SetItems,
             ResumeStoreAction.AddItem,
             ResumeStoreAction.UpdateItem,
-            ResumeStoreAction.DeleteItem,
             ResumeStoreAction.SetSelectedItem
         );
     }
