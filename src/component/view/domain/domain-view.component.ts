@@ -47,7 +47,7 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     }
 
     onSelectEvent(item: TModel) {
-        console.log("select", item);
+        this.baseService.selectItem(item).subscribe();
     }
 
     onShowEvent(item: TModel) {

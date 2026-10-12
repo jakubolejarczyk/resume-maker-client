@@ -279,12 +279,12 @@
         },
         {
             "name": "BaseStoreColumnModel",
-            "id": "interface-BaseStoreColumnModel-1d03507f0832e835869e4cb271bbb4f7f8d7621d70bb7d57438bf230f1805979a9979eff8cfdf908bbefc42117187a191a6f2793da519064bf264aa6fc98b986",
+            "id": "interface-BaseStoreColumnModel-6c3fd26c602bb1feb6a28433663d33613f9b0a7114cfbe0a139e7f52437be5201f8e103b58ae63d0567060b407a428510b8b0e849fc7a80f83ba58684a371b13",
             "file": "src/store/model/base-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    type: string;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
+            "sourceCode": "type BaseStoreColumnTypeModel = \"string\" | \"string[]\" | \"number\" | \"date\";\r\n\r\nexport interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    isEditable: boolean;\r\n    type: BaseStoreColumnTypeModel;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
             "displayName": "BaseStoreColumnModel",
             "properties": [
                 {
@@ -296,7 +296,19 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 2,
+                    "line": 4,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "isEditable",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
                     "rawdescription": "\n"
                 },
                 {
@@ -308,7 +320,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 6,
                     "rawdescription": "\n"
                 },
                 {
@@ -320,7 +332,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 3,
+                    "line": 5,
                     "rawdescription": "\n"
                 },
                 {
@@ -328,11 +340,11 @@
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "BaseStoreColumnTypeModel",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 8,
                     "rawdescription": "\n"
                 }
             ],
@@ -347,12 +359,12 @@
         },
         {
             "name": "BaseStoreModel",
-            "id": "interface-BaseStoreModel-1d03507f0832e835869e4cb271bbb4f7f8d7621d70bb7d57438bf230f1805979a9979eff8cfdf908bbefc42117187a191a6f2793da519064bf264aa6fc98b986",
+            "id": "interface-BaseStoreModel-6c3fd26c602bb1feb6a28433663d33613f9b0a7114cfbe0a139e7f52437be5201f8e103b58ae63d0567060b407a428510b8b0e849fc7a80f83ba58684a371b13",
             "file": "src/store/model/base-store.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    type: string;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
+            "sourceCode": "type BaseStoreColumnTypeModel = \"string\" | \"string[]\" | \"number\" | \"date\";\r\n\r\nexport interface BaseStoreColumnModel {\r\n    id: string;\r\n    label: string;\r\n    isVisible: boolean;\r\n    isEditable: boolean;\r\n    type: BaseStoreColumnTypeModel;\r\n}\r\n\r\nexport interface BaseStoreModel<TItem> {\r\n    success: boolean;\r\n    message: string;\r\n    isLoading: boolean;\r\n    items: TItem[];\r\n    selectedItem: TItem | undefined;\r\n    columns: BaseStoreColumnModel[];\r\n}",
             "displayName": "BaseStoreModel<TItem>",
             "typeParameters": [
                 "TItem"
@@ -367,7 +379,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 17,
                     "rawdescription": "\n"
                 },
                 {
@@ -379,7 +391,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 14,
                     "rawdescription": "\n"
                 },
                 {
@@ -391,7 +403,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 15,
                     "rawdescription": "\n"
                 },
                 {
@@ -403,7 +415,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 10,
+                    "line": 13,
                     "rawdescription": "\n"
                 },
                 {
@@ -415,7 +427,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 16,
                     "rawdescription": "\n"
                 },
                 {
@@ -427,7 +439,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 12,
                     "rawdescription": "\n"
                 }
             ],
@@ -442,12 +454,12 @@
         },
         {
             "name": "EducationApiModel",
-            "id": "interface-EducationApiModel-98c0121d66c2e65242e5c295822998be84ac2c1159d822c158e16b37b7385ceeed183d4b478618070d5c3548a60068ed3306107a75366f42164cf59e6afa07eb",
+            "id": "interface-EducationApiModel-15b9997a3abd518a152119988e73312158c62e94023aa0251567766afd7595df7be90fa4d66a84dcba96b40b6e5ed43d9dec2746de2e5c5a28a169b32f176926",
             "file": "src/api/model/education-api.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { BaseApiModel } from \"./base-api.model\";\r\n\r\nexport interface EducationApiModel extends BaseApiModel {\r\n    startYear: number;\r\n    endYear: number;\r\n    fieldOfStudy: string;\r\n    degree: string;\r\n    institutionName: string;\r\n    resumeId: number;\r\n}",
+            "sourceCode": "import { BaseApiModel } from \"./base-api.model\";\r\n\r\nexport interface EducationApiModel extends BaseApiModel {\r\n    institutionName: string;\r\n    fieldOfStudy: string;\r\n    degree: string;\r\n    startYear: number;\r\n    endYear: number;\r\n    resumeId: number;\r\n}",
             "displayName": "EducationApiModel",
             "properties": [
                 {
@@ -459,7 +471,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 7,
+                    "line": 6,
                     "rawdescription": "\n"
                 },
                 {
@@ -471,7 +483,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 5,
+                    "line": 8,
                     "rawdescription": "\n"
                 },
                 {
@@ -483,7 +495,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 6,
+                    "line": 5,
                     "rawdescription": "\n"
                 },
                 {
@@ -495,7 +507,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 4,
                     "rawdescription": "\n"
                 },
                 {
@@ -519,7 +531,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 4,
+                    "line": 7,
                     "rawdescription": "\n"
                 },
                 {
@@ -2268,7 +2280,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2306,7 +2318,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2335,7 +2347,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2383,7 +2395,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2409,82 +2421,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -2500,7 +2436,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2529,7 +2465,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2554,7 +2490,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2592,7 +2528,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2645,7 +2581,7 @@
         },
         {
             "name": "AnimalStoreState",
-            "id": "injectable-AnimalStoreState-ac0b01fd3c6105da67ea8ff66c973b8f0a8e2fb14f86ea51e2870150f5cfac3332f3eeaff49a7d9ab037b3b1a616ef23e26e6c5645cf6ffeef9c6b486ee98e7d",
+            "id": "injectable-AnimalStoreState-75ee63757ffe7498b613183cdf90f0b5276205ab8e886f6c9f88ae1140c01f226625bbb9c7bd7ea62714a143c48604549db302c3a37234007e84ba0044f177b4",
             "file": "src/store/state/animal-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -2674,7 +2610,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2741,7 +2677,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2802,7 +2738,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 42,
+                    "line": 60,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2853,7 +2789,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 27,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2904,7 +2840,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 32,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -2955,7 +2891,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 37,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3006,7 +2942,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 22,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3063,7 +2999,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 95,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3130,7 +3066,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 70,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3197,7 +3133,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3264,7 +3200,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3331,7 +3267,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 85,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -3422,7 +3358,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"name\", label: \"Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { AnimalStoreModel } from \"../model/animal-store.model\";\r\nimport { AnimalApiModel } from \"../../api/model/animal-api.model\";\r\nimport { AnimalStoreAction } from \"../action/animal-store.action\";\r\n\r\n@State<AnimalStoreModel>({\r\n  name: \"animalStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"name\",\r\n      label: \"Name\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable()\r\nexport class AnimalStoreState extends BaseStoreState<AnimalApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(AnimalStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<AnimalStoreModel>, action: AnimalStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<AnimalApiModel>"
             ],
@@ -4741,7 +4677,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4779,7 +4715,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4808,7 +4744,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4856,7 +4792,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -4882,82 +4818,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -4973,7 +4833,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5002,7 +4862,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5027,7 +4887,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5065,7 +4925,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5119,7 +4979,7 @@
         },
         {
             "name": "EducationStoreState",
-            "id": "injectable-EducationStoreState-d0f7fe735edafde4c0a5f1dc30f726bd5b17c3090016b19b2452e33f3cb8af7d98f02a0e08857a32a3a26633a8f1593f55f3715be28d7ff70beeb3c09adc3f28",
+            "id": "injectable-EducationStoreState-f53d2598be7c4463e89118b60e84f734d7a1b4d31cae234c5efa899474eba15f3e34e64b6851e81e3161a6ae7d963ac22f21c0aaf57214d4d08e305971f5682b",
             "file": "src/store/state/education-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -5148,7 +5008,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 115,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5215,7 +5075,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 125,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5276,7 +5136,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 47,
+                    "line": 95,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5327,7 +5187,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 32,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5378,7 +5238,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 37,
+                    "line": 85,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5429,7 +5289,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 42,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5480,7 +5340,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 27,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5537,7 +5397,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 82,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5604,7 +5464,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 105,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5671,7 +5531,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 110,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5738,7 +5598,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 100,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5805,7 +5665,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 120,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -5896,7 +5756,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"startYear\", label: \"Start Year\", isVisible: true, type: \"string\" },\r\n    { id: \"endYear\", label: \"End Year\", isVisible: true, type: \"string\" },\r\n    { id: \"fieldOfStudy\", label: \"Field Of Study\", isVisible: true, type: \"string\" },\r\n    { id: \"degree\", label: \"Degree\", isVisible: true, type: \"string\" },\r\n    { id: \"institutionName\", label: \"Institution Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { EducationStoreModel } from \"../model/education-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { EducationApiModel } from \"../../api/model/education-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { EducationStoreAction } from \"../action/education-store.action\";\r\n\r\n@State<EducationStoreModel>({\r\n  name: \"educationStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"institutionName\",\r\n      label: \"Institution name\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"fieldOfStudy\",\r\n      label: \"Field of study\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"degree\",\r\n      label: \"Degree\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"startYear\",\r\n      label: \"Start year\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"endYear\",\r\n      label: \"End year\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"resumeId\",\r\n      label: \"Resume id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class EducationStoreState extends BaseStoreState<EducationApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(EducationStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<EducationStoreModel>, action: EducationStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<EducationApiModel>"
             ],
@@ -6428,7 +6288,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6466,7 +6326,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6495,7 +6355,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6543,7 +6403,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6569,82 +6429,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -6660,7 +6444,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6689,7 +6473,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6714,7 +6498,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6752,7 +6536,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6806,7 +6590,7 @@
         },
         {
             "name": "ExperienceStoreState",
-            "id": "injectable-ExperienceStoreState-0581d496f3cbd9c9e01448d7cb5d8ba0084081ec7828b7153ea34489b582eaeb59dc83d7c737fa820a733d38e0e794bf82da257783ebb871b2bec9a9cfc62439",
+            "id": "injectable-ExperienceStoreState-0c1b3c4d95548d5100b1974c65742264c579511ba35f017ad0bf50b97c32e5c3515b3b077ed947daab0f679836bda198f985a4d6903913158a4234cdb27cd55c",
             "file": "src/store/state/experience-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -6835,7 +6619,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 67,
+                    "line": 115,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6902,7 +6686,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 125,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -6963,7 +6747,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 47,
+                    "line": 95,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7014,7 +6798,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 32,
+                    "line": 80,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7065,7 +6849,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 37,
+                    "line": 85,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7116,7 +6900,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 42,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7167,7 +6951,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 27,
+                    "line": 75,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7224,7 +7008,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 82,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7291,7 +7075,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 105,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7358,7 +7142,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 110,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7425,7 +7209,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 100,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7492,7 +7276,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 72,
+                    "line": 120,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -7583,7 +7367,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"company\", label: \"Company\", isVisible: true, type: \"string\" },\r\n    { id: \"startDate\", label: \"Start Date\", isVisible: false, type: \"string\" },\r\n    { id: \"endDate\", label: \"End Date\", isVisible: false, type: \"string\" },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: true, type: \"string\" },\r\n    { id: \"description\", label: \"Description\", isVisible: false, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { ExperienceStoreModel } from \"../model/experience-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { ExperienceApiModel } from \"../../api/model/experience-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ExperienceStoreAction } from \"../action/experience-store.action\";\r\n\r\n@State<ExperienceStoreModel>({\r\n  name: \"experienceStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"company\",\r\n      label: \"Company\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"startDate\",\r\n      label: \"Start date\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"date\"\r\n    },\r\n    {\r\n      id: \"endDate\",\r\n      label: \"End date\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"date\"\r\n    },\r\n    {\r\n      id: \"jobTitle\",\r\n      label: \"Job title\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"description\",\r\n      label: \"Description\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string[]\"\r\n    },\r\n    {\r\n      id: \"resumeId\",\r\n      label: \"Resume id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ExperienceStoreState extends BaseStoreState<ExperienceApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ExperienceStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ExperienceStoreModel>, action: ExperienceStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ExperienceApiModel>"
             ],
@@ -8115,7 +7899,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8153,7 +7937,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8182,7 +7966,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8230,7 +8014,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8256,82 +8040,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -8347,7 +8055,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8376,7 +8084,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8401,7 +8109,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8439,7 +8147,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8493,7 +8201,7 @@
         },
         {
             "name": "ResumeStoreState",
-            "id": "injectable-ResumeStoreState-4ea9031c73679a041077857fa9ff2aa0e5e2a88f070a1fa5c368fc7c139304ca392081297486bd1f4af85cdb0e44797729d3bbfa0897e303bce71499b8b9a71d",
+            "id": "injectable-ResumeStoreState-a6e3c297804524912d306eb42418c59f3b842b2cb463e057d7380651c8c7fffd00d6193bc00c0278db1d7a628c3787e98cceadb0f52d336b074ad96b9a2b577e",
             "file": "src/store/state/resume-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -8522,7 +8230,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 63,
+                    "line": 87,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8589,7 +8297,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 73,
+                    "line": 97,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8650,7 +8358,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 43,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8701,7 +8409,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 28,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8752,7 +8460,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 33,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8803,7 +8511,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 38,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8854,7 +8562,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 23,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8911,7 +8619,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 78,
+                    "line": 102,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -8978,7 +8686,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 77,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9045,7 +8753,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9112,7 +8820,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 72,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9179,7 +8887,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 92,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9270,7 +8978,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"name\", label: \"Name\", isVisible: true, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" },\r\n    { id: \"userId\", label: \"User Id\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { ResumeStoreModel } from \"../model/resume-store.model\";\r\nimport { ResumeApiModel } from \"../../api/model/resume-api.model\";\r\nimport { ResumeStoreAction } from \"../action/resume-store.action\";\r\n\r\n@State<ResumeStoreModel>({\r\n  name: \"resumeStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"name\",\r\n      label: \"Name\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"userId\",\r\n      label: \"User id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class ResumeStoreState extends BaseStoreState<ResumeApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(ResumeStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<ResumeApiModel>"
             ],
@@ -9509,7 +9217,7 @@
         },
         {
             "name": "SkillMockService",
-            "id": "injectable-SkillMockService-1701eed385e4dc46f5ca7aebe5a093af64139cd6d67cafd4a467a7b182ab16570da15e75ccc9197b5612018f41da39fa92823182b3cd9ffe3a9d36d62a75f1c5",
+            "id": "injectable-SkillMockService-79658ae9abe84ddf4b0c2fc6ac7e93738c6a273a6383ecc429a0a8193b0c1c7ca821a4c1a9d1ed09e47154c279fed21d8beffc21b70d3b1f021990c8b5725247",
             "file": "src/mock/service/skill-mock.service.ts",
             "coverageIgnore": false,
             "properties": [
@@ -9722,7 +9430,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                order: 0,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\",\r\n                    \"PrimeNG\",\r\n                    \"Storybook\"\r\n                ],\r\n                order: 1,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Node.js\",\r\n                    \"npm\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                order: 2,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                order: 3,\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillMockModel } from \"../model/skill-mock.model\";\r\nimport { BaseMockService } from \"./base-mock.service\";\r\n\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillMockService extends BaseMockService<SkillMockModel> {\r\n    constructor() {\r\n        super([\r\n            {\r\n                id: 0,\r\n                category: \"Programming Language\",\r\n                skills: [\r\n                    \"JavaScript\",\r\n                    \"TypeScript\",\r\n                    \"C#\"\r\n                ],\r\n                order: 0,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 1,\r\n                category: \"Frontend\",\r\n                skills: [\r\n                    \"HTML\",\r\n                    \"CSS\",\r\n                    \"SASS\",\r\n                    \"Angular\",\r\n                    \"RxJS\",\r\n                    \"NGXS\",\r\n                    \"PrimeNG\",\r\n                    \"Storybook\"\r\n                ],\r\n                order: 1,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 2,\r\n                category: \"Developer Tools\",\r\n                skills: [\r\n                    \"Git\",\r\n                    \"Node.js\",\r\n                    \"npm\",\r\n                    \"Vitest\",\r\n                    \"ESLint\",\r\n                    \"typescript-eslint\",\r\n                    \"Visual Studio\",\r\n                    \"Microsoft Visual Studio Code\"\r\n                ],\r\n                order: 2,\r\n                resumeId: 0\r\n            },\r\n            {\r\n                id: 3,\r\n                category: \"Languages\",\r\n                skills: [\r\n                    \"English\",\r\n                    \"Polish\"\r\n                ],\r\n                order: 3,\r\n                resumeId: 0\r\n            }\r\n        ]);\r\n    }\r\n}",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -9802,7 +9510,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9840,7 +9548,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9869,7 +9577,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9917,7 +9625,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -9943,82 +9651,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -10034,7 +9666,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10063,7 +9695,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10088,7 +9720,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10126,7 +9758,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10180,7 +9812,7 @@
         },
         {
             "name": "SkillStoreState",
-            "id": "injectable-SkillStoreState-8c46cf0f67a834ecb7674df8076b221c4a04385d0d62e78506ce36cc0e2195defa31ddff47a9903f571c0da01b172a0b87ecacfca39f19c161589d305b2b3130",
+            "id": "injectable-SkillStoreState-9d3749f55385645cdf948cbc36b835104c88e5a02a0fa4056ce7c247419582f4292bdeaf60910b0b1cf76dc54b56bdd1cc8b62f62a8cb6f51f9189f7cc9b7404",
             "file": "src/store/state/skill-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -10209,7 +9841,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 64,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10276,7 +9908,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 104,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10337,7 +9969,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 49,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10388,7 +10020,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 29,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10439,7 +10071,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 34,
+                    "line": 64,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10490,7 +10122,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 39,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10541,7 +10173,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 24,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10598,7 +10230,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 109,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10665,7 +10297,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 84,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10732,7 +10364,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 89,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10799,7 +10431,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 74,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10866,7 +10498,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 69,
+                    "line": 99,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -10957,7 +10589,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"category\", label: \"Category\", isVisible: true, type: \"string\" },\r\n    { id: \"skills\", label: \"Skills\", isVisible: false, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" },\r\n    { id: \"resumeId\", label: \"Resume Id\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { SkillStoreModel } from \"../model/skill-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { SkillApiModel } from \"../../api/model/skill-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { SkillStoreAction } from \"../action/skill-store.action\";\r\n\r\n@State<SkillStoreModel>({\r\n  name: \"skillStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"category\",\r\n      label: \"Category\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"skills\",\r\n      label: \"Skills\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"resumeId\",\r\n      label: \"Resume id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class SkillStoreState extends BaseStoreState<SkillApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(SkillStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<SkillStoreModel>, action: SkillStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<SkillApiModel>"
             ],
@@ -11489,7 +11121,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11527,7 +11159,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11556,7 +11188,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11604,7 +11236,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11630,82 +11262,6 @@
                     }
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ],
-                    "inheritance": {
-                        "file": "BaseService"
-                    }
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -11721,7 +11277,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11750,7 +11306,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11775,7 +11331,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11813,7 +11369,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11867,7 +11423,7 @@
         },
         {
             "name": "UserStoreState",
-            "id": "injectable-UserStoreState-f6ee5bfeca09bc76bbe3c1c013070caad0f663a24aabc66ac4d7ae35026bceca7695b173ce3592049e7c8ed261d45c43915d65ee61546b8cfb2259a6525a1b6a",
+            "id": "injectable-UserStoreState-34d0cd5ab0703145bd733ade63c0deb9f42ebb910f9bf99b0a4ae93e3df17d128020fb3471fb3694c7d05809aefc20c1ccfb20e01087edabd6abe61629f7fbed",
             "file": "src/store/state/user-store.state.ts",
             "coverageIgnore": false,
             "properties": [],
@@ -11896,7 +11452,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 69,
+                    "line": 129,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -11963,7 +11519,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 139,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12024,7 +11580,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 49,
+                    "line": 109,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12075,7 +11631,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 34,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12126,7 +11682,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 39,
+                    "line": 99,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12177,7 +11733,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 44,
+                    "line": 104,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12228,7 +11784,7 @@
                     "typeParameters": [
                         "TModel"
                     ],
-                    "line": 29,
+                    "line": 89,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12285,7 +11841,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 84,
+                    "line": 144,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12352,7 +11908,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 119,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12419,7 +11975,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 64,
+                    "line": 124,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12486,7 +12042,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 114,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12553,7 +12109,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 134,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -12644,7 +12200,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    { id: \"id\", label: \"Id\", isVisible: false, type: \"string\" },\r\n    { id: \"firstName\", label: \"First Name\", isVisible: true, type: \"string\" },\r\n    { id: \"lastName\", label: \"Last Name\", isVisible: true, type: \"string\" },\r\n    { id: \"jobTitle\", label: \"Job Title\", isVisible: false, type: \"string\" },\r\n    { id: \"phoneNumber\", label: \"Phone Number\", isVisible: false, type: \"string\" },\r\n    { id: \"email\", label: \"Email\", isVisible: true, type: \"string\" },\r\n    { id: \"city\", label: \"City\", isVisible: false, type: \"string\" },\r\n    { id: \"country\", label: \"Country\", isVisible: false, type: \"string\" },\r\n    { id: \"summary\", label: \"Summary\", isVisible: false, type: \"string\" },\r\n    { id: \"order\", label: \"Order\", isVisible: false, type: \"string\" }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
+            "sourceCode": "import { Action, Selector, State, StateContext } from \"@ngxs/store\";\r\nimport { Injectable } from \"@angular/core\";\r\n\r\nimport { UserStoreModel } from \"../model/user-store.model\";\r\nimport { BaseStoreState } from \"./base-store.state\";\r\nimport { UserApiModel } from \"../../api/model/user-api.model\";\r\nimport { BaseApiModel } from \"../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../model/base-store.model\";\r\nimport { UserStoreAction } from \"../action/user-store.action\";\r\n\r\n@State<UserStoreModel>({\r\n  name: \"userStoreState\",\r\n  defaults: BaseStoreState.initState([\r\n    {\r\n      id: \"id\",\r\n      label: \"Id\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    },\r\n    {\r\n      id: \"firstName\",\r\n      label: \"First name\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"lastName\",\r\n      label: \"Last name\",\r\n      isVisible: true,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"jobTitle\",\r\n      label: \"Job title\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"phoneNumber\",\r\n      label: \"Phone number\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"email\",\r\n      label: \"Email\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"city\",\r\n      label: \"City\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"country\",\r\n      label: \"Country\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"summary\",\r\n      label: \"Summary\",\r\n      isVisible: false,\r\n      isEditable: true,\r\n      type: \"string\"\r\n    },\r\n    {\r\n      id: \"order\",\r\n      label: \"Order\",\r\n      isVisible: false,\r\n      isEditable: false,\r\n      type: \"number\"\r\n    }\r\n  ])\r\n})\r\n@Injectable({ providedIn: \"root\" })\r\nexport class UserStoreState extends BaseStoreState<UserApiModel> {\r\n  @Selector()\r\n  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getStatus(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getIsLoading(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getItems(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getSelectedItem(state);\r\n  }\r\n\r\n  @Selector()\r\n  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {\r\n    return super.getColumns(state);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetStatus)\r\n  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {\r\n    super.setStatus(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetIsLoading)\r\n  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {\r\n    super.setIsLoading(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetItems)\r\n  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {\r\n    super.setItems(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.AddItem)\r\n  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {\r\n    super.addItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.UpdateItem)\r\n  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {\r\n    super.updateItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.DeleteItem)\r\n  override deleteItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.DeleteItem) {\r\n    super.deleteItem(ctx, action);\r\n  }\r\n\r\n  @Action(UserStoreAction.SetSelectedItem)\r\n  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {\r\n    super.selectedItem(ctx, action);\r\n  }\r\n}",
             "extends": [
                 "BaseStoreState<UserApiModel>"
             ],
@@ -13467,13 +13023,13 @@
         },
         {
             "name": "BaseService",
-            "id": "class-BaseService-d226bd6fb67896665a3fd6eb62963c895131ff55cb758dcafa385d3335df175399768c7069e5697f951815d0cd8133ba9afd21f728a6bd51807c6bc833b74d83",
+            "id": "class-BaseService-6edb2df704cdeec064753f67c6763ff115c60045ff664e3637ec7a527d2135c82c8242d92c8f155e4136838e06183945e36c1bbd9e4d8323354a309c92b54c3b",
             "file": "src/service/base.service.ts",
             "coverageIgnore": false,
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { inject, ProviderToken } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { map, of, switchMap } from \"rxjs\";\r\n\r\nimport { BaseApiModel } from \"../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../store/model/base-store.model\";\r\nimport { BaseStoreAction } from \"../store/action/base-store.action\";\r\nimport { BaseApiService } from \"../api/service/base-api.service\";\r\n\r\ntype TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };\r\ntype TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;\r\ntype TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];\r\ntype TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;\r\ntype TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => BaseStoreModel<TModel>[\"columns\"];\r\n\r\nexport class BaseService<TModel extends BaseApiModel> {\r\n    baseApiService: BaseApiService<TModel>;\r\n\r\n    store = inject(Store);\r\n\r\n    constructor(\r\n        private readonly token: ProviderToken<BaseApiService<TModel>>,\r\n        private readonly baseGetStatus: TBaseGetStatus,\r\n        private readonly baseGetIsLoading: TBaseGetIsLoading,\r\n        private readonly baseGetItems: TBaseGetItems,\r\n        private readonly baseGetSelectedItem: TBaseGetSelectedItem,\r\n        private readonly baseGetColumns: TBaseGetColumns,\r\n        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\r\n        private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\r\n        private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,\r\n        private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,\r\n        private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,\r\n        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,\r\n        private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>\r\n    ) {\r\n        this.baseApiService = inject(token);\r\n    }\r\n\r\n    getStatus() {\r\n        return this.store.select(this.baseGetStatus);\r\n    }\r\n\r\n    getIsLoading() {\r\n        return this.store.select(this.baseGetIsLoading);\r\n    }\r\n\r\n    getItems() {\r\n        return this.store.select(this.baseGetItems).pipe(\r\n            map(items => items.sort((prev, next) => next.order - prev.order))\r\n        );\r\n    }\r\n\r\n    getSelectedItem() {\r\n        return this.store.select(this.baseGetSelectedItem);\r\n    }\r\n\r\n    getColumns() {\r\n        return this.store.select(this.baseGetColumns);\r\n    }\r\n\r\n    create(itemToCreate: Omit<TModel, \"id\">) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.create(itemToCreate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseAddItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    read(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.read(id)),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(response.body);\r\n            }),\r\n            switchMap(body => {\r\n                this.store.dispatch(new this.baseSetIsLoading(false));\r\n                return of(body);\r\n            })\r\n        );\r\n    }\r\n\r\n    readAll() {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.readAll()),\r\n            switchMap(response => {\r\n                this.store.dispatch(new this.baseSetItems(response.body));\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    update(itemToUpdate: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.update(itemToUpdate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseUpdateItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    delete(item: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.delete(item.id)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseDeleteItem(response.body.id));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    selectItem(itemToSelect: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    isFirstItem(item: TModel) {\r\n        return of(item.order === 0);\r\n    }\r\n\r\n    isLastItem(item: TModel) {\r\n        return this.getItems().pipe(\r\n            map(items => items.length > 0 ? items[0].order === item.order : false)\r\n        );\r\n    }\r\n}",
+            "sourceCode": "import { inject, ProviderToken } from \"@angular/core\";\r\nimport { Store } from \"@ngxs/store\";\r\nimport { of, switchMap } from \"rxjs\";\r\n\r\nimport { BaseApiModel } from \"../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../store/model/base-store.model\";\r\nimport { BaseStoreAction } from \"../store/action/base-store.action\";\r\nimport { BaseApiService } from \"../api/service/base-api.service\";\r\n\r\ntype TBaseGetStatus = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => { success: boolean; message: string; };\r\ntype TBaseGetIsLoading = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => boolean;\r\ntype TBaseGetItems = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel[];\r\ntype TBaseGetSelectedItem = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => TModel | undefined;\r\ntype TBaseGetColumns = <TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) => BaseStoreModel<TModel>[\"columns\"];\r\n\r\nexport class BaseService<TModel extends BaseApiModel> {\r\n    baseApiService: BaseApiService<TModel>;\r\n\r\n    store = inject(Store);\r\n\r\n    constructor(\r\n        private readonly token: ProviderToken<BaseApiService<TModel>>,\r\n        private readonly baseGetStatus: TBaseGetStatus,\r\n        private readonly baseGetIsLoading: TBaseGetIsLoading,\r\n        private readonly baseGetItems: TBaseGetItems,\r\n        private readonly baseGetSelectedItem: TBaseGetSelectedItem,\r\n        private readonly baseGetColumns: TBaseGetColumns,\r\n        private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\r\n        private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\r\n        private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,\r\n        private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,\r\n        private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,\r\n        private readonly baseDeleteItem: typeof BaseStoreAction.DeleteItem,\r\n        private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>\r\n    ) {\r\n        this.baseApiService = inject(token);\r\n    }\r\n\r\n    getStatus() {\r\n        return this.store.select(this.baseGetStatus);\r\n    }\r\n\r\n    getIsLoading() {\r\n        return this.store.select(this.baseGetIsLoading);\r\n    }\r\n\r\n    getItems() {\r\n        return this.store.select(this.baseGetItems);\r\n    }\r\n\r\n    getSelectedItem() {\r\n        return this.store.select(this.baseGetSelectedItem);\r\n    }\r\n\r\n    getColumns() {\r\n        return this.store.select(this.baseGetColumns);\r\n    }\r\n\r\n    create(itemToCreate: Omit<TModel, \"id\">) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.create(itemToCreate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseAddItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    read(id: number) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.read(id)),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(response.body);\r\n            }),\r\n            switchMap(body => {\r\n                this.store.dispatch(new this.baseSetIsLoading(false));\r\n                return of(body);\r\n            })\r\n        );\r\n    }\r\n\r\n    readAll() {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.readAll()),\r\n            switchMap(response => {\r\n                this.store.dispatch(new this.baseSetItems(response.body));\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    update(itemToUpdate: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.update(itemToUpdate)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseUpdateItem(response.body));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    delete(item: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.baseApiService.delete(item.id)),\r\n            switchMap(response => {\r\n                if (response.body) {\r\n                    this.store.dispatch(new this.baseDeleteItem(response.body.id));\r\n                }\r\n                return of(response);\r\n            }),\r\n            switchMap(response => {\r\n                const { success, message } = response;\r\n                this.store.dispatch(new this.baseSetStatus(success, message));\r\n                return of(true);\r\n            }),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n\r\n    selectItem(itemToSelect: TModel) {\r\n        return of(true).pipe(\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),\r\n            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))\r\n        );\r\n    }\r\n}",
             "displayName": "BaseService<TModel extends BaseApiModel>",
             "typeParameters": [
                 "TModel extends BaseApiModel"
@@ -13783,7 +13339,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13818,7 +13374,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 132,
+                    "line": 130,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13844,7 +13400,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13883,7 +13439,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -13903,76 +13459,6 @@
                     "description": ""
                 },
                 {
-                    "name": "isFirstItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 159,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "isLastItem",
-                    "coverageIgnore": false,
-                    "args": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "any",
-                    "typeParameters": [],
-                    "line": 163,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": "",
-                    "jsdoctags": [
-                        {
-                            "name": "item",
-                            "type": "TModel",
-                            "optional": false,
-                            "dotDotDotToken": false,
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "read",
                     "coverageIgnore": false,
                     "args": [
@@ -13988,7 +13474,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -14014,7 +13500,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -14036,7 +13522,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 151,
+                    "line": 149,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -14071,7 +13557,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 113,
+                    "line": 111,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16403,7 +15889,7 @@
         },
         {
             "name": "DialogOverlayComponent",
-            "id": "component-DialogOverlayComponent-86c8cbfe681167179f4fa0e403ac58b228553513dec19c8abc37351a5d99c427502095b814d7cf9740f5c77247aaf4aecd151e8c539c45f037d7668920c03496",
+            "id": "component-DialogOverlayComponent-0ac3c179dd683f16b280b48ed4d2f71dc61e61f7e34e23f0d7cfe82842ed1bb1038b6bd940c03b2128e8e0c951ef80162316208fab5e9f9f4b1cf6bed22b9030",
             "file": "src/component/overlay/dialog/dialog-overlay.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16478,6 +15964,41 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
+                    "name": "getItemValue",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "column",
+                            "type": "BaseStoreColumnModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "column",
+                            "type": "BaseStoreColumnModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "isVisible",
                     "coverageIgnore": false,
                     "args": [],
@@ -16548,7 +16069,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { FormsModule } from \"@angular/forms\";\r\nimport { ButtonModule } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { DialogModule } from \"primeng/dialog\";\r\nimport { InputTextModule } from \"primeng/inputtext\";\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-dialog-overlay-component\",\r\n    templateUrl: \"./dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]\r\n})\r\nexport class DialogOverlayComponent<TModel extends BaseApiModel> {\r\n    label = input.required<string>();\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    item = input<TModel>();\r\n\r\n    onCancelEvent = output();\r\n\r\n    onCancel() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    onSave() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    isVisible() {\r\n        return this.item() !== undefined;\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { FormsModule } from \"@angular/forms\";\r\nimport { ButtonModule } from \"primeng/button\";\r\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\r\nimport { DialogModule } from \"primeng/dialog\";\r\nimport { InputTextModule } from \"primeng/inputtext\";\r\n\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreColumnModel, BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-dialog-overlay-component\",\r\n    templateUrl: \"./dialog-overlay.component.html\",\r\n    imports: [ConfirmDialogModule, DialogModule, ButtonModule, InputTextModule, FormsModule]\r\n})\r\nexport class DialogOverlayComponent<TModel extends BaseApiModel> {\r\n    label = input.required<string>();\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    item = input<TModel>();\r\n\r\n    onCancelEvent = output();\r\n\r\n    onCancel() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    onSave() {\r\n        this.onCancelEvent.emit();\r\n    }\r\n\r\n    isVisible() {\r\n        return this.item() !== undefined;\r\n    }\r\n\r\n    getItemValue(column: BaseStoreColumnModel) {\r\n        // eslint-disable-next-line @typescript-eslint/no-explicit-any\r\n        const item: any = this.item();\r\n        console.log(item);\r\n        return item[column.id];\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16583,11 +16104,11 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"flex justify-center\">\r\n    <p-dialog [visible]=\"isVisible()\" [modal]=\"true\" [style]=\"{ width: '25rem' }\" [resizable]=\"false\" (onHide)=\"onCancel()\">\r\n        <ng-template #header>\r\n            <div class=\"inline-flex items-center justify-center gap-2\">\r\n                <span class=\"font-bold whitespace-nowrap\">{{ label() }}</span>\r\n            </div>\r\n        </ng-template>\r\n        <form>\r\n            @for (column of columns(); track column.id) {\r\n                <div class=\"flex items-center gap-4 mb-2\">\r\n                    <label for=\"email\" class=\"font-semibold w-24 text-sm\">{{ column.label }}</label>\r\n                    <input pInputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" />\r\n                </div>\r\n            }\r\n        </form>\r\n        <ng-template #footer>\r\n            <button type=\"button\" pButton [text]=\"true\" severity=\"secondary\" (click)=\"onCancel()\">Cancel</button>\r\n            <button type=\"button\" pButton [outlined]=\"true\" severity=\"secondary\" (click)=\"onSave()\">Save</button>\r\n        </ng-template>\r\n    </p-dialog>\r\n</div>"
+            "templateData": "@if (item()) {\r\n    <div class=\"flex justify-center\">\r\n        <p-dialog [visible]=\"isVisible()\" [modal]=\"true\" [style]=\"{ width: '25rem' }\" [resizable]=\"false\" (onHide)=\"onCancel()\">\r\n            <ng-template #header>\r\n                <div class=\"inline-flex items-center justify-center gap-2\">\r\n                    <span class=\"font-bold whitespace-nowrap\">{{ label() }}</span>\r\n                </div>\r\n            </ng-template>\r\n            <form>\r\n                @for (column of columns(); track column.id) {\r\n                    @if (column.isEditable) {\r\n                        <div class=\"flex items-center gap-4 mb-2\">\r\n                            <label for=\"email\" class=\"font-semibold w-24 text-sm\">{{ column.label }}</label>\r\n                            <input pInputText id=\"email\" class=\"flex-auto\" autocomplete=\"off\" [value]=\"getItemValue(column)\" />\r\n                        </div>\r\n                    }\r\n                }\r\n            </form>\r\n            <ng-template #footer>\r\n                <button type=\"button\" pButton [text]=\"true\" severity=\"secondary\" (click)=\"onCancel()\">Cancel</button>\r\n                <button type=\"button\" pButton [outlined]=\"true\" severity=\"secondary\" (click)=\"onSave()\">Save</button>\r\n            </ng-template>\r\n        </p-dialog>\r\n    </div>\r\n}"
         },
         {
             "name": "DomainViewComponent",
-            "id": "component-DomainViewComponent-3639fa0a03c625c784ade8626feaef9477fc68007e3586de94cad04823f8fab3c2d113ec1cc0654389afbf99d716661477eff8b72ac4e00d5cabc070bfae11f2",
+            "id": "component-DomainViewComponent-8e246c171a8568b5ed10c95229cc71e9b4559c10bf52771dbe29831913f566f8bac02cd503274567dae0fa35e0e08ae1be5cfb2060fe311ab3e64d0ccbd2931e",
             "file": "src/component/view/domain/domain-view.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -16614,7 +16135,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 24,
+                    "line": 23,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -16630,27 +16151,10 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 18,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
-                    ]
-                },
-                {
-                    "name": "cdr",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(ChangeDetectorRef)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123,
-                        148
                     ]
                 },
                 {
@@ -16663,25 +16167,8 @@
                     "indexKey": "columns",
                     "optional": false,
                     "description": "",
-                    "line": 26,
+                    "line": 25,
                     "rawdescription": "\n"
-                },
-                {
-                    "name": "confirmationUtil",
-                    "coverageIgnore": false,
-                    "defaultValue": "inject(ConfirmationUtil)",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "unknown",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 22,
-                    "rawdescription": "\n",
-                    "modifierKind": [
-                        123,
-                        148
-                    ]
                 },
                 {
                     "name": "injector",
@@ -16693,7 +16180,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 18,
+                    "line": 17,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123,
@@ -16709,7 +16196,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 30,
+                    "line": 29,
                     "rawdescription": "\n"
                 },
                 {
@@ -16722,7 +16209,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 27,
+                    "line": 26,
                     "rawdescription": "\n"
                 },
                 {
@@ -16735,7 +16222,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 29,
+                    "line": 28,
                     "rawdescription": "\n"
                 },
                 {
@@ -16747,7 +16234,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 19,
                     "rawdescription": "\n",
                     "modifierKind": [
                         123
@@ -16762,7 +16249,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16775,20 +16262,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n",
-                    "description": ""
-                },
-                {
-                    "name": "onCancelEvent",
-                    "coverageIgnore": false,
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 63,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16810,7 +16284,147 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onMoveDownEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 76,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onMoveUpEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onSelectEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onShowEvent",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16845,7 +16459,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -16884,7 +16498,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { ConfirmationUtil } from \"../../../util/confirmation.util\";\r\nimport { DialogOverlayComponent } from \"../../overlay/dialog/dialog-overlay.component\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent, DialogOverlayComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    private readonly cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    label = \"\";\r\n    item: TModel | undefined;\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onUpdateEvent(item: TModel) {\r\n        this.label = \"Update\";\r\n        this.item = item;\r\n    }\r\n\r\n    onDeleteEvent(item: TModel) {\r\n        this.confirmationUtil.confirm(\r\n            \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n            \"Confirm Delete\",\r\n            \"Delete\",\r\n            () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n\r\n    onCancelEvent() {\r\n        this.item = undefined;\r\n    }\r\n}",
+            "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\r\nimport { combineLatest, map, Subscription, switchMap } from \"rxjs\";\r\n\r\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseService } from \"../../../service/base.service\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\nimport { DialogOverlayComponent } from \"../../overlay/dialog/dialog-overlay.component\";\r\n\r\n@Component({\r\n    selector: \"app-domain-view-component\",\r\n    templateUrl: \"./domain-view.component.html\",\r\n    imports: [TableDataComponent, DialogOverlayComponent]\r\n})\r\nexport class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {\r\n    // private readonly cdr = inject(ChangeDetectorRef);\r\n    private readonly injector = inject(Injector);\r\n    private baseService!: BaseService<TModel>;\r\n    private sub!: Subscription;\r\n\r\n    // private readonly confirmationUtil = inject(ConfirmationUtil);\r\n\r\n    baseServiceType = input.required<typeof BaseService<TModel>>();\r\n\r\n    columns: BaseStoreModel<TModel>[\"columns\"] = [];\r\n    items: BaseApiModel[] = [];\r\n\r\n    label = \"\";\r\n    item: TModel | undefined;\r\n\r\n    ngOnInit() {\r\n        this.baseService = this.injector.get(this.baseServiceType());\r\n        this.sub = this.baseService.readAll().pipe(\r\n            switchMap(() => combineLatest({\r\n                columns: this.baseService.getColumns(),\r\n                items: this.baseService.getItems()\r\n            })),\r\n            map(({ columns, items }) => {\r\n                this.columns = columns;\r\n                this.items = items;\r\n            })\r\n        ).subscribe();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.sub.unsubscribe();\r\n    }\r\n\r\n    onSelectEvent(item: TModel) {\r\n        console.log(\"select\", item);\r\n    }\r\n\r\n    onShowEvent(item: TModel) {\r\n        console.log(\"show\", item);\r\n    }\r\n\r\n    onUpdateEvent(item: TModel) {\r\n        console.log(\"update\", item);\r\n        // this.label = \"Update\";\r\n        // this.item = item;\r\n    }\r\n\r\n    onDeleteEvent(item: TModel) {\r\n        console.log(\"delete\", item);\r\n        // this.confirmationUtil.confirm(\r\n        //     \"Are you sure you want to proceed with the deletion? This action cannot be undone.\",\r\n        //     \"Confirm Delete\",\r\n        //     \"Delete\",\r\n        //     () => this.baseService.delete(item).subscribe(() => this.cdr.markForCheck()));\r\n    }\r\n\r\n    onMoveUpEvent(item: TModel) {\r\n        console.log(\"move up\", item);\r\n    }\r\n\r\n    onMoveDownEvent(item: TModel) {\r\n        console.log(\"move down\", item);\r\n    }\r\n}",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -16935,7 +16549,7 @@
                     }
                 ]
             },
-            "templateData": "<app-dialog-overlay-component\r\n    [label]=\"label\"\r\n    [columns]=\"columns\"\r\n    [item]=\"item\"\r\n    (onCancelEvent)=\"onCancelEvent()\"\r\n></app-dialog-overlay-component>\r\n<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onUpdateEvent)=\"onUpdateEvent($event)\"\r\n    (onDeleteEvent)=\"onDeleteEvent($event)\"\r\n></app-table-data-component>"
+            "templateData": "<app-dialog-overlay-component\r\n    [label]=\"label\"\r\n    [columns]=\"columns\"\r\n    [item]=\"item\"\r\n></app-dialog-overlay-component>\r\n<app-table-data-component\r\n    [columns]=\"columns\"\r\n    [items]=\"items\"\r\n    (onSelectEvent)=\"onSelectEvent($event)\"\r\n    (onShowEvent)=\"onShowEvent($event)\"\r\n    (onUpdateEvent)=\"onUpdateEvent($event)\"\r\n    (onDeleteEvent)=\"onDeleteEvent($event)\"\r\n    (onMoveUpEvent)=\"onMoveUpEvent($event)\"\r\n    (onMoveDownEvent)=\"onMoveDownEvent($event)\"\r\n></app-table-data-component>"
         },
         {
             "name": "EducationsPageComponent",
@@ -17435,7 +17049,7 @@
         },
         {
             "name": "TableDataComponent",
-            "id": "component-TableDataComponent-6c1dbd501fd01e218654c736c9f5c9e2f5e58615c13444cd76f92cd1ffaa80f181de413ca3062926b762619ee1a07cc0302a07d7fa069cb986108c5c91c87e9e",
+            "id": "component-TableDataComponent-030bf004bdc3ac86cc3b1136c5984f35ca049e36fe0cb5124ea9d5e35630d8112f35516c2f00def65283babac5fd0bc5282382ea02e03bb355054f99d0f2800e",
             "file": "src/component/data/table/table-data.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -17444,7 +17058,9 @@
             "outputs": [],
             "providers": [],
             "selector": "app-table-data-component",
-            "styleUrls": [],
+            "styleUrls": [
+                "./table-data.component.scss"
+            ],
             "styles": [],
             "templateUrl": [
                 "./table-data.component.html"
@@ -17462,7 +17078,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 15,
                     "rawdescription": "\n",
                     "required": true
                 },
@@ -17475,7 +17091,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 16,
                     "rawdescription": "\n",
                     "required": true
                 }
@@ -17490,7 +17106,59 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
+                    "line": 21,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "onMoveDownEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "onMoveUpEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "onSelectEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
                     "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "onShowEvent",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TModel",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -17503,13 +17171,83 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 20,
                     "rawdescription": "\n",
                     "required": false
                 }
             ],
             "propertiesClass": [],
             "methodsClass": [
+                {
+                    "name": "isFirstItem",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "isLastItem",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 53,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "onDelete",
                     "coverageIgnore": false,
@@ -17526,7 +17264,147 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onMoveDown",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onMoveUp",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onSelect",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onShow",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "TModel",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -17561,7 +17439,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n",
@@ -17600,9 +17478,15 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    items = input.required<BaseApiModel[]>();\r\n\r\n    onUpdateEvent = output<TModel>();\r\n    onDeleteEvent = output<TModel>();\r\n\r\n    onUpdate(item: TModel) {\r\n        this.onUpdateEvent.emit(item);\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n}",
+            "sourceCode": "import { Component, input, output } from \"@angular/core\";\r\nimport { TableModule } from 'primeng/table';\r\n\r\nimport { ButtonFormComponent } from \"../../form/button/button-form.component\";\r\nimport { BaseApiModel } from \"../../../api/model/base-api.model\";\r\nimport { BaseStoreModel } from \"../../../store/model/base-store.model\";\r\n\r\n@Component({\r\n    selector: \"app-table-data-component\",\r\n    templateUrl: \"./table-data.component.html\",\r\n    styleUrl: \"./table-data.component.scss\",\r\n    imports: [TableModule, ButtonFormComponent]\r\n})\r\nexport class TableDataComponent<TModel extends BaseApiModel> {\r\n    columns = input.required<BaseStoreModel<TModel>[\"columns\"]>();\r\n    items = input.required<BaseApiModel[]>();\r\n\r\n    onSelectEvent = output<TModel>();\r\n    onShowEvent = output<TModel>();\r\n    onUpdateEvent = output<TModel>();\r\n    onDeleteEvent = output<TModel>();\r\n    onMoveUpEvent = output<TModel>();\r\n    onMoveDownEvent = output<TModel>();\r\n\r\n    onSelect(item: TModel) {\r\n        this.onSelectEvent.emit(item);\r\n    }\r\n\r\n    onShow(item: TModel) {\r\n        this.onShowEvent.emit(item);\r\n    }\r\n\r\n    onUpdate(item: TModel) {\r\n        this.onUpdateEvent.emit(item);\r\n    }\r\n\r\n    onDelete(item: TModel) {\r\n        this.onDeleteEvent.emit(item);\r\n    }\r\n\r\n    onMoveUp(item: TModel) {\r\n        this.onMoveUpEvent.emit(item);\r\n    }\r\n\r\n    onMoveDown(item: TModel) {\r\n        this.onMoveDownEvent.emit(item);\r\n    }\r\n\r\n    isFirstItem(item: TModel) {\r\n        return item.order === 0;\r\n    }\r\n\r\n    isLastItem(item: TModel) {\r\n        return item.order === this.items()[this.items().length - 1].order;\r\n    }\r\n}",
+            "styleUrl": "./table-data.component.scss",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": ".column {\r\n    &__actions {\r\n        width: 421px;\r\n    }\r\n}\r\n\r\n.actions {\r\n    &__buttons {\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: flex-end;\r\n        gap: 0.5rem;\r\n    }\r\n}",
+                    "styleUrl": "./table-data.component.scss"
+                }
+            ],
             "stylesData": "",
             "extends": [],
             "relationships": {
@@ -17623,7 +17507,7 @@
                     }
                 ]
             },
-            "templateData": "<p-table [value]=\"items()\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th>Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <app-button-form-component\r\n                    label=\"Update\"\r\n                    size=\"small\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onUpdate(item)\"\r\n                ></app-button-form-component>\r\n                <app-button-form-component\r\n                    label=\"Delete\"\r\n                    size=\"small\"\r\n                    severity=\"secondary\"\r\n                    (event)=\"onDelete(item)\"\r\n                ></app-button-form-component>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+            "templateData": "<p-table [value]=\"items()\" showGridlines [tableStyle]=\"{ 'min-width': '50rem' }\">\r\n    <ng-template #header>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <th>{{ column.label }}</th>\r\n                }\r\n            }\r\n            <th class=\"column__actions\">Actions</th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template #body let-item>\r\n        <tr>\r\n            @for (column of columns(); track column.id) {\r\n                @if (column.isVisible) {\r\n                    <td>{{ item[column.id] }}</td>\r\n                }\r\n            }\r\n            <td>\r\n                <div class=\"actions__buttons\">\r\n                    <app-button-form-component\r\n                        label=\"Select\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        (event)=\"onSelect(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Show\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        (event)=\"onShow(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Update\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        (event)=\"onUpdate(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Delete\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        (event)=\"onDelete(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move up\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        [disabled]=\"isFirstItem(item)\"\r\n                        (event)=\"onMoveUp(item)\"\r\n                    ></app-button-form-component>\r\n                    <app-button-form-component\r\n                        label=\"Move down\"\r\n                        size=\"small\"\r\n                        severity=\"secondary\"\r\n                        [disabled]=\"isLastItem(item)\"\r\n                        (event)=\"onMoveDown(item)\"\r\n                    ></app-button-form-component>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "ToastMessagesComponent",
@@ -17978,6 +17862,19 @@
                 "rawdescription": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "BaseStoreColumnTypeModel",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "\"string\" | \"string[]\" | \"number\" | \"date\"",
+                "file": "src/store/model/base-store.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 193
             },
             {
                 "name": "EducationStoreModel",
@@ -18370,6 +18267,21 @@
                     "kind": 184
                 }
             ],
+            "src/store/model/base-store.model.ts": [
+                {
+                    "name": "BaseStoreColumnTypeModel",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "\"string\" | \"string[]\" | \"number\" | \"date\"",
+                    "file": "src/store/model/base-store.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 193
+                }
+            ],
             "src/store/model/education-store.model.ts": [
                 {
                     "name": "EducationStoreModel",
@@ -18740,7 +18652,7 @@
                 "linktype": "component",
                 "name": "TableDataComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/17",
                 "status": "low"
             },
             {
@@ -18785,7 +18697,7 @@
                 "linktype": "component",
                 "name": "DialogOverlayComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -18839,7 +18751,7 @@
                 "linktype": "component",
                 "name": "DomainViewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/16",
+                "coverageCount": "0/17",
                 "status": "low"
             },
             {
@@ -19092,7 +19004,7 @@
                 "linktype": "injectable",
                 "name": "AnimalService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19101,7 +19013,7 @@
                 "linktype": "classe",
                 "name": "BaseService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19160,7 +19072,7 @@
                 "linktype": "injectable",
                 "name": "EducationService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19169,7 +19081,7 @@
                 "linktype": "injectable",
                 "name": "ExperienceService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19178,7 +19090,7 @@
                 "linktype": "injectable",
                 "name": "ResumeService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19187,7 +19099,7 @@
                 "linktype": "injectable",
                 "name": "SkillService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19196,7 +19108,7 @@
                 "linktype": "injectable",
                 "name": "UserService",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -19716,7 +19628,7 @@
                 "linktype": "interface",
                 "name": "BaseStoreColumnModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -19726,6 +19638,16 @@
                 "name": "BaseStoreModel",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/store/model/base-store.model.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "BaseStoreColumnTypeModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
