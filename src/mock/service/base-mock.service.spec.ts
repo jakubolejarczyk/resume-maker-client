@@ -100,7 +100,7 @@ describe("Base Mock Service", () => {
     it("Should return an error response and return undefined body if item to delete was not found for delete method.", () => {
         expect(service.delete(3)).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: false,
-            message: "Item not found.",
+            message: "Failed to delete the item because it does not exist.",
             body: undefined
         });
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
@@ -116,14 +116,14 @@ describe("Base Mock Service", () => {
     it("Should return a success response and return the item to delete if it is found for delete method.", () => {
         expect(service.delete(0)).toEqual<ResponseMockModel<AnimalMockModel | undefined>>({
             success: true,
-            message: "Successfully deleted item.",
+            message: "The item has been successfully deleted.",
             body: { id: 0, name: "Dog", order: 0 }
         });
         expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
             success: true,
             message: "Successfully retrieved all items.",
             body: [
-                { id: 1, name: "Cat", order: 1 }
+                { id: 1, name: "Cat", order: 0 }
             ]
         });
     });

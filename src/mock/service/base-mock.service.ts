@@ -73,19 +73,24 @@ export class BaseMockService<TModel extends BaseMockModel> {
 
     delete(id: number): ResponseMockModel<TModel | undefined> {
         const itemToDelete = this.items.find(item => item.id === id);
-        if (itemToDelete) {
-            this.items = this.items.filter(item => item.id !== id);
+        if (itemToDelete === undefined) {
             const response: ResponseMockModel<TModel | undefined> = {
-                success: true,
-                message: "Successfully deleted item.",
-                body: itemToDelete
+                success: false,
+                message: "Failed to delete the item because it does not exist.",
+                body: undefined
             };
             return response;
         }
+        this.items = this.items
+            .filter(item => item.id !== itemToDelete.id)
+            .reduce((acc: TModel[], curr: TModel, index) => {
+                const newCurr: TModel = { ...curr, order: index };
+                return [...acc, newCurr];
+            }, []);
         const response: ResponseMockModel<TModel | undefined> = {
-            success: false,
-            message: "Item not found.",
-            body: undefined
+            success: true,
+            message: "The item has been successfully deleted.",
+            body: itemToDelete
         };
         return response;
     }

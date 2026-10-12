@@ -130,7 +130,7 @@ export class BaseService<TModel extends BaseApiModel> {
     delete(item: TModel) {
         return of(true).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-            switchMap(() => this.baseApiService.delete(item.id)),
+            switchMap(() => this.baseApiService.delete(item)),
             switchMap(response => {
                 if (response.body) {
                     this.store.dispatch(new this.baseDeleteItem(response.body.id));

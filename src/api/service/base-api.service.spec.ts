@@ -121,10 +121,10 @@ describe("Base Api Service", () => {
     });
 
     it("Should return an error response and return undefined body if item to delete was not found for delete method.", () => {
-        service.delete(3).subscribe(response => {
+        service.delete({ id: 2, name: "Bird", order: 2 }).subscribe(response => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: false,
-                message: "Item not found.",
+                message: "Failed to delete the item because it does not exist.",
                 body: undefined
             });
         });
@@ -141,10 +141,10 @@ describe("Base Api Service", () => {
     });
 
     it("Should return a success response and return the item to delete if it is found for delete method.", () => {
-        service.delete(0).subscribe(response => {
+        service.delete({ id: 0, name: "Dog", order: 0 }).subscribe(response => {
             expect(response).toEqual<ResponseApiModel<AnimalApiModel | undefined>>({
                 success: true,
-                message: "Successfully deleted item.",
+                message: "The item has been successfully deleted.",
                 body: { id: 0, name: "Dog", order: 0 }
             });
         });
@@ -153,7 +153,7 @@ describe("Base Api Service", () => {
                 success: true,
                 message: "Successfully retrieved all items.",
                 body: [
-                    { id: 1, name: "Cat", order: 1 }
+                    { id: 1, name: "Cat", order: 0 }
                 ]
             });
         });

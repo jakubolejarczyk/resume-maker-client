@@ -134,7 +134,7 @@ describe("Service", () => {
             switchMap(() => service.getStatus()),
             tap(status => expect(status).toEqual({
                 success: true,
-                message: "Successfully deleted item."
+                message: "The item has been successfully deleted."
             })),
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
