@@ -6,11 +6,12 @@ import { BaseApiModel } from "../../../api/model/base-api.model";
 import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
 import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.component";
+import { ToolbarPanelComponent } from "../../panel/toolbar/toolbar-panel.component";
 
 @Component({
     selector: "app-domain-view-component",
     templateUrl: "./domain-view.component.html",
-    imports: [TableDataComponent, DialogOverlayComponent]
+    imports: [TableDataComponent, DialogOverlayComponent, ToolbarPanelComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
     // private readonly cdr = inject(ChangeDetectorRef);
@@ -44,6 +45,10 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     ngOnDestroy() {
         this.sub.unsubscribe();
+    }
+
+    onCreateEvent() {
+        console.log("create");
     }
 
     onSelectEvent(item: TModel) {
