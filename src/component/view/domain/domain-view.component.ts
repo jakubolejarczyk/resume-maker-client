@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
-import { combineLatest, map, Subscription, switchMap } from "rxjs";
+import { combineLatest, map, Observable, of, Subscription, switchMap } from "rxjs";
 
 import { TableDataComponent } from "../../data/table/table-data.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
@@ -30,8 +30,11 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     label = "";
     item: TModel | undefined;
 
+    selectedItem$: Observable<BaseApiModel | undefined> = of(undefined);
+
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());
+        this.selectedItem$ = this.baseService.getSelectedItem();
         this.sub = this.baseService.readAll().pipe(
             switchMap(() => combineLatest({
                 columns: this.baseService.getColumns(),
@@ -54,6 +57,10 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     onSelectEvent(item: TModel) {
         this.baseService.selectItem(item).subscribe();
+    }
+
+    onDeselectEvent() {
+        this.baseService.deselectItem().subscribe();
     }
 
     onShowEvent(item: TModel) {

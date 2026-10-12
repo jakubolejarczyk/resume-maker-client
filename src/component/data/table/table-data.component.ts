@@ -1,21 +1,27 @@
 import { Component, input, output } from "@angular/core";
 import { TableModule } from 'primeng/table';
+import { Observable } from "rxjs";
+import { AsyncPipe } from "@angular/common";
 
 import { ButtonFormComponent } from "../../form/button/button-form.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
+import { BadgeMiscComponent } from "../../misc/badge/badge-misc.component";
 
 @Component({
     selector: "app-table-data-component",
     templateUrl: "./table-data.component.html",
     styleUrl: "./table-data.component.scss",
-    imports: [TableModule, ButtonFormComponent]
+    imports: [TableModule, ButtonFormComponent, BadgeMiscComponent, AsyncPipe]
 })
 export class TableDataComponent<TModel extends BaseApiModel> {
     columns = input.required<BaseStoreModel<TModel>["columns"]>();
     items = input.required<BaseApiModel[]>();
 
+    selectedItem$ = input.required<Observable<BaseApiModel | undefined>>();
+
     onSelectEvent = output<TModel>();
+    onDeselectEvent = output();
     onShowEvent = output<TModel>();
     onUpdateEvent = output<TModel>();
     onDeleteEvent = output<TModel>();
@@ -24,6 +30,10 @@ export class TableDataComponent<TModel extends BaseApiModel> {
 
     onSelect(item: TModel) {
         this.onSelectEvent.emit(item);
+    }
+
+    onDeselect() {
+        this.onDeselectEvent.emit();
     }
 
     onShow(item: TModel) {

@@ -1,7 +1,14 @@
+@let selectedItem = selectedItem$() | async;
+
 <p-table [value]="items()" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template #header>
         <tr>
-            @for (column of columns(); track column.id) {
+            @if (selectedItem) {
+                <th>Selected</th>
+            } @else {
+                <th>Selected <app-badge-misc-component value="Nothing" severity="secondary"></app-badge-misc-component></th>
+            }
+            @for (column of columns(); track column.id; let index = $index) {
                 @if (column.isVisible) {
                     <th>{{ column.label }}</th>
                 }
@@ -11,6 +18,11 @@
     </ng-template>
     <ng-template #body let-item>
         <tr>
+            <td>
+                @if (selectedItem && selectedItem.id === item.id) {
+                    <app-badge-misc-component value="Selected" severity="secondary"></app-badge-misc-component>
+                }
+            </td>
             @for (column of columns(); track column.id) {
                 @if (column.isVisible) {
                     <td>{{ item[column.id] }}</td>
@@ -18,12 +30,21 @@
             }
             <td>
                 <div class="actions__buttons">
-                    <app-button-form-component
-                        label="Select"
-                        size="small"
-                        severity="secondary"
-                        (event)="onSelect(item)"
-                    ></app-button-form-component>
+                    @if (selectedItem && selectedItem.id === item.id) {
+                        <app-button-form-component
+                            label="Deselect"
+                            size="small"
+                            severity="secondary"
+                            (event)="onDeselect()"
+                        ></app-button-form-component>
+                    } @else {
+                        <app-button-form-component
+                            label="Select"
+                            size="small"
+                            severity="secondary"
+                            (event)="onSelect(item)"
+                        ></app-button-form-component>
+                    }
                     <app-button-form-component
                         label="Show"
                         size="small"

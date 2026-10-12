@@ -7,7 +7,9 @@
 <app-table-data-component
     [columns]="columns"
     [items]="items"
+    [selectedItem$]="selectedItem$"
     (onSelectEvent)="onSelectEvent($event)"
+    (onDeselectEvent)="onDeselectEvent()"
     (onShowEvent)="onShowEvent($event)"
     (onUpdateEvent)="onUpdateEvent($event)"
     (onDeleteEvent)="onDeleteEvent($event)"

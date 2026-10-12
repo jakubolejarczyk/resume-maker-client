@@ -136,6 +136,14 @@ export class BaseService<TModel extends BaseApiModel> {
         );
     }
 
+    deselectItem() {
+        return of(true).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(undefined))),
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
     selectItem(itemToSelect: TModel) {
         return of(true).pipe(
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),

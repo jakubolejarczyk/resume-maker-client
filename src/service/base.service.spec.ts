@@ -150,4 +150,18 @@ describe("Service", () => {
             tap(selectedItem => expect(selectedItem).toEqual({ id: 0, name: "Dog", order: 0 }))
         ).subscribe();
     });
+
+    it("Should correctly deselect item from the store.", () => {
+        service.deselectItem().pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
 });
