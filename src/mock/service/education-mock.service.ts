@@ -1,32 +1,11 @@
 import { Injectable } from "@angular/core";
 
-import { EducationMockModel } from "../model/domain/education-domain-mock.model";
 import { BaseMockService } from "./base-mock.service";
+import { EducationStoreDatabaseMockAction } from "../database/store/action/education-store-database-mock.action";
 
 @Injectable({ providedIn: "root" })
-export class EducationMockService extends BaseMockService<EducationMockModel> {
-    constructor() {
-        super([
-            {
-                id: 0,
-                startYear: 2017,
-                endYear: 2021,
-                fieldOfStudy: "Computer Science",
-                degree: "Bachelor of Engineering",
-                institutionName: "Jan Kochanowski University of Kielce",
-                order: 0,
-                resumeId: 0
-            },
-            {
-                id: 1,
-                startYear: 2024,
-                endYear: 2026,
-                fieldOfStudy: "Computer Science",
-                degree: "Master of Science",
-                institutionName: "Kielce University of Technology",
-                order: 1,
-                resumeId: 0
-            }
-        ]);
+export class EducationMockService extends BaseMockService {
+    delete(id: number) {
+        return this.store.dispatch(new EducationStoreDatabaseMockAction.Delete(id));
     }
 }

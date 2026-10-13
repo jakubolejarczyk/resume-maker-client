@@ -1,18 +1,11 @@
 import { Injectable } from "@angular/core";
 
-import { ResumeMockModel } from "../model/domain/resume-domain-mock.model";
 import { BaseMockService } from "./base-mock.service";
+import { ResumeStoreDatabaseMockAction } from "../database/store/action/resume-store-database-mock.action";
 
 @Injectable({ providedIn: "root" })
-export class ResumeMockService extends BaseMockService<ResumeMockModel> {
-    constructor() {
-        super([
-            {
-                id: 0,
-                name: "Resume Jakub Olejarczyk ENG",
-                order: 0,
-                userId: 0
-            }
-        ]);
+export class ResumeMockService extends BaseMockService {
+    delete(id: number) {
+        return this.store.dispatch(new ResumeStoreDatabaseMockAction.Delete(id));
     }
 }

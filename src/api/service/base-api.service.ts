@@ -1,7 +1,7 @@
 import { inject, ProviderToken } from "@angular/core";
 import { Observable, of } from "rxjs";
 
-import { BaseMockService } from "../../mock/service/base-mock.service";
+import { BaseMockService } from "../../mock/service/base-mock.service2";
 import { BaseApiModel } from "../model/base-api.model";
 import { ResponseApiModel } from "../model/response-api.model";
 

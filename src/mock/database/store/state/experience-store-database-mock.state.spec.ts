@@ -7,21 +7,21 @@ import { ExperienceStoreDatabaseMockAction } from "../action/experience-store-da
 import { EXPERIENCE_1 } from "../../const/experience-database-mock.const";
 
 describe("Experiences Database Mock Store", () => {
-    let store: Store;
+  let store: Store;
 
-    beforeEach(() => {
-      TestBed.configureTestingModule({
-        providers: [
-          provideStore([ExperienceStoreDatabaseMockState])
-        ]
-      });
-      store = TestBed.inject(Store);
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideStore([ExperienceStoreDatabaseMockState])
+      ]
     });
+    store = TestBed.inject(Store);
+  });
 
-    it("Should correctly delete the experiences with id 0.", () => {
-      store.dispatch(new ExperienceStoreDatabaseMockAction.Delete(0)).pipe(
-        switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
-        tap((users) => expect(users).toEqual([EXPERIENCE_1]))
-      ).subscribe();
-    });
+  it("Should correctly delete the experiences with id 0.", () => {
+    store.dispatch(new ExperienceStoreDatabaseMockAction.Delete(0)).pipe(
+      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
+      tap((users) => expect(users).toEqual([EXPERIENCE_1]))
+    ).subscribe();
+  });
 });
