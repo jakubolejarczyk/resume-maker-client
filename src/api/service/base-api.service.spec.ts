@@ -158,4 +158,124 @@ describe("Base Api Service", () => {
             });
         });
     });
+
+    it("Should return a success response when we want to move up the item with order 1.", () => {
+        service.moveUp({ id: 1, name: "Dog", order: 0 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: true,
+                message: "The item has been successfully moved up.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 1 },
+                    { id: 1, name: "Cat", order: 0 }
+                ]
+            });
+        });
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        service.moveUp({ id: 2, name: "Bird", order: 2 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: false,
+                message: "Failed to move up the item because it does not exist.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
+                ]
+            });
+        });
+    });
+
+    it("Should return an error response when we want to move up the item with order 0.", () => {
+        service.moveUp({ id: 0, name: "Dog", order: 0 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: false,
+                message: "Failed to move up the item because it is the first element.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
+                ]
+            });
+        });
+    });
+
+    it("Should return a success response when we want to move down the item with order 0.", () => {
+        service.moveDown({ id: 0, name: "Dog", order: 0 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: true,
+                message: "The item has been successfully moved down.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 1 },
+                    { id: 1, name: "Cat", order: 0 }
+                ]
+            });
+        });
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        service.moveDown({ id: 2, name: "Bird", order: 2 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: false,
+                message: "Failed to move down the item because it does not exist.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
+                ]
+            });
+        });
+    });
+
+    it("Should return an error response when we want to move down the last item.", () => {
+        service.moveDown({ id: 1, name: "Cat", order: 1 }).subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<undefined>>({
+                success: false,
+                message: "Failed to move down the item because it is the last element.",
+                body: undefined
+            });
+        });
+        service.readAll().subscribe(response => {
+            expect(response).toEqual<ResponseApiModel<AnimalApiModel[]>>({
+                success: true,
+                message: "Successfully retrieved all items.",
+                body: [
+                    { id: 0, name: "Dog", order: 0 },
+                    { id: 1, name: "Cat", order: 1 }
+                ]
+            });
+        });
+    });
 });

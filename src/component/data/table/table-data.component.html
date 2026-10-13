@@ -1,84 +1,88 @@
 @let selectedItem = selectedItem$() | async;
+@let items = items$() | async;
+@let columns = columns$() | async;
 
-<p-table [value]="items()" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template #header>
-        <tr>
-            @if (selectedItem) {
-                <th>Selected</th>
-            } @else {
-                <th>Selected <app-badge-misc-component value="Nothing" severity="secondary"></app-badge-misc-component></th>
-            }
-            @for (column of columns(); track column.id; let index = $index) {
-                @if (column.isVisible) {
-                    <th>{{ column.label }}</th>
+@if (items && columns) {
+    <p-table [value]="items" showGridlines [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template #header>
+            <tr>
+                @if (selectedItem) {
+                    <th>Selected</th>
+                } @else {
+                    <th>Selected <app-badge-misc-component value="Nothing" severity="secondary"></app-badge-misc-component></th>
                 }
-            }
-            <th>Actions</th>
-        </tr>
-    </ng-template>
-    <ng-template #body let-item>
-        <tr>
-            <td>
-                @if (selectedItem && selectedItem.id === item.id) {
-                    <app-badge-misc-component value="Selected" severity="secondary"></app-badge-misc-component>
-                }
-            </td>
-            @for (column of columns(); track column.id) {
-                @if (column.isVisible) {
-                    <td>{{ item[column.id] }}</td>
-                }
-            }
-            <td>
-                <div class="actions__buttons">
-                    @if (selectedItem && selectedItem.id === item.id) {
-                        <app-button-form-component
-                            label="Deselect"
-                            size="small"
-                            severity="secondary"
-                            (event)="onDeselect()"
-                        ></app-button-form-component>
-                    } @else {
-                        <app-button-form-component
-                            label="Select"
-                            size="small"
-                            severity="secondary"
-                            (event)="onSelect(item)"
-                        ></app-button-form-component>
+                @for (column of columns; track column.id; let index = $index) {
+                    @if (column.isVisible) {
+                        <th>{{ column.label }}</th>
                     }
-                    <app-button-form-component
-                        label="Show"
-                        size="small"
-                        severity="secondary"
-                        (event)="onShow(item)"
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Update"
-                        size="small"
-                        severity="secondary"
-                        (event)="onUpdate(item)"
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Delete"
-                        size="small"
-                        severity="secondary"
-                        (event)="onDelete(item)"
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Move up"
-                        size="small"
-                        severity="secondary"
-                        [disabled]="isFirstItem(item)"
-                        (event)="onMoveUp(item)"
-                    ></app-button-form-component>
-                    <app-button-form-component
-                        label="Move down"
-                        size="small"
-                        severity="secondary"
-                        [disabled]="isLastItem(item)"
-                        (event)="onMoveDown(item)"
-                    ></app-button-form-component>
-                </div>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+                }
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-item>
+            <tr>
+                <td>
+                    @if (selectedItem && selectedItem.id === item.id) {
+                        <app-badge-misc-component value="Selected" severity="secondary"></app-badge-misc-component>
+                    }
+                </td>
+                @for (column of columns; track column.id) {
+                    @if (column.isVisible) {
+                        <td>{{ item[column.id] }}</td>
+                    }
+                }
+                <td>
+                    <div class="actions__buttons">
+                        @if (selectedItem && selectedItem.id === item.id) {
+                            <app-button-form-component
+                                label="Deselect"
+                                size="small"
+                                severity="secondary"
+                                (event)="onDeselect()"
+                            ></app-button-form-component>
+                        } @else {
+                            <app-button-form-component
+                                label="Select"
+                                size="small"
+                                severity="secondary"
+                                (event)="onSelect(item)"
+                            ></app-button-form-component>
+                        }
+                        <app-button-form-component
+                            label="Show"
+                            size="small"
+                            severity="secondary"
+                            (event)="onShow(item)"
+                        ></app-button-form-component>
+                        <app-button-form-component
+                            label="Update"
+                            size="small"
+                            severity="secondary"
+                            (event)="onUpdate(item)"
+                        ></app-button-form-component>
+                        <app-button-form-component
+                            label="Delete"
+                            size="small"
+                            severity="secondary"
+                            (event)="onDelete(item)"
+                        ></app-button-form-component>
+                        <app-button-form-component
+                            label="Move up"
+                            size="small"
+                            severity="secondary"
+                            [disabled]="false"
+                            (event)="onMoveUp(item)"
+                        ></app-button-form-component>
+                        <app-button-form-component
+                            label="Move down"
+                            size="small"
+                            severity="secondary"
+                            [disabled]="false"
+                            (event)="onMoveDown(item)"
+                        ></app-button-form-component>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+}

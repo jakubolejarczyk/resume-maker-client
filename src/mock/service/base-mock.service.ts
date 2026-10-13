@@ -94,4 +94,84 @@ export class BaseMockService<TModel extends BaseMockModel> {
         };
         return response;
     }
+
+    moveUp(id: number): ResponseMockModel<undefined> {
+        const itemToMoveUp = this.items.find(item => item.id === id);
+        if (itemToMoveUp === undefined) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move up the item because it does not exist.",
+                body: undefined
+            };
+            return response;
+        }
+        if (itemToMoveUp.order === 0) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move up the item because it is the first element.",
+                body: undefined
+            };
+            return response;
+        }
+        const prevOrder = itemToMoveUp.order - 1;
+        const prevItem = this.items.find(item => item.order === prevOrder);
+        if (prevItem === undefined) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move up the item because the previous item does not exist.",
+                body: undefined
+            };
+            return response;
+        }
+        prevItem.order = itemToMoveUp.order;
+        itemToMoveUp.order = prevOrder;
+        const response: ResponseMockModel<undefined> = {
+            success: true,
+            message: "The item has been successfully moved up.",
+            body: undefined
+        };
+        return response;
+    }
+
+    moveDown(id: number): ResponseMockModel<undefined> {
+        const itemToMoveDown = this.items.find(item => item.id === id);
+        if (itemToMoveDown === undefined) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move down the item because it does not exist.",
+                body: undefined
+            };
+            return response;
+        }
+        const lastOrder = this.items.reduce((acc, curr) => {
+            acc = curr.order > acc ? curr.order : acc;
+            return acc;
+        }, 0);
+        if (itemToMoveDown.order === lastOrder) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move down the item because it is the last element.",
+                body: undefined
+            };
+            return response;
+        }
+        const nextOrder = itemToMoveDown.order + 1;
+        const nextItem = this.items.find(item => item.order === nextOrder);
+        if (nextItem === undefined) {
+            const response: ResponseMockModel<undefined> = {
+                success: false,
+                message: "Failed to move down the item because the next item does not exist.",
+                body: undefined
+            };
+            return response;
+        }
+        nextItem.order = itemToMoveDown.order;
+        itemToMoveDown.order = nextOrder;
+        const response: ResponseMockModel<undefined> = {
+            success: true,
+            message: "The item has been successfully moved down.",
+            body: undefined
+        };
+        return response;
+    }
 }

@@ -1,18 +1,17 @@
 import { ChangeDetectorRef, Component, inject, Injector, input, OnDestroy, OnInit } from "@angular/core";
-import { combineLatest, map, Observable, of, Subscription, switchMap } from "rxjs";
+import { Observable, of, Subscription } from "rxjs";
 
 import { TableDataComponent } from "../../data/table/table-data.component";
 import { BaseApiModel } from "../../../api/model/base-api.model";
 import { BaseService } from "../../../service/base.service";
 import { BaseStoreModel } from "../../../store/model/base-store.model";
-import { DialogOverlayComponent } from "../../overlay/dialog/dialog-overlay.component";
 import { ToolbarPanelComponent } from "../../panel/toolbar/toolbar-panel.component";
 import { ConfirmationUtil } from "../../../util/confirmation.util";
 
 @Component({
     selector: "app-domain-view-component",
     templateUrl: "./domain-view.component.html",
-    imports: [TableDataComponent, DialogOverlayComponent, ToolbarPanelComponent]
+    imports: [TableDataComponent, ToolbarPanelComponent]
 })
 export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit, OnDestroy {
     private readonly cdr = inject(ChangeDetectorRef);
@@ -24,27 +23,20 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     baseServiceType = input.required<typeof BaseService<TModel>>();
 
-    columns: BaseStoreModel<TModel>["columns"] = [];
-    items: BaseApiModel[] = [];
-
     label = "";
     item: TModel | undefined;
 
     selectedItem$: Observable<BaseApiModel | undefined> = of(undefined);
+    items$: Observable<BaseApiModel[]> = of([]);
+    columns$: Observable<BaseStoreModel<TModel>["columns"]> = of([]);
 
     ngOnInit() {
         this.baseService = this.injector.get(this.baseServiceType());
-        this.selectedItem$ = this.baseService.getSelectedItem();
-        this.sub = this.baseService.readAll().pipe(
-            switchMap(() => combineLatest({
-                columns: this.baseService.getColumns(),
-                items: this.baseService.getItems()
-            })),
-            map(({ columns, items }) => {
-                this.columns = columns;
-                this.items = items;
-            })
-        ).subscribe();
+        this.sub = this.baseService.readAll().subscribe(() => {
+            this.selectedItem$ = this.baseService.getSelectedItem();
+            this.items$ = this.baseService.getItems();
+            this.columns$ = this.baseService.getColumns();
+        });
     }
 
     ngOnDestroy() {
@@ -69,8 +61,6 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
 
     onUpdateEvent(item: TModel) {
         console.log("update", item);
-        // this.label = "Update";
-        // this.item = item;
     }
 
     onDeleteEvent(item: TModel) {
@@ -82,16 +72,16 @@ export class DomainViewComponent<TModel extends BaseApiModel> implements OnInit,
     }
 
     onMoveUpEvent(item: TModel) {
-        console.log("move up", item);
+        this.baseService.moveUp(item).subscribe(() => {
+            this.cdr.markForCheck();
+        });
     }
 
     onMoveDownEvent(item: TModel) {
-        console.log("move down", item);
+        this.baseService.moveDown(item).subscribe();
     }
 
     onDelete(item: TModel) {
-        this.baseService.delete(item).subscribe(() => {
-            this.cdr.markForCheck()
-        });
+        this.baseService.delete(item).subscribe();
     }
 }

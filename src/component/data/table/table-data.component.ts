@@ -15,10 +15,9 @@ import { BadgeMiscComponent } from "../../misc/badge/badge-misc.component";
     imports: [TableModule, ButtonFormComponent, BadgeMiscComponent, AsyncPipe]
 })
 export class TableDataComponent<TModel extends BaseApiModel> {
-    columns = input.required<BaseStoreModel<TModel>["columns"]>();
-    items = input.required<BaseApiModel[]>();
-
+    items$ = input.required<Observable<BaseApiModel[]>>();
     selectedItem$ = input.required<Observable<BaseApiModel | undefined>>();
+    columns$ = input.required<Observable<BaseStoreModel<TModel>["columns"]>>();
 
     onSelectEvent = output<TModel>();
     onDeselectEvent = output();
@@ -54,13 +53,5 @@ export class TableDataComponent<TModel extends BaseApiModel> {
 
     onMoveDown(item: TModel) {
         this.onMoveDownEvent.emit(item);
-    }
-
-    isFirstItem(item: TModel) {
-        return item.order === 0;
-    }
-
-    isLastItem(item: TModel) {
-        return item.order === this.items()[this.items().length - 1].order;
     }
 }

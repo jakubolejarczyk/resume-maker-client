@@ -3,6 +3,7 @@ import { applicationConfig, Meta, StoryObj } from "@storybook/angular";
 import { getStorybookProvider } from "../../../config/provider.config";
 import { AnimalApiModel } from "../../../api/model/animal-api.model";
 import { TableDataComponent } from "./table-data.component";
+import { of } from "rxjs";
 
 const meta: Meta<TableDataComponent<AnimalApiModel>> = {
     title: "component/data/table",
@@ -15,7 +16,7 @@ type Story = StoryObj<TableDataComponent<AnimalApiModel>>;
 
 export const Default: Story = {
     args: {
-        columns: [
+        columns$: of([
             {
                 id: "id",
                 label: "Id",
@@ -30,8 +31,8 @@ export const Default: Story = {
                 isEditable: true,
                 type: "string"
             }
-        ],
-        items: [
+        ]),
+        items$: of([
             {
                 id: 0,
                 order: 0
@@ -40,6 +41,6 @@ export const Default: Story = {
                 id: 1,
                 order: 1
             }
-        ]
+        ])
     }
 };

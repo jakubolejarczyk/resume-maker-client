@@ -127,4 +127,100 @@ describe("Base Mock Service", () => {
             ]
         });
     });
+
+    it("Should return a success response when we want to move up the item with order 1.", () => {
+        expect(service.moveUp(1)).toEqual<ResponseMockModel<undefined>>({
+            success: true,
+            message: "The item has been successfully moved up.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 1 },
+                { id: 1, name: "Cat", order: 0 }
+            ]
+        });
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        expect(service.moveUp(2)).toEqual<ResponseMockModel<undefined>>({
+            success: false,
+            message: "Failed to move up the item because it does not exist.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ]
+        });
+    });
+
+    it("Should return an error response when we want to move up the item with order 0.", () => {
+        expect(service.moveUp(0)).toEqual<ResponseMockModel<undefined>>({
+            success: false,
+            message: "Failed to move up the item because it is the first element.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ]
+        });
+    });
+
+    it("Should return a success response when we want to move down the item with order 0.", () => {
+        expect(service.moveDown(0)).toEqual<ResponseMockModel<undefined>>({
+            success: true,
+            message: "The item has been successfully moved down.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 1 },
+                { id: 1, name: "Cat", order: 0 }
+            ]
+        });
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        expect(service.moveDown(2)).toEqual<ResponseMockModel<undefined>>({
+            success: false,
+            message: "Failed to move down the item because it does not exist.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ]
+        });
+    });
+
+    it("Should return an error response when we want to move down the last item.", () => {
+        expect(service.moveDown(1)).toEqual<ResponseMockModel<undefined>>({
+            success: false,
+            message: "Failed to move down the item because it is the last element.",
+            body: undefined
+        });
+        expect(service.readAll()).toEqual<ResponseMockModel<AnimalMockModel[]>>({
+            success: true,
+            message: "Successfully retrieved all items.",
+            body: [
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ]
+        });
+    });
 });

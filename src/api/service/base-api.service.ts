@@ -28,7 +28,15 @@ export class BaseApiService<TModel extends BaseApiModel> {
         return of(this.baseMockService.update(itemToUpdate));
     }
 
-    delete(itemToDelete: TModel): Observable<ResponseApiModel<TModel | undefined>> {
+    delete(itemToDelete: TModel): Observable<ResponseApiModel<undefined>> {
         return of(this.baseMockService.delete(itemToDelete.id));
+    }
+
+    moveUp(itemToMoveUp: TModel): Observable<ResponseApiModel<undefined>> {
+        return of(this.baseMockService.moveUp(itemToMoveUp.id));
+    }
+
+    moveDown(itemToMoveDown: TModel): Observable<ResponseApiModel<undefined>> {
+        return of(this.baseMockService.moveDown(itemToMoveDown.id));
     }
 }

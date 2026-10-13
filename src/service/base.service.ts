@@ -44,7 +44,9 @@ export class BaseService<TModel extends BaseApiModel> {
     }
 
     getItems() {
-        return this.store.select(this.baseGetItems);
+        return this.store.select(this.baseGetItems).pipe(
+            map(items => items.sort((prev, next) => prev.order - next.order))
+        );
     }
 
     getSelectedItem() {
@@ -149,6 +151,28 @@ export class BaseService<TModel extends BaseApiModel> {
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
             switchMap(() => this.store.dispatch(new this.baseSetSelectedItem(itemToSelect))),
             switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false)))
+        );
+    }
+
+    moveUp(itemToMoveUp: TModel) {
+        return of(void 0).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.moveUp(itemToMoveUp)),
+            switchMap(response => this.readAllItems().pipe(map(() => response))),
+            switchMap(response => this.getItems().pipe(map(() => response))),
+            // switchMap(response => this.deselectNotExistedItem().pipe(map(() => response))),
+            switchMap(response => this.store.dispatch(new this.baseSetIsLoading(false)).pipe(map(() => response)))
+        );
+    }
+
+    moveDown(itemToMoveDown: TModel) {
+        return of(void 0).pipe(
+            switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
+            switchMap(() => this.baseApiService.moveDown(itemToMoveDown)),
+            switchMap(response => this.readAllItems().pipe(map(() => response))),
+            switchMap(response => this.getItems().pipe(map(() => response))),
+            // switchMap(response => this.deselectNotExistedItem().pipe(map(() => response))),
+            switchMap(response => this.store.dispatch(new this.baseSetIsLoading(false)).pipe(map(() => response)))
         );
     }
 

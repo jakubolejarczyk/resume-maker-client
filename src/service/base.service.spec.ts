@@ -164,4 +164,88 @@ describe("Service", () => {
             tap(selectedItem => expect(selectedItem).toBeUndefined())
         ).subscribe();
     });
+
+    it("Should return a success response when we want to move up the item with order 1.", () => {
+        service.moveUp({ id: 1, name: "Dog", order: 0 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 1 },
+                { id: 1, name: "Cat", order: 0 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        service.moveUp({ id: 2, name: "Bird", order: 2 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should return an error response when we want to move up the item with order 0.", () => {
+        service.moveUp({ id: 0, name: "Dog", order: 0 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should return a success response when we want to move down the item with order 0.", () => {
+        service.moveDown({ id: 0, name: "Dog", order: 0 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 1 },
+                { id: 1, name: "Cat", order: 0 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should return an error response when we want to move up the item out of the range.", () => {
+        service.moveDown({ id: 2, name: "Bird", order: 2 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
+
+    it("Should return an error response when we want to move down the last item.", () => {
+        service.moveDown({ id: 1, name: "Cat", order: 1 }).pipe(
+            switchMap(() => service.getIsLoading()),
+            tap(isLoading => expect(isLoading).toBeFalsy()),
+            switchMap(() => service.getItems()),
+            tap(items => expect(items).toEqual([
+                { id: 0, name: "Dog", order: 0 },
+                { id: 1, name: "Cat", order: 1 }
+            ])),
+            switchMap(() => service.getSelectedItem()),
+            tap(selectedItem => expect(selectedItem).toBeUndefined())
+        ).subscribe();
+    });
 });
