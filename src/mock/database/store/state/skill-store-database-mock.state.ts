@@ -1,69 +1,21 @@
-import { Action, State, StateContext } from "@ngxs/store";
+import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { SkillStoreDatabaseMockModel } from "../model/skill-store-database-mock.model";
 import { SkillStoreDatabaseMockAction } from "../action/skill-store-database-mock.action";
+import { SKILL_0, SKILL_1, SKILL_2, SKILL_3 } from "../../const/skill-database-mock.const";
 
 @State<SkillStoreDatabaseMockModel>({
   name: "skillStoreDatabaseMockState",
-  defaults: [
-    {
-      id: 0,
-      order: 0,
-      parentId: 0,
-      category: "Programming Language",
-      skills: [
-        "JavaScript",
-        "TypeScript",
-        "C#"
-      ]
-    },
-    {
-      id: 1,
-      order: 1,
-      parentId: 0,
-      category: "Frontend",
-      skills: [
-        "HTML",
-        "CSS",
-        "SASS",
-        "Angular",
-        "RxJS",
-        "NGXS",
-        "PrimeNG",
-        "Storybook"
-      ]
-    },
-    {
-      id: 2,
-      order: 2,
-      parentId: 0,
-      category: "Developer Tools",
-      skills: [
-        "Git",
-        "Node.js",
-        "npm",
-        "Vitest",
-        "ESLint",
-        "typescript-eslint",
-        "Visual Studio",
-        "Microsoft Visual Studio Code"
-      ]
-    },
-    {
-      id: 3,
-      order: 3,
-      parentId: 0,
-      category: "Languages",
-      skills: [
-        "English",
-        "Polish"
-      ]
-    }
-  ]
+  defaults: [SKILL_0, SKILL_1, SKILL_2, SKILL_3]
 })
 @Injectable({ providedIn: "root" })
 export class SkillStoreDatabaseMockState {
+  @Selector()
+  static getSkills(state: SkillStoreDatabaseMockModel) {
+    return state;
+  }
+  
   @Action(SkillStoreDatabaseMockAction.Delete)
   delete(context: StateContext<SkillStoreDatabaseMockModel>, action: SkillStoreDatabaseMockAction.Delete) {
     const state = context.getState();

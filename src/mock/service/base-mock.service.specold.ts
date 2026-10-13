@@ -1,4 +1,4 @@
-import { AnimalMockService } from "../service/animal-mock.service";
+import { AnimalMockService } from "./animal-mock.service";
 import { AnimalMockModel } from "../model/animal-mock.model";
 import { ResponseMockModel } from "../model/response-mock.model";
 import { BaseMockService } from "./base-mock.service";
