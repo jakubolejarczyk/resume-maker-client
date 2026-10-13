@@ -1,5 +1,5 @@
-import { BaseMockModel } from "../model/base-mock.model";
-import { ResponseMockModel } from "../model/response-mock.model";
+import { BaseMockModel } from "../model/domain/base-mock.model";
+import { ResponseMockModel } from "../model/response/response-mock.model";
 
 export class BaseMockService<TModel extends BaseMockModel> {
     nextId = 0;

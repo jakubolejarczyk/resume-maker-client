@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { UserMockModel } from "../model/user-mock.model";
+import { UserMockModel } from "../model/domain/user-domain-mock.model";
 import { BaseMockService } from "./base-mock.service";
 
 @Injectable({ providedIn: "root" })

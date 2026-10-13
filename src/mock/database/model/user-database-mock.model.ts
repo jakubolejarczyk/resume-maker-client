@@ -1,6 +1,6 @@
-import { BaseMockModel } from "./base-mock.model";
+import { CommonBaseDatabaseMockModel } from "./base-database-mock.model";
 
-export interface UserMockModel extends BaseMockModel {
+export interface UserDatabaseMockModel extends CommonBaseDatabaseMockModel {
     firstName: string;
     lastName: string;
     jobTitle: string;

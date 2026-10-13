@@ -25,7 +25,8 @@ export default defineConfig(
   {
     files: ["./src/**/*.action.{js,ts}"],
     rules: {
-      "@typescript-eslint/no-namespace": "off"
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-extraneous-class": "off"
     }
   }
 );

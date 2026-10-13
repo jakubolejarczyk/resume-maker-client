@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { BaseMockService } from "./base-mock.service";
-import { AnimalMockModel } from "../model/animal-mock.model";
+import { AnimalMockModel } from "../model/domain/animal-mock.model";
 
 @Injectable()
 export class AnimalMockService extends BaseMockService<AnimalMockModel> {
