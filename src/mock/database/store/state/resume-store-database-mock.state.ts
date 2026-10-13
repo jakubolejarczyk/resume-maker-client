@@ -1,7 +1,8 @@
-import { State } from "@ngxs/store";
+import { Action, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { ResumeStoreDatabaseMockModel } from "../model/resume-store-database-mock.model";
+import { ResumeStoreDatabaseMockAction } from "../action/resume-store-database-mock.action";
 
 @State<ResumeStoreDatabaseMockModel>({
   name: "resumeStoreDatabaseMockState",
@@ -15,5 +16,11 @@ import { ResumeStoreDatabaseMockModel } from "../model/resume-store-database-moc
   ]
 })
 @Injectable({ providedIn: "root" })
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class ResumeStoreDatabaseMockState {}
+export class ResumeStoreDatabaseMockState {
+  @Action(ResumeStoreDatabaseMockAction.Delete)
+  delete(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.Delete) {
+    const state = context.getState();
+    const newState = state.filter(resume => resume.id !== action.id);
+    context.setState(newState);
+  }
+}

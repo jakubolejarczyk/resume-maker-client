@@ -1,7 +1,8 @@
-import { State } from "@ngxs/store";
+import { Action, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { SkillStoreDatabaseMockModel } from "../model/skill-store-database-mock.model";
+import { SkillStoreDatabaseMockAction } from "../action/skill-store-database-mock.action";
 
 @State<SkillStoreDatabaseMockModel>({
   name: "skillStoreDatabaseMockState",
@@ -62,5 +63,11 @@ import { SkillStoreDatabaseMockModel } from "../model/skill-store-database-mock.
   ]
 })
 @Injectable({ providedIn: "root" })
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class SkillStoreDatabaseMockState {}
+export class SkillStoreDatabaseMockState {
+  @Action(SkillStoreDatabaseMockAction.Delete)
+  delete(context: StateContext<SkillStoreDatabaseMockModel>, action: SkillStoreDatabaseMockAction.Delete) {
+    const state = context.getState();
+    const newState = state.filter(skill => skill.id !== action.id);
+    context.setState(newState);
+  }
+}
