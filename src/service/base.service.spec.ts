@@ -166,13 +166,13 @@ describe("Service", () => {
     });
 
     it("Should return a success response when we want to move up the item with order 1.", () => {
-        service.moveUp({ id: 1, name: "Dog", order: 0 }).pipe(
+        service.moveUp({ id: 1, name: "Cat", order: 1 }).pipe(
             switchMap(() => service.getIsLoading()),
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog", order: 1 },
-                { id: 1, name: "Cat", order: 0 }
+                { id: 1, name: "Cat", order: 0 },
+                { id: 0, name: "Dog", order: 1 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
@@ -213,8 +213,8 @@ describe("Service", () => {
             tap(isLoading => expect(isLoading).toBeFalsy()),
             switchMap(() => service.getItems()),
             tap(items => expect(items).toEqual([
-                { id: 0, name: "Dog", order: 1 },
-                { id: 1, name: "Cat", order: 0 }
+                { id: 1, name: "Cat", order: 0 },
+                { id: 0, name: "Dog", order: 1 }
             ])),
             switchMap(() => service.getSelectedItem()),
             tap(selectedItem => expect(selectedItem).toBeUndefined())
