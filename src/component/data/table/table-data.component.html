@@ -70,16 +70,19 @@
                             label="Move up"
                             size="small"
                             severity="secondary"
-                            [disabled]="false"
+                            [disabled]="checkIsFirstItem(item)"
                             (event)="onMoveUp(item)"
                         ></app-button-form-component>
-                        <app-button-form-component
-                            label="Move down"
-                            size="small"
-                            severity="secondary"
-                            [disabled]="false"
-                            (event)="onMoveDown(item)"
-                        ></app-button-form-component>
+                        @let isLastItem = checkIsLastItem(item) | async;
+                        @if (isLastItem !== null) {
+                            <app-button-form-component
+                                label="Move down"
+                                size="small"
+                                severity="secondary"
+                                [disabled]="isLastItem"
+                                (event)="onMoveDown(item)"
+                            ></app-button-form-component>
+                        }
                     </div>
                 </td>
             </tr>

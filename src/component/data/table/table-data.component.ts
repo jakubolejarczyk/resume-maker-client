@@ -1,6 +1,6 @@
 import { Component, input, output } from "@angular/core";
 import { TableModule } from 'primeng/table';
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { AsyncPipe } from "@angular/common";
 
 import { ButtonFormComponent } from "../../form/button/button-form.component";
@@ -53,5 +53,16 @@ export class TableDataComponent<TModel extends BaseApiModel> {
 
     onMoveDown(item: TModel) {
         this.onMoveDownEvent.emit(item);
+    }
+
+    checkIsFirstItem(item: TModel) {
+        return item.order === 0;
+    }
+
+    checkIsLastItem(item: TModel) {
+        return this.items$().pipe(
+            map(items => items.sort((prev, next) => next.order - prev.order)[0]),
+            map(lastItem => lastItem.id === item.id)
+        );
     }
 }
