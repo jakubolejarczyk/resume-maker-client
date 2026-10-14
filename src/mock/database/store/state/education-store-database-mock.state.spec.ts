@@ -24,7 +24,7 @@ describe("Education Database Mock State", () => {
     store.dispatch(new EducationStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
-        EducationDatabaseMockConst.EDUCATION_PERSONAL_1,
+        { ...EducationDatabaseMockConst.EDUCATION_PERSONAL_1, order: 0 },
         EducationDatabaseMockConst.EDUCATION_TEST_2
       ]))
     ).subscribe();

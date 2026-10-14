@@ -14,9 +14,21 @@ export class BaseStoreDatabaseMockState<
 
   protected baseDeleteByIds<TAction extends BaseStoreDatabaseMockAction.DeleteByIds>(context: StateContext<TStateContext>, action: TAction) {
     const currentState = context.getState();
-    const newState: TStateContext = {
-      items: currentState.items.filter(item => !action.ids.includes(item.id))
-    } as TStateContext;
+    const items = currentState.items
+      .map(items => ({ ...items }))
+      .filter(item => !action.ids.includes(item.id))
+      .reduce((acc, curr) => {
+        const key = curr.parentId;
+        const group = acc.get(key) ?? [];
+        group.push(curr);
+        acc.set(key, group);
+        return acc;
+      }, new Map<number | undefined, typeof currentState.items[number][]>());
+    items.forEach(group => {
+      group.forEach((item, index) => item.order = index);
+    });
+    const result = Array.from(items.values()).flat();
+    const newState: TStateContext = { items: result } as TStateContext;
     context.setState(newState);
   }
 

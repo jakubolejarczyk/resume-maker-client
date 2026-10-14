@@ -24,7 +24,7 @@ describe("User Database Mock State", () => {
     store.dispatch(new UserStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(UserStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
-        UserDatabaseMockConst.USER_TEST_1
+        { ...UserDatabaseMockConst.USER_TEST_1, order: 0 }
       ]))
     ).subscribe();
   });

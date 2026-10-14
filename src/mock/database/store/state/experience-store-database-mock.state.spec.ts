@@ -24,7 +24,7 @@ describe("Experience Database Mock State", () => {
     store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
-        ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_1,
+        { ...ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_1, order: 0 },
         ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
       ]))
     ).subscribe();

@@ -24,9 +24,9 @@ describe("Skill Database Mock State", () => {
     store.dispatch(new SkillStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
-        SkillDatabaseMockConst.SKILL_PERSONAL_1,
-        SkillDatabaseMockConst.SKILL_PERSONAL_2,
-        SkillDatabaseMockConst.SKILL_PERSONAL_3,
+        { ...SkillDatabaseMockConst.SKILL_PERSONAL_1, order: 0 },
+        { ...SkillDatabaseMockConst.SKILL_PERSONAL_2, order: 1 },
+        { ...SkillDatabaseMockConst.SKILL_PERSONAL_3, order: 2 },
         SkillDatabaseMockConst.SKILL_TEST_4,
         SkillDatabaseMockConst.SKILL_TEST_5
       ]))
