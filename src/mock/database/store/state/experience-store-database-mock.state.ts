@@ -3,11 +3,15 @@ import { Injectable } from "@angular/core";
 
 import { ExperienceStoreDatabaseMockModel } from "../model/experience-store-database-mock.model";
 import { ExperienceStoreDatabaseMockAction } from "../action/experience-store-database-mock.action";
-import { EXPERIENCE_0, EXPERIENCE_1 } from "../../const/experience-database-mock.const";
+import { ExperienceDatabaseMockConst } from "../../const/experience-database-mock.const";
 
 @State<ExperienceStoreDatabaseMockModel>({
   name: "experienceStoreDatabaseMockState",
-  defaults: [EXPERIENCE_0, EXPERIENCE_1]
+  defaults: [
+    ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_0,
+    ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_1,
+    ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
+  ]
 })
 @Injectable({ providedIn: "root" })
 export class ExperienceStoreDatabaseMockState {

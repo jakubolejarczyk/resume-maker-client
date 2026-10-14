@@ -3,11 +3,14 @@ import { Injectable } from "@angular/core";
 
 import { UserStoreDatabaseMockModel } from "../model/user-store-database-mock.model";
 import { UserStoreDatabaseMockAction } from "../action/user-store-database-mock.action";
-import { USER_0 } from "../../const/user-database-mock.const";
+import { UserDatabaseMockConst } from "../../const/user-database-mock.const";
 
 @State<UserStoreDatabaseMockModel>({
   name: "userStoreDatabaseMockState",
-  defaults: [USER_0]
+  defaults: [
+    UserDatabaseMockConst.USER_PERSONAL_0,
+    UserDatabaseMockConst.USER_TEST_1
+  ]
 })
 @Injectable({ providedIn: "root" })
 export class UserStoreDatabaseMockState {

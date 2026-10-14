@@ -3,11 +3,14 @@ import { Injectable } from "@angular/core";
 
 import { ResumeStoreDatabaseMockModel } from "../model/resume-store-database-mock.model";
 import { ResumeStoreDatabaseMockAction } from "../action/resume-store-database-mock.action";
-import { RESUME_0 } from "../../const/resume-database-mock.const";
+import { ResumeDatabaseMockConst } from "../../const/resume-database-mock.const";
 
 @State<ResumeStoreDatabaseMockModel>({
   name: "resumeStoreDatabaseMockState",
-  defaults: [RESUME_0]
+  defaults: [
+    ResumeDatabaseMockConst.RESUME_PERSONAL_0,
+    ResumeDatabaseMockConst.RESUME_TEST_1
+  ]
 })
 @Injectable({ providedIn: "root" })
 export class ResumeStoreDatabaseMockState {

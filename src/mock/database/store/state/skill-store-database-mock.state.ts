@@ -3,11 +3,18 @@ import { Injectable } from "@angular/core";
 
 import { SkillStoreDatabaseMockModel } from "../model/skill-store-database-mock.model";
 import { SkillStoreDatabaseMockAction } from "../action/skill-store-database-mock.action";
-import { SKILL_0, SKILL_1, SKILL_2, SKILL_3 } from "../../const/skill-database-mock.const";
+import { SkillDatabaseMockConst } from "../../const/skill-database-mock.const";
 
 @State<SkillStoreDatabaseMockModel>({
   name: "skillStoreDatabaseMockState",
-  defaults: [SKILL_0, SKILL_1, SKILL_2, SKILL_3]
+  defaults: [
+    SkillDatabaseMockConst.SKILL_PERSONAL_0,
+    SkillDatabaseMockConst.SKILL_PERSONAL_1,
+    SkillDatabaseMockConst.SKILL_PERSONAL_2,
+    SkillDatabaseMockConst.SKILL_PERSONAL_3,
+    SkillDatabaseMockConst.SKILL_TEST_4,
+    SkillDatabaseMockConst.SKILL_TEST_5
+  ]
 })
 @Injectable({ providedIn: "root" })
 export class SkillStoreDatabaseMockState {

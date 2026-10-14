@@ -3,11 +3,15 @@ import { Injectable } from "@angular/core";
 
 import { EducationStoreDatabaseMockModel } from "../model/education-store-database-mock.model";
 import { EducationStoreDatabaseMockAction } from "../action/education-store-database-mock.action";
-import { EDUCATION_0, EDUCATION_1 } from "../../const/education-database-mock.const";
+import { EducationDatabaseMockConst } from "../../const/education-database-mock.const";
 
 @State<EducationStoreDatabaseMockModel>({
   name: "educationStoreDatabaseMockState",
-  defaults: [EDUCATION_0, EDUCATION_1]
+  defaults: [
+    EducationDatabaseMockConst.EDUCATION_PERSONAL_0,
+    EducationDatabaseMockConst.EDUCATION_PERSONAL_1,
+    EducationDatabaseMockConst.EDUCATION_TEST_2
+  ]
 })
 @Injectable({ providedIn: "root" })
 export class EducationStoreDatabaseMockState {

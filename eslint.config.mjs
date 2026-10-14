@@ -14,10 +14,7 @@ export default defineConfig(
       js.configs.recommended,
       tseslint.configs.strict,
       tseslint.configs.stylistic,
-    ]
-  },
-  {
-    files: ["./src/**/*.component.{js,ts}"],
+    ],
     rules: {
       "@typescript-eslint/no-extraneous-class": "off"
     }
@@ -25,8 +22,7 @@ export default defineConfig(
   {
     files: ["./src/**/*.action.{js,ts}"],
     rules: {
-      "@typescript-eslint/no-namespace": "off",
-      "@typescript-eslint/no-extraneous-class": "off"
+      "@typescript-eslint/no-namespace": "off"
     }
   }
 );
