@@ -1,15 +1,13 @@
+import { BaseStoreDatabaseMockAction } from "./base-store-database-mock.action";
+
 export namespace ResumeStoreDatabaseMockAction {
-    const ACTION_TYPE = "[ResumeStoreDatabaseMockAction]";
+    const ACTION_TYPE = "ResumeStoreDatabaseMockAction";
 
-    export class DeleteByIds {
-        static readonly type = `${ACTION_TYPE} DeleteByIds`;
-
-        constructor(public ids: number[]) {}
+    export class DeleteByIds extends BaseStoreDatabaseMockAction.DeleteByIds {
+        static readonly type = BaseStoreDatabaseMockAction.DeleteByIds.buildActionType(ACTION_TYPE);
     }
 
-    export class DeleteByUserIds {
-        static readonly type = `${ACTION_TYPE} DeleteByUserIds`;
-
-        constructor(public userIds: number[]) {}
+    export class DeleteByParentIds extends BaseStoreDatabaseMockAction.DeleteByParentIds {
+        static readonly type = BaseStoreDatabaseMockAction.DeleteByParentIds.buildActionType(ACTION_TYPE);
     }
 }

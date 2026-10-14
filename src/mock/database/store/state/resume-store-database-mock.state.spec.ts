@@ -4,14 +4,17 @@ import { switchMap, tap } from "rxjs";
 
 import { ResumeStoreDatabaseMockState } from "./resume-store-database-mock.state";
 import { ResumeStoreDatabaseMockAction } from "../action/resume-store-database-mock.action";
+import { ResumeDatabaseMockConst } from "../../const/resume-database-mock.const";
 
-describe("Resume Database Mock Store", () => {
+describe("Resume Database Mock State", () => {
   let store: Store;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        provideStore([ResumeStoreDatabaseMockState])
+        provideStore([
+          ResumeStoreDatabaseMockState
+        ])
       ]
     });
     store = TestBed.inject(Store);
@@ -19,15 +22,19 @@ describe("Resume Database Mock Store", () => {
 
   it("Should correctly delete the resume with id equal to 0.", () => {
     store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByIds([0])).pipe(
-      switchMap(() => store.select(ResumeStoreDatabaseMockState.getResumes)),
-      tap((resumes) => expect(resumes).toEqual([]))
+      switchMap(() => store.select(ResumeStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        ResumeDatabaseMockConst.RESUME_TEST_1
+      ]))
     ).subscribe();
   });
 
-  it("Should correctly delete resumes with resume id equal to 0.", () => {
-    store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByUserIds([0])).pipe(
-      switchMap(() => store.select(ResumeStoreDatabaseMockState.getResumes)),
-      tap((resumes) => expect(resumes).toEqual([]))
+  it("Should delete resumes with parent id equal to 0.", () => {
+    store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByParentIds([0])).pipe(
+      switchMap(() => store.select(ResumeStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        ResumeDatabaseMockConst.RESUME_TEST_1
+      ]))
     ).subscribe();
   });
 });

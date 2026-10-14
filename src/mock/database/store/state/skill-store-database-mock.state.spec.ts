@@ -4,15 +4,17 @@ import { switchMap, tap } from "rxjs";
 
 import { SkillStoreDatabaseMockState } from "./skill-store-database-mock.state";
 import { SkillStoreDatabaseMockAction } from "../action/skill-store-database-mock.action";
-import { SKILL_1, SKILL_2, SKILL_3 } from "../../const/skill-database-mock.const";
+import { SkillDatabaseMockConst } from "../../const/skill-database-mock.const";
 
-describe("Skill Database Mock Store", () => {
+describe("Skill Database Mock State", () => {
   let store: Store;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        provideStore([SkillStoreDatabaseMockState])
+        provideStore([
+          SkillStoreDatabaseMockState
+        ])
       ]
     });
     store = TestBed.inject(Store);
@@ -20,15 +22,24 @@ describe("Skill Database Mock Store", () => {
 
   it("Should correctly delete the skill with id equal to 0.", () => {
     store.dispatch(new SkillStoreDatabaseMockAction.DeleteByIds([0])).pipe(
-      switchMap(() => store.select(SkillStoreDatabaseMockState.getSkills)),
-      tap((skills) => expect(skills).toEqual([SKILL_1, SKILL_2, SKILL_3]))
+      switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        SkillDatabaseMockConst.SKILL_PERSONAL_1,
+        SkillDatabaseMockConst.SKILL_PERSONAL_2,
+        SkillDatabaseMockConst.SKILL_PERSONAL_3,
+        SkillDatabaseMockConst.SKILL_TEST_4,
+        SkillDatabaseMockConst.SKILL_TEST_5
+      ]))
     ).subscribe();
   });
 
-  it("Should correctly delete skills with resume id equal to 0.", () => {
-    store.dispatch(new SkillStoreDatabaseMockAction.DeleteByResumeIds([0])).pipe(
-      switchMap(() => store.select(SkillStoreDatabaseMockState.getSkills)),
-      tap((skills) => expect(skills).toEqual([]))
+  it("Should delete skills with parent id equal to 0.", () => {
+    store.dispatch(new SkillStoreDatabaseMockAction.DeleteByParentIds([0])).pipe(
+      switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        SkillDatabaseMockConst.SKILL_TEST_4,
+        SkillDatabaseMockConst.SKILL_TEST_5
+      ]))
     ).subscribe();
   });
 });

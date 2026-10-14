@@ -1,11 +1,10 @@
 import { ExperienceDatabaseMockModel } from "../model/experience-database-mock.model";
 
 export class ExperienceDatabaseMockConst {
-    // My personal data.
     static EXPERIENCE_PERSONAL_0: ExperienceDatabaseMockModel = {
         id: 0,
         order: 0,
-        resumeId: 0,
+        parentId: 0,
         company: "APR System",
         jobTitle: "Software Engineer",
         description: [
@@ -22,7 +21,7 @@ export class ExperienceDatabaseMockConst {
     static EXPERIENCE_PERSONAL_1: ExperienceDatabaseMockModel = {
         id: 1,
         order: 1,
-        resumeId: 0,
+        parentId: 0,
         company: "Primaris",
         jobTitle: "Software Engineer",
         description: [
@@ -35,11 +34,10 @@ export class ExperienceDatabaseMockConst {
         startDate: "2025-06-01"
     };
 
-    // Test data.
     static EXPERIENCE_TEST_2: ExperienceDatabaseMockModel = {
         id: 2,
         order: 0,
-        resumeId: 1,
+        parentId: 1,
         company: "TechNova Solutions",
         jobTitle: "Full Stack Developer",
         description: [

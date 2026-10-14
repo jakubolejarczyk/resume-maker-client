@@ -1,11 +1,10 @@
 import { EducationDatabaseMockModel } from "../model/education-database-mock.model";
 
 export class EducationDatabaseMockConst {
-    // My personal data.
     static EDUCATION_PERSONAL_0: EducationDatabaseMockModel = {
         id: 0,
         order: 0,
-        resumeId: 0,
+        parentId: 0,
         institutionName: "Jan Kochanowski University of Kielce",
         fieldOfStudy: "Computer Science",
         degree: "Bachelor of Engineering",
@@ -16,7 +15,7 @@ export class EducationDatabaseMockConst {
     static EDUCATION_PERSONAL_1: EducationDatabaseMockModel = {
         id: 1,
         order: 1,
-        resumeId: 0,
+        parentId: 0,
         institutionName: "Kielce University of Technology",
         fieldOfStudy: "Computer Science",
         degree: "Master of Science",
@@ -24,11 +23,10 @@ export class EducationDatabaseMockConst {
         endYear: 2026
     };
 
-    // Test data.
     static EDUCATION_TEST_2: EducationDatabaseMockModel = {
         id: 2,
         order: 0,
-        resumeId: 1,
+        parentId: 1,
         institutionName: "University of Warsaw",
         fieldOfStudy: "Computer Science",
         degree: "Bachelor of Science",

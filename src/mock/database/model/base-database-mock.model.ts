@@ -1,12 +1,5 @@
-export interface CommonBaseDatabaseMockModel {
+export interface BaseDatabaseMockModel {
     id: number;
     order: number;
-}
-
-export interface UserIdBaseDatabaseMockModel {
-    userId: number;
-}
-
-export interface ResumeIdBaseDatabaseMockModel {
-    resumeId: number;
+    parentId?: number;
 }

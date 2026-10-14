@@ -4,15 +4,17 @@ import { switchMap, tap } from "rxjs";
 
 import { ExperienceStoreDatabaseMockState } from "./experience-store-database-mock.state";
 import { ExperienceStoreDatabaseMockAction } from "../action/experience-store-database-mock.action";
-import { EXPERIENCE_1 } from "../../const/experience-database-mock.const";
+import { ExperienceDatabaseMockConst } from "../../const/experience-database-mock.const";
 
-describe("Experiences Database Mock Store", () => {
+describe("Experience Database Mock State", () => {
   let store: Store;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        provideStore([ExperienceStoreDatabaseMockState])
+        provideStore([
+          ExperienceStoreDatabaseMockState
+        ])
       ]
     });
     store = TestBed.inject(Store);
@@ -20,15 +22,20 @@ describe("Experiences Database Mock Store", () => {
 
   it("Should correctly delete the experience with id equal to 0.", () => {
     store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByIds([0])).pipe(
-      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
-      tap((experiences) => expect(experiences).toEqual([EXPERIENCE_1]))
+      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_1,
+        ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
+      ]))
     ).subscribe();
   });
 
-  it("Should correctly delete experiences with resume id equal to 0.", () => {
-    store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByResumeIds([0])).pipe(
-      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
-      tap((experiences) => expect(experiences).toEqual([]))
+  it("Should delete experiences with parent id equal to 0.", () => {
+    store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByParentIds([0])).pipe(
+      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
+      tap((items) => expect(items).toEqual([
+        ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
+      ]))
     ).subscribe();
   });
 });

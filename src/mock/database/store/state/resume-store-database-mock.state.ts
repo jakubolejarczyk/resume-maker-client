@@ -1,42 +1,35 @@
-import { Action, createSelector, Selector, State, StateContext } from "@ngxs/store";
+import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { ResumeStoreDatabaseMockModel } from "../model/resume-store-database-mock.model";
-import { ResumeStoreDatabaseMockAction } from "../action/resume-store-database-mock.action";
 import { ResumeDatabaseMockConst } from "../../const/resume-database-mock.const";
+import { BaseStoreDatabaseMockState } from "./base-store-database-mock.state";
+import { ResumeDatabaseMockModel } from "../../model/resume-database-mock.model";
+import { ResumeStoreDatabaseMockAction } from "../action/resume-store-database-mock.action";
 
 @State<ResumeStoreDatabaseMockModel>({
   name: "resumeStoreDatabaseMockState",
-  defaults: [
-    ResumeDatabaseMockConst.RESUME_PERSONAL_0,
-    ResumeDatabaseMockConst.RESUME_TEST_1
-  ]
+  defaults: {
+    items: [
+      ResumeDatabaseMockConst.RESUME_PERSONAL_0,
+      ResumeDatabaseMockConst.RESUME_TEST_1
+    ]
+  }
 })
 @Injectable({ providedIn: "root" })
-export class ResumeStoreDatabaseMockState {
+export class ResumeStoreDatabaseMockState extends BaseStoreDatabaseMockState<ResumeDatabaseMockModel> {
   @Selector()
-  static getResumes(state: ResumeStoreDatabaseMockModel) {
-    return state;
+  static getItems(state: ResumeStoreDatabaseMockModel): ResumeDatabaseMockModel[] {
+    return super.baseGetItems(state);
   }
 
-  static getResumesByUserIds(ids: number[]) {
-    return createSelector(
-      [ResumeStoreDatabaseMockState.getResumes],
-      (state: ResumeStoreDatabaseMockModel) => state.filter(resume => ids.includes(resume.userId))
-    );
-  }
-  
   @Action(ResumeStoreDatabaseMockAction.DeleteByIds)
   deleteByIds(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.DeleteByIds) {
-    const state = context.getState();
-    const newState = state.filter(resume => !action.ids.includes(resume.id));
-    context.setState(newState);
+    super.baseDeleteByIds(context, action);  
   }
 
-  @Action(ResumeStoreDatabaseMockAction.DeleteByUserIds)
-  deleteByUserIds(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.DeleteByUserIds) {
-    const state = context.getState();
-    const newState = state.filter(resume => !action.userIds.includes(resume.userId));
-    context.setState(newState);
+  @Action(ResumeStoreDatabaseMockAction.DeleteByParentIds)
+  deleteByParentIds(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.DeleteByParentIds) {
+    super.baseDeleteByParentIds(context, action);  
   }
 }

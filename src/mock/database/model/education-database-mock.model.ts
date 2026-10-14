@@ -1,6 +1,6 @@
-import { CommonBaseDatabaseMockModel, ResumeIdBaseDatabaseMockModel } from "./base-database-mock.model";
+import { BaseDatabaseMockModel } from "./base-database-mock.model";
 
-export interface EducationDatabaseMockModel extends CommonBaseDatabaseMockModel, ResumeIdBaseDatabaseMockModel {
+export interface EducationDatabaseMockModel extends BaseDatabaseMockModel {
     institutionName: string;
     fieldOfStudy: string;
     degree: string;
