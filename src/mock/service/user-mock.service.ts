@@ -1,30 +1,38 @@
-import { Injectable } from "@angular/core";
-import { map, of, switchMap } from "rxjs";
+import { inject, Injectable } from "@angular/core";
+import { switchMap } from "rxjs";
 
 import { BaseMockService } from "./base-mock.service";
 import { UserStoreDatabaseMockAction } from "../database/store/action/user-store-database-mock.action";
-import { ResumeStoreDatabaseMockAction } from "../database/store/action/resume-store-database-mock.action";
-import { ResumeStoreDatabaseMockState } from "../database/store/state/resume-store-database-mock.state";
-import { EducationStoreDatabaseMockAction } from "../database/store/action/education-store-database-mock.action";
-import { ExperienceStoreDatabaseMockAction } from "../database/store/action/experience-store-database-mock.action";
-import { SkillStoreDatabaseMockAction } from "../database/store/action/skill-store-database-mock.action";
+import { UserStoreDatabaseMockState } from "../database/store/state/user-store-database-mock.state";
+import { UserDatabaseMockModel } from "../database/model/user-database-mock.model";
+import { ResumeMockService } from "./resume-mock.service";
 
 @Injectable({ providedIn: "root" })
-export class UserMockService extends BaseMockService {
-    delete(ids: number[]) {
-        return of(this.store.selectSnapshot(ResumeStoreDatabaseMockState.getResumesByUserIds(ids))).pipe(
-            map((resumes) => resumes.map(resume => resume.id)),
-            switchMap((resumeIds) => this.store.dispatch(new EducationStoreDatabaseMockAction.DeleteByResumeIds(resumeIds)).pipe(
-                map(() => resumeIds)
-            )),
-            switchMap((resumeIds) => this.store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByResumeIds(resumeIds)).pipe(
-                map(() => resumeIds)
-            )),
-            switchMap((resumeIds) => this.store.dispatch(new SkillStoreDatabaseMockAction.DeleteByResumeIds(resumeIds)).pipe(
-                map(() => resumeIds)
-            )),
-            switchMap((resumeIds) => this.store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByIds(resumeIds))),
-            switchMap(() => this.store.dispatch(new UserStoreDatabaseMockAction.DeleteByIds(ids))),
+export class UserMockService extends BaseMockService<UserDatabaseMockModel> {
+    resumeMockService = inject(ResumeMockService);
+
+    constructor() {
+        super(
+            UserStoreDatabaseMockState.getItems,
+            UserStoreDatabaseMockAction.DeleteByIds,
+            UserStoreDatabaseMockAction.DeleteByParentIds
         );
     }
+
+    override deleteByIds(ids: number[]) {
+        return super.deleteByIds(ids).pipe(
+            switchMap(() => this.resumeMockService.deleteByParentIds(ids))
+        );
+    }
+
+    // override deleteByParentIds(parentIds: number[]) {
+    //     return this.store.selectOnce(this.baseGetItems).pipe(
+    //         map((items) => items.filter(item => item.parentId !== undefined ? parentIds.includes(item.parentId) : true)),
+    //         map((items) => items.map(item => item.id)),
+    //         switchMap((ids) => this.educationMockService.deleteByParentIds(ids).pipe(map(() => ids))),
+    //         switchMap((ids) => this.experienceMockService.deleteByParentIds(ids).pipe(map(() => ids))),
+    //         switchMap((ids) => this.skillMockService.deleteByParentIds(ids)),
+    //         switchMap(() => super.deleteByParentIds(parentIds))
+    //     );
+    // }
 }
