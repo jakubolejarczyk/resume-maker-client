@@ -9,16 +9,12 @@ export class BaseMockService<TState extends BaseDatabaseMockModel> {
     protected store = inject(Store);
 
     constructor(
-        protected readonly baseGetItems: (state: BaseStoreDatabaseMockModel<TState>) => TState[],
-        protected readonly baseDeleteByIds: typeof BaseStoreDatabaseMockAction.DeleteByIds,
-        protected readonly baseDeleteByParentIds: typeof BaseStoreDatabaseMockAction.DeleteByParentIds
+        public readonly baseGetItems: (state: BaseStoreDatabaseMockModel<TState>) => TState[],
+        public readonly baseDeleteByIds: typeof BaseStoreDatabaseMockAction.DeleteByIds,
+        public readonly baseDeleteByParentIds: typeof BaseStoreDatabaseMockAction.DeleteByParentIds
     ) {}
 
-    deleteByIds(ids: number[]) {
+    delete(ids: number[]) {
         return this.store.dispatch(new this.baseDeleteByIds(ids));
-    }
-
-    deleteByParentIds(parentIds: number[]) {
-        return this.store.dispatch(new this.baseDeleteByParentIds(parentIds));
     }
 }

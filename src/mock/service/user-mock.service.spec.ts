@@ -35,7 +35,7 @@ describe("User Mock Service", () => {
   });
 
   it("Should correctly delete the user with id equal to 0 and all children.", () => {
-    service.deleteByIds([0]).pipe(
+    service.delete([0]).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
         EducationDatabaseMockConst.EDUCATION_TEST_2

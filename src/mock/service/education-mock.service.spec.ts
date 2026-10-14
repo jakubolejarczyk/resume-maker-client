@@ -23,19 +23,10 @@ describe("Education Mock Service", () => {
   });
 
   it("Should correctly delete the education with id equal to 0.", () => {
-    service.deleteByIds([0]).pipe(
+    service.delete([0]).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
         { ...EducationDatabaseMockConst.EDUCATION_PERSONAL_1, order: 0 },
-        EducationDatabaseMockConst.EDUCATION_TEST_2
-      ]))
-    ).subscribe();
-  });
-
-  it("Should delete educations with parent id equal to 0.", () => {
-    service.deleteByParentIds([0]).pipe(
-      switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
         EducationDatabaseMockConst.EDUCATION_TEST_2
       ]))
     ).subscribe();

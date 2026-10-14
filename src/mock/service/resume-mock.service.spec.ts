@@ -32,29 +32,7 @@ describe("Resume Mock Service", () => {
   });
 
   it("Should correctly delete the resume with id equal to 0 and all children.", () => {
-    service.deleteByIds([0]).pipe(
-      switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        EducationDatabaseMockConst.EDUCATION_TEST_2
-      ])),
-      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
-      ])),
-      switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        SkillDatabaseMockConst.SKILL_TEST_4,
-        SkillDatabaseMockConst.SKILL_TEST_5
-      ])),
-      switchMap(() => store.select(ResumeStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        ResumeDatabaseMockConst.RESUME_TEST_1
-      ]))
-    ).subscribe();
-  });
-
-  it("Should delete resumes with parent id equal to 0 and all children.", () => {
-    service.deleteByParentIds([0]).pipe(
+    service.delete([0]).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
         EducationDatabaseMockConst.EDUCATION_TEST_2

@@ -23,19 +23,10 @@ describe("Experience Mock Service", () => {
   });
 
   it("Should correctly delete the experience with id equal to 0.", () => {
-    service.deleteByIds([0]).pipe(
+    service.delete([0]).pipe(
       switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
         { ...ExperienceDatabaseMockConst.EXPERIENCE_PERSONAL_1, order: 0 },
-        ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
-      ]))
-    ).subscribe();
-  });
-
-  it("Should delete experiences with parent id equal to 0.", () => {
-    service.deleteByParentIds([0]).pipe(
-      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
         ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
       ]))
     ).subscribe();

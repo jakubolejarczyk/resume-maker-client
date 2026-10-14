@@ -19,20 +19,9 @@ export class UserMockService extends BaseMockService<UserDatabaseMockModel> {
         );
     }
 
-    override deleteByIds(ids: number[]) {
-        return super.deleteByIds(ids).pipe(
-            switchMap(() => this.resumeMockService.deleteByParentIds(ids))
+    override delete(ids: number[]) {
+        return super.delete(ids).pipe(
+            switchMap(() => this.resumeMockService.delete(ids))
         );
     }
-
-    // override deleteByParentIds(parentIds: number[]) {
-    //     return this.store.selectOnce(this.baseGetItems).pipe(
-    //         map((items) => items.filter(item => item.parentId !== undefined ? parentIds.includes(item.parentId) : true)),
-    //         map((items) => items.map(item => item.id)),
-    //         switchMap((ids) => this.educationMockService.deleteByParentIds(ids).pipe(map(() => ids))),
-    //         switchMap((ids) => this.experienceMockService.deleteByParentIds(ids).pipe(map(() => ids))),
-    //         switchMap((ids) => this.skillMockService.deleteByParentIds(ids)),
-    //         switchMap(() => super.deleteByParentIds(parentIds))
-    //     );
-    // }
 }

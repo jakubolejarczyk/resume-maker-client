@@ -23,22 +23,12 @@ describe("Skill Mock Service", () => {
   });
 
   it("Should correctly delete the skill with id equal to 0.", () => {
-    service.deleteByIds([0]).pipe(
+    service.delete([0]).pipe(
       switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
       tap((items) => expect(items).toEqual([
         { ...SkillDatabaseMockConst.SKILL_PERSONAL_1, order: 0 },
         { ...SkillDatabaseMockConst.SKILL_PERSONAL_2, order: 1 },
         { ...SkillDatabaseMockConst.SKILL_PERSONAL_3, order: 2 },
-        SkillDatabaseMockConst.SKILL_TEST_4,
-        SkillDatabaseMockConst.SKILL_TEST_5
-      ]))
-    ).subscribe();
-  });
-
-  it("Should delete skills with parent id equal to 0.", () => {
-    service.deleteByParentIds([0]).pipe(
-      switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
         SkillDatabaseMockConst.SKILL_TEST_4,
         SkillDatabaseMockConst.SKILL_TEST_5
       ]))
