@@ -5,7 +5,7 @@ import { ExperienceStoreDatabaseMockAction } from "../database/store/action/expe
 
 @Injectable({ providedIn: "root" })
 export class ExperienceMockService extends BaseMockService {
-    delete(id: number) {
-        return this.store.dispatch(new ExperienceStoreDatabaseMockAction.Delete(id));
+    delete(ids: number[]) {
+        return this.store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByIds(ids));
     }
 }

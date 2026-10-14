@@ -16,10 +16,10 @@ export class UserStoreDatabaseMockState {
     return state;
   }
 
-  @Action(UserStoreDatabaseMockAction.Delete)
-  delete(context: StateContext<UserStoreDatabaseMockModel>, action: UserStoreDatabaseMockAction.Delete) {
+  @Action(UserStoreDatabaseMockAction.DeleteByIds)
+  deleteByIds(context: StateContext<UserStoreDatabaseMockModel>, action: UserStoreDatabaseMockAction.DeleteByIds) {
     const state = context.getState();
-    const newState = state.filter(user => user.id !== action.id);
+    const newState = state.filter(user => !action.ids.includes(user.id));
     context.setState(newState);
   }
 }

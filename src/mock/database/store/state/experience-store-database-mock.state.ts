@@ -16,10 +16,17 @@ export class ExperienceStoreDatabaseMockState {
     return state;
   }
   
-  @Action(ExperienceStoreDatabaseMockAction.Delete)
-  delete(context: StateContext<ExperienceStoreDatabaseMockModel>, action: ExperienceStoreDatabaseMockAction.Delete) {
+  @Action(ExperienceStoreDatabaseMockAction.DeleteByIds)
+  deleteByIds(context: StateContext<ExperienceStoreDatabaseMockModel>, action: ExperienceStoreDatabaseMockAction.DeleteByIds) {
     const state = context.getState();
-    const newState = state.filter(experience => experience.id !== action.id);
+    const newState = state.filter(experience => !action.ids.includes(experience.id));
+    context.setState(newState);
+  }
+
+  @Action(ExperienceStoreDatabaseMockAction.DeleteByResumeIds)
+  deleteByResumeIds(context: StateContext<ExperienceStoreDatabaseMockModel>, action: ExperienceStoreDatabaseMockAction.DeleteByResumeIds) {
+    const state = context.getState();
+    const newState = state.filter(experience => !action.resumeIds.includes(experience.resumeId));
     context.setState(newState);
   }
 }

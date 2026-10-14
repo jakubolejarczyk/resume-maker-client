@@ -20,8 +20,8 @@ describe("Education Mock Service", () => {
     service = TestBed.inject(EducationMockService);
   });
 
-  it("Should correctly delete the education with id 0.", () => {
-    service.delete(0).pipe(
+  it("Should correctly delete the education with id equal to 0.", () => {
+    service.delete([0]).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getEducations)),
       tap((educations) => expect(educations).toEqual([EDUCATION_1]))
     ).subscribe();

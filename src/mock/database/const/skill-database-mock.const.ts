@@ -3,7 +3,7 @@ import { SkillDatabaseMockModel } from "../model/skill-database-mock.model";
 export const SKILL_0: SkillDatabaseMockModel = {
     id: 0,
     order: 0,
-    parentId: 0,
+    resumeId: 0,
     category: "Programming Language",
     skills: [
         "JavaScript",
@@ -15,7 +15,7 @@ export const SKILL_0: SkillDatabaseMockModel = {
 export const SKILL_1: SkillDatabaseMockModel = {
     id: 1,
     order: 1,
-    parentId: 0,
+    resumeId: 0,
     category: "Frontend",
     skills: [
         "HTML",
@@ -32,7 +32,7 @@ export const SKILL_1: SkillDatabaseMockModel = {
 export const SKILL_2: SkillDatabaseMockModel = {
     id: 2,
     order: 2,
-    parentId: 0,
+    resumeId: 0,
     category: "Developer Tools",
     skills: [
         "Git",
@@ -49,7 +49,7 @@ export const SKILL_2: SkillDatabaseMockModel = {
 export const SKILL_3: SkillDatabaseMockModel = {
     id: 3,
     order: 3,
-    parentId: 0,
+    resumeId: 0,
     category: "Languages",
     skills: [
         "English",

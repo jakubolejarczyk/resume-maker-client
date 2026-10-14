@@ -1,6 +1,6 @@
-import { CommonBaseDatabaseMockModel, ParentIdBaseDatabaseMockModel } from "./base-database-mock.model";
+import { CommonBaseDatabaseMockModel, ResumeIdBaseDatabaseMockModel } from "./base-database-mock.model";
 
-export interface ExperienceDatabaseMockModel extends CommonBaseDatabaseMockModel, ParentIdBaseDatabaseMockModel {
+export interface ExperienceDatabaseMockModel extends CommonBaseDatabaseMockModel, ResumeIdBaseDatabaseMockModel {
     company: string;
     jobTitle: string;
     description: string[];

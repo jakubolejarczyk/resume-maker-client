@@ -5,7 +5,7 @@ import { EducationStoreDatabaseMockAction } from "../database/store/action/educa
 
 @Injectable({ providedIn: "root" })
 export class EducationMockService extends BaseMockService {
-    delete(id: number) {
-        return this.store.dispatch(new EducationStoreDatabaseMockAction.Delete(id));
+    delete(ids: number[]) {
+        return this.store.dispatch(new EducationStoreDatabaseMockAction.DeleteByIds(ids));
     }
 }

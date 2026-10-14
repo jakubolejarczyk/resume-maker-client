@@ -16,10 +16,17 @@ export class EducationStoreDatabaseMockState {
     return state;
   }
   
-  @Action(EducationStoreDatabaseMockAction.Delete)
-  delete(context: StateContext<EducationStoreDatabaseMockModel>, action: EducationStoreDatabaseMockAction.Delete) {
+  @Action(EducationStoreDatabaseMockAction.DeleteByIds)
+  deleteByIds(context: StateContext<EducationStoreDatabaseMockModel>, action: EducationStoreDatabaseMockAction.DeleteByIds) {
     const state = context.getState();
-    const newState = state.filter(education => education.id !== action.id);
+    const newState = state.filter(education => !action.ids.includes(education.id));
+    context.setState(newState);
+  }
+
+  @Action(EducationStoreDatabaseMockAction.DeleteByResumeIds)
+  deleteByResumeIds(context: StateContext<EducationStoreDatabaseMockModel>, action: EducationStoreDatabaseMockAction.DeleteByResumeIds) {
+    const state = context.getState();
+    const newState = state.filter(education => !action.resumeIds.includes(education.resumeId));
     context.setState(newState);
   }
 }

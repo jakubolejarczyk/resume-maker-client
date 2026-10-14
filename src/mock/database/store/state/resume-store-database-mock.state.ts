@@ -1,4 +1,4 @@
-import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { Action, createSelector, Selector, State, StateContext } from "@ngxs/store";
 import { Injectable } from "@angular/core";
 
 import { ResumeStoreDatabaseMockModel } from "../model/resume-store-database-mock.model";
@@ -15,11 +15,25 @@ export class ResumeStoreDatabaseMockState {
   static getResumes(state: ResumeStoreDatabaseMockModel) {
     return state;
   }
+
+  static getResumesByUserIds(ids: number[]) {
+    return createSelector(
+      [ResumeStoreDatabaseMockState.getResumes],
+      (state: ResumeStoreDatabaseMockModel) => state.filter(resume => ids.includes(resume.userId))
+    );
+  }
   
-  @Action(ResumeStoreDatabaseMockAction.Delete)
-  delete(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.Delete) {
+  @Action(ResumeStoreDatabaseMockAction.DeleteByIds)
+  deleteByIds(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.DeleteByIds) {
     const state = context.getState();
-    const newState = state.filter(resume => resume.id !== action.id);
+    const newState = state.filter(resume => !action.ids.includes(resume.id));
+    context.setState(newState);
+  }
+
+  @Action(ResumeStoreDatabaseMockAction.DeleteByUserIds)
+  deleteByUserIds(context: StateContext<ResumeStoreDatabaseMockModel>, action: ResumeStoreDatabaseMockAction.DeleteByUserIds) {
+    const state = context.getState();
+    const newState = state.filter(resume => !action.userIds.includes(resume.userId));
     context.setState(newState);
   }
 }

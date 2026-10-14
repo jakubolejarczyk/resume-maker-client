@@ -5,7 +5,7 @@ import { SkillStoreDatabaseMockAction } from "../database/store/action/skill-sto
 
 @Injectable({ providedIn: "root" })
 export class SkillMockService extends BaseMockService {
-    delete(id: number) {
-        return this.store.dispatch(new SkillStoreDatabaseMockAction.Delete(id));
+    delete(ids: number[]) {
+        return this.store.dispatch(new SkillStoreDatabaseMockAction.DeleteByIds(ids));
     }
 }

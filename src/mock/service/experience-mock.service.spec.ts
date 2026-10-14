@@ -20,8 +20,8 @@ describe("Experience Mock Service", () => {
     service = TestBed.inject(ExperienceMockService);
   });
 
-  it("Should correctly delete the experience with id 0.", () => {
-    service.delete(0).pipe(
+  it("Should correctly delete the experience with id equal to 0.", () => {
+    service.delete([0]).pipe(
       switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
       tap((experiences) => expect(experiences).toEqual([EXPERIENCE_1]))
     ).subscribe();

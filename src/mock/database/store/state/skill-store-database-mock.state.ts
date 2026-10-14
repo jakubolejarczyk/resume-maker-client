@@ -16,10 +16,17 @@ export class SkillStoreDatabaseMockState {
     return state;
   }
   
-  @Action(SkillStoreDatabaseMockAction.Delete)
-  delete(context: StateContext<SkillStoreDatabaseMockModel>, action: SkillStoreDatabaseMockAction.Delete) {
+  @Action(SkillStoreDatabaseMockAction.DeleteByIds)
+  deleteByIds(context: StateContext<SkillStoreDatabaseMockModel>, action: SkillStoreDatabaseMockAction.DeleteByIds) {
     const state = context.getState();
-    const newState = state.filter(skill => skill.id !== action.id);
+    const newState = state.filter(skill => !action.ids.includes(skill.id));
+    context.setState(newState);
+  }
+
+  @Action(SkillStoreDatabaseMockAction.DeleteByResumeIds)
+  deleteByResumeIds(context: StateContext<SkillStoreDatabaseMockModel>, action: SkillStoreDatabaseMockAction.DeleteByResumeIds) {
+    const state = context.getState();
+    const newState = state.filter(skill => !action.resumeIds.includes(skill.resumeId));
     context.setState(newState);
   }
 }

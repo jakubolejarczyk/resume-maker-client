@@ -18,10 +18,17 @@ describe("Skill Database Mock Store", () => {
     store = TestBed.inject(Store);
   });
 
-  it("Should correctly delete the skill with id 0.", () => {
-    store.dispatch(new SkillStoreDatabaseMockAction.Delete(0)).pipe(
+  it("Should correctly delete the skill with id equal to 0.", () => {
+    store.dispatch(new SkillStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(SkillStoreDatabaseMockState.getSkills)),
-      tap((users) => expect(users).toEqual([SKILL_1, SKILL_2, SKILL_3]))
+      tap((skills) => expect(skills).toEqual([SKILL_1, SKILL_2, SKILL_3]))
+    ).subscribe();
+  });
+
+  it("Should correctly delete skills with resume id equal to 0.", () => {
+    store.dispatch(new SkillStoreDatabaseMockAction.DeleteByResumeIds([0])).pipe(
+      switchMap(() => store.select(SkillStoreDatabaseMockState.getSkills)),
+      tap((skills) => expect(skills).toEqual([]))
     ).subscribe();
   });
 });

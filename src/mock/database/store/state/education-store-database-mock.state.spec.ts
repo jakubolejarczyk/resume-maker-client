@@ -18,10 +18,17 @@ describe("Education Database Mock Store", () => {
     store = TestBed.inject(Store);
   });
 
-  it("Should correctly delete the education with id 0.", () => {
-    store.dispatch(new EducationStoreDatabaseMockAction.Delete(0)).pipe(
+  it("Should correctly delete the education with id equal to 0.", () => {
+    store.dispatch(new EducationStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(EducationStoreDatabaseMockState.getEducations)),
-      tap((users) => expect(users).toEqual([EDUCATION_1]))
+      tap((educations) => expect(educations).toEqual([EDUCATION_1]))
+    ).subscribe();
+  });
+
+  it("Should correctly delete educations with resume id equal to 0.", () => {
+    store.dispatch(new EducationStoreDatabaseMockAction.DeleteByResumeIds([0])).pipe(
+      switchMap(() => store.select(EducationStoreDatabaseMockState.getEducations)),
+      tap((educations) => expect(educations).toEqual([]))
     ).subscribe();
   });
 });

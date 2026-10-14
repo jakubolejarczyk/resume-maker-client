@@ -3,7 +3,7 @@ import { ExperienceDatabaseMockModel } from "../model/experience-database-mock.m
 export const EXPERIENCE_0: ExperienceDatabaseMockModel = {
     id: 0,
     order: 0,
-    parentId: 0,
+    resumeId: 0,
     company: "APR System",
     jobTitle: "Software Engineer",
     description: [
@@ -20,7 +20,7 @@ export const EXPERIENCE_0: ExperienceDatabaseMockModel = {
 export const EXPERIENCE_1: ExperienceDatabaseMockModel = {
     id: 1,
     order: 1,
-    parentId: 0,
+    resumeId: 0,
     company: "Primaris",
     jobTitle: "Software Engineer",
     description: [

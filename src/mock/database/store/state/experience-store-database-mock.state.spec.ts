@@ -18,10 +18,17 @@ describe("Experiences Database Mock Store", () => {
     store = TestBed.inject(Store);
   });
 
-  it("Should correctly delete the experiences with id 0.", () => {
-    store.dispatch(new ExperienceStoreDatabaseMockAction.Delete(0)).pipe(
+  it("Should correctly delete the experience with id equal to 0.", () => {
+    store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
-      tap((users) => expect(users).toEqual([EXPERIENCE_1]))
+      tap((experiences) => expect(experiences).toEqual([EXPERIENCE_1]))
+    ).subscribe();
+  });
+
+  it("Should correctly delete experiences with resume id equal to 0.", () => {
+    store.dispatch(new ExperienceStoreDatabaseMockAction.DeleteByResumeIds([0])).pipe(
+      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getExperiences)),
+      tap((experiences) => expect(experiences).toEqual([]))
     ).subscribe();
   });
 });

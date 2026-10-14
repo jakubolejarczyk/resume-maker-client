@@ -18,7 +18,7 @@ describe("User Database Mock Store", () => {
   });
 
   it("Should correctly delete the user with id 0.", () => {
-    store.dispatch(new UserStoreDatabaseMockAction.Delete(0)).pipe(
+    store.dispatch(new UserStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(UserStoreDatabaseMockState.getUsers)),
       tap((users) => expect(users).toEqual([]))
     ).subscribe();

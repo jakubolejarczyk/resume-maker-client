@@ -20,8 +20,8 @@ describe("Skill Mock Service", () => {
     service = TestBed.inject(SkillMockService);
   });
 
-  it("Should correctly delete the skill with id 0.", () => {
-    service.delete(0).pipe(
+  it("Should correctly delete the skill with id equal to 0.", () => {
+    service.delete([0]).pipe(
       switchMap(() => store.select(SkillStoreDatabaseMockState.getSkills)),
       tap((skills) => expect(skills).toEqual([SKILL_1, SKILL_2, SKILL_3]))
     ).subscribe();

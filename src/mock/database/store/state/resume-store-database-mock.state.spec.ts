@@ -17,10 +17,17 @@ describe("Resume Database Mock Store", () => {
     store = TestBed.inject(Store);
   });
 
-  it("Should correctly delete the resume with id 0.", () => {
-    store.dispatch(new ResumeStoreDatabaseMockAction.Delete(0)).pipe(
+  it("Should correctly delete the resume with id equal to 0.", () => {
+    store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByIds([0])).pipe(
       switchMap(() => store.select(ResumeStoreDatabaseMockState.getResumes)),
-      tap((users) => expect(users).toEqual([]))
+      tap((resumes) => expect(resumes).toEqual([]))
+    ).subscribe();
+  });
+
+  it("Should correctly delete resumes with resume id equal to 0.", () => {
+    store.dispatch(new ResumeStoreDatabaseMockAction.DeleteByUserIds([0])).pipe(
+      switchMap(() => store.select(ResumeStoreDatabaseMockState.getResumes)),
+      tap((resumes) => expect(resumes).toEqual([]))
     ).subscribe();
   });
 });

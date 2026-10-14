@@ -1,9 +1,15 @@
 export namespace ResumeStoreDatabaseMockAction {
     const ACTION_TYPE = "[ResumeStoreDatabaseMockAction]";
 
-    export class Delete {
-        static readonly type = `${ACTION_TYPE} Delete`;
+    export class DeleteByIds {
+        static readonly type = `${ACTION_TYPE} DeleteByIds`;
 
-        constructor(public id: number) {}
+        constructor(public ids: number[]) {}
+    }
+
+    export class DeleteByUserIds {
+        static readonly type = `${ACTION_TYPE} DeleteByUserIds`;
+
+        constructor(public userIds: number[]) {}
     }
 }
