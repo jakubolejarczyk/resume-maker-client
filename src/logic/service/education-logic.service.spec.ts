@@ -1,16 +1,16 @@
 import { TestBed } from "@angular/core/testing";
 
-import { EducationLogic } from "./education.logic";
-import { EducationDatabaseConst } from "../database/const/education-database.const";
-import { EducationDatabaseService } from "../database/service/education-database.service";
+import { EducationLogicService } from "./education-logic.service";
+import { EducationDatabaseConst } from "../../database/const/education-database.const";
+import { EducationDatabaseService } from "../../database/service/education-database.service";
 
 describe("Education Logic", () => {
   let database: EducationDatabaseService;
-  let logic: EducationLogic;
+  let logic: EducationLogicService;
 
   beforeEach(() => {
     database = TestBed.inject(EducationDatabaseService);
-    logic = TestBed.inject(EducationLogic);
+    logic = TestBed.inject(EducationLogicService);
   });
 
   it("Should correctly select education with id 0.", () => {
