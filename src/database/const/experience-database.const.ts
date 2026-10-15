@@ -4,6 +4,8 @@ export class ExperienceDatabaseConst {
     static EXPERIENCE_PERSONAL_0: ExperienceDatabaseModel = {
         id: 0,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 0,
         company: "APR System",
         jobTitle: "Software Engineer",
@@ -21,6 +23,8 @@ export class ExperienceDatabaseConst {
     static EXPERIENCE_PERSONAL_1: ExperienceDatabaseModel = {
         id: 1,
         order: 1,
+        isSelected: false,
+        hasParent: true,
         parentId: 0,
         company: "Primaris",
         jobTitle: "Software Engineer",
@@ -37,6 +41,8 @@ export class ExperienceDatabaseConst {
     static EXPERIENCE_TEST_2: ExperienceDatabaseModel = {
         id: 2,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         company: "TechNova Solutions",
         jobTitle: "Full Stack Developer",

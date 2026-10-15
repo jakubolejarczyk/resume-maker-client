@@ -16,6 +16,8 @@ describe("Education Database Service", () => {
     const EDUCATION_TEST_3: EducationDatabaseModel = {
         id: 3,
         order: 1,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         institutionName: "University of Warsaw",
         fieldOfStudy: "Mathematics",
@@ -26,6 +28,8 @@ describe("Education Database Service", () => {
     const EDUCATION_TEST_4: EducationDatabaseModel = {
         id: 4,
         order: 2,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         institutionName: "Warsaw University of Technology",
         fieldOfStudy: "Computer Science",

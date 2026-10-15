@@ -4,6 +4,8 @@ export class EducationDatabaseConst {
     static EDUCATION_PERSONAL_0: EducationDatabaseModel = {
         id: 0,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 0,
         institutionName: "Jan Kochanowski University of Kielce",
         fieldOfStudy: "Computer Science",
@@ -15,6 +17,8 @@ export class EducationDatabaseConst {
     static EDUCATION_PERSONAL_1: EducationDatabaseModel = {
         id: 1,
         order: 1,
+        isSelected: false,
+        hasParent: true,
         parentId: 0,
         institutionName: "Kielce University of Technology",
         fieldOfStudy: "Computer Science",
@@ -26,6 +30,8 @@ export class EducationDatabaseConst {
     static EDUCATION_TEST_2: EducationDatabaseModel = {
         id: 2,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         institutionName: "University of Warsaw",
         fieldOfStudy: "Computer Science",

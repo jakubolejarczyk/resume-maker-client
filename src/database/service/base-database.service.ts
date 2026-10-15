@@ -13,6 +13,10 @@ export class BaseDatabaseService<TItem extends BaseDatabaseModel> {
     });
   }
 
+  readAll() {
+    return structuredClone(this.items);
+  }
+
   readByIds(ids: number[]) {
     return structuredClone(this.items)
       .filter(item => ids.includes(item.id));

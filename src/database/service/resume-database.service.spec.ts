@@ -16,12 +16,16 @@ describe("Resume Database Service", () => {
     const RESUME_TEST_2: ResumeDatabaseModel = {
       id: 2,
       order: 1,
+      isSelected: false,
+      hasParent: true,
       parentId: 1,
       name: "Resume Temporary 1"
     };
     const RESUME_TEST_3: ResumeDatabaseModel = {
       id: 3,
       order: 2,
+      isSelected: false,
+      hasParent: true,
       parentId: 1,
       name: "Resume Temporary 2"
     };

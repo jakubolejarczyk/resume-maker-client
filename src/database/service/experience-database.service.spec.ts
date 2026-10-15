@@ -16,6 +16,8 @@ describe("Experience Database Service", () => {
     const EXPERIENCE_TEST_3: ExperienceDatabaseModel = {
         id: 3,
         order: 1,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         company: "Google",
         jobTitle: "Frontend Developer",
@@ -30,6 +32,8 @@ describe("Experience Database Service", () => {
     const EXPERIENCE_TEST_4: ExperienceDatabaseModel = {
         id: 4,
         order: 2,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         company: "Microsoft",
         jobTitle: "Senior Software Engineer",

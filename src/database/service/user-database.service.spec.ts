@@ -16,6 +16,8 @@ describe("User Database Service", () => {
     const USER_TEST_2: UserDatabaseModel = {
       id: 2,
       order: 2,
+      isSelected: false,
+      hasParent: false,
       firstName: "Jan",
       lastName: "Nowak",
       jobTitle: "Frontend Developer",
@@ -34,6 +36,8 @@ describe("User Database Service", () => {
     const USER_TEST_3: UserDatabaseModel = {
       id: 3,
       order: 3,
+      isSelected: false,
+      hasParent: false,
       firstName: "Maria",
       lastName: "Wiśniewska",
       jobTitle: "Backend Developer",

@@ -4,6 +4,8 @@ export class ResumeDatabaseConst {
     static RESUME_PERSONAL_0: ResumeDatabaseModel = {
         id: 0,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 0,
         name: "Resume Jakub Olejarczyk ENG"
     };
@@ -11,6 +13,8 @@ export class ResumeDatabaseConst {
     static RESUME_TEST_1: ResumeDatabaseModel = {
         id: 1,
         order: 0,
+        isSelected: false,
+        hasParent: true,
         parentId: 1,
         name: "Resume Anna Kowalska ENG"
     };

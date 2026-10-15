@@ -4,6 +4,8 @@ export class UserDatabaseConst {
     static USER_PERSONAL_0: UserDatabaseModel = {
         id: 0,
         order: 0,
+        isSelected: false,
+        hasParent: false,
         firstName: "Jakub",
         lastName: "Olejarczyk",
         jobTitle: "Senior Software Engineer",
@@ -23,6 +25,8 @@ export class UserDatabaseConst {
     static USER_TEST_1: UserDatabaseModel = {
         id: 1,
         order: 1,
+        isSelected: false,
+        hasParent: false,
         firstName: "Anna",
         lastName: "Kowalska",
         jobTitle: "Full Stack Developer",

@@ -16,6 +16,8 @@ describe("Skill Database Service", () => {
     const SKILL_TEST_6: SkillDatabaseModel = {
       id: 6,
       order: 2,
+      isSelected: false,
+      hasParent: true,
       parentId: 1,
       category: "Programming Language",
       skills: ["Python", "Java", "C++"]
@@ -23,6 +25,8 @@ describe("Skill Database Service", () => {
     const SKILL_TEST_7: SkillDatabaseModel = {
       id: 7,
       order: 3,
+      isSelected: false,
+      hasParent: true,
       parentId: 1,
       category: "Web Development",
       skills: ["HTML", "CSS", "React", "Node.js"]
