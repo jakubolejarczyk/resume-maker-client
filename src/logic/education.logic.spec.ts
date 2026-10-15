@@ -43,4 +43,46 @@ describe("Education Logic", () => {
       { ...EducationDatabaseConst.EDUCATION_PERSONAL_1, isSelected: true }
     ]);
   });
+
+  it("Should correctly deselect education with id 0.", () => {
+    const ids = [0, 1];
+    const receivedBase = database.readByIds(ids);
+    expect(receivedBase).toEqual([
+      EducationDatabaseConst.EDUCATION_PERSONAL_0,
+      EducationDatabaseConst.EDUCATION_PERSONAL_1
+    ]);
+    logic.select(ids);
+    const receivedBefore = database.readByIds(ids);
+    expect(receivedBefore).toEqual([
+      { ...EducationDatabaseConst.EDUCATION_PERSONAL_0, isSelected: true },
+      { ...EducationDatabaseConst.EDUCATION_PERSONAL_1, isSelected: true }
+    ]);
+    logic.deselect([ids[0]]);
+    const receivedAfter = database.readByIds(ids);
+    expect(receivedAfter).toEqual([
+      EducationDatabaseConst.EDUCATION_PERSONAL_0,
+      { ...EducationDatabaseConst.EDUCATION_PERSONAL_1, isSelected: true }
+    ]);
+  });
+
+  it("Should correctly deselect educations with ids 0, 1.", () => {
+    const ids = [0, 1];
+    const receivedBase = database.readByIds(ids);
+    expect(receivedBase).toEqual([
+      EducationDatabaseConst.EDUCATION_PERSONAL_0,
+      EducationDatabaseConst.EDUCATION_PERSONAL_1
+    ]);
+    logic.select(ids);
+    const receivedBefore = database.readByIds(ids);
+    expect(receivedBefore).toEqual([
+      { ...EducationDatabaseConst.EDUCATION_PERSONAL_0, isSelected: true },
+      { ...EducationDatabaseConst.EDUCATION_PERSONAL_1, isSelected: true }
+    ]);
+    logic.deselect(ids);
+    const receivedAfter = database.readByIds(ids);
+    expect(receivedAfter).toEqual([
+      EducationDatabaseConst.EDUCATION_PERSONAL_0,
+      EducationDatabaseConst.EDUCATION_PERSONAL_1
+    ]);
+  });
 });
