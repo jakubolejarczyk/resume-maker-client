@@ -23,24 +23,30 @@ export class BaseLogic<TItem extends BaseDatabaseModel> {
                     acc.set(-1, group);
                 }
                 return acc;
-            }, new Map<number, number[]>());
+            }, new Map<number, number[]>())
         for (const [key, values] of groups.entries()) {
-            if (key >= 0) {
-                const items = this.service.readByParentIds([key])
-                    .map(item => {
-                        if (values.includes(item.id)) {
-                            return { ...item, isSelected: true };
-                        }
-                        return { ...item, isSelected: false };
-                    });
-                this.service.update(items);
-            } else {
+            if (key === -1) {
                 const items = this.service.readAll()
                     .map(item => {
                         if (values.includes(item.id)) {
-                            return { ...item, isSelected: true };
+                            item.isSelected = true;
+                            return item;
+                        } else {
+                            item.isSelected = false;
+                            return item;
                         }
-                        return { ...item, isSelected: false };
+                    });
+                this.service.update(items);
+            } else {
+                const items = this.service.readByParentIds([key])
+                    .map(item => {
+                        if (values.includes(item.id)) {
+                            item.isSelected = true;
+                            return item;
+                        } else {
+                            item.isSelected = false;
+                            return item;
+                        }
                     });
                 this.service.update(items);
             }
