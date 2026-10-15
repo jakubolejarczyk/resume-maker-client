@@ -6,7 +6,7 @@ import { ResumeStoreDatabaseMockAction } from "../database/store/action/resume-s
 import { EducationMockService } from "./education-mock.service";
 import { ExperienceMockService } from "./experience-mock.service";
 import { SkillMockService } from "./skill-mock.service";
-import { ResumeStoreDatabaseMockState } from "../database/store/state/resume-store-database-mock.state";
+import { ResumeStoreDatabaseMockState } from "../../database/service/resume-database.service";
 import { ResumeDatabaseMockModel } from "../database/model/resume-database-mock.model";
 
 @Injectable({ providedIn: "root" })

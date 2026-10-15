@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { BaseMockService } from "./base-mock.service";
 import { SkillStoreDatabaseMockAction } from "../database/store/action/skill-store-database-mock.action";
 import { SkillDatabaseMockModel } from "../database/model/skill-database-mock.model";
-import { SkillStoreDatabaseMockState } from "../database/store/state/skill-store-database-mock.state";
+import { SkillStoreDatabaseMockState } from "../../database/service/skill-database.service";
 
 @Injectable({ providedIn: "root" })
 export class SkillMockService extends BaseMockService<SkillDatabaseMockModel> {

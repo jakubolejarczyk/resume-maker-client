@@ -1,7 +1,7 @@
-import { EducationDatabaseMockModel } from "../model/education-database-mock.model";
+import { EducationDatabaseModel } from "../model/education-database.model";
 
-export class EducationDatabaseMockConst {
-    static EDUCATION_PERSONAL_0: EducationDatabaseMockModel = {
+export class EducationDatabaseConst {
+    static EDUCATION_PERSONAL_0: EducationDatabaseModel = {
         id: 0,
         order: 0,
         parentId: 0,
@@ -12,7 +12,7 @@ export class EducationDatabaseMockConst {
         endYear: 2021
     };
 
-    static EDUCATION_PERSONAL_1: EducationDatabaseMockModel = {
+    static EDUCATION_PERSONAL_1: EducationDatabaseModel = {
         id: 1,
         order: 1,
         parentId: 0,
@@ -23,7 +23,7 @@ export class EducationDatabaseMockConst {
         endYear: 2026
     };
 
-    static EDUCATION_TEST_2: EducationDatabaseMockModel = {
+    static EDUCATION_TEST_2: EducationDatabaseModel = {
         id: 2,
         order: 0,
         parentId: 1,

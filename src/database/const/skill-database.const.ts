@@ -1,7 +1,7 @@
-import { SkillDatabaseMockModel } from "../model/skill-database-mock.model";
+import { SkillDatabaseModel } from "../model/skill-database.model";
 
-export class SkillDatabaseMockConst {
-    static SKILL_PERSONAL_0: SkillDatabaseMockModel = {
+export class SkillDatabaseConst {
+    static SKILL_PERSONAL_0: SkillDatabaseModel = {
         id: 0,
         order: 0,
         parentId: 0,
@@ -9,7 +9,7 @@ export class SkillDatabaseMockConst {
         skills: ["JavaScript", "TypeScript", "C#"]
     };
 
-    static SKILL_PERSONAL_1: SkillDatabaseMockModel = {
+    static SKILL_PERSONAL_1: SkillDatabaseModel = {
         id: 1,
         order: 1,
         parentId: 0,
@@ -17,7 +17,7 @@ export class SkillDatabaseMockConst {
         skills: ["HTML", "CSS", "SASS", "Angular", "RxJS", "NGXS", "PrimeNG", "Storybook"]
     };
 
-    static SKILL_PERSONAL_2: SkillDatabaseMockModel = {
+    static SKILL_PERSONAL_2: SkillDatabaseModel = {
         id: 2,
         order: 2,
         parentId: 0,
@@ -25,7 +25,7 @@ export class SkillDatabaseMockConst {
         skills: ["Git", "Node.js", "npm", "Vitest", "ESLint", "typescript-eslint", "Visual Studio", "Microsoft Visual Studio Code"]
     };
 
-    static SKILL_PERSONAL_3: SkillDatabaseMockModel = {
+    static SKILL_PERSONAL_3: SkillDatabaseModel = {
         id: 3,
         order: 3,
         parentId: 0,
@@ -33,7 +33,7 @@ export class SkillDatabaseMockConst {
         skills: ["English", "Polish"]
     };
 
-    static SKILL_TEST_4: SkillDatabaseMockModel = {
+    static SKILL_TEST_4: SkillDatabaseModel = {
         id: 4,
         order: 0,
         parentId: 1,
@@ -41,7 +41,7 @@ export class SkillDatabaseMockConst {
         skills: ["React", "Angular", "Vue.js"]
     };
 
-    static SKILL_TEST_5: SkillDatabaseMockModel = {
+    static SKILL_TEST_5: SkillDatabaseModel = {
         id: 5,
         order: 1,
         parentId: 1,

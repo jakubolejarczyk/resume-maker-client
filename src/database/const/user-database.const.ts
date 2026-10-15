@@ -1,7 +1,7 @@
-import { UserDatabaseMockModel } from "../model/user-database-mock.model";
+import { UserDatabaseModel } from "../model/user-database.model";
 
-export class UserDatabaseMockConst {
-    static USER_PERSONAL_0: UserDatabaseMockModel = {
+export class UserDatabaseConst {
+    static USER_PERSONAL_0: UserDatabaseModel = {
         id: 0,
         order: 0,
         firstName: "Jakub",
@@ -20,7 +20,7 @@ export class UserDatabaseMockConst {
         summary: "Senior Software Engineer with 6+ years of experience in full-stack web development, specializing in Angular on the frontend and ASP.NET on the backend. Experienced in designing and developing scalable web applications, RESTful APIs, and backend services, with a strong focus on clean architecture, performance, maintainability, and code quality. Proven ability to contribute across the full software development lifecycle and collaborate effectively with cross-functional teams to deliver scalable and maintainable solutions."
     };
 
-    static USER_TEST_1: UserDatabaseMockModel = {
+    static USER_TEST_1: UserDatabaseModel = {
         id: 1,
         order: 1,
         firstName: "Anna",

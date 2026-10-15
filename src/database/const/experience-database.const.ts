@@ -1,7 +1,7 @@
-import { ExperienceDatabaseMockModel } from "../model/experience-database-mock.model";
+import { ExperienceDatabaseModel } from "../model/experience-database.model";
 
-export class ExperienceDatabaseMockConst {
-    static EXPERIENCE_PERSONAL_0: ExperienceDatabaseMockModel = {
+export class ExperienceDatabaseConst {
+    static EXPERIENCE_PERSONAL_0: ExperienceDatabaseModel = {
         id: 0,
         order: 0,
         parentId: 0,
@@ -18,7 +18,7 @@ export class ExperienceDatabaseMockConst {
         endDate: "2025-02-01"
     };
 
-    static EXPERIENCE_PERSONAL_1: ExperienceDatabaseMockModel = {
+    static EXPERIENCE_PERSONAL_1: ExperienceDatabaseModel = {
         id: 1,
         order: 1,
         parentId: 0,
@@ -34,7 +34,7 @@ export class ExperienceDatabaseMockConst {
         startDate: "2025-06-01"
     };
 
-    static EXPERIENCE_TEST_2: ExperienceDatabaseMockModel = {
+    static EXPERIENCE_TEST_2: ExperienceDatabaseModel = {
         id: 2,
         order: 0,
         parentId: 1,
