@@ -1,5 +1,13 @@
 import { BaseDatabaseModel } from "../model/base/base-database.model";
 
 export class BaseDatabaseData<TData> {
-    constructor(public items: BaseDatabaseModel<TData>[]) {}
+    constructor(private items: BaseDatabaseModel<TData>[]) {}
+
+    setItems(items: BaseDatabaseModel<TData>[]) {
+        this.items = items;
+    }
+
+    getItems() {
+        return structuredClone(this.items);
+    }
 }

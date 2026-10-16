@@ -12,19 +12,22 @@ export class BaseDatabaseService<TData> {
     this.service = inject(type);
   }
 
-  create(items: Omit<BaseDatabaseModel<TData>, "id">[]) {
-    items.forEach(item => {
-      const itemToCreate = {
-        ...item,
+  create(itemsToCreate: Omit<BaseDatabaseModel<TData>, "id">[]) {
+    const items = this.service.getItems();
+    itemsToCreate.forEach(itemToCreate => {
+      const newItem = {
+        ...itemToCreate,
         id: this.nextId
       } as BaseDatabaseModel<TData>;
-      this.service.items.push(itemToCreate);
+      items.push(newItem);
       this.nextId++;
     });
+    this.service.setItems(items);
   }
 
+  // It is tested
   readAll() {
-    return structuredClone(this.service.items);
+    return structuredClone(this.service.getItems());
   }
 
   readByIds(ids: number[]) {
@@ -44,12 +47,15 @@ export class BaseDatabaseService<TData> {
   }
 
   update(itemsToUpdate: BaseDatabaseModel<TData>[]) {
-    this.service.items = this.readAll()
+    const items = this.readAll()
       .map(item => itemsToUpdate.find(itemToUpdate => itemToUpdate.id === item.id) ?? item);
+    this.service.setItems(items);
   }
 
+  // It is tested
   delete(ids: number[]) {
-    this.service.items = this.readAll()
+    const items = this.readAll()
       .filter(item => !ids.includes(item.id));
+    this.service.setItems(items);
   }
 }

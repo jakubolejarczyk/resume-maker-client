@@ -1,10 +1,11 @@
 import { expect } from "vitest";
 
 import { BaseDatabaseService } from "../service/base-database.service";
+import { BaseDatabaseData } from "../data/base-database.data";
 
-// export const messageReadAll = (entity: string) => {
-//     return `Should correctly read all ${entity}.`;
-// };
+export const messageReadAll = (entity: string) => {
+    return `Should correctly read all ${entity}.`;
+};
 
 // export const messageReadByIds = (entity: string, ids: number[]) => {
 //     return `Should correctly read ${entity} by ids ${ids.join(",")}.`;
@@ -20,9 +21,9 @@ export const messageDelete = (entity: string, ids: number[]) => {
 //     expect(service.readByIds(ids)).toEqual(expectedBefore);
 // };
 
-// export const testReadAll = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>) => {
-//     expect(service.readAll()).toEqual(structuredClone(data.items));
-// };
+export const testReadAll = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>) => {
+    expect(service.readAll()).toEqual(data.getItems());
+};
 
 export const testDelete = <TData>(service: BaseDatabaseService<TData>, ids: number[]) => {
     expect(service.readByIds(ids)).not.toEqual([]);
