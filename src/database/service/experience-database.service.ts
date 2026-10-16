@@ -1,16 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
 import { BaseDatabaseService } from "./base-database.service";
-import { ExperienceDatabaseModel } from "../model/experience-database.model";
-import { ExperienceDatabaseConst } from "../const/experience-database.const";
+import { ExperienceDataDatabaseModel } from "../model/data/experience-data-database.model";
+import { ExperienceDatabaseData } from "../data/experience-database.data";
 
-@Injectable({ providedIn: "root" })
-export class ExperienceDatabaseService extends BaseDatabaseService<ExperienceDatabaseModel> {
+@Service()
+export class ExperienceDatabaseService extends BaseDatabaseService<ExperienceDataDatabaseModel> {
   constructor() {
-    super([
-      ExperienceDatabaseConst.EXPERIENCE_PERSONAL_0,
-      ExperienceDatabaseConst.EXPERIENCE_PERSONAL_1,
-      ExperienceDatabaseConst.EXPERIENCE_TEST_2
-    ]);
+    super(ExperienceDatabaseData);
   }
 }

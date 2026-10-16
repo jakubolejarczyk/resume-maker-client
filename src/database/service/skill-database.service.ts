@@ -1,19 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
 import { BaseDatabaseService } from "./base-database.service";
-import { SkillDatabaseModel } from "../model/skill-database.model";
-import { SkillDatabaseConst } from "../const/skill-database.const";
+import { SkillDataDatabaseModel } from "../model/data/skill-data-database.model";
+import { SkillDatabaseData } from "../data/skill-database.data";
 
-@Injectable({ providedIn: "root" })
-export class SkillDatabaseService extends BaseDatabaseService<SkillDatabaseModel> {
+@Service()
+export class SkillDatabaseService extends BaseDatabaseService<SkillDataDatabaseModel> {
   constructor() {
-    super([
-      SkillDatabaseConst.SKILL_PERSONAL_0,
-      SkillDatabaseConst.SKILL_PERSONAL_1,
-      SkillDatabaseConst.SKILL_PERSONAL_2,
-      SkillDatabaseConst.SKILL_PERSONAL_3,
-      SkillDatabaseConst.SKILL_TEST_4,
-      SkillDatabaseConst.SKILL_TEST_5
-    ]);
+    super(SkillDatabaseData);
   }
 }

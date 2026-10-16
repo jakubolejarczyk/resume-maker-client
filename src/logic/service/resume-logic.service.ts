@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { BaseLogicService } from "./base-logic.service";
-import { ResumeDatabaseModel } from "../../database/model/resume-database.model";
+import { ResumeDatabaseModel } from "../../database/model/data/resume-data-database.model";
 import { ResumeDatabaseService } from "../../database/service/resume-database.service";
 
 @Injectable({ providedIn: "root" })

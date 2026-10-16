@@ -1,6 +1,6 @@
 import { inject } from "@angular/core";
 
-import { BaseDatabaseModel } from "../../database/model/base-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 import { BaseDatabaseService } from "../../database/service/base-database.service";
 import { SelectLogicUtil } from "../util/select-logic.util";
 import { DeselectLogicUtil } from "../util/deselect-logic.util";

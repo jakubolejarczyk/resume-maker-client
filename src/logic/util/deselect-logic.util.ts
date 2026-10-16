@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { BaseDatabaseService } from "../../database/service/base-database.service";
-import { BaseDatabaseModel } from "../../database/model/base-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 @Injectable({ providedIn: "root" })
 export class DeselectLogicUtil<TItem extends BaseDatabaseModel> {

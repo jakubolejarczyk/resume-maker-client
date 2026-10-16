@@ -1,42 +1,55 @@
-import { BaseDatabaseModel } from "../model/base-database.model";
+import { inject } from "@angular/core";
 
-export class BaseDatabaseService<TItem extends BaseDatabaseModel> {
+import { BaseDatabaseData } from "../data/base-database.data";
+import { BaseDatabaseModel } from "../model/base/base-database.model";
+
+export class BaseDatabaseService<TData> {
+  private readonly service: BaseDatabaseData<TData>;
+  
   public nextId = 0;
 
-  constructor(private items: TItem[]) {}
+  constructor(private readonly type: typeof BaseDatabaseData<TData>) {
+    this.service = inject(type);
+  }
 
-  create(items: Omit<TItem, "id">[]) {
+  create(items: Omit<BaseDatabaseModel<TData>, "id">[]) {
     items.forEach(item => {
-      const itemToCreate: TItem = { ...item, id: this.nextId } as TItem;
-      this.items.push(itemToCreate);
+      const itemToCreate = {
+        ...item,
+        id: this.nextId
+      } as BaseDatabaseModel<TData>;
+      this.service.items.push(itemToCreate);
       this.nextId++;
     });
   }
 
   readAll() {
-    return structuredClone(this.items);
+    return structuredClone(this.service.items);
   }
 
   readByIds(ids: number[]) {
-    return structuredClone(this.items)
+    return this.readAll()
       .filter(item => ids.includes(item.id));
   }
 
   readByParentIds(parentIds: number[]) {
-    return structuredClone(this.items)
+    return this.readAll()
       .filter(item => {
-        if (item.parentId === undefined) return true;
-        return parentIds.includes(item.parentId);
+        const { parentId } = item.metadata;
+        if (parentId === undefined) {
+          return true;
+        }
+        return parentIds.includes(parentId);
       });
   }
 
-  update(itemsToUpdate: TItem[]) {
-    this.items = structuredClone(this.items)
+  update(itemsToUpdate: BaseDatabaseModel<TData>[]) {
+    this.service.items = this.readAll()
       .map(item => itemsToUpdate.find(itemToUpdate => itemToUpdate.id === item.id) ?? item);
   }
 
   delete(ids: number[]) {
-    this.items = structuredClone(this.items)
+    this.service.items = this.readAll()
       .filter(item => !ids.includes(item.id));
   }
 }

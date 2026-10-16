@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { EducationLogicService } from "./education-logic.service";
-import { EducationDatabaseConst } from "../../database/const/education-database.const";
+import { EducationDatabaseConst } from "../../database/data/education-database.data";
 import { EducationDatabaseService } from "../../database/service/education-database.service";
 
 describe("Education Logic", () => {
