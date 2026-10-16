@@ -2,7 +2,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { ResumeDatabaseService } from "./resume-database.service";
 import { ResumeDatabaseData } from "../data/resume-database.data";
-import { messageDeleteItemsByIds, testDeleteItemsByIds } from "../util/database.util";
+import { messageDelete, messageReadAll, messageReadByIds, testDelete, testReadAll, testReadByIds } from "../util/database.util";
 
 describe("Resume Database Service", () => {
   const ids = [0];
@@ -15,5 +15,9 @@ describe("Resume Database Service", () => {
     data = TestBed.inject(ResumeDatabaseData);
   });
 
-  it(messageDeleteItemsByIds("resumes", ids), () => testDeleteItemsByIds(ids, service, data));
+  it(messageReadAll("resumes"), () => testReadAll(service, data));
+  
+  it(messageReadByIds("resumes", ids), () => testReadByIds(service, data, ids));
+
+  it(messageDelete("resumes", ids), () => testDelete(service, data, ids));
 });

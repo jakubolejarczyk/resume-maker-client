@@ -2,7 +2,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { UserDatabaseService } from "./user-database.service";
 import { UserDatabaseData } from "../data/user-database.data";
-import { messageDeleteItemsByIds, testDeleteItemsByIds } from "../util/database.util";
+import { messageDelete, messageReadAll, messageReadByIds, testDelete, testReadAll, testReadByIds } from "../util/database.util";
 
 describe("User Database Service", () => {
   const ids = [0];
@@ -64,11 +64,6 @@ describe("User Database Service", () => {
   //   ]);
   // });
 
-  // it("Should correctly read user by id 0.", () => {
-  //   const ids = [0];
-  //   expect(service.readByIds(ids)).toEqual(data.items);
-  // });
-
   // it("Should correctly read user by parent ids 0.", () => {
   //   const parentIds = [0];
   //   expect(service.readByParentIds(parentIds)).toEqual(data.items);
@@ -82,6 +77,10 @@ describe("User Database Service", () => {
   //   service.update([itemsClone[ids[0]]]);
   //   expect(service.readByIds(ids)).toEqual(itemsClone);
   // });
+  
+  it(messageReadAll("users"), () => testReadAll(service, data));
 
-  it(messageDeleteItemsByIds("users", ids), () => testDeleteItemsByIds(ids, service, data));
+  it(messageReadByIds("users", ids), () => testReadByIds(service, data, ids));
+
+  it(messageDelete("users", ids), () => testDelete(service, data, ids));
 });
