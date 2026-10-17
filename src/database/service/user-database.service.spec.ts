@@ -60,11 +60,6 @@ describe("User Database Service", () => {
   //   ]);
   // });
 
-  // it("Should correctly read user by parent ids 0.", () => {
-  //   const parentIds = [0];
-  //   expect(service.readByParentIds(parentIds)).toEqual(data.items);
-  // });
-
   // it("Should correctly update user with id 0.", () => {
   //   const ids = [0];
   //   expect(service.readByIds(ids)).toEqual(data.items);
@@ -77,6 +72,8 @@ describe("User Database Service", () => {
   it(util.messageReadAll("users"), () => util.testReadAll(service, [USER_0]));
 
   it(util.messageReadById("user", 0), () => util.testReadById(service, 0, USER_0));
+
+  it(util.messageReadByParentId("users", 0), () => util.testReadByParentId(service, 0, []));
 
   it(util.messageDelete("user", 0), () => util.testDelete(service, 0, []));
 });

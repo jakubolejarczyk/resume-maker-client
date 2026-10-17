@@ -32,14 +32,14 @@ export class BaseDatabaseService<TData> {
     return this.readAll().find(item => item.metadata.id === id);
   }
 
-  // readByParentId(parentId: number) {
-  //   return this.readAll().filter(item => {
-  //     if (item.metadata.parentId === undefined) {
-  //       return true;
-  //     }
-  //     return item.metadata.parentId === parentId;
-  //   });
-  // }
+  readByParentId(parentId: number) {
+    return this.readAll().filter(item => {
+      if (item.metadata.parentId === undefined) {
+        return false;
+      }
+      return item.metadata.parentId === parentId;
+    });
+  }
 
   // update(itemsToUpdate: BaseDatabaseModel<TData>[]) {
   //   const items = this.readAll()

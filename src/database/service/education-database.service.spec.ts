@@ -14,6 +14,8 @@ describe("Education Database Service", () => {
   it(util.messageReadAll("educations"), () => util.testReadAll(service, [EDUCATION_0, EDUCATION_1]));
     
   it(util.messageReadById("education", 1), () => util.testReadById(service, 1, EDUCATION_1));
+        
+  it(util.messageReadByParentId("education", 0), () => util.testReadByParentId(service, 0, [EDUCATION_0, EDUCATION_1]));
 
   it(util.messageDelete("education", 0), () => util.testDelete(service, 0, [EDUCATION_1]));
 });
