@@ -11,9 +11,9 @@ export const messageReadAll = (entity: string) => {
 //     return `Should correctly read ${entity} by id ${id}.`;
 // };
 
-// export const messageDelete = (entity: string, id: number) => {
-//     return `Should correctly delete ${entity} by ids ${id}.`;
-// };
+export const messageDelete = (entity: string, id: number) => {
+    return `Should correctly delete ${entity} with id ${id}.`;
+};
 
 export const testReadAll = <TData>(service: BaseDatabaseService<TData>, expected: BaseDatabaseModel<TData>[]) => {
     expect(service.readAll()).toEqual(expected);
@@ -25,11 +25,7 @@ export const testReadAll = <TData>(service: BaseDatabaseService<TData>, expected
 //     expect(received).toEqual(expected);
 // };
 
-// export const testDelete = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>, id: number) => {
-//     const receivedBeforeDeletion = service.readById(id);
-//     const expected = data.getItems().find(item => item.metadata.id === id);
-//     expect(receivedBeforeDeletion).toEqual(expected);
-//     service.delete(id);
-//     const receivedAfterDeletion = service.readById(id);
-//     expect(receivedAfterDeletion).not.toEqual(expected);
-// };
+export const testDelete = <TData>(service: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>[]) => {
+    service.delete(id);
+    expect(service.readAll()).toEqual(expected);
+};

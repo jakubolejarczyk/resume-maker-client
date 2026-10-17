@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { UserDatabaseService } from "./user-database.service";
-import { messageReadAll, testReadAll } from "../util/database.util";
+import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
 import { USER_0 } from "../const/user-database.const";
 
 describe("User Database Service", () => {
@@ -78,5 +78,5 @@ describe("User Database Service", () => {
 
   // it(messageReadById("user", 0), () => testReadById(service, data, 0));
 
-  // it(messageDelete("user", 0), () => testDelete(service, data, 0));
+  it(messageDelete("user", 0), () => testDelete(service, 0, []));
 });

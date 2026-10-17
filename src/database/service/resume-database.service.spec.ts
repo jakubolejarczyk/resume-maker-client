@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { ResumeDatabaseService } from "./resume-database.service";
-import { messageReadAll, testReadAll } from "../util/database.util";
+import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
 import { RESUME_0 } from "../const/resume-database.const";
 
 describe("Resume Database Service", () => {
@@ -15,5 +15,5 @@ describe("Resume Database Service", () => {
 
   // it(messageReadById("resume", 0), () => testReadById(service, data, 0));
 
-  // it(messageDelete("resume", 0), () => testDelete(service, data, 0));
+  it(messageDelete("resume", 0), () => testDelete(service, 0, []));
 });

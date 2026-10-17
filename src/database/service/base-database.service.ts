@@ -47,8 +47,8 @@ export class BaseDatabaseService<TData> {
   //   this.service.setItems(items);
   // }
 
-  // delete(id: number) {
-  //   const items = this.readAll().filter(item => item.metadata.id !== id);
-  //   this.service.setItems(items);
-  // }
+  delete(id: number) {
+    const items = this.readAll().filter(item => item.metadata.id !== id);
+    this.service.setItems(items);
+  }
 }
