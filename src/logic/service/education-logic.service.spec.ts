@@ -20,4 +20,9 @@ describe("Education Logic Service", () => {
   ]));
         
   it(util.messageDeselect("education", 1), () => util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]));
+
+  it(util.messageMoveUp("education", 1), () => util.testMoveUp(database, logic, 1, [
+    { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
+    { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } }
+  ]));
 });

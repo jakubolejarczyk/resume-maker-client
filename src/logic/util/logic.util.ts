@@ -11,6 +11,10 @@ export const messageDeselect = (entity: string, id: number) => {
     return `Should correctly deselect ${entity} with id ${id}.`;
 };
 
+export const messageMoveUp = (entity: string, id: number) => {
+    return `Should correctly move up ${entity} with id ${id}.`;
+};
+
 export const testSelect = <TData>(
     database: BaseDatabaseService<TData>,
     logic: BaseLogicService<TData>,
@@ -29,5 +33,15 @@ export const testDeselect = <TData>(
 ) => {
     logic.select(id);
     logic.deselect(id);
+    expect(database.readAll()).toEqual(expected);
+};
+
+export const testMoveUp = <TData>(
+    database: BaseDatabaseService<TData>,
+    logic: BaseLogicService<TData>,
+    id: number,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    logic.moveUp(id);
     expect(database.readAll()).toEqual(expected);
 };

@@ -19,4 +19,6 @@ describe("User Logic Service", () => {
   ]));
 
   it(util.messageDeselect("user", 0), () => util.testDeselect(database, logic, 0, [USER_0]));
+
+  it(util.messageMoveUp("user", 0), () => util.testMoveUp(database, logic, 0, [USER_0]));
 });
