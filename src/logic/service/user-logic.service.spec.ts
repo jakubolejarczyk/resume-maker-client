@@ -24,6 +24,12 @@ describe("User Logic Service", () => {
   
   it(util.messageReadByParentId("user", "undefined"), () => util.testReadByParentId(logic, undefined, [USER_0]));
 
+  it(util.messageUpdate("user", 0), () => {
+    const USER_0_UPDATED = structuredClone(USER_0);
+    USER_0_UPDATED.data.city = "Warsaw";
+    util.testUpdate(database, logic, 0, USER_0_UPDATED.data, [USER_0_UPDATED]);
+  });
+
   it(util.messageDelete("user", 0), () => util.testDelete(database, logic, 0, []));
 
   it(util.messageMoveUp("user", 0), () => util.testMoveUp(database, logic, 0, [USER_0]));

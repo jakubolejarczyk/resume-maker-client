@@ -25,6 +25,12 @@ describe("Education Logic Service", () => {
 
   it(util.messageReadByParentId("education", 0), () => util.testReadByParentId(logic, 0, [EDUCATION_0, EDUCATION_1]));
 
+  it(util.messageUpdate("education", 1), () => {
+    const EDUCATION_1_UPDATED = structuredClone(EDUCATION_1);
+    EDUCATION_1_UPDATED.data.startYear = 2050;
+    util.testUpdate(database, logic, 1, EDUCATION_1_UPDATED.data, [EDUCATION_0, EDUCATION_1_UPDATED]);
+  });
+
   it(util.messageDelete("education", 1), () => util.testDelete(database, logic, 1, [
     { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } }
   ]));

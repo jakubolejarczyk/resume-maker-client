@@ -46,8 +46,11 @@ export class BaseLogicService<TData> {
             : this.service.readByParentId(parentId);
     }
 
-    update() {
-        throw new Error("Not implemented");
+    update(id: number, data: TData) {
+        const itemToUpdate = this.service.readById(id);
+        if (itemToUpdate === undefined) return;
+        itemToUpdate.data = structuredClone(data);
+        this.service.update(itemToUpdate);
     }
 
     delete(id: number) {

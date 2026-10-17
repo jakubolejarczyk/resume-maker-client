@@ -25,6 +25,12 @@ describe("Experience Logic Service", () => {
 
   it(util.messageReadByParentId("experience", 0), () => util.testReadByParentId(logic, 0, [EXPERIENCE_0, EXPERIENCE_1]));
 
+  it(util.messageUpdate("experience", 1), () => {
+    const EXPERIENCE_1_UPDATED = structuredClone(EXPERIENCE_1);
+    EXPERIENCE_1_UPDATED.data.jobTitle = "Programmer";
+    util.testUpdate(database, logic, 1, EXPERIENCE_1_UPDATED.data, [EXPERIENCE_0, EXPERIENCE_1_UPDATED]);
+  });
+
   it(util.messageDelete("experience", 0), () => util.testDelete(database, logic, 0, [
     { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } }
   ]));

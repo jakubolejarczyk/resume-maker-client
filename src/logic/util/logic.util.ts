@@ -19,6 +19,10 @@ export const messageReadByParentId = (entity: string, parentId: number | "undefi
     return `Should correctly read ${entity} by parent id ${parentId}.`;
 };
 
+export const messageUpdate = (entity: string, id: number) => {
+    return `Should correctly update ${entity} with id ${id}.`;
+};
+
 export const messageDelete = (entity: string, id: number) => {
     return `Should correctly delete ${entity} with id ${id}.`;
 };
@@ -66,6 +70,17 @@ export const testReadByParentId = <TData>(
     expected: BaseDatabaseModel<TData>[]
 ) => {
     expect(logic.readByParentId(parentId)).toEqual(expected);
+};
+
+export const testUpdate = <TData>(
+    database: BaseDatabaseService<TData>,
+    logic: BaseLogicService<TData>,
+    id: number,
+    data: TData,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    logic.update(id, data);
+    expect(database.readAll()).toEqual(expected);
 };
 
 export const testDelete = <TData>(

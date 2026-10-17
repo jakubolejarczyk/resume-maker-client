@@ -24,6 +24,12 @@ describe("Resume Logic Service", () => {
       
   it(util.messageReadByParentId("resume", 0), () => util.testReadByParentId(logic, 0, [RESUME_0]));
 
+  it(util.messageUpdate("resume", 0), () => {
+    const RESUME_0_UPDATED = structuredClone(RESUME_0);
+    RESUME_0_UPDATED.data.jobTitle = "Programmer";
+    util.testUpdate(database, logic, 0, RESUME_0_UPDATED.data, [RESUME_0_UPDATED]);
+  });
+
   it(util.messageDelete("resume", 0), () => util.testDelete(database, logic, 0, []));
 
   it(util.messageMoveUp("resume", 0), () => util.testMoveUp(database, logic, 0, [RESUME_0]));
