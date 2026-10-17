@@ -28,9 +28,9 @@ export class BaseDatabaseService<TData> {
     return structuredClone(this.service.getItems());
   }
 
-  // readById(id: number) {
-  //   return this.readAll().find(item => item.metadata.id === id);
-  // }
+  readById(id: number) {
+    return this.readAll().find(item => item.metadata.id === id);
+  }
 
   // readByParentId(parentId: number) {
   //   return this.readAll().filter(item => {

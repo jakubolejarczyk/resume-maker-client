@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { UserDatabaseService } from "./user-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
+import * as util from "../util/database.util";
 import { USER_0 } from "../const/user-database.const";
 
 describe("User Database Service", () => {
@@ -74,9 +74,9 @@ describe("User Database Service", () => {
   //   expect(service.readByIds(ids)).toEqual(itemsClone);
   // });
   
-  it(messageReadAll("users"), () => testReadAll(service, [USER_0]));
+  it(util.messageReadAll("users"), () => util.testReadAll(service, [USER_0]));
 
-  // it(messageReadById("user", 0), () => testReadById(service, data, 0));
+  it(util.messageReadById("user", 0), () => util.testReadById(service, 0, USER_0));
 
-  it(messageDelete("user", 0), () => testDelete(service, 0, []));
+  it(util.messageDelete("user", 0), () => util.testDelete(service, 0, []));
 });

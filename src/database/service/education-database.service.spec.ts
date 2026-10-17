@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { EducationDatabaseService } from "./education-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
+import * as util from "../util/database.util";
 import { EDUCATION_0, EDUCATION_1 } from "../const/education-database.const";
 
 describe("Education Database Service", () => {
@@ -11,9 +11,9 @@ describe("Education Database Service", () => {
     service = TestBed.inject(EducationDatabaseService);
   });
 
-  it(messageReadAll("educations"), () => testReadAll(service, [EDUCATION_0, EDUCATION_1]));
+  it(util.messageReadAll("educations"), () => util.testReadAll(service, [EDUCATION_0, EDUCATION_1]));
     
-  // it(messageReadById("education", 0), () => testReadById(service, data, 0));
+  it(util.messageReadById("education", 1), () => util.testReadById(service, 1, EDUCATION_1));
 
-  it(messageDelete("education", 0), () => testDelete(service, 0, [EDUCATION_1]));
+  it(util.messageDelete("education", 0), () => util.testDelete(service, 0, [EDUCATION_1]));
 });

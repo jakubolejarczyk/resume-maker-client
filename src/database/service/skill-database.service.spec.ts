@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { SkillDatabaseService } from "./skill-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
+import * as util from "../util/database.util";
 import { SKILL_0, SKILL_1, SKILL_2, SKILL_3 } from "../const/skill-database.const";
 
 describe("Skill Database Service", () => {
@@ -11,9 +11,9 @@ describe("Skill Database Service", () => {
     service = TestBed.inject(SkillDatabaseService);
   });
 
-  it(messageReadAll("skills"), () => testReadAll(service, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]));
+  it(util.messageReadAll("skills"), () => util.testReadAll(service, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]));
 
-  // it(messageReadById("skill", 0), () => testReadById(service, data, 0));
+  it(util.messageReadById("skill", 2), () => util.testReadById(service, 2, SKILL_2));
 
-  it(messageDelete("skill", 1), () => testDelete(service, 1, [SKILL_0, SKILL_2, SKILL_3]));
+  it(util.messageDelete("skill", 1), () => util.testDelete(service, 1, [SKILL_0, SKILL_2, SKILL_3]));
 });

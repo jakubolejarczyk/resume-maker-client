@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 
 import { ResumeDatabaseService } from "./resume-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
+import * as util from "../util/database.util";
 import { RESUME_0 } from "../const/resume-database.const";
 
 describe("Resume Database Service", () => {
@@ -11,9 +11,9 @@ describe("Resume Database Service", () => {
     service = TestBed.inject(ResumeDatabaseService);
   });
 
-  it(messageReadAll("resumes"), () => testReadAll(service, [RESUME_0]));
+  it(util.messageReadAll("resumes"), () => util.testReadAll(service, [RESUME_0]));
 
-  // it(messageReadById("resume", 0), () => testReadById(service, data, 0));
+  it(util.messageReadById("resume", 0), () => util.testReadById(service, 0, RESUME_0));
 
-  it(messageDelete("resume", 0), () => testDelete(service, 0, []));
+  it(util.messageDelete("resume", 0), () => util.testDelete(service, 0, []));
 });
