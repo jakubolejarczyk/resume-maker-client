@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
 import { BaseApiService } from "./base-api.service";
-import { UserApiModel } from "../model/user-api.model";
-import { UserMockService } from "../../mock/service/user-mock.service";
+import { UserDataApiModel } from "../model/data/user-data-api.model";
+import { UserLogicService } from "../../logic/service/user-logic.service";
 
-@Injectable({ providedIn: "root" })
-export class UserApiService extends BaseApiService<UserApiModel> {
+@Service()
+export class UserApiService extends BaseApiService<UserDataApiModel> {
     constructor() {
-        super(UserMockService);
+        super(UserLogicService);
     }
 }

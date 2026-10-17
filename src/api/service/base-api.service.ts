@@ -1,42 +1,48 @@
-import { inject, ProviderToken } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { inject } from "@angular/core";
+import { of } from "rxjs";
 
-import { BaseMockService } from "../../mock/service/base-mock.service2";
-import { BaseApiModel } from "../model/base-api.model";
-import { ResponseApiModel } from "../model/response-api.model";
+import { BaseLogicService } from "../../logic/service/base-logic.service";
 
-export class BaseApiService<TModel extends BaseApiModel> {
-    baseMockService: BaseMockService<TModel>;
+export class BaseApiService<TData> {
+    private readonly service: BaseLogicService<TData>;
 
-    constructor(private readonly token: ProviderToken<BaseMockService<TModel>>) {
-        this.baseMockService = inject(token);
+    constructor(private readonly type: typeof BaseLogicService<TData>) {
+        this.service = inject(type);
     }
 
-    create(itemToCreate: Omit<TModel, "id">): Observable<ResponseApiModel<TModel | undefined>> {
-        return of(this.baseMockService.create(itemToCreate));
+    select(id: number) {
+        return of(this.service.select(id));
     }
 
-    read(id: number): Observable<ResponseApiModel<TModel | undefined>> {
-        return of(this.baseMockService.read(id));
+    deselect(id: number) {
+        return of(this.service.deselect(id));
     }
 
-    readAll(): Observable<ResponseApiModel<TModel[]>> {
-        return of(this.baseMockService.readAll());
+    create(parentId: number | undefined, data: TData) {
+        return of(this.service.create(parentId, data));
     }
 
-    update(itemToUpdate: TModel): Observable<ResponseApiModel<TModel | undefined>> {
-        return of(this.baseMockService.update(itemToUpdate));
+    readById(id: number) {
+        return of(this.service.readById(id));
     }
 
-    delete(itemToDelete: TModel): Observable<ResponseApiModel<undefined>> {
-        return of(this.baseMockService.delete(itemToDelete.id));
+    readByParentId(parentId: number | undefined) {
+        return of(this.service.readByParentId(parentId));
     }
 
-    moveUp(itemToMoveUp: TModel): Observable<ResponseApiModel<undefined>> {
-        return of(this.baseMockService.moveUp(itemToMoveUp.id));
+    update(id: number, data: TData) {
+        return of(this.service.update(id, data));
     }
 
-    moveDown(itemToMoveDown: TModel): Observable<ResponseApiModel<undefined>> {
-        return of(this.baseMockService.moveDown(itemToMoveDown.id));
+    delete(id: number) {
+        return of(this.service.delete(id));
+    }
+
+    moveUp(id: number) {
+        return of(this.service.moveUp(id));
+    }
+
+    moveDown(id: number) {
+        return of(this.service.moveDown(id));
     }
 }

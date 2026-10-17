@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
 import { BaseApiService } from "./base-api.service";
-import { ResumeMockService } from "../../mock/service/resume-mock.service";
-import { ResumeApiModel } from "../model/resume-api.model";
+import { ResumeDataApiModel } from "../model/data/resume-data-api.model";
+import { ResumeLogicService } from "../../logic/service/resume-logic.service";
 
-@Injectable({ providedIn: "root" })
-export class ResumeApiService extends BaseApiService<ResumeApiModel> {
+@Service()
+export class ResumeApiService extends BaseApiService<ResumeDataApiModel> {
     constructor() {
-        super(ResumeMockService);
+        super(ResumeLogicService);
     }
 }
