@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
 import { BaseLogicService } from "./base-logic.service";
-import { SkillDatabaseModel } from "../../database/model/data/skill-data-database.model";
+import { SkillDataDatabaseModel } from "../../database/model/data/skill-data-database.model";
 import { SkillDatabaseService } from "../../database/service/skill-database.service";
 
-@Injectable({ providedIn: "root" })
-export class SkillLogicService extends BaseLogicService<SkillDatabaseModel> {
+@Service()
+export class SkillLogicService extends BaseLogicService<SkillDataDatabaseModel> {
     constructor() {
         super(SkillDatabaseService);
     }

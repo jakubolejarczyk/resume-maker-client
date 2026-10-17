@@ -1,25 +1,31 @@
 import { inject } from "@angular/core";
-
-import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 import { BaseDatabaseService } from "../../database/service/base-database.service";
-import { SelectLogicUtil } from "../util/select-logic.util";
-import { DeselectLogicUtil } from "../util/deselect-logic.util";
 
-export class BaseLogicService<TItem extends BaseDatabaseModel> {
-    private readonly selectLogicUtil = inject(SelectLogicUtil);
-    private readonly deselectLogicUtil = inject(DeselectLogicUtil);
+export class BaseLogicService<TData> {
+    private readonly service: BaseDatabaseService<TData>;
 
-    constructor(private readonly type: typeof BaseDatabaseService<TItem>) {
-        this.selectLogicUtil.service = inject(type);
-        this.deselectLogicUtil.service = inject(type);
+    constructor(private readonly type: typeof BaseDatabaseService<TData>) {
+        this.service = inject(type);
+    }
+    
+    select(id: number) {
+        const itemToSelect = this.service.readById(id);
+        if (itemToSelect === undefined) return;
+        const items = itemToSelect.metadata.parentId === undefined
+            ? this.service.readAll()
+            : this.service.readByParentId(itemToSelect.metadata.parentId);
+        items.forEach(item => {
+            if (item.metadata.id === itemToSelect.metadata.id) {
+                item.metadata.isSelected = true;
+            } else {
+                item.metadata.isSelected = false;
+            }
+            this.service.update(item);
+        });
     }
 
-    select(ids: number[]) {
-        this.selectLogicUtil.select(ids);   
-    }
-
-    deselect(ids: number[]) {
-        this.deselectLogicUtil.deselect(ids);
+    deselect() {
+        throw new Error("Not implemented");
     }
 
     create() {
