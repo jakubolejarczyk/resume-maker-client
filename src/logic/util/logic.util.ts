@@ -15,6 +15,10 @@ export const messageMoveUp = (entity: string, id: number) => {
     return `Should correctly move up ${entity} with id ${id}.`;
 };
 
+export const messageMoveDown = (entity: string, id: number) => {
+    return `Should correctly move down ${entity} with id ${id}.`;
+};
+
 export const testSelect = <TData>(
     database: BaseDatabaseService<TData>,
     logic: BaseLogicService<TData>,
@@ -43,5 +47,15 @@ export const testMoveUp = <TData>(
     expected: BaseDatabaseModel<TData>[]
 ) => {
     logic.moveUp(id);
+    expect(database.readAll()).toEqual(expected);
+};
+
+export const testMoveDown = <TData>(
+    database: BaseDatabaseService<TData>,
+    logic: BaseLogicService<TData>,
+    id: number,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    logic.moveDown(id);
     expect(database.readAll()).toEqual(expected);
 };

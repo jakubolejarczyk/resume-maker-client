@@ -25,4 +25,9 @@ describe("Experience Logic Service", () => {
     { ...EXPERIENCE_0, metadata: { ...EXPERIENCE_0.metadata, order: 1 } },
     { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } }
   ]));
+
+  it(util.messageMoveDown("experience", 1), () => util.testMoveDown(database, logic, 1, [
+    { ...EXPERIENCE_0, metadata: { ...EXPERIENCE_0.metadata, order: 0 } },
+    { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 1 } }
+  ]));
 });

@@ -25,4 +25,9 @@ describe("Education Logic Service", () => {
     { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
     { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } }
   ]));
+
+  it(util.messageMoveDown("education", 1), () => util.testMoveDown(database, logic, 1, [
+    { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
+    { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 1 } }
+  ]));
 });

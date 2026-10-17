@@ -68,7 +68,25 @@ export class BaseLogicService<TData> {
         this.service.update(prevItem);
     }
 
-    moveDown() {
-        throw new Error("Not implemented");
+    moveDown(id: number) {
+        const itemToMoveDown = this.service.readById(id);
+        if (itemToMoveDown === undefined) return;
+        const items = itemToMoveDown.metadata.parentId === undefined
+            ? this.service.readAll()
+            : this.service.readByParentId(itemToMoveDown.metadata.parentId);
+        const lastOrder = items.reduce((acc: number, curr) => {
+            if (curr.metadata.order > acc) {
+                acc = curr.metadata.order;
+            }
+            return acc;
+        }, 0);
+        if (itemToMoveDown.metadata.order === lastOrder) return;
+        const nextItem = items.find(item => item.metadata.order === (itemToMoveDown.metadata.order + 1));
+        if (nextItem === undefined) return;
+        const itemToMoveDownOrder = itemToMoveDown.metadata.order;
+        itemToMoveDown.metadata.order = nextItem.metadata.order;
+        nextItem.metadata.order = itemToMoveDownOrder;
+        this.service.update(itemToMoveDown);
+        this.service.update(nextItem);
     }
 }
