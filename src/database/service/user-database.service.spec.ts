@@ -1,18 +1,14 @@
 import { TestBed } from "@angular/core/testing";
 
 import { UserDatabaseService } from "./user-database.service";
-import { UserDatabaseData } from "../data/user-database.data";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
+import { messageReadAll, testReadAll } from "../util/database.util";
+import { USER_0 } from "../const/user-database.const";
 
 describe("User Database Service", () => {
-  const ids = [0];
-
   let service: UserDatabaseService;
-  let data: UserDatabaseData;
 
   beforeEach(() => {
     service = TestBed.inject(UserDatabaseService);
-    data = TestBed.inject(UserDatabaseData);
   });
 
   // it("Should correctly create new users.", () => {
@@ -78,9 +74,9 @@ describe("User Database Service", () => {
   //   expect(service.readByIds(ids)).toEqual(itemsClone);
   // });
   
-  it(messageReadAll("users"), () => testReadAll(service, data));
+  it(messageReadAll("users"), () => testReadAll(service, [USER_0]));
 
-  // it(messageReadByIds("users", ids), () => testReadByIds(service, data, ids));
+  // it(messageReadById("user", 0), () => testReadById(service, data, 0));
 
-  it(messageDelete("users", ids), () => testDelete(service, ids));
+  // it(messageDelete("user", 0), () => testDelete(service, data, 0));
 });

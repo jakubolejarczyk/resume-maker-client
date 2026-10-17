@@ -1,7 +1,7 @@
 export interface BaseDatabaseModel<TData> {
-    id: number;
     data: TData;
     metadata: {
+        id: number;
         parentId?: number;
         order: number;
         isSelected: boolean;

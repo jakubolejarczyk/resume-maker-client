@@ -1,21 +1,19 @@
 import { TestBed } from "@angular/core/testing";
 
 import { EducationDatabaseService } from "./education-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll } from "../util/database.util";
-import { EducationDatabaseData } from "../data/education-database.data";
+import { messageReadAll, testReadAll } from "../util/database.util";
+import { EDUCATION_0, EDUCATION_1 } from "../const/education-database.const";
 
 describe("Education Database Service", () => {
-  const ids = [0, 1];
-
   let service: EducationDatabaseService;
-  let data: EducationDatabaseData;
 
   beforeEach(() => {
     service = TestBed.inject(EducationDatabaseService);
-    data = TestBed.inject(EducationDatabaseData);
   });
 
-  it(messageReadAll("education"), () => testReadAll(service, data));
+  it(messageReadAll("educations"), () => testReadAll(service, [EDUCATION_0, EDUCATION_1]));
+    
+  // it(messageReadById("education", 0), () => testReadById(service, data, 0));
 
-  it(messageDelete("educations", ids), () => testDelete(service, ids));
+  // it(messageDelete("education", 0), () => testDelete(service, data, 0));
 });

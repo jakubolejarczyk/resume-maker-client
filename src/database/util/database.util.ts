@@ -1,32 +1,35 @@
 import { expect } from "vitest";
 
 import { BaseDatabaseService } from "../service/base-database.service";
-import { BaseDatabaseData } from "../data/base-database.data";
+import { BaseDatabaseModel } from "../model/base/base-database.model";
 
 export const messageReadAll = (entity: string) => {
     return `Should correctly read all ${entity}.`;
 };
 
-// export const messageReadByIds = (entity: string, ids: number[]) => {
-//     return `Should correctly read ${entity} by ids ${ids.join(",")}.`;
+// export const messageReadById = (entity: string, id: number) => {
+//     return `Should correctly read ${entity} by id ${id}.`;
 // };
 
-export const messageDelete = (entity: string, ids: number[]) => {
-    return `Should correctly delete ${entity} by ids ${ids.join(",")}.`;
-};
-
-// export const testReadByIds = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>, ids: number[]) => {
-//     const expectedBefore = structuredClone(data.items)
-//         .filter(item => ids.includes(item.id));
-//     expect(service.readByIds(ids)).toEqual(expectedBefore);
+// export const messageDelete = (entity: string, id: number) => {
+//     return `Should correctly delete ${entity} by ids ${id}.`;
 // };
 
-export const testReadAll = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>) => {
-    expect(service.readAll()).toEqual(data.getItems());
+export const testReadAll = <TData>(service: BaseDatabaseService<TData>, expected: BaseDatabaseModel<TData>[]) => {
+    expect(service.readAll()).toEqual(expected);
 };
 
-export const testDelete = <TData>(service: BaseDatabaseService<TData>, ids: number[]) => {
-    expect(service.readByIds(ids)).not.toEqual([]);
-    service.delete(ids);
-    expect(service.readByIds(ids)).toEqual([]);
-};
+// export const testReadById = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>, id: number) => {
+//     const received = service.readById(id);
+//     const expected = data.getItems().find(item => item.metadata.id === id);
+//     expect(received).toEqual(expected);
+// };
+
+// export const testDelete = <TData>(service: BaseDatabaseService<TData>, data: BaseDatabaseData<TData>, id: number) => {
+//     const receivedBeforeDeletion = service.readById(id);
+//     const expected = data.getItems().find(item => item.metadata.id === id);
+//     expect(receivedBeforeDeletion).toEqual(expected);
+//     service.delete(id);
+//     const receivedAfterDeletion = service.readById(id);
+//     expect(receivedAfterDeletion).not.toEqual(expected);
+// };

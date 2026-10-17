@@ -4,7 +4,7 @@ export class BaseDatabaseData<TData> {
     constructor(private items: BaseDatabaseModel<TData>[]) {}
 
     setItems(items: BaseDatabaseModel<TData>[]) {
-        this.items = items;
+        this.items = structuredClone(items);
     }
 
     getItems() {

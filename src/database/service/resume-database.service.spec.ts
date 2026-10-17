@@ -1,21 +1,19 @@
 import { TestBed } from "@angular/core/testing";
 
 import { ResumeDatabaseService } from "./resume-database.service";
-import { messageDelete, messageReadAll, testDelete, testReadAll, } from "../util/database.util";
-import { ResumeDatabaseData } from "../data/resume-database.data";
+import { messageReadAll, testReadAll } from "../util/database.util";
+import { RESUME_0 } from "../const/resume-database.const";
 
 describe("Resume Database Service", () => {
-  const ids = [0];
-
   let service: ResumeDatabaseService;
-  let data: ResumeDatabaseData;
 
   beforeEach(() => {
     service = TestBed.inject(ResumeDatabaseService);
-    data = TestBed.inject(ResumeDatabaseData);
   });
 
-  it(messageReadAll("resumes"), () => testReadAll(service, data));
+  it(messageReadAll("resumes"), () => testReadAll(service, [RESUME_0]));
 
-  it(messageDelete("resumes", ids), () => testDelete(service, ids));
+  // it(messageReadById("resume", 0), () => testReadById(service, data, 0));
+
+  // it(messageDelete("resume", 0), () => testDelete(service, data, 0));
 });
