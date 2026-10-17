@@ -21,6 +21,10 @@ describe("Experience Logic Service", () => {
       
   it(util.messageDeselect("experience", 1), () => util.testDeselect(database, logic, 1, [EXPERIENCE_0, EXPERIENCE_1]));
 
+  it(util.messageDelete("experience", 0), () => util.testDelete(database, logic, 0, [
+    { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } }
+  ]));
+
   it(util.messageMoveUp("experience", 1), () => util.testMoveUp(database, logic, 1, [
     { ...EXPERIENCE_0, metadata: { ...EXPERIENCE_0.metadata, order: 1 } },
     { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } }

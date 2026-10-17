@@ -11,6 +11,10 @@ export const messageDeselect = (entity: string, id: number) => {
     return `Should correctly deselect ${entity} with id ${id}.`;
 };
 
+export const messageDelete = (entity: string, id: number) => {
+    return `Should correctly delete ${entity} with id ${id}.`;
+};
+
 export const messageMoveUp = (entity: string, id: number) => {
     return `Should correctly move up ${entity} with id ${id}.`;
 };
@@ -37,6 +41,16 @@ export const testDeselect = <TData>(
 ) => {
     logic.select(id);
     logic.deselect(id);
+    expect(database.readAll()).toEqual(expected);
+};
+
+export const testDelete = <TData>(
+    database: BaseDatabaseService<TData>,
+    logic: BaseLogicService<TData>,
+    id: number,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    logic.delete(id);
     expect(database.readAll()).toEqual(expected);
 };
 

@@ -20,6 +20,8 @@ describe("Resume Logic Service", () => {
     
   it(util.messageDeselect("resume", 0), () => util.testDeselect(database, logic, 0, [RESUME_0]));
 
+  it(util.messageDelete("resume", 0), () => util.testDelete(database, logic, 0, []));
+
   it(util.messageMoveUp("resume", 0), () => util.testMoveUp(database, logic, 0, [RESUME_0]));
 
   it(util.messageMoveDown("resume", 0), () => util.testMoveDown(database, logic, 0, [RESUME_0]));

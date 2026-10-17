@@ -48,8 +48,21 @@ export class BaseLogicService<TData> {
         throw new Error("Not implemented");
     }
 
-    delete() {
-        throw new Error("Not implemented");
+    delete(id: number) {
+        const itemToDelete = this.service.readById(id);
+        if (itemToDelete === undefined) return;
+        const { parentId } = itemToDelete.metadata;
+        this.service.delete(itemToDelete.metadata.id);
+        const itemsToUpdate = parentId === undefined
+            ? this.service.readAll()
+            : this.service.readByParentId(parentId);
+        itemsToUpdate
+            .sort((prev, next) => prev.metadata.order - next.metadata.order)
+            .map((itemToUpdate, index) => {
+                itemToUpdate.metadata.order = index;
+                return itemToUpdate;
+            })
+            .forEach(itemToUpdate => this.service.update(itemToUpdate));
     }
 
     moveUp(id: number) {

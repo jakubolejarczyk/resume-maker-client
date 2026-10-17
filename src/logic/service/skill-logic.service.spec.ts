@@ -22,6 +22,12 @@ describe("Skill Logic Service", () => {
   ]));
   
   it(util.messageDeselect("skill", 2), () => util.testDeselect(database, logic, 2, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]));
+
+  it(util.messageDelete("skill", 2), () => util.testDelete(database, logic, 2, [
+    SKILL_0,
+    SKILL_1,
+    { ...SKILL_3, metadata: { ...SKILL_3.metadata, order: 2 } }
+  ]));
   
   it(util.messageMoveUp("skill", 2), () => util.testMoveUp(database, logic, 2, [
     SKILL_0,
