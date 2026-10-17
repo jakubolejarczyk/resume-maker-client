@@ -7,10 +7,10 @@ import { BaseDatabaseModel } from "../model/base/base-database.model";
 import { ResumeDataDatabaseModel } from "../model/data/resume-data-database.model";
 
 describe("Resume Database Service", () => {
-  let service: ResumeDatabaseService;
+  let database: ResumeDatabaseService;
 
   beforeEach(() => {
-    service = TestBed.inject(ResumeDatabaseService);
+    database = TestBed.inject(ResumeDatabaseService);
   });
 
   it(util.messageCreate("resume", 1), () => {
@@ -27,20 +27,20 @@ describe("Resume Database Service", () => {
         isSelected: false
       }
     };
-    util.testCreate(service, RESUME_1, [RESUME_0, RESUME_1]); 
+    util.testCreate(database, RESUME_1, [RESUME_0, RESUME_1]); 
   });
 
-  it(util.messageReadAll("resumes"), () => util.testReadAll(service, [RESUME_0]));
+  it(util.messageReadAll("resumes"), () => util.testReadAll(database, [RESUME_0]));
 
-  it(util.messageReadById("resume", 0), () => util.testReadById(service, 0, RESUME_0));
+  it(util.messageReadById("resume", 0), () => util.testReadById(database, 0, RESUME_0));
     
-  it(util.messageReadByParentId("resumes", 0), () => util.testReadByParentId(service, 0, [RESUME_0]));
+  it(util.messageReadByParentId("resumes", 0), () => util.testReadByParentId(database, 0, [RESUME_0]));
 
   it(util.messageUpdate("resume", 0), () => {
     const RESUME_0_COPY = structuredClone(RESUME_0);
     RESUME_0_COPY.data.jobTitle = "Programmer";
-    util.testUpdate(service, RESUME_0_COPY); 
+    util.testUpdate(database, RESUME_0_COPY); 
   });
 
-  it(util.messageDelete("resume", 0), () => util.testDelete(service, 0, []));
+  it(util.messageDelete("resume", 0), () => util.testDelete(database, 0, []));
 });

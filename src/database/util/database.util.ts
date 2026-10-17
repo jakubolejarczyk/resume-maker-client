@@ -28,32 +28,32 @@ export const messageDelete = (entity: string, id: number) => {
 };
 
 export const testCreate = <TData>(
-    service: BaseDatabaseService<TData>,
+    database: BaseDatabaseService<TData>,
     itemToCreate: BaseDatabaseModel<TData>,
     expected: BaseDatabaseModel<TData>[]
 ) => {
-    service.create(itemToCreate);
-    expect(service.readAll()).toEqual(expected);
+    database.create(itemToCreate);
+    expect(database.readAll()).toEqual(expected);
 };
 
-export const testReadAll = <TData>(service: BaseDatabaseService<TData>, expected: BaseDatabaseModel<TData>[]) => {
-    expect(service.readAll()).toEqual(expected);
+export const testReadAll = <TData>(database: BaseDatabaseService<TData>, expected: BaseDatabaseModel<TData>[]) => {
+    expect(database.readAll()).toEqual(expected);
 };
 
-export const testReadById = <TData>(service: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>) => {
-    expect(service.readById(id)).toEqual(expected);
+export const testReadById = <TData>(database: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>) => {
+    expect(database.readById(id)).toEqual(expected);
 };
 
-export const testReadByParentId = <TData>(service: BaseDatabaseService<TData>, parentId: number, expected: BaseDatabaseModel<TData>[]) => {
-    expect(service.readByParentId(parentId)).toEqual(expected);
+export const testReadByParentId = <TData>(database: BaseDatabaseService<TData>, parentId: number, expected: BaseDatabaseModel<TData>[]) => {
+    expect(database.readByParentId(parentId)).toEqual(expected);
 };
 
-export const testUpdate = <TData>(service: BaseDatabaseService<TData>, itemToUpdate: BaseDatabaseModel<TData>) => {
-    service.update(itemToUpdate);
-    expect(service.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);
+export const testUpdate = <TData>(database: BaseDatabaseService<TData>, itemToUpdate: BaseDatabaseModel<TData>) => {
+    database.update(itemToUpdate);
+    expect(database.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);
 };
 
-export const testDelete = <TData>(service: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>[]) => {
-    service.delete(id);
-    expect(service.readAll()).toEqual(expected);
+export const testDelete = <TData>(database: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>[]) => {
+    database.delete(id);
+    expect(database.readAll()).toEqual(expected);
 };

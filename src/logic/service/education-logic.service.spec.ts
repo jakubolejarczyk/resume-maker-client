@@ -18,4 +18,6 @@ describe("Education Logic Service", () => {
     EDUCATION_0,
     { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, isSelected: true } }
   ]));
+        
+  it(util.messageDeselect("education", 1), () => util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]));
 });

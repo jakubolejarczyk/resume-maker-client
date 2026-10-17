@@ -17,4 +17,6 @@ describe("User Logic Service", () => {
   it(util.messageSelect("user", 0), () => util.testSelect(database, logic, 0, [
     { ...USER_0, metadata: { ...USER_0.metadata, isSelected: true } }
   ]));
+
+  it(util.messageDeselect("user", 0), () => util.testDeselect(database, logic, 0, [USER_0]));
 });

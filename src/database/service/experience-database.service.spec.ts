@@ -7,10 +7,10 @@ import { BaseDatabaseModel } from "../model/base/base-database.model";
 import { ExperienceDataDatabaseModel } from "../model/data/experience-data-database.model";
 
 describe("Experience Database Service", () => {
-  let service: ExperienceDatabaseService;
+  let database: ExperienceDatabaseService;
 
   beforeEach(() => {
-    service = TestBed.inject(ExperienceDatabaseService);
+    database = TestBed.inject(ExperienceDatabaseService);
   });
 
   it(util.messageCreate("experience", 2), () => {
@@ -35,20 +35,20 @@ describe("Experience Database Service", () => {
         isSelected: false
       }
     };
-    util.testCreate(service, EXPERIENCE_2, [EXPERIENCE_0, EXPERIENCE_1, EXPERIENCE_2]); 
+    util.testCreate(database, EXPERIENCE_2, [EXPERIENCE_0, EXPERIENCE_1, EXPERIENCE_2]); 
   });
 
-  it(util.messageReadAll("experiences"), () => util.testReadAll(service, [EXPERIENCE_0, EXPERIENCE_1]));
+  it(util.messageReadAll("experiences"), () => util.testReadAll(database, [EXPERIENCE_0, EXPERIENCE_1]));
   
-  it(util.messageReadById("experience", 0), () => util.testReadById(service, 0, EXPERIENCE_0));
+  it(util.messageReadById("experience", 0), () => util.testReadById(database, 0, EXPERIENCE_0));
       
-  it(util.messageReadByParentId("experiences", 0), () => util.testReadByParentId(service, 0, [EXPERIENCE_0, EXPERIENCE_1]));
+  it(util.messageReadByParentId("experiences", 0), () => util.testReadByParentId(database, 0, [EXPERIENCE_0, EXPERIENCE_1]));
 
   it(util.messageUpdate("experience", 0), () => {
     const EXPERIENCE_1_COPY = structuredClone(EXPERIENCE_1);
     EXPERIENCE_1_COPY.data.jobTitle = "Programmer";
-    util.testUpdate(service, EXPERIENCE_1_COPY); 
+    util.testUpdate(database, EXPERIENCE_1_COPY); 
   });
 
-  it(util.messageDelete("experience", 1), () => util.testDelete(service, 1, [EXPERIENCE_0]));
+  it(util.messageDelete("experience", 1), () => util.testDelete(database, 1, [EXPERIENCE_0]));
 });

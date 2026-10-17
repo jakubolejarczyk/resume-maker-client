@@ -20,4 +20,6 @@ describe("Skill Logic Service", () => {
     { ...SKILL_2, metadata: { ...SKILL_2.metadata, isSelected: true } },
     SKILL_3
   ]));
+  
+  it(util.messageDeselect("skill", 2), () => util.testDeselect(database, logic, 2, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]));
 });

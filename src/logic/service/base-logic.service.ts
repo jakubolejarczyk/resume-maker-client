@@ -1,4 +1,5 @@
 import { inject } from "@angular/core";
+
 import { BaseDatabaseService } from "../../database/service/base-database.service";
 
 export class BaseLogicService<TData> {
@@ -24,8 +25,11 @@ export class BaseLogicService<TData> {
         });
     }
 
-    deselect() {
-        throw new Error("Not implemented");
+    deselect(id: number) {
+        const itemToDeselect = this.service.readById(id);
+        if (itemToDeselect === undefined) return;
+        itemToDeselect.metadata.isSelected = false;
+        this.service.update(itemToDeselect);
     }
 
     create() {

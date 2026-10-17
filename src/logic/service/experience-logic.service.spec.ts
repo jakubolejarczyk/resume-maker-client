@@ -18,4 +18,6 @@ describe("Experience Logic Service", () => {
     EXPERIENCE_0,
     { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, isSelected: true } }
   ]));
+      
+  it(util.messageDeselect("experience", 1), () => util.testDeselect(database, logic, 1, [EXPERIENCE_0, EXPERIENCE_1]));
 });

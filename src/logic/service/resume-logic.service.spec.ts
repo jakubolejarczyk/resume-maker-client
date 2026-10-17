@@ -17,4 +17,6 @@ describe("Resume Logic Service", () => {
   it(util.messageSelect("resume", 0), () => util.testSelect(database, logic, 0, [
     { ...RESUME_0, metadata: { ...RESUME_0.metadata, isSelected: true } }
   ]));
+    
+  it(util.messageDeselect("resume", 0), () => util.testDeselect(database, logic, 0, [RESUME_0]));
 });
