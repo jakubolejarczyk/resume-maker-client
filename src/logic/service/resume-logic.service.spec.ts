@@ -4,6 +4,8 @@ import { ResumeLogicService } from "./resume-logic.service";
 import { ResumeDatabaseService } from "../../database/service/resume-database.service";
 import * as util from "../util/logic.util";
 import { RESUME_0 } from "../../database/const/resume-database.const";
+import { ResumeDataDatabaseModel } from "../../database/model/data/resume-data-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 describe("Resume Logic Service", () => {
   let database: ResumeDatabaseService;
@@ -19,6 +21,24 @@ describe("Resume Logic Service", () => {
   ]));
     
   it(util.messageDeselect("resume", 0), () => util.testDeselect(database, logic, 0, [RESUME_0]));
+
+  it(util.messageCreate("resume"), () => {
+    const RESUME_1_DATA: ResumeDataDatabaseModel = {
+      name: "Adam Kowalski - Resume English",
+      jobTitle: "Junior Software Engineer",
+      summary: "Software Engineer with 2+ years of experience in web development, specializing in React on the frontend and Node.js on the backend. Experienced in building responsive web applications, developing RESTful APIs, and integrating third-party services, with a strong focus on clean code, maintainability, and performance. Familiar with the full software development lifecycle and collaborative Agile workflows, with a passion for learning new technologies and delivering reliable, user-focused software solutions."
+    };
+    const RESUME_1: BaseDatabaseModel<ResumeDataDatabaseModel> = {
+      data: structuredClone(RESUME_1_DATA),
+      metadata: {
+        id: 1,
+        parentId: 0,
+        order: 1,
+        isSelected: false
+      }
+    };
+    util.testCreate(database, logic, 0, RESUME_1_DATA, [RESUME_0, RESUME_1]);
+  });
 
   it(util.messageReadById("resume", 0), () => util.testReadById(logic, 0, RESUME_0));
       

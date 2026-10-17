@@ -4,7 +4,7 @@ import { BaseDatabaseData } from "../data/base-database.data";
 import { BaseDatabaseModel } from "../model/base/base-database.model";
 
 export class BaseDatabaseService<TData> {
-  private readonly service: BaseDatabaseData<TData>;
+  protected readonly service: BaseDatabaseData<TData>;
   
   constructor(private readonly type: typeof BaseDatabaseData<TData>) {
     this.service = inject(type);
@@ -47,5 +47,9 @@ export class BaseDatabaseService<TData> {
   delete(id: number) {
     const items = this.readAll().filter(item => item.metadata.id !== id);
     this.service.setItems(items);
+  }
+
+  getItems() {
+    return this.service.getItems();
   }
 }

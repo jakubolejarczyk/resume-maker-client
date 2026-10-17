@@ -4,6 +4,8 @@ import { SkillLogicService } from "./skill-logic.service";
 import { SkillDatabaseService } from "../../database/service/skill-database.service";
 import * as util from "../util/logic.util";
 import { SKILL_0, SKILL_1, SKILL_2, SKILL_3 } from "../../database/const/skill-database.const";
+import { SkillDataDatabaseModel } from "../../database/model/data/skill-data-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 describe("Skill Logic Service", () => {
   let database: SkillDatabaseService;
@@ -22,6 +24,23 @@ describe("Skill Logic Service", () => {
   ]));
   
   it(util.messageDeselect("skill", 2), () => util.testDeselect(database, logic, 2, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]));
+
+  it(util.messageCreate("skill"), () => {
+    const SKILL_4_DATA: SkillDataDatabaseModel = {
+      category: "Animals",
+      skills: ["Dog", "Cat"]
+    };
+    const SKILL_4: BaseDatabaseModel<SkillDataDatabaseModel> = {
+      data: structuredClone(SKILL_4_DATA),
+      metadata: {
+        id: 4,
+        parentId: 0,
+        order: 4,
+        isSelected: false
+      }
+    };
+    util.testCreate(database, logic, 0, SKILL_4_DATA, [SKILL_0, SKILL_1, SKILL_2, SKILL_3, SKILL_4]);
+  });
 
   it(util.messageReadById("skill", 2), () => util.testReadById(logic, 2, SKILL_2));
     

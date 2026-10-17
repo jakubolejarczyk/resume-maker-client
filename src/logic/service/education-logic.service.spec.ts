@@ -4,6 +4,8 @@ import { EducationLogicService } from "./education-logic.service";
 import { EducationDatabaseService } from "../../database/service/education-database.service";
 import * as util from "../util/logic.util";
 import { EDUCATION_0, EDUCATION_1 } from "../../database/const/education-database.const";
+import { EducationDataDatabaseModel } from "../../database/model/data/education-data-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 describe("Education Logic Service", () => {
   let database: EducationDatabaseService;
@@ -18,8 +20,28 @@ describe("Education Logic Service", () => {
     EDUCATION_0,
     { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, isSelected: true } }
   ]));
-        
+
   it(util.messageDeselect("education", 1), () => util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]));
+
+  it(util.messageCreate("education"), () => {
+    const EDUCATION_2_DATA: EducationDataDatabaseModel = {
+      institutionName: "Krakow University of Technology",
+      fieldOfStudy: "Software Engineering",
+      degree: "Bachelor of Science",
+      startYear: 2021,
+      endYear: 2024
+    };
+    const EDUCATION_2: BaseDatabaseModel<EducationDataDatabaseModel> = {
+      data: structuredClone(EDUCATION_2_DATA),
+      metadata: {
+        id: 2,
+        parentId: 0,
+        order: 2,
+        isSelected: false
+      }
+    };
+    util.testCreate(database, logic, 0, EDUCATION_2_DATA, [EDUCATION_0, EDUCATION_1, EDUCATION_2]);
+  });
 
   it(util.messageReadById("education", 1), () => util.testReadById(logic, 1, EDUCATION_1));
 

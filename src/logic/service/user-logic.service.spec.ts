@@ -4,6 +4,8 @@ import { UserLogicService } from "./user-logic.service";
 import { UserDatabaseService } from "../../database/service/user-database.service";
 import * as util from "../util/logic.util";
 import { USER_0 } from "../../database/const/user-database.const";
+import { UserDataDatabaseModel } from "../../database/model/data/user-data-database.model";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 describe("User Logic Service", () => {
   let database: UserDatabaseService;
@@ -20,6 +22,32 @@ describe("User Logic Service", () => {
 
   it(util.messageDeselect("user", 0), () => util.testDeselect(database, logic, 0, [USER_0]));
 
+  it(util.messageCreate("user"), () => {
+    const USER_1_DATA: UserDataDatabaseModel = {
+      firstName: "Adam",
+      lastName: "Kowalski",
+      phoneNumber: "+48 600 123 456",
+      email: "adam.kowalski@example.com",
+      city: "Kraków",
+      country: "Poland",
+      links: [
+        "adamkowalski.example.com",
+        "linkedin.com/in/adam-kowalski-demo",
+        "github.com/adam-kowalski-demo",
+        "leetcode.com/u/AdamKowalskiDemo"
+      ]
+    };
+    const USER_1: BaseDatabaseModel<UserDataDatabaseModel> = {
+      data: structuredClone(USER_1_DATA),
+      metadata: {
+        id: 1,
+        order: 1,
+        isSelected: false
+      }
+    };
+    util.testCreate(database, logic, undefined, USER_1_DATA, [USER_0, USER_1]);
+  });
+  
   it(util.messageReadById("user", 0), () => util.testReadById(logic, 0, USER_0));
   
   it(util.messageReadByParentId("user", "undefined"), () => util.testReadByParentId(logic, undefined, [USER_0]));

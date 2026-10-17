@@ -1,12 +1,16 @@
 import { inject } from "@angular/core";
 
 import { BaseDatabaseService } from "../../database/service/base-database.service";
+import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
 
 export class BaseLogicService<TData> {
     private readonly service: BaseDatabaseService<TData>;
 
+    private nextId: number;
+
     constructor(private readonly type: typeof BaseDatabaseService<TData>) {
         this.service = inject(type);
+        this.nextId = this.service.getItems().length;
     }
     
     select(id: number) {
@@ -32,8 +36,27 @@ export class BaseLogicService<TData> {
         this.service.update(itemToDeselect);
     }
 
-    create() {
-        throw new Error("Not implemented");
+    create(parentId: number | undefined, data: TData) {
+        const items = parentId === undefined
+            ? this.service.readAll()
+            : this.service.readByParentId(parentId);
+        const lastOrder = items.reduce((acc: number, curr) => {
+            if (curr.metadata.order > acc) {
+                acc = curr.metadata.order;
+            }
+            return acc;
+        }, 0);
+        const itemToCreate: BaseDatabaseModel<TData> = {
+            data,
+            metadata: {
+                id: this.nextId,
+                parentId,
+                order: lastOrder + 1,
+                isSelected: false
+            }
+        };
+        this.nextId++;
+        this.service.create(itemToCreate);
     }
 
     readById(id: number) {
