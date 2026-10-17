@@ -1,5 +1,7 @@
-import { BaseDatabaseMockModel } from "../../model/base-database-mock.model";
+import { BaseDatabaseMockModel } from '../../model/base-database-mock.model';
 
-export interface BaseStoreDatabaseMockModel<TItem extends BaseDatabaseMockModel> {
-    items: TItem[];
+export interface BaseStoreDatabaseMockModel<
+  TItem extends BaseDatabaseMockModel,
+> {
+  items: TItem[];
 }

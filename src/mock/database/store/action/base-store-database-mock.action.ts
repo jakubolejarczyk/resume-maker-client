@@ -1,17 +1,17 @@
 export namespace BaseStoreDatabaseMockAction {
-    export class DeleteByIds {
-        constructor(public ids: number[]) {}
+  export class DeleteByIds {
+    constructor(public ids: number[]) {}
 
-        static buildActionType(actionType: string) {
-            return `[${actionType}] DeleteByIds`;
-        }
+    static buildActionType(actionType: string) {
+      return `[${actionType}] DeleteByIds`;
     }
+  }
 
-    export class DeleteByParentIds {
-        constructor(public parentIds: number[]) {}
+  export class DeleteByParentIds {
+    constructor(public parentIds: number[]) {}
 
-        static buildActionType(actionType: string) {
-            return `[${actionType}] DeleteByParentIds`;
-        }
+    static buildActionType(actionType: string) {
+      return `[${actionType}] DeleteByParentIds`;
     }
+  }
 }

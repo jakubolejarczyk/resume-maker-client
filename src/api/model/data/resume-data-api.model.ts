@@ -1,5 +1,5 @@
 export interface ResumeDataApiModel {
-    name: string;
-    jobTitle: string;
-    summary: string;
+  name: string;
+  jobTitle: string;
+  summary: string;
 }

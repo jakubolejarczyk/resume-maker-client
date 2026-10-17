@@ -1,142 +1,170 @@
-import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { Injectable } from "@angular/core";
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Injectable } from '@angular/core';
 
-import { UserStoreModel } from "../model/user-store.model";
-import { BaseStoreState } from "./base-store.state";
-import { UserApiModel } from "../../api/model/user-api.model";
-import { BaseApiModel } from "../../api/model/base-api.model";
-import { BaseStoreModel } from "../model/base-store.model";
-import { UserStoreAction } from "../action/user-store.action";
+import { UserStoreModel } from '../model/user-store.model';
+import { BaseStoreState } from './base-store.state';
+import { UserApiModel } from '../../api/model/user-api.model';
+import { BaseApiModel } from '../../api/model/base-api.model';
+import { BaseStoreModel } from '../model/base-store.model';
+import { UserStoreAction } from '../action/user-store.action';
 
 @State<UserStoreModel>({
-  name: "userStoreState",
+  name: 'userStoreState',
   defaults: BaseStoreState.initState([
     {
-      id: "id",
-      label: "Id",
+      id: 'id',
+      label: 'Id',
       isVisible: false,
       isEditable: false,
-      type: "number"
+      type: 'number',
     },
     {
-      id: "firstName",
-      label: "First name",
+      id: 'firstName',
+      label: 'First name',
       isVisible: true,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "lastName",
-      label: "Last name",
+      id: 'lastName',
+      label: 'Last name',
       isVisible: true,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "jobTitle",
-      label: "Job title",
+      id: 'jobTitle',
+      label: 'Job title',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "phoneNumber",
-      label: "Phone number",
+      id: 'phoneNumber',
+      label: 'Phone number',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "email",
-      label: "Email",
+      id: 'email',
+      label: 'Email',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "city",
-      label: "City",
+      id: 'city',
+      label: 'City',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "country",
-      label: "Country",
+      id: 'country',
+      label: 'Country',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "summary",
-      label: "Summary",
+      id: 'summary',
+      label: 'Summary',
       isVisible: false,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "order",
-      label: "Order",
+      id: 'order',
+      label: 'Order',
       isVisible: false,
       isEditable: false,
-      type: "number"
-    }
-  ])
+      type: 'number',
+    },
+  ]),
 })
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class UserStoreState extends BaseStoreState<UserApiModel> {
   @Selector()
-  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getStatus<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getStatus(state);
   }
 
   @Selector()
-  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getIsLoading<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getIsLoading(state);
   }
 
   @Selector()
-  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getItems<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getItems(state);
   }
 
   @Selector()
-  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getSelectedItem<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getSelectedItem(state);
   }
 
   @Selector()
-  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getColumns<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getColumns(state);
   }
 
   @Action(UserStoreAction.SetStatus)
-  override setStatus(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetStatus) {
+  override setStatus(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.SetStatus,
+  ) {
     super.setStatus(ctx, action);
   }
 
   @Action(UserStoreAction.SetIsLoading)
-  override setIsLoading(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetIsLoading) {
+  override setIsLoading(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.SetIsLoading,
+  ) {
     super.setIsLoading(ctx, action);
   }
 
   @Action(UserStoreAction.SetItems)
-  override setItems(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetItems) {
+  override setItems(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.SetItems,
+  ) {
     super.setItems(ctx, action);
   }
 
   @Action(UserStoreAction.AddItem)
-  override addItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.AddItem) {
+  override addItem(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.AddItem,
+  ) {
     super.addItem(ctx, action);
   }
 
   @Action(UserStoreAction.UpdateItem)
-  override updateItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.UpdateItem) {
+  override updateItem(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.UpdateItem,
+  ) {
     super.updateItem(ctx, action);
   }
 
   @Action(UserStoreAction.SetSelectedItem)
-  override selectedItem(ctx: StateContext<UserStoreModel>, action: UserStoreAction.SetSelectedItem) {
+  override selectedItem(
+    ctx: StateContext<UserStoreModel>,
+    action: UserStoreAction.SetSelectedItem,
+  ) {
     super.selectedItem(ctx, action);
   }
 }

@@ -1,4 +1,4 @@
 export interface SkillDataApiModel {
-    category: string;
-    skills: string[];
+  category: string;
+  skills: string[];
 }

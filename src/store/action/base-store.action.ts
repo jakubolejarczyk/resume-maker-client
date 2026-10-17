@@ -1,25 +1,28 @@
 export namespace BaseStoreAction {
-    export class SetStatus {
-        constructor(public success: boolean, public message: string) {}
-    }
+  export class SetStatus {
+    constructor(
+      public success: boolean,
+      public message: string,
+    ) {}
+  }
 
-    export class SetIsLoading {
-        constructor(public isLoading: boolean) {}
-    }
+  export class SetIsLoading {
+    constructor(public isLoading: boolean) {}
+  }
 
-    export class SetItems<TModel> {
-        constructor(public items: TModel[]) {}
-    }
+  export class SetItems<TModel> {
+    constructor(public items: TModel[]) {}
+  }
 
-    export class AddItem<TModel> {
-        constructor(public item: TModel) {}
-    }
+  export class AddItem<TModel> {
+    constructor(public item: TModel) {}
+  }
 
-    export class UpdateItem<TModel> {
-        constructor(public item: TModel) {}
-    }
+  export class UpdateItem<TModel> {
+    constructor(public item: TModel) {}
+  }
 
-    export class SetSelectedItem<TModel> {
-        constructor(public selectedItem: TModel | undefined) {}
-    }
+  export class SetSelectedItem<TModel> {
+    constructor(public selectedItem: TModel | undefined) {}
+  }
 }

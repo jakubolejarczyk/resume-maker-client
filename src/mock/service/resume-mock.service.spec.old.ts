@@ -1,18 +1,18 @@
-import { provideStore, Store } from "@ngxs/store";
-import { TestBed } from "@angular/core/testing";
-import { switchMap, tap } from "rxjs";
+import { provideStore, Store } from '@ngxs/store';
+import { TestBed } from '@angular/core/testing';
+import { switchMap, tap } from 'rxjs';
 
-import { ResumeMockService } from "./resume-mock.service";
-import { ResumeStoreDatabaseMockState } from "../database/store/state/resume-store-database-mock.state";
-import { ResumeDatabaseMockConst } from "../database/const/resume-database-mock.const";
-import { EducationStoreDatabaseMockState } from "../database/store/state/education-store-database-mock.state";
-import { ExperienceStoreDatabaseMockState } from "../database/store/state/experience-store-database-mock.state";
-import { SkillStoreDatabaseMockState } from "../database/store/state/skill-store-database-mock.state";
-import { EducationDatabaseMockConst } from "../database/const/education-database-mock.const";
-import { ExperienceDatabaseMockConst } from "../database/const/experience-database-mock.const";
-import { SkillDatabaseMockConst } from "../database/const/skill-database-mock.const";
+import { ResumeMockService } from './resume-mock.service';
+import { ResumeStoreDatabaseMockState } from '../database/store/state/resume-store-database-mock.state';
+import { ResumeDatabaseMockConst } from '../database/const/resume-database-mock.const';
+import { EducationStoreDatabaseMockState } from '../database/store/state/education-store-database-mock.state';
+import { ExperienceStoreDatabaseMockState } from '../database/store/state/experience-store-database-mock.state';
+import { SkillStoreDatabaseMockState } from '../database/store/state/skill-store-database-mock.state';
+import { EducationDatabaseMockConst } from '../database/const/education-database-mock.const';
+import { ExperienceDatabaseMockConst } from '../database/const/experience-database-mock.const';
+import { SkillDatabaseMockConst } from '../database/const/skill-database-mock.const';
 
-describe("Resume Mock Service", () => {
+describe('Resume Mock Service', () => {
   let store: Store;
   let service: ResumeMockService;
 
@@ -23,33 +23,42 @@ describe("Resume Mock Service", () => {
           EducationStoreDatabaseMockState,
           ExperienceStoreDatabaseMockState,
           ResumeStoreDatabaseMockState,
-          SkillStoreDatabaseMockState
-        ])
-      ]
+          SkillStoreDatabaseMockState,
+        ]),
+      ],
     });
     store = TestBed.inject(Store);
     service = TestBed.inject(ResumeMockService);
   });
 
-  it("Should correctly delete the resume with id equal to 0 and all children.", () => {
-    service.delete([0]).pipe(
-      switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        EducationDatabaseMockConst.EDUCATION_TEST_2
-      ])),
-      switchMap(() => store.select(ExperienceStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        ExperienceDatabaseMockConst.EXPERIENCE_TEST_2
-      ])),
-      switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        SkillDatabaseMockConst.SKILL_TEST_4,
-        SkillDatabaseMockConst.SKILL_TEST_5
-      ])),
-      switchMap(() => store.select(ResumeStoreDatabaseMockState.getItems)),
-      tap((items) => expect(items).toEqual([
-        ResumeDatabaseMockConst.RESUME_TEST_1
-      ]))
-    ).subscribe();
+  it('Should correctly delete the resume with id equal to 0 and all children.', () => {
+    service
+      .delete([0])
+      .pipe(
+        switchMap(() => store.select(EducationStoreDatabaseMockState.getItems)),
+        tap((items) =>
+          expect(items).toEqual([EducationDatabaseMockConst.EDUCATION_TEST_2]),
+        ),
+        switchMap(() =>
+          store.select(ExperienceStoreDatabaseMockState.getItems),
+        ),
+        tap((items) =>
+          expect(items).toEqual([
+            ExperienceDatabaseMockConst.EXPERIENCE_TEST_2,
+          ]),
+        ),
+        switchMap(() => store.select(SkillStoreDatabaseMockState.getItems)),
+        tap((items) =>
+          expect(items).toEqual([
+            SkillDatabaseMockConst.SKILL_TEST_4,
+            SkillDatabaseMockConst.SKILL_TEST_5,
+          ]),
+        ),
+        switchMap(() => store.select(ResumeStoreDatabaseMockState.getItems)),
+        tap((items) =>
+          expect(items).toEqual([ResumeDatabaseMockConst.RESUME_TEST_1]),
+        ),
+      )
+      .subscribe();
   });
 });

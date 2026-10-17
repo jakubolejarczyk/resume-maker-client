@@ -1,4 +1,4 @@
 export interface SkillDataDatabaseModel {
-    category: string;
-    skills: string[];
+  category: string;
+  skills: string[];
 }

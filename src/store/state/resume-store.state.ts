@@ -1,100 +1,128 @@
-import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { Injectable } from "@angular/core";
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Injectable } from '@angular/core';
 
-import { BaseStoreState } from "./base-store.state";
-import { BaseApiModel } from "../../api/model/base-api.model";
-import { BaseStoreModel } from "../model/base-store.model";
-import { ResumeStoreModel } from "../model/resume-store.model";
-import { ResumeApiModel } from "../../api/model/resume-api.model";
-import { ResumeStoreAction } from "../action/resume-store.action";
+import { BaseStoreState } from './base-store.state';
+import { BaseApiModel } from '../../api/model/base-api.model';
+import { BaseStoreModel } from '../model/base-store.model';
+import { ResumeStoreModel } from '../model/resume-store.model';
+import { ResumeApiModel } from '../../api/model/resume-api.model';
+import { ResumeStoreAction } from '../action/resume-store.action';
 
 @State<ResumeStoreModel>({
-  name: "resumeStoreState",
+  name: 'resumeStoreState',
   defaults: BaseStoreState.initState([
     {
-      id: "id",
-      label: "Id",
+      id: 'id',
+      label: 'Id',
       isVisible: false,
       isEditable: false,
-      type: "number"
+      type: 'number',
     },
     {
-      id: "name",
-      label: "Name",
+      id: 'name',
+      label: 'Name',
       isVisible: true,
       isEditable: true,
-      type: "string"
+      type: 'string',
     },
     {
-      id: "userId",
-      label: "User id",
+      id: 'userId',
+      label: 'User id',
       isVisible: false,
       isEditable: false,
-      type: "number"
+      type: 'number',
     },
     {
-      id: "order",
-      label: "Order",
+      id: 'order',
+      label: 'Order',
       isVisible: false,
       isEditable: false,
-      type: "number"
-    }
-  ])
+      type: 'number',
+    },
+  ]),
 })
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class ResumeStoreState extends BaseStoreState<ResumeApiModel> {
   @Selector()
-  static override getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getStatus<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getStatus(state);
   }
 
   @Selector()
-  static override getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getIsLoading<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getIsLoading(state);
   }
 
   @Selector()
-  static override getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getItems<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getItems(state);
   }
 
   @Selector()
-  static override getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getSelectedItem<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getSelectedItem(state);
   }
 
   @Selector()
-  static override getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static override getColumns<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return super.getColumns(state);
   }
 
   @Action(ResumeStoreAction.SetStatus)
-  override setStatus(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetStatus) {
+  override setStatus(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.SetStatus,
+  ) {
     super.setStatus(ctx, action);
   }
 
   @Action(ResumeStoreAction.SetIsLoading)
-  override setIsLoading(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetIsLoading) {
+  override setIsLoading(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.SetIsLoading,
+  ) {
     super.setIsLoading(ctx, action);
   }
 
   @Action(ResumeStoreAction.SetItems)
-  override setItems(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetItems) {
+  override setItems(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.SetItems,
+  ) {
     super.setItems(ctx, action);
   }
 
   @Action(ResumeStoreAction.AddItem)
-  override addItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.AddItem) {
+  override addItem(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.AddItem,
+  ) {
     super.addItem(ctx, action);
   }
 
   @Action(ResumeStoreAction.UpdateItem)
-  override updateItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.UpdateItem) {
+  override updateItem(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.UpdateItem,
+  ) {
     super.updateItem(ctx, action);
   }
 
   @Action(ResumeStoreAction.SetSelectedItem)
-  override selectedItem(ctx: StateContext<ResumeStoreModel>, action: ResumeStoreAction.SetSelectedItem) {
+  override selectedItem(
+    ctx: StateContext<ResumeStoreModel>,
+    action: ResumeStoreAction.SetSelectedItem,
+  ) {
     super.selectedItem(ctx, action);
   }
 }

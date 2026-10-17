@@ -1,25 +1,55 @@
 @if (item()) {
-    <div class="flex justify-center">
-        <p-dialog [visible]="isVisible()" [modal]="true" [style]="{ width: '25rem' }" [resizable]="false" (onHide)="onCancel()">
-            <ng-template #header>
-                <div class="inline-flex items-center justify-center gap-2">
-                    <span class="font-bold whitespace-nowrap">{{ label() }}</span>
-                </div>
-            </ng-template>
-            <form>
-                @for (column of columns(); track column.id) {
-                    @if (column.isEditable) {
-                        <div class="flex items-center gap-4 mb-2">
-                            <label for="email" class="font-semibold w-24 text-sm">{{ column.label }}</label>
-                            <input pInputText id="email" class="flex-auto" autocomplete="off" [value]="getItemValue(column)" />
-                        </div>
-                    }
-                }
-            </form>
-            <ng-template #footer>
-                <button type="button" pButton [text]="true" severity="secondary" (click)="onCancel()">Cancel</button>
-                <button type="button" pButton [outlined]="true" severity="secondary" (click)="onSave()">Save</button>
-            </ng-template>
-        </p-dialog>
-    </div>
+  <div class="flex justify-center">
+    <p-dialog
+      [visible]="isVisible()"
+      [modal]="true"
+      [style]="{ width: '25rem' }"
+      [resizable]="false"
+      (onHide)="onCancel()"
+    >
+      <ng-template #header>
+        <div class="inline-flex items-center justify-center gap-2">
+          <span class="font-bold whitespace-nowrap">{{ label() }}</span>
+        </div>
+      </ng-template>
+      <form>
+        @for (column of columns(); track column.id) {
+          @if (column.isEditable) {
+            <div class="flex items-center gap-4 mb-2">
+              <label for="email" class="font-semibold w-24 text-sm">{{
+                column.label
+              }}</label>
+              <input
+                pInputText
+                id="email"
+                class="flex-auto"
+                autocomplete="off"
+                [value]="getItemValue(column)"
+              />
+            </div>
+          }
+        }
+      </form>
+      <ng-template #footer>
+        <button
+          type="button"
+          pButton
+          [text]="true"
+          severity="secondary"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          pButton
+          [outlined]="true"
+          severity="secondary"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+      </ng-template>
+    </p-dialog>
+  </div>
 }

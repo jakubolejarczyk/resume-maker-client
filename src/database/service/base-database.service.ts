@@ -1,11 +1,11 @@
-import { inject } from "@angular/core";
+import { inject } from '@angular/core';
 
-import { BaseDatabaseData } from "../data/base-database.data";
-import { BaseDatabaseModel } from "../model/base/base-database.model";
+import { BaseDatabaseData } from '../data/base-database.data';
+import { BaseDatabaseModel } from '../model/base/base-database.model';
 
 export class BaseDatabaseService<TData> {
   protected readonly service: BaseDatabaseData<TData>;
-  
+
   constructor(private readonly type: typeof BaseDatabaseData<TData>) {
     this.service = inject(type);
   }
@@ -21,11 +21,11 @@ export class BaseDatabaseService<TData> {
   }
 
   readById(id: number) {
-    return this.readAll().find(item => item.metadata.id === id);
+    return this.readAll().find((item) => item.metadata.id === id);
   }
 
   readByParentId(parentId: number) {
-    return this.readAll().filter(item => {
+    return this.readAll().filter((item) => {
       if (item.metadata.parentId === undefined) {
         return false;
       }
@@ -34,18 +34,17 @@ export class BaseDatabaseService<TData> {
   }
 
   update(itemToUpdate: BaseDatabaseModel<TData>) {
-    const items = this.readAll()
-      .map(item => {
-        if (item.metadata.id === itemToUpdate.metadata.id) {
-          return itemToUpdate;
-        }
-        return item;
-      });
+    const items = this.readAll().map((item) => {
+      if (item.metadata.id === itemToUpdate.metadata.id) {
+        return itemToUpdate;
+      }
+      return item;
+    });
     this.service.setItems(items);
   }
 
   delete(id: number) {
-    const items = this.readAll().filter(item => item.metadata.id !== id);
+    const items = this.readAll().filter((item) => item.metadata.id !== id);
     this.service.setItems(items);
   }
 

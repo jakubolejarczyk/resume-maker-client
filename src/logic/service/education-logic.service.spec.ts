@@ -1,13 +1,16 @@
-import { TestBed } from "@angular/core/testing";
+import { TestBed } from '@angular/core/testing';
 
-import { EducationLogicService } from "./education-logic.service";
-import { EducationDatabaseService } from "../../database/service/education-database.service";
-import * as util from "../util/logic.util";
-import { EDUCATION_0, EDUCATION_1 } from "../../database/const/education-database.const";
-import { EducationDataDatabaseModel } from "../../database/model/data/education-data-database.model";
-import { BaseDatabaseModel } from "../../database/model/base/base-database.model";
+import { EducationLogicService } from './education-logic.service';
+import { EducationDatabaseService } from '../../database/service/education-database.service';
+import * as util from '../util/logic.util';
+import {
+  EDUCATION_0,
+  EDUCATION_1,
+} from '../../database/const/education-database.const';
+import { EducationDataDatabaseModel } from '../../database/model/data/education-data-database.model';
+import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
-describe("Education Logic Service", () => {
+describe('Education Logic Service', () => {
   let database: EducationDatabaseService;
   let logic: EducationLogicService;
 
@@ -16,20 +19,27 @@ describe("Education Logic Service", () => {
     logic = TestBed.inject(EducationLogicService);
   });
 
-  it(util.messageSelect("education", 1), () => util.testSelect(database, logic, 1, [
-    EDUCATION_0,
-    { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, isSelected: true } }
-  ]));
+  it(util.messageSelect('education', 1), () =>
+    util.testSelect(database, logic, 1, [
+      EDUCATION_0,
+      {
+        ...EDUCATION_1,
+        metadata: { ...EDUCATION_1.metadata, isSelected: true },
+      },
+    ]),
+  );
 
-  it(util.messageDeselect("education", 1), () => util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]));
+  it(util.messageDeselect('education', 1), () =>
+    util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]),
+  );
 
-  it(util.messageCreate("education"), () => {
+  it(util.messageCreate('education'), () => {
     const EDUCATION_2_DATA: EducationDataDatabaseModel = {
-      institutionName: "Krakow University of Technology",
-      fieldOfStudy: "Software Engineering",
-      degree: "Bachelor of Science",
+      institutionName: 'Krakow University of Technology',
+      fieldOfStudy: 'Software Engineering',
+      degree: 'Bachelor of Science',
       startYear: 2021,
-      endYear: 2024
+      endYear: 2024,
     };
     const EDUCATION_2: BaseDatabaseModel<EducationDataDatabaseModel> = {
       data: structuredClone(EDUCATION_2_DATA),
@@ -37,33 +47,50 @@ describe("Education Logic Service", () => {
         id: 2,
         parentId: 0,
         order: 2,
-        isSelected: false
-      }
+        isSelected: false,
+      },
     };
-    util.testCreate(database, logic, 0, EDUCATION_2_DATA, [EDUCATION_0, EDUCATION_1, EDUCATION_2]);
+    util.testCreate(database, logic, 0, EDUCATION_2_DATA, [
+      EDUCATION_0,
+      EDUCATION_1,
+      EDUCATION_2,
+    ]);
   });
 
-  it(util.messageReadById("education", 1), () => util.testReadById(logic, 1, EDUCATION_1));
+  it(util.messageReadById('education', 1), () =>
+    util.testReadById(logic, 1, EDUCATION_1),
+  );
 
-  it(util.messageReadByParentId("education", 0), () => util.testReadByParentId(logic, 0, [EDUCATION_0, EDUCATION_1]));
+  it(util.messageReadByParentId('education', 0), () =>
+    util.testReadByParentId(logic, 0, [EDUCATION_0, EDUCATION_1]),
+  );
 
-  it(util.messageUpdate("education", 1), () => {
+  it(util.messageUpdate('education', 1), () => {
     const EDUCATION_1_UPDATED = structuredClone(EDUCATION_1);
     EDUCATION_1_UPDATED.data.startYear = 2050;
-    util.testUpdate(database, logic, 1, EDUCATION_1_UPDATED.data, [EDUCATION_0, EDUCATION_1_UPDATED]);
+    util.testUpdate(database, logic, 1, EDUCATION_1_UPDATED.data, [
+      EDUCATION_0,
+      EDUCATION_1_UPDATED,
+    ]);
   });
 
-  it(util.messageDelete("education", 1), () => util.testDelete(database, logic, 1, [
-    { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } }
-  ]));
+  it(util.messageDelete('education', 1), () =>
+    util.testDelete(database, logic, 1, [
+      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
+    ]),
+  );
 
-  it(util.messageMoveUp("education", 1), () => util.testMoveUp(database, logic, 1, [
-    { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
-    { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } }
-  ]));
+  it(util.messageMoveUp('education', 1), () =>
+    util.testMoveUp(database, logic, 1, [
+      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
+      { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+    ]),
+  );
 
-  it(util.messageMoveDown("education", 1), () => util.testMoveDown(database, logic, 1, [
-    { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
-    { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 1 } }
-  ]));
+  it(util.messageMoveDown('education', 1), () =>
+    util.testMoveDown(database, logic, 1, [
+      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
+      { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 1 } },
+    ]),
+  );
 });

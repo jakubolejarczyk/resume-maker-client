@@ -1,5 +1,5 @@
 export interface ResumeDataDatabaseModel {
-    name: string;
-    jobTitle: string;
-    summary: string;
+  name: string;
+  jobTitle: string;
+  summary: string;
 }

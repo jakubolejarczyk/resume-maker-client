@@ -1,14 +1,14 @@
 // @ts-check
 
-import js from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import tseslint from 'typescript-eslint';
+import js from "@eslint/js";
+import { defineConfig } from "eslint/config";
+import tseslint from "typescript-eslint";
 
 export default defineConfig(
   {
     files: ["./src/**/*.{js,ts}"],
     linterOptions: {
-      reportUnusedDisableDirectives: "error"
+      reportUnusedDisableDirectives: "error",
     },
     extends: [
       js.configs.recommended,
@@ -16,13 +16,13 @@ export default defineConfig(
       tseslint.configs.stylistic,
     ],
     rules: {
-      "@typescript-eslint/no-extraneous-class": "off"
-    }
+      "@typescript-eslint/no-extraneous-class": "off",
+    },
   },
   {
     files: ["./src/**/*.action.{js,ts}"],
     rules: {
-      "@typescript-eslint/no-namespace": "off"
-    }
-  }
+      "@typescript-eslint/no-namespace": "off",
+    },
+  },
 );

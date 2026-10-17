@@ -1,31 +1,35 @@
-import { Injectable } from "@angular/core";
-import { StateContext } from "@ngxs/store";
+import { Injectable } from '@angular/core';
+import { StateContext } from '@ngxs/store';
 
-import { BaseStoreModel } from "../model/base-store.model";
-import { BaseApiModel } from "../../api/model/base-api.model";
-import { BaseStoreAction } from "../action/base-store.action";
+import { BaseStoreModel } from '../model/base-store.model';
+import { BaseApiModel } from '../../api/model/base-api.model';
+import { BaseStoreAction } from '../action/base-store.action';
 
 @Injectable()
 export class BaseStoreState<TModel extends BaseApiModel> {
-  static initState<TItem>(columns: BaseStoreModel<TItem>["columns"]): BaseStoreModel<TItem> {
+  static initState<TItem>(
+    columns: BaseStoreModel<TItem>['columns'],
+  ): BaseStoreModel<TItem> {
     return {
       success: true,
-      message: "",
+      message: '',
       isLoading: false,
       items: [],
       selectedItem: undefined,
-      columns
+      columns,
     };
   }
 
   static getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
     return {
       success: state.success,
-      message: state.message
+      message: state.message,
     };
   }
 
-  static getIsLoading<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static getIsLoading<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return state.isLoading;
   }
 
@@ -33,64 +37,92 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     return state.items;
   }
 
-  static getSelectedItem<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static getSelectedItem<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return state.selectedItem;
   }
 
-  static getColumns<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static getColumns<TModel extends BaseApiModel>(
+    state: BaseStoreModel<TModel>,
+  ) {
     return state.columns;
   }
 
-  setStatus(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetStatus) {
+  setStatus(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.SetStatus,
+  ) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
       success: action.success,
-      message: action.message
+      message: action.message,
     });
   }
 
-  setIsLoading(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetIsLoading) {
+  setIsLoading(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.SetIsLoading,
+  ) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      isLoading: action.isLoading
+      isLoading: action.isLoading,
     });
   }
 
-  setItems(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetItems<TModel>) {
+  setItems(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.SetItems<TModel>,
+  ) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      items: action.items
+      items: action.items,
     });
   }
 
-  addItem(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.AddItem<TModel>) {
+  addItem(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.AddItem<TModel>,
+  ) {
     const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(item => item.id === action.item.id);
+    const actionItemExistsInState = state.items.find(
+      (item) => item.id === action.item.id,
+    );
     if (actionItemExistsInState) return;
     ctx.setState({
       ...state,
-      items: [...state.items, action.item]
+      items: [...state.items, action.item],
     });
   }
 
-  updateItem(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.UpdateItem<TModel>) {
+  updateItem(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.UpdateItem<TModel>,
+  ) {
     const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(item => item.id === action.item.id);
+    const actionItemNotExistInState = !state.items.find(
+      (item) => item.id === action.item.id,
+    );
     if (actionItemNotExistInState) return;
     ctx.setState({
       ...state,
-      items: state.items.map(item => item.id === action.item.id ? action.item : item)
+      items: state.items.map((item) =>
+        item.id === action.item.id ? action.item : item,
+      ),
     });
   }
 
-  selectedItem(ctx: StateContext<BaseStoreModel<TModel>>, action: BaseStoreAction.SetSelectedItem<TModel>) {
+  selectedItem(
+    ctx: StateContext<BaseStoreModel<TModel>>,
+    action: BaseStoreAction.SetSelectedItem<TModel>,
+  ) {
     const state = ctx.getState();
     ctx.setState({
       ...state,
-      selectedItem: action.selectedItem
+      selectedItem: action.selectedItem,
     });
   }
 }

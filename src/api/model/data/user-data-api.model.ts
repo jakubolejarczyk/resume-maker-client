@@ -1,9 +1,9 @@
 export interface UserDataApiModel {
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    email: string;
-    city: string;
-    country: string;
-    links: string[];
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  city: string;
+  country: string;
+  links: string[];
 }
