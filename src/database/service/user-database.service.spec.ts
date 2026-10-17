@@ -75,5 +75,11 @@ describe("User Database Service", () => {
 
   it(util.messageReadByParentId("users", 0), () => util.testReadByParentId(service, 0, []));
 
+  it(util.messageUpdate("user", 0), () => {
+    const USER_0_COPY = structuredClone(USER_0);
+    USER_0_COPY.data.city = "Warsaw";
+    util.testUpdate(service, USER_0_COPY); 
+  });
+
   it(util.messageDelete("user", 0), () => util.testDelete(service, 0, []));
 });

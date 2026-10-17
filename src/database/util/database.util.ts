@@ -15,6 +15,10 @@ export const messageReadByParentId = (entity: string, parentId: number) => {
     return `Should correctly read ${entity} with parent id ${parentId}.`;
 };
 
+export const messageUpdate = (entity: string, id: number) => {
+    return `Should correctly update ${entity} with id ${id}.`;
+};
+
 export const messageDelete = (entity: string, id: number) => {
     return `Should correctly delete ${entity} with id ${id}.`;
 };
@@ -29,6 +33,11 @@ export const testReadById = <TData>(service: BaseDatabaseService<TData>, id: num
 
 export const testReadByParentId = <TData>(service: BaseDatabaseService<TData>, parentId: number, expected: BaseDatabaseModel<TData>[]) => {
     expect(service.readByParentId(parentId)).toEqual(expected);
+};
+
+export const testUpdate = <TData>(service: BaseDatabaseService<TData>, itemToUpdate: BaseDatabaseModel<TData>) => {
+    service.update(itemToUpdate);
+    expect(service.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);
 };
 
 export const testDelete = <TData>(service: BaseDatabaseService<TData>, id: number, expected: BaseDatabaseModel<TData>[]) => {

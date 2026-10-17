@@ -17,5 +17,11 @@ describe("Experience Database Service", () => {
       
   it(util.messageReadByParentId("experiences", 0), () => util.testReadByParentId(service, 0, [EXPERIENCE_0, EXPERIENCE_1]));
 
+  it(util.messageUpdate("experience", 0), () => {
+    const EXPERIENCE_1_COPY = structuredClone(EXPERIENCE_1);
+    EXPERIENCE_1_COPY.data.jobTitle = "Programmer";
+    util.testUpdate(service, EXPERIENCE_1_COPY); 
+  });
+
   it(util.messageDelete("experience", 1), () => util.testDelete(service, 1, [EXPERIENCE_0]));
 });

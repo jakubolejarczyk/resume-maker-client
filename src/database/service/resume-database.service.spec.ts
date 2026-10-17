@@ -17,5 +17,11 @@ describe("Resume Database Service", () => {
     
   it(util.messageReadByParentId("resumes", 0), () => util.testReadByParentId(service, 0, [RESUME_0]));
 
+  it(util.messageUpdate("resume", 0), () => {
+    const RESUME_0_COPY = structuredClone(RESUME_0);
+    RESUME_0_COPY.data.jobTitle = "Programmer";
+    util.testUpdate(service, RESUME_0_COPY); 
+  });
+
   it(util.messageDelete("resume", 0), () => util.testDelete(service, 0, []));
 });

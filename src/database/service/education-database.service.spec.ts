@@ -17,5 +17,11 @@ describe("Education Database Service", () => {
         
   it(util.messageReadByParentId("education", 0), () => util.testReadByParentId(service, 0, [EDUCATION_0, EDUCATION_1]));
 
+  it(util.messageUpdate("education", 0), () => {
+    const EDUCATION_1_COPY = structuredClone(EDUCATION_1);
+    EDUCATION_1_COPY.data.startYear = 2030;
+    util.testUpdate(service, EDUCATION_1_COPY);
+  });
+
   it(util.messageDelete("education", 0), () => util.testDelete(service, 0, [EDUCATION_1]));
 });

@@ -1,6 +1,7 @@
 import { inject } from "@angular/core";
 
 import { BaseDatabaseData } from "../data/base-database.data";
+import { BaseDatabaseModel } from "../model/base/base-database.model";
 
 export class BaseDatabaseService<TData> {
   private readonly service: BaseDatabaseData<TData>;
@@ -41,11 +42,16 @@ export class BaseDatabaseService<TData> {
     });
   }
 
-  // update(itemsToUpdate: BaseDatabaseModel<TData>[]) {
-  //   const items = this.readAll()
-  //     .map(item => itemsToUpdate.find(itemToUpdate => itemToUpdate.id === item.id) ?? item);
-  //   this.service.setItems(items);
-  // }
+  update(itemToUpdate: BaseDatabaseModel<TData>) {
+    const items = this.readAll()
+      .map(item => {
+        if (item.metadata.id === itemToUpdate.metadata.id) {
+          return itemToUpdate;
+        }
+        return item;
+      });
+    this.service.setItems(items);
+  }
 
   delete(id: number) {
     const items = this.readAll().filter(item => item.metadata.id !== id);
