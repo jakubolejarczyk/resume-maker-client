@@ -6,24 +6,15 @@ import { BaseDatabaseModel } from "../model/base/base-database.model";
 export class BaseDatabaseService<TData> {
   private readonly service: BaseDatabaseData<TData>;
   
-  public nextId = 0;
-
   constructor(private readonly type: typeof BaseDatabaseData<TData>) {
     this.service = inject(type);
   }
 
-  // create(itemsToCreate: Omit<BaseDatabaseModel<TData>, "id">[]) {
-  //   const items = this.service.getItems();
-  //   itemsToCreate.forEach(itemToCreate => {
-  //     const newItem = {
-  //       ...itemToCreate,
-  //       id: this.nextId
-  //     } as BaseDatabaseModel<TData>;
-  //     items.push(newItem);
-  //     this.nextId++;
-  //   });
-  //   this.service.setItems(items);
-  // }
+  create(itemToCreate: BaseDatabaseModel<TData>) {
+    const items = this.service.getItems();
+    items.push(itemToCreate);
+    this.service.setItems(items);
+  }
 
   readAll() {
     return structuredClone(this.service.getItems());

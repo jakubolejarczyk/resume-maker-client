@@ -3,6 +3,10 @@ import { expect } from "vitest";
 import { BaseDatabaseService } from "../service/base-database.service";
 import { BaseDatabaseModel } from "../model/base/base-database.model";
 
+export const messageCreate = (entity: string, id: number) => {
+    return `Should correctly create ${entity} with id ${id}.`;
+};
+
 export const messageReadAll = (entity: string) => {
     return `Should correctly read all ${entity}.`;
 };
@@ -21,6 +25,15 @@ export const messageUpdate = (entity: string, id: number) => {
 
 export const messageDelete = (entity: string, id: number) => {
     return `Should correctly delete ${entity} with id ${id}.`;
+};
+
+export const testCreate = <TData>(
+    service: BaseDatabaseService<TData>,
+    itemToCreate: BaseDatabaseModel<TData>,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    service.create(itemToCreate);
+    expect(service.readAll()).toEqual(expected);
 };
 
 export const testReadAll = <TData>(service: BaseDatabaseService<TData>, expected: BaseDatabaseModel<TData>[]) => {
