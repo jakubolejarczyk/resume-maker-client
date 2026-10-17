@@ -20,6 +20,10 @@ describe("User Logic Service", () => {
 
   it(util.messageDeselect("user", 0), () => util.testDeselect(database, logic, 0, [USER_0]));
 
+  it(util.messageReadById("user", 0), () => util.testReadById(logic, 0, USER_0));
+  
+  it(util.messageReadByParentId("user", "undefined"), () => util.testReadByParentId(logic, undefined, [USER_0]));
+
   it(util.messageDelete("user", 0), () => util.testDelete(database, logic, 0, []));
 
   it(util.messageMoveUp("user", 0), () => util.testMoveUp(database, logic, 0, [USER_0]));

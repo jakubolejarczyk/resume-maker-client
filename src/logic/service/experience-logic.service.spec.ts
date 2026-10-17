@@ -21,6 +21,10 @@ describe("Experience Logic Service", () => {
       
   it(util.messageDeselect("experience", 1), () => util.testDeselect(database, logic, 1, [EXPERIENCE_0, EXPERIENCE_1]));
 
+  it(util.messageReadById("experience", 1), () => util.testReadById(logic, 1, EXPERIENCE_1));
+
+  it(util.messageReadByParentId("experience", 0), () => util.testReadByParentId(logic, 0, [EXPERIENCE_0, EXPERIENCE_1]));
+
   it(util.messageDelete("experience", 0), () => util.testDelete(database, logic, 0, [
     { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } }
   ]));

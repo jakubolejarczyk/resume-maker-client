@@ -36,12 +36,14 @@ export class BaseLogicService<TData> {
         throw new Error("Not implemented");
     }
 
-    readByIds() {
-        throw new Error("Not implemented");
+    readById(id: number) {
+        return this.service.readById(id);
     }
 
-    readByParentIds() {
-        throw new Error("Not implemented");
+    readByParentId(parentId: number | undefined) {
+        return parentId === undefined
+            ? this.service.readAll()
+            : this.service.readByParentId(parentId);
     }
 
     update() {

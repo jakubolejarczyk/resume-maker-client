@@ -21,6 +21,10 @@ describe("Education Logic Service", () => {
         
   it(util.messageDeselect("education", 1), () => util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]));
 
+  it(util.messageReadById("education", 1), () => util.testReadById(logic, 1, EDUCATION_1));
+
+  it(util.messageReadByParentId("education", 0), () => util.testReadByParentId(logic, 0, [EDUCATION_0, EDUCATION_1]));
+
   it(util.messageDelete("education", 1), () => util.testDelete(database, logic, 1, [
     { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } }
   ]));

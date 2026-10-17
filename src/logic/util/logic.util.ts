@@ -11,6 +11,14 @@ export const messageDeselect = (entity: string, id: number) => {
     return `Should correctly deselect ${entity} with id ${id}.`;
 };
 
+export const messageReadById = (entity: string, id: number) => {
+    return `Should correctly read ${entity} by id ${id}.`;
+};
+
+export const messageReadByParentId = (entity: string, parentId: number | "undefined") => {
+    return `Should correctly read ${entity} by parent id ${parentId}.`;
+};
+
 export const messageDelete = (entity: string, id: number) => {
     return `Should correctly delete ${entity} with id ${id}.`;
 };
@@ -42,6 +50,22 @@ export const testDeselect = <TData>(
     logic.select(id);
     logic.deselect(id);
     expect(database.readAll()).toEqual(expected);
+};
+
+export const testReadById = <TData>(
+    logic: BaseLogicService<TData>,
+    id: number,
+    expected: BaseDatabaseModel<TData>
+) => {
+    expect(logic.readById(id)).toEqual(expected);
+};
+
+export const testReadByParentId = <TData>(
+    logic: BaseLogicService<TData>,
+    parentId: number | undefined,
+    expected: BaseDatabaseModel<TData>[]
+) => {
+    expect(logic.readByParentId(parentId)).toEqual(expected);
 };
 
 export const testDelete = <TData>(
