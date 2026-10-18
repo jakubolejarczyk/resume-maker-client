@@ -1,11 +1,11 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 
-import { ExperienceStoreModel } from '../model/experience-store.model';
+import { ExperienceStoreModel } from '../model/state/experience-state-store.model';
 import { BaseStoreState } from './base-store.state';
 import { ExperienceApiModel } from '../../api/model/experience-api.model';
 import { BaseApiModel } from '../../api/model/base-api.model';
-import { BaseStoreModel } from '../model/base-store.model';
+import { BaseStoreModel } from '../model/base/base-store.model';
 import { ExperienceStoreAction } from '../action/experience-store.action';
 
 @State<ExperienceStoreModel>({

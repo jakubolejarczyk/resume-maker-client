@@ -1,11 +1,12 @@
-type BaseStoreColumnTypeModel = 'string' | 'string[]' | 'number' | 'date';
+import { ColumnType } from "../../../type/column.type";
 
 export interface BaseStoreColumnModel {
   id: string;
   label: string;
   isVisible: boolean;
   isEditable: boolean;
-  type: BaseStoreColumnTypeModel;
+  type: ColumnType;
+  isArray: boolean;
 }
 
 export interface BaseStoreModel<TItem> {
@@ -13,6 +14,5 @@ export interface BaseStoreModel<TItem> {
   message: string;
   isLoading: boolean;
   items: TItem[];
-  selectedItem: TItem | undefined;
   columns: BaseStoreColumnModel[];
 }

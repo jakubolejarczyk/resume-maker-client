@@ -1,11 +1,11 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 
-import { SkillStoreModel } from '../model/skill-store.model';
+import { SkillStoreModel } from '../model/state/skill-state-store.model';
 import { BaseStoreState } from './base-store.state';
 import { SkillApiModel } from '../../api/model/skill-api.model';
 import { BaseApiModel } from '../../api/model/base-api.model';
-import { BaseStoreModel } from '../model/base-store.model';
+import { BaseStoreModel } from '../model/base/base-store.model';
 import { SkillStoreAction } from '../action/skill-store.action';
 
 @State<SkillStoreModel>({

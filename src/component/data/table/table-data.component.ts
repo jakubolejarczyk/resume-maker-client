@@ -5,7 +5,7 @@ import { AsyncPipe } from '@angular/common';
 
 import { ButtonFormComponent } from '../../form/button/button-form.component';
 import { BaseApiModel } from '../../../api/model/base-api.model';
-import { BaseStoreModel } from '../../../store/model/base-store.model';
+import { BaseStoreModel } from '../../../store/model/base/base-store.model';
 import { BadgeMiscComponent } from '../../misc/badge/badge-misc.component';
 
 @Component({

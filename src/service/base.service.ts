@@ -3,7 +3,7 @@ import { Store } from '@ngxs/store';
 import { combineLatest, map, of, switchMap, tap } from 'rxjs';
 
 import { BaseApiModel } from '../api/model/base-api.model';
-import { BaseStoreModel } from '../store/model/base-store.model';
+import { BaseStoreModel } from '../store/model/base/base-store.model';
 import { BaseStoreAction } from '../store/action/base-store.action';
 import { BaseApiService } from '../api/service/base-api.service';
 
