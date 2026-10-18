@@ -14,9 +14,15 @@ export class BaseLogicService<TData> {
     this.nextId = this.service.getItems().length;
   }
 
-  select(id: number) {
+  select(id: number): ResponseLogicModel<undefined> {
     const itemToSelect = this.service.readById(id);
-    if (itemToSelect === undefined) return;
+    if (itemToSelect === undefined) {
+      return {
+        success: false,
+        message: 'Failed to select the item because it does not exist.',
+        body: undefined,
+      };
+    }
     const items =
       itemToSelect.metadata.parentId === undefined
         ? this.service.readAll()
@@ -29,16 +35,35 @@ export class BaseLogicService<TData> {
       }
       this.service.update(item);
     });
+    return {
+      success: true,
+      message: 'The item was selected correctly.',
+      body: undefined,
+    };
   }
 
-  deselect(id: number) {
+  deselect(id: number): ResponseLogicModel<undefined> {
     const itemToDeselect = this.service.readById(id);
-    if (itemToDeselect === undefined) return;
+    if (itemToDeselect === undefined) {
+      return {
+        success: false,
+        message: 'Failed to deselect the item because it does not exist.',
+        body: undefined,
+      };
+    }
     itemToDeselect.metadata.isSelected = false;
     this.service.update(itemToDeselect);
+    return {
+      success: true,
+      message: 'The item was deselected correctly.',
+      body: undefined,
+    };
   }
 
-  create(parentId: number | undefined, data: TData): ResponseLogicModel<undefined> {
+  create(
+    parentId: number | undefined,
+    data: TData,
+  ): ResponseLogicModel<undefined> {
     const items =
       parentId === undefined
         ? this.service.readAll()

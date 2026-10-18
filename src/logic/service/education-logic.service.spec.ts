@@ -18,18 +18,36 @@ describe('Education Logic Service', () => {
     logic = TestBed.inject(EducationLogicService);
   });
 
-  it(util.messageSelect('education', 1), () =>
-    util.testSelect(database, logic, 1, [
-      EDUCATION_0,
-      {
-        ...EDUCATION_1,
-        metadata: { ...EDUCATION_1.metadata, isSelected: true },
-      },
-    ]),
+  it(util.messageSelect(true, 'education', 1), () =>
+    util.testSelect(logic, 1, {
+      success: true,
+      message: 'The item was selected correctly.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageDeselect('education', 1), () =>
-    util.testDeselect(database, logic, 1, [EDUCATION_0, EDUCATION_1]),
+  it(util.messageSelect(false, 'education', 10), () =>
+    util.testSelect(logic, 10, {
+      success: false,
+      message: 'Failed to select the item because it does not exist.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(true, 'education', 1), () =>
+    util.testDeselect(logic, 1, {
+      success: true,
+      message: 'The item was deselected correctly.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(false, 'education', 10), () =>
+    util.testDeselect(logic, 10, {
+      success: false,
+      message: 'Failed to deselect the item because it does not exist.',
+      body: undefined,
+    }),
   );
 
   it(util.messageCreate('education'), () => {

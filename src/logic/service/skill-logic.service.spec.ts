@@ -20,17 +20,36 @@ describe('Skill Logic Service', () => {
     logic = TestBed.inject(SkillLogicService);
   });
 
-  it(util.messageSelect('skill', 2), () =>
-    util.testSelect(database, logic, 2, [
-      SKILL_0,
-      SKILL_1,
-      { ...SKILL_2, metadata: { ...SKILL_2.metadata, isSelected: true } },
-      SKILL_3,
-    ]),
+  it(util.messageSelect(true, 'skill', 2), () =>
+    util.testSelect(logic, 2, {
+      success: true,
+      message: 'The item was selected correctly.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageDeselect('skill', 2), () =>
-    util.testDeselect(database, logic, 2, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]),
+  it(util.messageSelect(false, 'skill', 10), () =>
+    util.testSelect(logic, 10, {
+      success: false,
+      message: 'Failed to select the item because it does not exist.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(true, 'skill', 2), () =>
+    util.testDeselect(logic, 2, {
+      success: true,
+      message: 'The item was deselected correctly.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(false, 'skill', 10), () =>
+    util.testDeselect(logic, 10, {
+      success: false,
+      message: 'Failed to deselect the item because it does not exist.',
+      body: undefined,
+    }),
   );
 
   it(util.messageCreate('skill'), () => {

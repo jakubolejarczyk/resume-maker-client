@@ -7,12 +7,16 @@ import { ResponseLogicModel } from '../model/response-logic.model';
 const getMessageContext = (success: boolean) =>
   success ? 'correctly' : 'not correctly';
 
-export const messageSelect = (entity: string, id: number) => {
-  return `Should correctly select ${entity} with id ${id}.`;
+export const messageSelect = (success: boolean, entity: string, id: number) => {
+  return `Should ${getMessageContext(success)} select ${entity} with id ${id}.`;
 };
 
-export const messageDeselect = (entity: string, id: number) => {
-  return `Should correctly deselect ${entity} with id ${id}.`;
+export const messageDeselect = (
+  success: boolean,
+  entity: string,
+  id: number,
+) => {
+  return `Should ${getMessageContext(success)} deselect ${entity} with id ${id}.`;
 };
 
 export const messageCreate = (entity: string) => {
@@ -52,24 +56,19 @@ export const messageMoveDown = (entity: string, id: number) => {
 };
 
 export const testSelect = <TData>(
-  database: BaseDatabaseService<TData>,
   logic: BaseLogicService<TData>,
   id: number,
-  expected: BaseDatabaseModel<TData>[],
+  expected: ResponseLogicModel<undefined>,
 ) => {
-  logic.select(id);
-  expect(database.readAll()).toEqual(expected);
+  expect(logic.select(id)).toEqual(expected);
 };
 
 export const testDeselect = <TData>(
-  database: BaseDatabaseService<TData>,
   logic: BaseLogicService<TData>,
   id: number,
-  expected: BaseDatabaseModel<TData>[],
+  expected: ResponseLogicModel<undefined>,
 ) => {
-  logic.select(id);
-  logic.deselect(id);
-  expect(database.readAll()).toEqual(expected);
+  expect(logic.deselect(id)).toEqual(expected);
 };
 
 export const testCreate = <TData>(

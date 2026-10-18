@@ -18,18 +18,36 @@ describe('Experience Logic Service', () => {
     logic = TestBed.inject(ExperienceLogicService);
   });
 
-  it(util.messageSelect('experience', 1), () =>
-    util.testSelect(database, logic, 1, [
-      EXPERIENCE_0,
-      {
-        ...EXPERIENCE_1,
-        metadata: { ...EXPERIENCE_1.metadata, isSelected: true },
-      },
-    ]),
+  it(util.messageSelect(true, 'experience', 1), () =>
+    util.testSelect(logic, 1, {
+      success: true,
+      message: 'The item was selected correctly.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageDeselect('experience', 1), () =>
-    util.testDeselect(database, logic, 1, [EXPERIENCE_0, EXPERIENCE_1]),
+  it(util.messageSelect(false, 'experience', 10), () =>
+    util.testSelect(logic, 10, {
+      success: false,
+      message: 'Failed to select the item because it does not exist.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(true, 'experience', 1), () =>
+    util.testDeselect(logic, 1, {
+      success: true,
+      message: 'The item was deselected correctly.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(false, 'experience', 10), () =>
+    util.testDeselect(logic, 10, {
+      success: false,
+      message: 'Failed to deselect the item because it does not exist.',
+      body: undefined,
+    }),
   );
 
   it(util.messageCreate('experience'), () => {

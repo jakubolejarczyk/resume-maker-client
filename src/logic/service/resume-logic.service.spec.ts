@@ -15,14 +15,36 @@ describe('Resume Logic Service', () => {
     logic = TestBed.inject(ResumeLogicService);
   });
 
-  it(util.messageSelect('resume', 0), () =>
-    util.testSelect(database, logic, 0, [
-      { ...RESUME_0, metadata: { ...RESUME_0.metadata, isSelected: true } },
-    ]),
+  it(util.messageSelect(true, 'resume', 0), () =>
+    util.testSelect(logic, 0, {
+      success: true,
+      message: 'The item was selected correctly.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageDeselect('resume', 0), () =>
-    util.testDeselect(database, logic, 0, [RESUME_0]),
+  it(util.messageSelect(false, 'resume', 10), () =>
+    util.testSelect(logic, 10, {
+      success: false,
+      message: 'Failed to select the item because it does not exist.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(true, 'resume', 0), () =>
+    util.testDeselect(logic, 0, {
+      success: true,
+      message: 'The item was deselected correctly.',
+      body: undefined,
+    }),
+  );
+
+  it(util.messageDeselect(false, 'resume', 10), () =>
+    util.testDeselect(logic, 10, {
+      success: false,
+      message: 'Failed to deselect the item because it does not exist.',
+      body: undefined,
+    }),
   );
 
   it(util.messageCreate('resume'), () => {
