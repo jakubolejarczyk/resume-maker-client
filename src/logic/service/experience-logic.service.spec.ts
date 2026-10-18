@@ -62,8 +62,20 @@ describe('Experience Logic Service', () => {
     ]);
   });
 
-  it(util.messageReadById('experience', 1), () =>
-    util.testReadById(logic, 1, EXPERIENCE_1),
+  it(util.messageReadById(true, 'experience', 1), () =>
+    util.testReadById(logic, 1, {
+      success: true,
+      message: "The item was read correctly.",
+      body: EXPERIENCE_1
+    }),
+  );
+
+  it(util.messageReadById(false, 'experience', 10), () =>
+    util.testReadById(logic, 10, {
+      success: false,
+      message: "Failed to read the item.",
+      body: undefined,
+    }),
   );
 
   it(util.messageReadByParentId('experience', 0), () =>

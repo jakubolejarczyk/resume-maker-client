@@ -45,8 +45,20 @@ describe('Resume Logic Service', () => {
     util.testCreate(database, logic, 0, RESUME_1_DATA, [RESUME_0, RESUME_1]);
   });
 
-  it(util.messageReadById('resume', 0), () =>
-    util.testReadById(logic, 0, RESUME_0),
+  it(util.messageReadById(true, 'resume', 0), () =>
+    util.testReadById(logic, 0, {
+      success: true,
+      message: "The item was read correctly.",
+      body: RESUME_0
+    }),
+  );
+
+  it(util.messageReadById(false, 'resume', 10), () =>
+    util.testReadById(logic, 10, {
+      success: false,
+      message: "Failed to read the item.",
+      body: undefined,
+    }),
   );
 
   it(util.messageReadByParentId('resume', 0), () =>

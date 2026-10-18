@@ -57,8 +57,20 @@ describe('Skill Logic Service', () => {
     ]);
   });
 
-  it(util.messageReadById('skill', 2), () =>
-    util.testReadById(logic, 2, SKILL_2),
+  it(util.messageReadById(true, 'skill', 2), () =>
+    util.testReadById(logic, 2, {
+      success: true,
+      message: "The item was read correctly.",
+      body: SKILL_2
+    }),
+  );
+
+  it(util.messageReadById(false, 'skill', 10), () =>
+    util.testReadById(logic, 10, {
+      success: false,
+      message: "Failed to read the item.",
+      body: undefined,
+    }),
   );
 
   it(util.messageReadByParentId('skill', 0), () =>

@@ -52,8 +52,20 @@ describe('User Logic Service', () => {
     util.testCreate(database, logic, undefined, USER_1_DATA, [USER_0, USER_1]);
   });
 
-  it(util.messageReadById('user', 0), () =>
-    util.testReadById(logic, 0, USER_0),
+  it(util.messageReadById(true, 'user', 0), () =>
+    util.testReadById(logic, 0, {
+      success: true,
+      message: "The item was read correctly.",
+      body: USER_0
+    }),
+  );
+
+  it(util.messageReadById(false, 'user', 10), () =>
+    util.testReadById(logic, 10, {
+      success: false,
+      message: "Failed to read the item.",
+      body: undefined,
+    }),
   );
 
   it(util.messageReadByParentId('user', 'undefined'), () =>

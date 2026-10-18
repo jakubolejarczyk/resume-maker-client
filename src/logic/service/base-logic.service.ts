@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 
 import { BaseDatabaseService } from '../../database/service/base-database.service';
 import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
+import { ResponseLogicModel } from '../model/response-logic.model';
 
 export class BaseLogicService<TData> {
   private readonly service: BaseDatabaseService<TData>;
@@ -61,8 +62,20 @@ export class BaseLogicService<TData> {
     this.service.create(itemToCreate);
   }
 
-  readById(id: number) {
-    return this.service.readById(id);
+  readById(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
+    const item = this.service.readById(id);
+    if (item === undefined) {
+      return {
+        success: false,
+        message: "Failed to read the item.",
+        body: undefined
+      };  
+    }
+    return {
+      success: true,
+      message: "The item was read correctly.",
+      body: item
+    };
   }
 
   readByParentId(parentId: number | undefined) {

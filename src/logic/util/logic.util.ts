@@ -2,6 +2,7 @@ import { expect } from 'vitest';
 import { BaseLogicService } from '../service/base-logic.service';
 import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 import { BaseDatabaseService } from '../../database/service/base-database.service';
+import { ResponseLogicModel } from '../model/response-logic.model';
 
 export const messageSelect = (entity: string, id: number) => {
   return `Should correctly select ${entity} with id ${id}.`;
@@ -15,8 +16,9 @@ export const messageCreate = (entity: string) => {
   return `Should correctly create ${entity}.`;
 };
 
-export const messageReadById = (entity: string, id: number) => {
-  return `Should correctly read ${entity} by id ${id}.`;
+export const messageReadById = (success: boolean, entity: string, id: number) => {
+  const successMessage = success ? "correctly" : "not correctly";
+  return `Should ${successMessage} read ${entity} by id ${id}.`;
 };
 
 export const messageReadByParentId = (
@@ -77,7 +79,7 @@ export const testCreate = <TData>(
 export const testReadById = <TData>(
   logic: BaseLogicService<TData>,
   id: number,
-  expected: BaseDatabaseModel<TData>,
+  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,
 ) => {
   expect(logic.readById(id)).toEqual(expected);
 };

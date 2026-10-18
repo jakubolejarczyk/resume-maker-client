@@ -57,8 +57,20 @@ describe('Education Logic Service', () => {
     ]);
   });
 
-  it(util.messageReadById('education', 1), () =>
-    util.testReadById(logic, 1, EDUCATION_1),
+  it(util.messageReadById(true, 'education', 1), () =>
+    util.testReadById(logic, 1, {
+      success: true,
+      message: "The item was read correctly.",
+      body: EDUCATION_1
+    }),
+  );
+
+  it(util.messageReadById(false, 'education', 10), () =>
+    util.testReadById(logic, 10, {
+      success: false,
+      message: "Failed to read the item.",
+      body: undefined,
+    }),
   );
 
   it(util.messageReadByParentId('education', 0), () =>
