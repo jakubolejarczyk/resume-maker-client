@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SkillLogicService } from './skill-logic.service';
-import { SkillDatabaseService } from '../../database/service/skill-database.service';
 import * as util from '../util/logic.util';
 import {
   SKILL_0,
@@ -12,11 +11,9 @@ import {
 import { SkillDataDatabaseModel } from '../../database/model/data/skill-data-database.model';
 
 describe('Skill Logic Service', () => {
-  let database: SkillDatabaseService;
   let logic: SkillLogicService;
 
   beforeEach(() => {
-    database = TestBed.inject(SkillDatabaseService);
     logic = TestBed.inject(SkillLogicService);
   });
 
@@ -24,7 +21,7 @@ describe('Skill Logic Service', () => {
     util.testSelect(logic, 2, {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: { ...SKILL_2, metadata: { ...SKILL_2.metadata, isSelected: true } },
     }),
   );
 
@@ -40,7 +37,7 @@ describe('Skill Logic Service', () => {
     util.testDeselect(logic, 2, {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: SKILL_2,
     }),
   );
 
@@ -60,7 +57,15 @@ describe('Skill Logic Service', () => {
     util.testCreate(logic, 0, SKILL_4_DATA, {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: {
+        data: SKILL_4_DATA,
+        metadata: {
+          id: 4,
+          parentId: 0,
+          order: 4,
+          isSelected: false,
+        },
+      },
     });
   });
 
@@ -102,7 +107,7 @@ describe('Skill Logic Service', () => {
     util.testUpdate(logic, 0, SKILL_0_UPDATED.data, {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: SKILL_0_UPDATED,
     });
   });
 
@@ -117,29 +122,39 @@ describe('Skill Logic Service', () => {
     });
   });
 
-  it(util.messageDelete('skill', 2), () =>
-    util.testDelete(database, logic, 2, [
-      SKILL_0,
-      SKILL_1,
-      { ...SKILL_3, metadata: { ...SKILL_3.metadata, order: 2 } },
-    ]),
+  it(util.messageDelete(true, 'skill', 2), () =>
+    util.testDelete(logic, 2, {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: SKILL_2,
+    }),
   );
 
-  it(util.messageMoveUp('skill', 2), () =>
-    util.testMoveUp(database, logic, 2, [
-      SKILL_0,
-      { ...SKILL_1, metadata: { ...SKILL_1.metadata, order: 2 } },
-      { ...SKILL_2, metadata: { ...SKILL_2.metadata, order: 1 } },
-      SKILL_3,
-    ]),
+  it(util.messageMoveUp(true, 'skill', 2), () =>
+    util.testMoveUp(logic, 2, {
+      success: true,
+      message: 'The item was moved up correctly.',
+      body: {
+        data: SKILL_2.data,
+        metadata: {
+          ...SKILL_2.metadata,
+          order: 1,
+        },
+      },
+    }),
   );
 
-  it(util.messageMoveDown('user', 2), () =>
-    util.testMoveDown(database, logic, 2, [
-      SKILL_0,
-      SKILL_1,
-      { ...SKILL_2, metadata: { ...SKILL_2.metadata, order: 3 } },
-      { ...SKILL_3, metadata: { ...SKILL_3.metadata, order: 2 } },
-    ]),
+  it(util.messageMoveDown(true, 'user', 2), () =>
+    util.testMoveDown(logic, 2, {
+      success: true,
+      message: 'The item was moved down correctly.',
+      body: {
+        data: SKILL_2.data,
+        metadata: {
+          ...SKILL_2.metadata,
+          order: 3,
+        },
+      },
+    }),
   );
 });

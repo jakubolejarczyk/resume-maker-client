@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserLogicService } from './user-logic.service';
-import { UserDatabaseService } from '../../database/service/user-database.service';
 import * as util from '../util/logic.util';
 import { USER_0 } from '../../database/const/user-database.const';
 import { UserDataDatabaseModel } from '../../database/model/data/user-data-database.model';
 
 describe('User Logic Service', () => {
-  let database: UserDatabaseService;
   let logic: UserLogicService;
 
   beforeEach(() => {
-    database = TestBed.inject(UserDatabaseService);
     logic = TestBed.inject(UserLogicService);
   });
 
@@ -19,7 +16,7 @@ describe('User Logic Service', () => {
     util.testSelect(logic, 0, {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: { ...USER_0, metadata: { ...USER_0.metadata, isSelected: true } },
     }),
   );
 
@@ -35,7 +32,7 @@ describe('User Logic Service', () => {
     util.testDeselect(logic, 0, {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: USER_0,
     }),
   );
 
@@ -65,7 +62,15 @@ describe('User Logic Service', () => {
     util.testCreate(logic, undefined, USER_1_DATA, {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: {
+        data: USER_1_DATA,
+        metadata: {
+          id: 1,
+          parentId: undefined,
+          order: 1,
+          isSelected: false,
+        },
+      },
     });
   });
 
@@ -107,7 +112,7 @@ describe('User Logic Service', () => {
     util.testUpdate(logic, 0, USER_0_UPDATED.data, {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: USER_0_UPDATED,
     });
   });
 
@@ -122,15 +127,27 @@ describe('User Logic Service', () => {
     });
   });
 
-  it(util.messageDelete('user', 0), () =>
-    util.testDelete(database, logic, 0, []),
+  it(util.messageDelete(true, 'user', 0), () =>
+    util.testDelete(logic, 0, {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: USER_0,
+    }),
   );
 
-  it(util.messageMoveUp('user', 0), () =>
-    util.testMoveUp(database, logic, 0, [USER_0]),
+  it(util.messageMoveUp(false, 'user', 0), () =>
+    util.testMoveUp(logic, 0, {
+      success: false,
+      message: 'Failed to move up the item because it is the first element.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageMoveDown('user', 0), () =>
-    util.testMoveDown(database, logic, 0, [USER_0]),
+  it(util.messageMoveDown(false, 'user', 0), () =>
+    util.testMoveDown(logic, 0, {
+      success: false,
+      message: 'Failed to move down the item because it is the last element.',
+      body: undefined,
+    }),
   );
 });

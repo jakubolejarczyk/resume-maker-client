@@ -14,7 +14,7 @@ export class BaseLogicService<TData> {
     this.nextId = this.service.getItems().length;
   }
 
-  select(id: number): ResponseLogicModel<undefined> {
+  select(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToSelect = this.service.readById(id);
     if (itemToSelect === undefined) {
       return {
@@ -35,14 +35,17 @@ export class BaseLogicService<TData> {
       }
       this.service.update(item);
     });
+    const currentItem = this.service.readById(id);
     return {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: currentItem,
     };
   }
 
-  deselect(id: number): ResponseLogicModel<undefined> {
+  deselect(
+    id: number,
+  ): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToDeselect = this.service.readById(id);
     if (itemToDeselect === undefined) {
       return {
@@ -56,14 +59,14 @@ export class BaseLogicService<TData> {
     return {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: itemToDeselect,
     };
   }
 
   create(
     parentId: number | undefined,
     data: TData,
-  ): ResponseLogicModel<undefined> {
+  ): ResponseLogicModel<BaseDatabaseModel<TData>> {
     const items =
       parentId === undefined
         ? this.service.readAll()
@@ -88,7 +91,7 @@ export class BaseLogicService<TData> {
     return {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: itemToCreate,
     };
   }
 
@@ -131,7 +134,10 @@ export class BaseLogicService<TData> {
     };
   }
 
-  update(id: number, data: TData): ResponseLogicModel<undefined> {
+  update(
+    id: number,
+    data: TData,
+  ): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToUpdate = this.service.readById(id);
     if (itemToUpdate === undefined) {
       return {
@@ -145,13 +151,19 @@ export class BaseLogicService<TData> {
     return {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: itemToUpdate,
     };
   }
 
-  delete(id: number) {
+  delete(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToDelete = this.service.readById(id);
-    if (itemToDelete === undefined) return;
+    if (itemToDelete === undefined) {
+      return {
+        success: false,
+        message: 'Failed to move up the item because it does not exist.',
+        body: undefined,
+      };
+    }
     const { parentId } = itemToDelete.metadata;
     this.service.delete(itemToDelete.metadata.id);
     const itemsToUpdate =
@@ -165,12 +177,29 @@ export class BaseLogicService<TData> {
         return itemToUpdate;
       })
       .forEach((itemToUpdate) => this.service.update(itemToUpdate));
+    return {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: itemToDelete,
+    };
   }
 
-  moveUp(id: number) {
+  moveUp(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToMoveUp = this.service.readById(id);
-    if (itemToMoveUp === undefined) return;
-    if (itemToMoveUp.metadata.order === 0) return;
+    if (itemToMoveUp === undefined) {
+      return {
+        success: false,
+        message: 'Failed to move up the item because it does not exist.',
+        body: undefined,
+      };
+    }
+    if (itemToMoveUp.metadata.order === 0) {
+      return {
+        success: false,
+        message: 'Failed to move up the item because it is the first element.',
+        body: undefined,
+      };
+    }
     const items =
       itemToMoveUp.metadata.parentId === undefined
         ? this.service.readAll()
@@ -178,17 +207,37 @@ export class BaseLogicService<TData> {
     const prevItem = items.find(
       (item) => item.metadata.order === itemToMoveUp.metadata.order - 1,
     );
-    if (prevItem === undefined) return;
+    if (prevItem === undefined) {
+      return {
+        success: false,
+        message:
+          'Failed to move up the item because the previous item does not exist.',
+        body: undefined,
+      };
+    }
     const itemToMoveUpOrder = itemToMoveUp.metadata.order;
     itemToMoveUp.metadata.order = prevItem.metadata.order;
     prevItem.metadata.order = itemToMoveUpOrder;
     this.service.update(itemToMoveUp);
     this.service.update(prevItem);
+    return {
+      success: true,
+      message: 'The item was moved up correctly.',
+      body: itemToMoveUp,
+    };
   }
 
-  moveDown(id: number) {
+  moveDown(
+    id: number,
+  ): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const itemToMoveDown = this.service.readById(id);
-    if (itemToMoveDown === undefined) return;
+    if (itemToMoveDown === undefined) {
+      return {
+        success: false,
+        message: 'Failed to move down the item because it does not exist.',
+        body: undefined,
+      };
+    }
     const items =
       itemToMoveDown.metadata.parentId === undefined
         ? this.service.readAll()
@@ -199,15 +248,33 @@ export class BaseLogicService<TData> {
       }
       return acc;
     }, 0);
-    if (itemToMoveDown.metadata.order === lastOrder) return;
+    if (itemToMoveDown.metadata.order === lastOrder) {
+      return {
+        success: false,
+        message: 'Failed to move down the item because it is the last element.',
+        body: undefined,
+      };
+    }
     const nextItem = items.find(
       (item) => item.metadata.order === itemToMoveDown.metadata.order + 1,
     );
-    if (nextItem === undefined) return;
+    if (nextItem === undefined) {
+      return {
+        success: false,
+        message:
+          'Failed to move down the item because the next item does not exist.',
+        body: undefined,
+      };
+    }
     const itemToMoveDownOrder = itemToMoveDown.metadata.order;
     itemToMoveDown.metadata.order = nextItem.metadata.order;
     nextItem.metadata.order = itemToMoveDownOrder;
     this.service.update(itemToMoveDown);
     this.service.update(nextItem);
+    return {
+      success: true,
+      message: 'The item was moved down correctly.',
+      body: itemToMoveDown,
+    };
   }
 }

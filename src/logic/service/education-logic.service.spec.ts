@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
 import { EducationLogicService } from './education-logic.service';
-import { EducationDatabaseService } from '../../database/service/education-database.service';
 import * as util from '../util/logic.util';
 import {
   EDUCATION_0,
@@ -10,11 +9,9 @@ import {
 import { EducationDataDatabaseModel } from '../../database/model/data/education-data-database.model';
 
 describe('Education Logic Service', () => {
-  let database: EducationDatabaseService;
   let logic: EducationLogicService;
 
   beforeEach(() => {
-    database = TestBed.inject(EducationDatabaseService);
     logic = TestBed.inject(EducationLogicService);
   });
 
@@ -22,7 +19,10 @@ describe('Education Logic Service', () => {
     util.testSelect(logic, 1, {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: {
+        ...EDUCATION_1,
+        metadata: { ...EDUCATION_1.metadata, isSelected: true },
+      },
     }),
   );
 
@@ -38,7 +38,7 @@ describe('Education Logic Service', () => {
     util.testDeselect(logic, 1, {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: EDUCATION_1,
     }),
   );
 
@@ -61,7 +61,15 @@ describe('Education Logic Service', () => {
     util.testCreate(logic, 0, EDUCATION_2_DATA, {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: {
+        data: EDUCATION_2_DATA,
+        metadata: {
+          id: 2,
+          parentId: 0,
+          order: 2,
+          isSelected: false,
+        },
+      },
     });
   });
 
@@ -103,7 +111,7 @@ describe('Education Logic Service', () => {
     util.testUpdate(logic, 1, EDUCATION_1_UPDATED.data, {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: EDUCATION_1_UPDATED,
     });
   });
 
@@ -118,23 +126,27 @@ describe('Education Logic Service', () => {
     });
   });
 
-  it(util.messageDelete('education', 1), () =>
-    util.testDelete(database, logic, 1, [
-      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
-    ]),
+  it(util.messageDelete(true, 'education', 1), () =>
+    util.testDelete(logic, 1, {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: EDUCATION_1,
+    }),
   );
 
-  it(util.messageMoveUp('education', 1), () =>
-    util.testMoveUp(database, logic, 1, [
-      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
-      { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
-    ]),
+  it(util.messageMoveUp(true, 'education', 1), () =>
+    util.testMoveUp(logic, 1, {
+      success: true,
+      message: 'The item was moved up correctly.',
+      body: { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+    }),
   );
 
-  it(util.messageMoveDown('education', 1), () =>
-    util.testMoveDown(database, logic, 1, [
-      { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },
-      { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 1 } },
-    ]),
+  it(util.messageMoveDown(false, 'education', 1), () =>
+    util.testMoveDown(logic, 1, {
+      success: false,
+      message: 'Failed to move down the item because it is the last element.',
+      body: undefined,
+    }),
   );
 });

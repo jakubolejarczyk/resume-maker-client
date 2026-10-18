@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ResumeLogicService } from './resume-logic.service';
-import { ResumeDatabaseService } from '../../database/service/resume-database.service';
 import * as util from '../util/logic.util';
 import { RESUME_0 } from '../../database/const/resume-database.const';
 import { ResumeDataDatabaseModel } from '../../database/model/data/resume-data-database.model';
 
 describe('Resume Logic Service', () => {
-  let database: ResumeDatabaseService;
   let logic: ResumeLogicService;
 
   beforeEach(() => {
-    database = TestBed.inject(ResumeDatabaseService);
     logic = TestBed.inject(ResumeLogicService);
   });
 
@@ -19,7 +16,10 @@ describe('Resume Logic Service', () => {
     util.testSelect(logic, 0, {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: {
+        ...RESUME_0,
+        metadata: { ...RESUME_0.metadata, isSelected: true },
+      },
     }),
   );
 
@@ -35,7 +35,7 @@ describe('Resume Logic Service', () => {
     util.testDeselect(logic, 0, {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: RESUME_0,
     }),
   );
 
@@ -57,7 +57,15 @@ describe('Resume Logic Service', () => {
     util.testCreate(logic, 0, RESUME_1_DATA, {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: {
+        data: RESUME_1_DATA,
+        metadata: {
+          id: 1,
+          parentId: 0,
+          order: 1,
+          isSelected: false,
+        },
+      },
     });
   });
 
@@ -99,7 +107,7 @@ describe('Resume Logic Service', () => {
     util.testUpdate(logic, 0, RESUME_0_UPDATED.data, {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: RESUME_0_UPDATED,
     });
   });
 
@@ -114,15 +122,27 @@ describe('Resume Logic Service', () => {
     });
   });
 
-  it(util.messageDelete('resume', 0), () =>
-    util.testDelete(database, logic, 0, []),
+  it(util.messageDelete(true, 'resume', 0), () =>
+    util.testDelete(logic, 0, {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: RESUME_0,
+    }),
   );
 
-  it(util.messageMoveUp('resume', 0), () =>
-    util.testMoveUp(database, logic, 0, [RESUME_0]),
+  it(util.messageMoveUp(false, 'resume', 0), () =>
+    util.testMoveUp(logic, 0, {
+      success: false,
+      message: 'Failed to move up the item because it is the first element.',
+      body: undefined,
+    }),
   );
 
-  it(util.messageMoveDown('resume', 0), () =>
-    util.testMoveDown(database, logic, 0, [RESUME_0]),
+  it(util.messageMoveDown(false, 'resume', 0), () =>
+    util.testMoveDown(logic, 0, {
+      success: false,
+      message: 'Failed to move down the item because it is the last element.',
+      body: undefined,
+    }),
   );
 });

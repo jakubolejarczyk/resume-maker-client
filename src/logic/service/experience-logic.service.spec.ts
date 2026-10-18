@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ExperienceLogicService } from './experience-logic.service';
-import { ExperienceDatabaseService } from '../../database/service/experience-database.service';
 import * as util from '../util/logic.util';
 import {
   EXPERIENCE_0,
@@ -10,11 +9,9 @@ import {
 import { ExperienceDataDatabaseModel } from '../../database/model/data/experience-data-database.model';
 
 describe('Experience Logic Service', () => {
-  let database: ExperienceDatabaseService;
   let logic: ExperienceLogicService;
 
   beforeEach(() => {
-    database = TestBed.inject(ExperienceDatabaseService);
     logic = TestBed.inject(ExperienceLogicService);
   });
 
@@ -22,7 +19,10 @@ describe('Experience Logic Service', () => {
     util.testSelect(logic, 1, {
       success: true,
       message: 'The item was selected correctly.',
-      body: undefined,
+      body: {
+        ...EXPERIENCE_1,
+        metadata: { ...EXPERIENCE_1.metadata, isSelected: true },
+      },
     }),
   );
 
@@ -38,7 +38,7 @@ describe('Experience Logic Service', () => {
     util.testDeselect(logic, 1, {
       success: true,
       message: 'The item was deselected correctly.',
-      body: undefined,
+      body: EXPERIENCE_1,
     }),
   );
 
@@ -66,7 +66,15 @@ describe('Experience Logic Service', () => {
     util.testCreate(logic, 0, EXPERIENCE_2_DATA, {
       success: true,
       message: 'The item was created correctly.',
-      body: undefined,
+      body: {
+        data: EXPERIENCE_2_DATA,
+        metadata: {
+          id: 2,
+          parentId: 0,
+          order: 2,
+          isSelected: false,
+        },
+      },
     });
   });
 
@@ -108,7 +116,7 @@ describe('Experience Logic Service', () => {
     util.testUpdate(logic, 1, EXPERIENCE_1_UPDATED.data, {
       success: true,
       message: 'The item was updated correctly.',
-      body: undefined,
+      body: EXPERIENCE_1_UPDATED,
     });
   });
 
@@ -123,23 +131,33 @@ describe('Experience Logic Service', () => {
     });
   });
 
-  it(util.messageDelete('experience', 0), () =>
-    util.testDelete(database, logic, 0, [
-      { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } },
-    ]),
+  it(util.messageDelete(true, 'experience', 0), () =>
+    util.testDelete(logic, 0, {
+      success: true,
+      message: 'The item was deleted correctly.',
+      body: EXPERIENCE_0,
+    }),
   );
 
-  it(util.messageMoveUp('experience', 1), () =>
-    util.testMoveUp(database, logic, 1, [
-      { ...EXPERIENCE_0, metadata: { ...EXPERIENCE_0.metadata, order: 1 } },
-      { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 0 } },
-    ]),
+  it(util.messageMoveUp(true, 'experience', 1), () =>
+    util.testMoveUp(logic, 1, {
+      success: true,
+      message: 'The item was moved up correctly.',
+      body: {
+        ...EXPERIENCE_1,
+        metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+      },
+    }),
   );
 
-  it(util.messageMoveDown('experience', 1), () =>
-    util.testMoveDown(database, logic, 1, [
-      { ...EXPERIENCE_0, metadata: { ...EXPERIENCE_0.metadata, order: 0 } },
-      { ...EXPERIENCE_1, metadata: { ...EXPERIENCE_1.metadata, order: 1 } },
-    ]),
+  it(util.messageMoveDown(true, 'experience', 0), () =>
+    util.testMoveDown(logic, 0, {
+      success: true,
+      message: 'The item was moved down correctly.',
+      body: {
+        ...EXPERIENCE_0,
+        metadata: { ...EXPERIENCE_0.metadata, order: 1 },
+      },
+    }),
   );
 });
