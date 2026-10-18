@@ -73,11 +73,19 @@ describe('Education Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId(true, 'education', 0), () =>
+  it(util.messageReadByParentId(true, 'educations', 0), () =>
     util.testReadByParentId(logic, 0, {
       success: true,
       message: 'The items was read correctly.',
       body: [EDUCATION_0, EDUCATION_1],
+    }),
+  );
+
+  it(util.messageReadByParentId(true, 'educations', 10), () =>
+    util.testReadByParentId(logic, 10, {
+      success: false,
+      message: 'The list of items is empty.',
+      body: [],
     }),
   );
 

@@ -78,11 +78,19 @@ describe('Experience Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId(true, 'experience', 0), () =>
+  it(util.messageReadByParentId(true, 'experiences', 0), () =>
     util.testReadByParentId(logic, 0, {
       success: true,
       message: 'The items was read correctly.',
       body: [EXPERIENCE_0, EXPERIENCE_1],
+    }),
+  );
+
+  it(util.messageReadByParentId(true, 'experiences', 10), () =>
+    util.testReadByParentId(logic, 10, {
+      success: false,
+      message: 'The list of items is empty.',
+      body: [],
     }),
   );
 

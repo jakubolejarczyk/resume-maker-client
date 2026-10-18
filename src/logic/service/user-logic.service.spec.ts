@@ -68,11 +68,19 @@ describe('User Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId(true, 'user', 'undefined'), () =>
+  it(util.messageReadByParentId(true, 'users', 'undefined'), () =>
     util.testReadByParentId(logic, undefined, {
       success: true,
       message: 'The items was read correctly.',
       body: [USER_0],
+    }),
+  );
+
+  it(util.messageReadByParentId(true, 'users', 10), () =>
+    util.testReadByParentId(logic, 10, {
+      success: false,
+      message: 'The list of items is empty.',
+      body: [],
     }),
   );
 
