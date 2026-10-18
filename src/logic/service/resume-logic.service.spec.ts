@@ -77,12 +77,14 @@ describe('Resume Logic Service', () => {
     }),
   );
 
-  it(util.messageUpdate('resume', 0), () => {
+  it(util.messageUpdate(true, 'resume', 0), () => {
     const RESUME_0_UPDATED = structuredClone(RESUME_0);
     RESUME_0_UPDATED.data.jobTitle = 'Programmer';
-    util.testUpdate(database, logic, 0, RESUME_0_UPDATED.data, [
-      RESUME_0_UPDATED,
-    ]);
+    util.testUpdate(logic, 0, RESUME_0_UPDATED.data, {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageDelete('resume', 0), () =>

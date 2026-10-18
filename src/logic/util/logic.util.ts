@@ -35,8 +35,8 @@ export const messageReadByParentId = (
   return `Should ${getMessageContext(success)} read ${entity} by parent id ${parentId}.`;
 };
 
-export const messageUpdate = (entity: string, id: number) => {
-  return `Should correctly update ${entity} with id ${id}.`;
+export const messageUpdate = (success: boolean, entity: string, id: number) => {
+  return `Should ${getMessageContext(success)} update ${entity} with id ${id}.`;
 };
 
 export const messageDelete = (entity: string, id: number) => {
@@ -100,14 +100,12 @@ export const testReadByParentId = <TData>(
 };
 
 export const testUpdate = <TData>(
-  database: BaseDatabaseService<TData>,
   logic: BaseLogicService<TData>,
   id: number,
   data: TData,
-  expected: BaseDatabaseModel<TData>[],
+  expected: ResponseLogicModel<undefined>,
 ) => {
-  logic.update(id, data);
-  expect(database.readAll()).toEqual(expected);
+  expect(logic.update(id, data)).toEqual(expected);
 };
 
 export const testDelete = <TData>(

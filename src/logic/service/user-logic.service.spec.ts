@@ -84,11 +84,17 @@ describe('User Logic Service', () => {
     }),
   );
 
-  it(util.messageUpdate('user', 0), () => {
+  it(util.messageUpdate(true, 'user', 0), () => {
     const USER_0_UPDATED = structuredClone(USER_0);
     USER_0_UPDATED.data.city = 'Warsaw';
-    util.testUpdate(database, logic, 0, USER_0_UPDATED.data, [USER_0_UPDATED]);
+    util.testUpdate(logic, 0, USER_0_UPDATED.data, {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    });
   });
+
+  // Create the update  test for failing example
 
   it(util.messageDelete('user', 0), () =>
     util.testDelete(database, logic, 0, []),

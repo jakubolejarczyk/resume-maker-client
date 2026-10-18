@@ -94,13 +94,14 @@ describe('Experience Logic Service', () => {
     }),
   );
 
-  it(util.messageUpdate('experience', 1), () => {
+  it(util.messageUpdate(true, 'experience', 1), () => {
     const EXPERIENCE_1_UPDATED = structuredClone(EXPERIENCE_1);
     EXPERIENCE_1_UPDATED.data.jobTitle = 'Programmer';
-    util.testUpdate(database, logic, 1, EXPERIENCE_1_UPDATED.data, [
-      EXPERIENCE_0,
-      EXPERIENCE_1_UPDATED,
-    ]);
+    util.testUpdate(logic, 1, EXPERIENCE_1_UPDATED.data, {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageDelete('experience', 0), () =>

@@ -89,15 +89,14 @@ describe('Skill Logic Service', () => {
     }),
   );
 
-  it(util.messageUpdate('skill', 0), () => {
+  it(util.messageUpdate(true, 'skill', 0), () => {
     const SKILL_0_UPDATED = structuredClone(SKILL_0);
     SKILL_0_UPDATED.data.category = 'Hello';
-    util.testUpdate(database, logic, 0, SKILL_0_UPDATED.data, [
-      SKILL_0_UPDATED,
-      SKILL_1,
-      SKILL_2,
-      SKILL_3,
-    ]);
+    util.testUpdate(logic, 0, SKILL_0_UPDATED.data, {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageDelete('skill', 2), () =>

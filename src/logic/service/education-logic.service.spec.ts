@@ -89,13 +89,14 @@ describe('Education Logic Service', () => {
     }),
   );
 
-  it(util.messageUpdate('education', 1), () => {
+  it(util.messageUpdate(true, 'education', 1), () => {
     const EDUCATION_1_UPDATED = structuredClone(EDUCATION_1);
     EDUCATION_1_UPDATED.data.startYear = 2050;
-    util.testUpdate(database, logic, 1, EDUCATION_1_UPDATED.data, [
-      EDUCATION_0,
-      EDUCATION_1_UPDATED,
-    ]);
+    util.testUpdate(logic, 1, EDUCATION_1_UPDATED.data, {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageDelete('education', 1), () =>

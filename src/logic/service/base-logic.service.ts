@@ -101,11 +101,22 @@ export class BaseLogicService<TData> {
     };
   }
 
-  update(id: number, data: TData) {
+  update(id: number, data: TData): ResponseLogicModel<undefined> {
     const itemToUpdate = this.service.readById(id);
-    if (itemToUpdate === undefined) return;
+    if (itemToUpdate === undefined) {
+      return {
+        success: false,
+        message: 'Failed to update the item because it does not exist.',
+        body: undefined,
+      };
+    }
     itemToUpdate.data = structuredClone(data);
     this.service.update(itemToUpdate);
+    return {
+      success: true,
+      message: 'The item was updated correctly.',
+      body: undefined,
+    };
   }
 
   delete(id: number) {
