@@ -1,4 +1,4 @@
-import { ColumnType } from "../../../type/column.type";
+import { ColumnType } from '../../../type/column.type';
 
 export interface BaseStoreColumnModel {
   id: string;
