@@ -62,37 +62,42 @@ export class BaseLogicService<TData> {
     this.service.create(itemToCreate);
   }
 
-  readById(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
+  readById(
+    id: number,
+  ): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
     const item = this.service.readById(id);
     if (item === undefined) {
       return {
         success: false,
-        message: "Failed to read the item.",
-        body: undefined
+        message: 'Failed to read the item.',
+        body: undefined,
       };
     }
     return {
       success: true,
-      message: "The item was read correctly.",
-      body: item
+      message: 'The item was read correctly.',
+      body: item,
     };
   }
 
-  readByParentId(parentId: number | undefined): ResponseLogicModel<BaseDatabaseModel<TData>[]> {
-    const items = parentId === undefined
-      ? this.service.readAll()
-      : this.service.readByParentId(parentId);
+  readByParentId(
+    parentId: number | undefined,
+  ): ResponseLogicModel<BaseDatabaseModel<TData>[]> {
+    const items =
+      parentId === undefined
+        ? this.service.readAll()
+        : this.service.readByParentId(parentId);
     if (items.length === 0) {
       return {
         success: false,
-        message: "The list of items is empty.",
-        body: []
+        message: 'The list of items is empty.',
+        body: [],
       };
     }
     return {
       success: true,
-      message: "The items was read correctly.",
-      body: items
+      message: 'The items was read correctly.',
+      body: items,
     };
   }
 

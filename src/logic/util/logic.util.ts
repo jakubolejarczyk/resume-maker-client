@@ -4,7 +4,8 @@ import { BaseDatabaseModel } from '../../database/model/base/base-database.model
 import { BaseDatabaseService } from '../../database/service/base-database.service';
 import { ResponseLogicModel } from '../model/response-logic.model';
 
-const getMessageContext = (success: boolean) => success ? "correctly" : "not correctly";
+const getMessageContext = (success: boolean) =>
+  success ? 'correctly' : 'not correctly';
 
 export const messageSelect = (entity: string, id: number) => {
   return `Should correctly select ${entity} with id ${id}.`;
@@ -18,7 +19,11 @@ export const messageCreate = (entity: string) => {
   return `Should correctly create ${entity}.`;
 };
 
-export const messageReadById = (success: boolean, entity: string, id: number) => {
+export const messageReadById = (
+  success: boolean,
+  entity: string,
+  id: number,
+) => {
   return `Should ${getMessageContext(success)} read ${entity} by id ${id}.`;
 };
 

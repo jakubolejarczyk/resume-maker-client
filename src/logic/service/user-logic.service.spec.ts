@@ -55,15 +55,15 @@ describe('User Logic Service', () => {
   it(util.messageReadById(true, 'user', 0), () =>
     util.testReadById(logic, 0, {
       success: true,
-      message: "The item was read correctly.",
-      body: USER_0
+      message: 'The item was read correctly.',
+      body: USER_0,
     }),
   );
 
   it(util.messageReadById(false, 'user', 10), () =>
     util.testReadById(logic, 10, {
       success: false,
-      message: "Failed to read the item.",
+      message: 'Failed to read the item.',
       body: undefined,
     }),
   );
@@ -71,8 +71,8 @@ describe('User Logic Service', () => {
   it(util.messageReadByParentId(true, 'user', 'undefined'), () =>
     util.testReadByParentId(logic, undefined, {
       success: true,
-      message: "The items was read correctly.",
-      body: [USER_0]
+      message: 'The items was read correctly.',
+      body: [USER_0],
     }),
   );
 

@@ -65,15 +65,15 @@ describe('Experience Logic Service', () => {
   it(util.messageReadById(true, 'experience', 1), () =>
     util.testReadById(logic, 1, {
       success: true,
-      message: "The item was read correctly.",
-      body: EXPERIENCE_1
+      message: 'The item was read correctly.',
+      body: EXPERIENCE_1,
     }),
   );
 
   it(util.messageReadById(false, 'experience', 10), () =>
     util.testReadById(logic, 10, {
       success: false,
-      message: "Failed to read the item.",
+      message: 'Failed to read the item.',
       body: undefined,
     }),
   );
@@ -81,8 +81,8 @@ describe('Experience Logic Service', () => {
   it(util.messageReadByParentId(true, 'experience', 0), () =>
     util.testReadByParentId(logic, 0, {
       success: true,
-      message: "The items was read correctly.",
-      body: [EXPERIENCE_0, EXPERIENCE_1]
+      message: 'The items was read correctly.',
+      body: [EXPERIENCE_0, EXPERIENCE_1],
     }),
   );
 

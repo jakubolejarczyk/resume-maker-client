@@ -48,15 +48,15 @@ describe('Resume Logic Service', () => {
   it(util.messageReadById(true, 'resume', 0), () =>
     util.testReadById(logic, 0, {
       success: true,
-      message: "The item was read correctly.",
-      body: RESUME_0
+      message: 'The item was read correctly.',
+      body: RESUME_0,
     }),
   );
 
   it(util.messageReadById(false, 'resume', 10), () =>
     util.testReadById(logic, 10, {
       success: false,
-      message: "Failed to read the item.",
+      message: 'Failed to read the item.',
       body: undefined,
     }),
   );
@@ -64,8 +64,8 @@ describe('Resume Logic Service', () => {
   it(util.messageReadByParentId(true, 'resume', 0), () =>
     util.testReadByParentId(logic, 0, {
       success: true,
-      message: "The items was read correctly.",
-      body: [RESUME_0]
+      message: 'The items was read correctly.',
+      body: [RESUME_0],
     }),
   );
 
