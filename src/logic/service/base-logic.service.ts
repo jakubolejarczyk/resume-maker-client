@@ -38,7 +38,7 @@ export class BaseLogicService<TData> {
     this.service.update(itemToDeselect);
   }
 
-  create(parentId: number | undefined, data: TData) {
+  create(parentId: number | undefined, data: TData): ResponseLogicModel<undefined> {
     const items =
       parentId === undefined
         ? this.service.readAll()
@@ -60,6 +60,11 @@ export class BaseLogicService<TData> {
     };
     this.nextId++;
     this.service.create(itemToCreate);
+    return {
+      success: true,
+      message: 'The item was created correctly.',
+      body: undefined,
+    };
   }
 
   readById(

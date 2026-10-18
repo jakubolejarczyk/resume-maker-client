@@ -8,7 +8,6 @@ import {
   EXPERIENCE_1,
 } from '../../database/const/experience-database.const';
 import { ExperienceDataDatabaseModel } from '../../database/model/data/experience-data-database.model';
-import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
 describe('Experience Logic Service', () => {
   let database: ExperienceDatabaseService;
@@ -46,20 +45,11 @@ describe('Experience Logic Service', () => {
       ],
       startDate: '2024-07-01',
     };
-    const EXPERIENCE_2: BaseDatabaseModel<ExperienceDataDatabaseModel> = {
-      data: structuredClone(EXPERIENCE_2_DATA),
-      metadata: {
-        id: 2,
-        parentId: 0,
-        order: 2,
-        isSelected: false,
-      },
-    };
-    util.testCreate(database, logic, 0, EXPERIENCE_2_DATA, [
-      EXPERIENCE_0,
-      EXPERIENCE_1,
-      EXPERIENCE_2,
-    ]);
+    util.testCreate(logic, 0, EXPERIENCE_2_DATA, {
+      success: true,
+      message: 'The item was created correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageReadById(true, 'experience', 1), () =>

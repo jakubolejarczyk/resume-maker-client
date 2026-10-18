@@ -10,7 +10,6 @@ import {
   SKILL_3,
 } from '../../database/const/skill-database.const';
 import { SkillDataDatabaseModel } from '../../database/model/data/skill-data-database.model';
-import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
 describe('Skill Logic Service', () => {
   let database: SkillDatabaseService;
@@ -39,22 +38,11 @@ describe('Skill Logic Service', () => {
       category: 'Animals',
       skills: ['Dog', 'Cat'],
     };
-    const SKILL_4: BaseDatabaseModel<SkillDataDatabaseModel> = {
-      data: structuredClone(SKILL_4_DATA),
-      metadata: {
-        id: 4,
-        parentId: 0,
-        order: 4,
-        isSelected: false,
-      },
-    };
-    util.testCreate(database, logic, 0, SKILL_4_DATA, [
-      SKILL_0,
-      SKILL_1,
-      SKILL_2,
-      SKILL_3,
-      SKILL_4,
-    ]);
+    util.testCreate(logic, 0, SKILL_4_DATA, {
+      success: true,
+      message: 'The item was created correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageReadById(true, 'skill', 2), () =>

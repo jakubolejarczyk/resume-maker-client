@@ -8,7 +8,6 @@ import {
   EDUCATION_1,
 } from '../../database/const/education-database.const';
 import { EducationDataDatabaseModel } from '../../database/model/data/education-data-database.model';
-import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
 describe('Education Logic Service', () => {
   let database: EducationDatabaseService;
@@ -41,20 +40,11 @@ describe('Education Logic Service', () => {
       startYear: 2021,
       endYear: 2024,
     };
-    const EDUCATION_2: BaseDatabaseModel<EducationDataDatabaseModel> = {
-      data: structuredClone(EDUCATION_2_DATA),
-      metadata: {
-        id: 2,
-        parentId: 0,
-        order: 2,
-        isSelected: false,
-      },
-    };
-    util.testCreate(database, logic, 0, EDUCATION_2_DATA, [
-      EDUCATION_0,
-      EDUCATION_1,
-      EDUCATION_2,
-    ]);
+    util.testCreate(logic, 0, EDUCATION_2_DATA, {
+      success: true,
+      message: 'The item was created correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageReadById(true, 'education', 1), () =>

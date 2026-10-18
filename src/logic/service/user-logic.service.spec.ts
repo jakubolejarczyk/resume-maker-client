@@ -5,7 +5,6 @@ import { UserDatabaseService } from '../../database/service/user-database.servic
 import * as util from '../util/logic.util';
 import { USER_0 } from '../../database/const/user-database.const';
 import { UserDataDatabaseModel } from '../../database/model/data/user-data-database.model';
-import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
 describe('User Logic Service', () => {
   let database: UserDatabaseService;
@@ -41,15 +40,11 @@ describe('User Logic Service', () => {
         'leetcode.com/u/AdamKowalskiDemo',
       ],
     };
-    const USER_1: BaseDatabaseModel<UserDataDatabaseModel> = {
-      data: structuredClone(USER_1_DATA),
-      metadata: {
-        id: 1,
-        order: 1,
-        isSelected: false,
-      },
-    };
-    util.testCreate(database, logic, undefined, USER_1_DATA, [USER_0, USER_1]);
+    util.testCreate(logic, undefined, USER_1_DATA, {
+      success: true,
+      message: 'The item was created correctly.',
+      body: undefined,
+    });
   });
 
   it(util.messageReadById(true, 'user', 0), () =>

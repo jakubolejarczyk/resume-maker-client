@@ -73,14 +73,12 @@ export const testDeselect = <TData>(
 };
 
 export const testCreate = <TData>(
-  database: BaseDatabaseService<TData>,
   logic: BaseLogicService<TData>,
   parentId: number | undefined,
   data: TData,
-  expected: BaseDatabaseModel<TData>[],
+  expected: ResponseLogicModel<undefined>,
 ) => {
-  logic.create(parentId, data);
-  expect(database.readAll()).toEqual(expected);
+  expect(logic.create(parentId, data)).toEqual(expected);
 };
 
 export const testReadById = <TData>(
