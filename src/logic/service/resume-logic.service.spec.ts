@@ -87,6 +87,17 @@ describe('Resume Logic Service', () => {
     });
   });
 
+  it(util.messageUpdate(false, 'resume', 10), () => {
+    const RESUME_10_UPDATED = structuredClone(RESUME_0);
+    RESUME_10_UPDATED.metadata.id = 10;
+    RESUME_10_UPDATED.data.jobTitle = 'Programmer';
+    util.testUpdate(logic, 10, RESUME_10_UPDATED.data, {
+      success: false,
+      message: 'Failed to update the item because it does not exist.',
+      body: undefined,
+    });
+  });
+
   it(util.messageDelete('resume', 0), () =>
     util.testDelete(database, logic, 0, []),
   );

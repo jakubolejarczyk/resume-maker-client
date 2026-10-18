@@ -99,6 +99,17 @@ describe('Education Logic Service', () => {
     });
   });
 
+  it(util.messageUpdate(false, 'education', 10), () => {
+    const EDUCATION_10_UPDATED = structuredClone(EDUCATION_0);
+    EDUCATION_10_UPDATED.metadata.id = 10;
+    EDUCATION_10_UPDATED.data.startYear = 2050;
+    util.testUpdate(logic, 10, EDUCATION_10_UPDATED.data, {
+      success: false,
+      message: 'Failed to update the item because it does not exist.',
+      body: undefined,
+    });
+  });
+
   it(util.messageDelete('education', 1), () =>
     util.testDelete(database, logic, 1, [
       { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 0 } },

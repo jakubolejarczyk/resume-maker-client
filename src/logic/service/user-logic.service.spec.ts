@@ -94,7 +94,16 @@ describe('User Logic Service', () => {
     });
   });
 
-  // Create the update  test for failing example
+  it(util.messageUpdate(false, 'user', 10), () => {
+    const USER_10_UPDATED = structuredClone(USER_0);
+    USER_10_UPDATED.metadata.id = 10;
+    USER_10_UPDATED.data.city = 'Warsaw';
+    util.testUpdate(logic, 10, USER_10_UPDATED.data, {
+      success: false,
+      message: 'Failed to update the item because it does not exist.',
+      body: undefined,
+    });
+  });
 
   it(util.messageDelete('user', 0), () =>
     util.testDelete(database, logic, 0, []),

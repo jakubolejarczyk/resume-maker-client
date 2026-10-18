@@ -99,6 +99,17 @@ describe('Skill Logic Service', () => {
     });
   });
 
+  it(util.messageUpdate(false, 'skill', 10), () => {
+    const SKILL_10_UPDATED = structuredClone(SKILL_0);
+    SKILL_10_UPDATED.metadata.id = 10;
+    SKILL_10_UPDATED.data.category = 'Animals';
+    util.testUpdate(logic, 10, SKILL_10_UPDATED.data, {
+      success: false,
+      message: 'Failed to update the item because it does not exist.',
+      body: undefined,
+    });
+  });
+
   it(util.messageDelete('skill', 2), () =>
     util.testDelete(database, logic, 2, [
       SKILL_0,
