@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { BaseStoreState } from './base-store.state';
 import { BaseApiModel } from '../../api/model/base-api.model';
-import { BaseStoreModel } from '../model/base/base-store.model';
+import { BaseStoreModel } from '../model/base-store.model';
 import { AnimalStoreModel } from '../model/animal-store.model';
 import { AnimalApiModel } from '../../api/model/animal-api.model';
 import { AnimalStoreAction } from '../action/animal-store.action';

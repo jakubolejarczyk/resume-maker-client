@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StateContext } from '@ngxs/store';
 
-import { BaseStoreModel } from '../model/base/base-store.model';
+import { BaseStoreModel } from '../model/base-store.model';
 import { BaseApiModel } from '../../api/model/base-api.model';
 import { BaseStoreAction } from '../action/base-store.action';
 

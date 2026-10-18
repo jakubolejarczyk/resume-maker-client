@@ -9,7 +9,7 @@ import { BaseApiModel } from '../../../api/model/base-api.model';
 import {
   BaseStoreColumnModel,
   BaseStoreModel,
-} from '../../../store/model/base/base-store.model';
+} from '../../../store/model/base-store.model';
 
 @Component({
   selector: 'app-dialog-overlay-component',

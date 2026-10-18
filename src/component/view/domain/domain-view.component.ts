@@ -12,7 +12,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { TableDataComponent } from '../../data/table/table-data.component';
 import { BaseApiModel } from '../../../api/model/base-api.model';
 import { BaseService } from '../../../service/base.service';
-import { BaseStoreModel } from '../../../store/model/base/base-store.model';
+import { BaseStoreModel } from '../../../store/model/base-store.model';
 import { ToolbarPanelComponent } from '../../panel/toolbar/toolbar-panel.component';
 import { ConfirmationUtil } from '../../../util/confirmation.util';
 

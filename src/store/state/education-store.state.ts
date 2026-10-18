@@ -1,11 +1,11 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 
-import { EducationStoreModel } from '../model/state/education-state-store.model';
+import { EducationStoreModel } from '../model/education-store.model';
 import { BaseStoreState } from './base-store.state';
 import { EducationApiModel } from '../../api/model/education-api.model';
 import { BaseApiModel } from '../../api/model/base-api.model';
-import { BaseStoreModel } from '../model/base/base-store.model';
+import { BaseStoreModel } from '../model/base-store.model';
 import { EducationStoreAction } from '../action/education-store.action';
 
 @State<EducationStoreModel>({

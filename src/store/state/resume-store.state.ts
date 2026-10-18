@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { BaseStoreState } from './base-store.state';
 import { BaseApiModel } from '../../api/model/base-api.model';
-import { BaseStoreModel } from '../model/base/base-store.model';
-import { ResumeStoreModel } from '../model/state/resume-state-store.model';
+import { BaseStoreModel } from '../model/base-store.model';
+import { ResumeStoreModel } from '../model/resume-store.model';
 import { ResumeApiModel } from '../../api/model/resume-api.model';
 import { ResumeStoreAction } from '../action/resume-store.action';
 
