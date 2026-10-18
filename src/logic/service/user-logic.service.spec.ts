@@ -68,8 +68,12 @@ describe('User Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId('user', 'undefined'), () =>
-    util.testReadByParentId(logic, undefined, [USER_0]),
+  it(util.messageReadByParentId(true, 'user', 'undefined'), () =>
+    util.testReadByParentId(logic, undefined, {
+      success: true,
+      message: "The items was read correctly.",
+      body: [USER_0]
+    }),
   );
 
   it(util.messageUpdate('user', 0), () => {

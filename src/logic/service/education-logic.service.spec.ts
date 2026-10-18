@@ -73,8 +73,12 @@ describe('Education Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId('education', 0), () =>
-    util.testReadByParentId(logic, 0, [EDUCATION_0, EDUCATION_1]),
+  it(util.messageReadByParentId(true, 'education', 0), () =>
+    util.testReadByParentId(logic, 0, {
+      success: true,
+      message: "The items was read correctly.",
+      body: [EDUCATION_0, EDUCATION_1]
+    }),
   );
 
   it(util.messageUpdate('education', 1), () => {

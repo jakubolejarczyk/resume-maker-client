@@ -69,7 +69,7 @@ export class BaseLogicService<TData> {
         success: false,
         message: "Failed to read the item.",
         body: undefined
-      };  
+      };
     }
     return {
       success: true,
@@ -78,10 +78,22 @@ export class BaseLogicService<TData> {
     };
   }
 
-  readByParentId(parentId: number | undefined) {
-    return parentId === undefined
+  readByParentId(parentId: number | undefined): ResponseLogicModel<BaseDatabaseModel<TData>[]> {
+    const items = parentId === undefined
       ? this.service.readAll()
       : this.service.readByParentId(parentId);
+    if (items.length === 0) {
+      return {
+        success: false,
+        message: "The list of items is empty.",
+        body: []
+      };
+    }
+    return {
+      success: true,
+      message: "The items was read correctly.",
+      body: items
+    };
   }
 
   update(id: number, data: TData) {

@@ -61,8 +61,12 @@ describe('Resume Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId('resume', 0), () =>
-    util.testReadByParentId(logic, 0, [RESUME_0]),
+  it(util.messageReadByParentId(true, 'resume', 0), () =>
+    util.testReadByParentId(logic, 0, {
+      success: true,
+      message: "The items was read correctly.",
+      body: [RESUME_0]
+    }),
   );
 
   it(util.messageUpdate('resume', 0), () => {

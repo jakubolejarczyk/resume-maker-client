@@ -4,6 +4,8 @@ import { BaseDatabaseModel } from '../../database/model/base/base-database.model
 import { BaseDatabaseService } from '../../database/service/base-database.service';
 import { ResponseLogicModel } from '../model/response-logic.model';
 
+const getMessageContext = (success: boolean) => success ? "correctly" : "not correctly";
+
 export const messageSelect = (entity: string, id: number) => {
   return `Should correctly select ${entity} with id ${id}.`;
 };
@@ -17,15 +19,15 @@ export const messageCreate = (entity: string) => {
 };
 
 export const messageReadById = (success: boolean, entity: string, id: number) => {
-  const successMessage = success ? "correctly" : "not correctly";
-  return `Should ${successMessage} read ${entity} by id ${id}.`;
+  return `Should ${getMessageContext(success)} read ${entity} by id ${id}.`;
 };
 
 export const messageReadByParentId = (
+  success: boolean,
   entity: string,
   parentId: number | 'undefined',
 ) => {
-  return `Should correctly read ${entity} by parent id ${parentId}.`;
+  return `Should ${getMessageContext(success)} read ${entity} by parent id ${parentId}.`;
 };
 
 export const messageUpdate = (entity: string, id: number) => {
@@ -87,7 +89,7 @@ export const testReadById = <TData>(
 export const testReadByParentId = <TData>(
   logic: BaseLogicService<TData>,
   parentId: number | undefined,
-  expected: BaseDatabaseModel<TData>[],
+  expected: ResponseLogicModel<BaseDatabaseModel<TData>[]>,
 ) => {
   expect(logic.readByParentId(parentId)).toEqual(expected);
 };

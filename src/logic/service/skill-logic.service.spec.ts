@@ -73,8 +73,12 @@ describe('Skill Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId('skill', 0), () =>
-    util.testReadByParentId(logic, 0, [SKILL_0, SKILL_1, SKILL_2, SKILL_3]),
+  it(util.messageReadByParentId(true, 'skill', 0), () =>
+    util.testReadByParentId(logic, 0, {
+      success: true,
+      message: "The items was read correctly.",
+      body: [SKILL_0, SKILL_1, SKILL_2, SKILL_3]
+    }),
   );
 
   it(util.messageUpdate('skill', 0), () => {

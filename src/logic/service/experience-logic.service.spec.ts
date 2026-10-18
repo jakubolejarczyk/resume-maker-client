@@ -78,8 +78,12 @@ describe('Experience Logic Service', () => {
     }),
   );
 
-  it(util.messageReadByParentId('experience', 0), () =>
-    util.testReadByParentId(logic, 0, [EXPERIENCE_0, EXPERIENCE_1]),
+  it(util.messageReadByParentId(true, 'experience', 0), () =>
+    util.testReadByParentId(logic, 0, {
+      success: true,
+      message: "The items was read correctly.",
+      body: [EXPERIENCE_0, EXPERIENCE_1]
+    }),
   );
 
   it(util.messageUpdate('experience', 1), () => {
