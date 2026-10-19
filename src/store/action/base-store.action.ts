@@ -4,25 +4,29 @@ export namespace BaseStoreAction {
       public success: boolean,
       public message: string,
     ) {}
+
+    protected static BuildActionType = (actionType: string) =>
+      `${actionType} SetStatus`;
   }
 
   export class SetIsLoading {
     constructor(public isLoading: boolean) {}
+
+    protected static BuildActionType = (actionType: string) =>
+      `${actionType} SetIsLoading`;
   }
 
-  export class SetItems<TModel> {
-    constructor(public items: TModel[]) {}
+  export class SetItems<TItem> {
+    constructor(public items: TItem[]) {}
+
+    protected static BuildActionType = (actionType: string) =>
+      `${actionType} SetItems`;
   }
 
-  export class AddItem<TModel> {
-    constructor(public item: TModel) {}
-  }
+  export class SetSelectedItem<TItem> {
+    constructor(public selectedItem: TItem | undefined) {}
 
-  export class UpdateItem<TModel> {
-    constructor(public item: TModel) {}
-  }
-
-  export class SetSelectedItem<TModel> {
-    constructor(public selectedItem: TModel | undefined) {}
+    protected static BuildActionType = (actionType: string) =>
+      `${actionType} SetSelectedItem`;
   }
 }

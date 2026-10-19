@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
 import { StateContext } from '@ngxs/store';
 
 import { BaseStoreModel } from '../model/base-store.model';
-import { BaseApiModel } from '../../api/model/base-api.model';
 import { BaseStoreAction } from '../action/base-store.action';
 
-@Injectable()
-export class BaseStoreState<TModel extends BaseApiModel> {
+export class BaseStoreState {
   static initState<TItem>(
     columns: BaseStoreModel<TItem>['columns'],
   ): BaseStoreModel<TItem> {
@@ -20,37 +17,31 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     };
   }
 
-  static getStatus<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static baseGetStatus<TItem>(state: BaseStoreModel<TItem>) {
     return {
       success: state.success,
       message: state.message,
     };
   }
 
-  static getIsLoading<TModel extends BaseApiModel>(
-    state: BaseStoreModel<TModel>,
-  ) {
+  static baseGetIsLoading<TItem>(state: BaseStoreModel<TItem>) {
     return state.isLoading;
   }
 
-  static getItems<TModel extends BaseApiModel>(state: BaseStoreModel<TModel>) {
+  static baseGetItems<TItem>(state: BaseStoreModel<TItem>) {
     return state.items;
   }
 
-  static getSelectedItem<TModel extends BaseApiModel>(
-    state: BaseStoreModel<TModel>,
-  ) {
+  static baseGetSelectedItem<TItem>(state: BaseStoreModel<TItem>) {
     return state.selectedItem;
   }
 
-  static getColumns<TModel extends BaseApiModel>(
-    state: BaseStoreModel<TModel>,
-  ) {
+  static baseGetColumns<TItem>(state: BaseStoreModel<TItem>) {
     return state.columns;
   }
 
-  setStatus(
-    ctx: StateContext<BaseStoreModel<TModel>>,
+  baseSetStatus<TItem>(
+    ctx: StateContext<BaseStoreModel<TItem>>,
     action: BaseStoreAction.SetStatus,
   ) {
     const state = ctx.getState();
@@ -61,8 +52,8 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     });
   }
 
-  setIsLoading(
-    ctx: StateContext<BaseStoreModel<TModel>>,
+  baseSetIsLoading<TItem>(
+    ctx: StateContext<BaseStoreModel<TItem>>,
     action: BaseStoreAction.SetIsLoading,
   ) {
     const state = ctx.getState();
@@ -72,9 +63,9 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     });
   }
 
-  setItems(
-    ctx: StateContext<BaseStoreModel<TModel>>,
-    action: BaseStoreAction.SetItems<TModel>,
+  baseSetItems<TItem>(
+    ctx: StateContext<BaseStoreModel<TItem>>,
+    action: BaseStoreAction.SetItems<TItem>,
   ) {
     const state = ctx.getState();
     ctx.setState({
@@ -83,41 +74,9 @@ export class BaseStoreState<TModel extends BaseApiModel> {
     });
   }
 
-  addItem(
-    ctx: StateContext<BaseStoreModel<TModel>>,
-    action: BaseStoreAction.AddItem<TModel>,
-  ) {
-    const state = ctx.getState();
-    const actionItemExistsInState = state.items.find(
-      (item) => item.id === action.item.id,
-    );
-    if (actionItemExistsInState) return;
-    ctx.setState({
-      ...state,
-      items: [...state.items, action.item],
-    });
-  }
-
-  updateItem(
-    ctx: StateContext<BaseStoreModel<TModel>>,
-    action: BaseStoreAction.UpdateItem<TModel>,
-  ) {
-    const state = ctx.getState();
-    const actionItemNotExistInState = !state.items.find(
-      (item) => item.id === action.item.id,
-    );
-    if (actionItemNotExistInState) return;
-    ctx.setState({
-      ...state,
-      items: state.items.map((item) =>
-        item.id === action.item.id ? action.item : item,
-      ),
-    });
-  }
-
-  selectedItem(
-    ctx: StateContext<BaseStoreModel<TModel>>,
-    action: BaseStoreAction.SetSelectedItem<TModel>,
+  baseSetSelectedItem<TItem>(
+    ctx: StateContext<BaseStoreModel<TItem>>,
+    action: BaseStoreAction.SetSelectedItem<TItem>,
   ) {
     const state = ctx.getState();
     ctx.setState({
