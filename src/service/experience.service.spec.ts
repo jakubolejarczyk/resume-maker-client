@@ -2,6 +2,10 @@ import { TestBed } from '@angular/core/testing';
 
 import { ExperienceService } from './experience.service';
 import { providerStore } from '../store/provider/provider.store';
+import {
+  EXPERIENCE_0,
+  EXPERIENCE_1,
+} from '../database/const/experience-database.const';
 
 describe('Experience Service', () => {
   let service: ExperienceService;
@@ -24,6 +28,12 @@ describe('Experience Service', () => {
   it('Should return the isLoading value from the store correctly.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
+    });
+  });
+
+  it('Should return the items value from the store correctly.', () => {
+    service.getItems().subscribe((response) => {
+      expect(response).toEqual([EXPERIENCE_0, EXPERIENCE_1]);
     });
   });
 

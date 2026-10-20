@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ResumeService } from './resume.service';
 import { providerStore } from '../store/provider/provider.store';
+import { RESUME_0 } from '../database/const/resume-database.const';
 
 describe('Resume Service', () => {
   let service: ResumeService;
@@ -24,6 +25,12 @@ describe('Resume Service', () => {
   it('Should return the isLoading value from the store correctly.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
+    });
+  });
+
+  it('Should return the items value from the store correctly.', () => {
+    service.getItems().subscribe((response) => {
+      expect(response).toEqual([RESUME_0]);
     });
   });
 

@@ -2,6 +2,10 @@ import { TestBed } from '@angular/core/testing';
 
 import { EducationService } from './education.service';
 import { providerStore } from '../store/provider/provider.store';
+import {
+  EDUCATION_0,
+  EDUCATION_1,
+} from '../database/const/education-database.const';
 
 describe('Education Service', () => {
   let service: EducationService;
@@ -24,6 +28,12 @@ describe('Education Service', () => {
   it('Should return the isLoading value from the store correctly.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
+    });
+  });
+
+  it('Should return the items value from the store correctly.', () => {
+    service.getItems().subscribe((response) => {
+      expect(response).toEqual([EDUCATION_0, EDUCATION_1]);
     });
   });
 

@@ -2,6 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { SkillService } from './skill.service';
 import { providerStore } from '../store/provider/provider.store';
+import {
+  SKILL_0,
+  SKILL_1,
+  SKILL_2,
+  SKILL_3,
+} from '../database/const/skill-database.const';
 
 describe('Skill Service', () => {
   let service: SkillService;
@@ -24,6 +30,12 @@ describe('Skill Service', () => {
   it('Should return the isLoading value from the store correctly.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
+    });
+  });
+
+  it('Should return the items value from the store correctly.', () => {
+    service.getItems().subscribe((response) => {
+      expect(response).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]);
     });
   });
 

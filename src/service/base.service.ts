@@ -50,7 +50,7 @@ export class BaseService<TData> {
   }
 
   getItems() {
-    throw new Error('Not implemented');
+    return this.store.select(this.baseGetItems);
   }
 
   getSelectedItem() {

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { UserService } from './user.service';
 import { providerStore } from '../store/provider/provider.store';
+import { USER_0 } from '../database/const/user-database.const';
 
 describe('User Service', () => {
   let service: UserService;
@@ -24,6 +25,12 @@ describe('User Service', () => {
   it('Should return the isLoading value from the store correctly.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
+    });
+  });
+
+  it('Should return the items value from the store correctly.', () => {
+    service.getItems().subscribe((response) => {
+      expect(response).toEqual([USER_0]);
     });
   });
 
@@ -95,15 +102,6 @@ describe('User Service', () => {
       ]);
     });
   });
-
-  //   it('Should return items from the store.', () => {
-  //     service.getItems().subscribe((items) => {
-  //       expect(items).toEqual([
-  //         { id: 0, name: 'Dog', order: 0 },
-  //         { id: 1, name: 'Cat', order: 1 },
-  //       ]);
-  //     });
-  //   });
 
   //   it('Should correctly create item from the store and save it in the external service.', () => {
   //     service
