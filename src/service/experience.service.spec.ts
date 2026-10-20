@@ -26,4 +26,10 @@ describe('Experience Service', () => {
       expect(response).toBeFalsy();
     });
   });
+
+  it('Should return the selectedItem value from the store correctly.', () => {
+    service.getSelectedItem().subscribe((response) => {
+      expect(response).toBeUndefined();
+    });
+  });
 });

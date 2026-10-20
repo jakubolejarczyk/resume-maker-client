@@ -27,6 +27,12 @@ describe('User Service', () => {
     });
   });
 
+  it('Should return the selectedItem value from the store correctly.', () => {
+    service.getSelectedItem().subscribe((response) => {
+      expect(response).toBeUndefined();
+    });
+  });
+
   //   it('Should return items from the store.', () => {
   //     service.getItems().subscribe((items) => {
   //       expect(items).toEqual([

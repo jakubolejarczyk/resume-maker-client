@@ -54,7 +54,7 @@ export class BaseService<TData> {
   }
 
   getSelectedItem() {
-    throw new Error('Not implemented');
+    return this.store.select(this.baseGetSelectedItem);
   }
 
   getColumns() {
