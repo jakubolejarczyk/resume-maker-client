@@ -19,7 +19,6 @@ export class ExperienceService extends BaseService<ExperienceDataApiModel> {
       ExperienceStoreAction.SetStatus,
       ExperienceStoreAction.SetIsLoading,
       ExperienceStoreAction.SetItems,
-      ExperienceStoreAction.SetSelectedItem,
     );
   }
 }

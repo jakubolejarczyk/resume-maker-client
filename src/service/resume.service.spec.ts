@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { map, switchMap } from 'rxjs';
 
 import { ResumeService } from './resume.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -69,5 +70,22 @@ describe('Resume Service', () => {
         },
       ]);
     });
+  });
+
+  it('Should correctly select the item with id 0.', () => {
+    service
+      .select(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            {
+              ...RESUME_0,
+              metadata: { ...RESUME_0.metadata, isSelected: true },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
   });
 });

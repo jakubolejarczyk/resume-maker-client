@@ -19,7 +19,6 @@ export class ResumeService extends BaseService<ResumeDataApiModel> {
       ResumeStoreAction.SetStatus,
       ResumeStoreAction.SetIsLoading,
       ResumeStoreAction.SetItems,
-      ResumeStoreAction.SetSelectedItem,
     );
   }
 }

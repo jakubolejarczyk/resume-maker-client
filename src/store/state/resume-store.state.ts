@@ -86,12 +86,4 @@ export class ResumeStoreState extends BaseStoreState {
   ) {
     this.baseSetItems(ctx, action);
   }
-
-  @Action(ResumeStoreAction.SetSelectedItem)
-  setSelectedItem(
-    ctx: StateContext<ResumeStoreModel>,
-    action: ResumeStoreAction.SetSelectedItem,
-  ) {
-    this.baseSetSelectedItem(ctx, action);
-  }
 }

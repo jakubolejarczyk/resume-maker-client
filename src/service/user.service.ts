@@ -19,7 +19,6 @@ export class UserService extends BaseService<UserDataApiModel> {
       UserStoreAction.SetStatus,
       UserStoreAction.SetIsLoading,
       UserStoreAction.SetItems,
-      UserStoreAction.SetSelectedItem,
     );
   }
 }

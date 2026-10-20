@@ -19,7 +19,6 @@ export class SkillService extends BaseService<SkillDataApiModel> {
       SkillStoreAction.SetStatus,
       SkillStoreAction.SetIsLoading,
       SkillStoreAction.SetItems,
-      SkillStoreAction.SetSelectedItem,
     );
   }
 }

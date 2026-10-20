@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { switchMap, map } from 'rxjs';
 
 import { SkillService } from './skill.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -66,5 +67,22 @@ describe('Skill Service', () => {
         },
       ]);
     });
+  });
+
+  it('Should correctly select the item with id 1.', () => {
+    service
+      .select(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            SKILL_0,
+            { ...SKILL_1, metadata: { ...SKILL_1.metadata, isSelected: true } },
+            SKILL_2,
+            SKILL_3,
+          ]),
+        ),
+      )
+      .subscribe();
   });
 });

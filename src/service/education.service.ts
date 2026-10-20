@@ -19,7 +19,6 @@ export class EducationService extends BaseService<EducationDataApiModel> {
       EducationStoreAction.SetStatus,
       EducationStoreAction.SetIsLoading,
       EducationStoreAction.SetItems,
-      EducationStoreAction.SetSelectedItem,
     );
   }
 }

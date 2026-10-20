@@ -102,12 +102,4 @@ export class EducationStoreState extends BaseStoreState {
   ) {
     this.baseSetItems(ctx, action);
   }
-
-  @Action(EducationStoreAction.SetSelectedItem)
-  setSelectedItem(
-    ctx: StateContext<EducationStoreModel>,
-    action: EducationStoreAction.SetSelectedItem,
-  ) {
-    this.baseSetSelectedItem(ctx, action);
-  }
 }

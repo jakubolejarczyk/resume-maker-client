@@ -78,12 +78,4 @@ export class SkillStoreState extends BaseStoreState {
   ) {
     this.baseSetItems(ctx, action);
   }
-
-  @Action(SkillStoreAction.SetSelectedItem)
-  setSelectedItem(
-    ctx: StateContext<SkillStoreModel>,
-    action: SkillStoreAction.SetSelectedItem,
-  ) {
-    this.baseSetSelectedItem(ctx, action);
-  }
 }

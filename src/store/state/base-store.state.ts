@@ -12,7 +12,6 @@ export class BaseStoreState {
       message: '',
       isLoading: false,
       items: [],
-      selectedItem: undefined,
       columns,
     };
   }
@@ -33,7 +32,7 @@ export class BaseStoreState {
   }
 
   static baseGetSelectedItem<TItem>(state: BaseStoreModel<TItem>) {
-    return state.selectedItem;
+    return state.items.find((item) => item.metadata.isSelected);
   }
 
   static baseGetColumns<TItem>(state: BaseStoreModel<TItem>) {
@@ -71,17 +70,6 @@ export class BaseStoreState {
     ctx.setState({
       ...state,
       items: action.items,
-    });
-  }
-
-  baseSetSelectedItem<TItem>(
-    ctx: StateContext<BaseStoreModel<TItem>>,
-    action: BaseStoreAction.SetSelectedItem<TItem>,
-  ) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      selectedItem: action.selectedItem,
     });
   }
 }

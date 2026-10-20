@@ -118,12 +118,4 @@ export class UserStoreState extends BaseStoreState {
   ) {
     this.baseSetItems(ctx, action);
   }
-
-  @Action(UserStoreAction.SetSelectedItem)
-  setSelectedItem(
-    ctx: StateContext<UserStoreModel>,
-    action: UserStoreAction.SetSelectedItem,
-  ) {
-    this.baseSetSelectedItem(ctx, action);
-  }
 }

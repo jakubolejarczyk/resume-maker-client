@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { of, switchMap } from 'rxjs';
+import { filter, of, switchMap } from 'rxjs';
 
 import { BaseApiService } from '../api/service/base-api.service';
 import { BaseStoreAction } from '../store/action/base-store.action';
@@ -29,14 +29,13 @@ export class BaseService<TData> {
     ) => BaseDatabaseModel<TData>[],
     private readonly baseGetSelectedItem: (
       state: BaseStoreModel<TData>,
-    ) => TData | undefined,
+    ) => BaseDatabaseModel<TData> | undefined,
     private readonly baseGetColumns: (
       state: BaseStoreModel<TData>,
     ) => BaseStoreColumnModel[],
     private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,
     private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,
     private readonly baseSetItems: typeof BaseStoreAction.SetItems<TData>,
-    private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TData>,
   ) {
     this.baseApiService = inject(token);
   }
@@ -61,8 +60,25 @@ export class BaseService<TData> {
     return this.store.select(this.baseGetColumns);
   }
 
-  select() {
-    throw new Error('Not implemented');
+  select(id: number) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.select(id)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      filter((body) => body !== undefined),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) => of(response.body)),
+      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 
   deselect() {

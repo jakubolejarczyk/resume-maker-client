@@ -102,12 +102,4 @@ export class ExperienceStoreState extends BaseStoreState {
   ) {
     this.baseSetItems(ctx, action);
   }
-
-  @Action(ExperienceStoreAction.SetSelectedItem)
-  setSelectedItem(
-    ctx: StateContext<ExperienceStoreModel>,
-    action: ExperienceStoreAction.SetSelectedItem,
-  ) {
-    this.baseSetSelectedItem(ctx, action);
-  }
 }

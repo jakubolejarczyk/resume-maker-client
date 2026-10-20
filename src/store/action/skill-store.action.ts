@@ -18,9 +18,4 @@ export namespace SkillStoreAction {
     static readonly type =
       BaseStoreAction.SetItems.BuildActionType(ACTION_TYPE);
   }
-
-  export class SetSelectedItem extends BaseStoreAction.SetSelectedItem<SkillDataApiModel> {
-    static readonly type =
-      BaseStoreAction.SetSelectedItem.BuildActionType(ACTION_TYPE);
-  }
 }

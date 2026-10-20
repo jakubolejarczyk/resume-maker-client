@@ -15,6 +15,5 @@ export interface BaseStoreModel<TItem> {
   message: string;
   isLoading: boolean;
   items: BaseDatabaseModel<TItem>[];
-  selectedItem: TItem | undefined;
   columns: BaseStoreColumnModel[];
 }

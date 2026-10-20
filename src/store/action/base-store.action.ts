@@ -24,11 +24,4 @@ export namespace BaseStoreAction {
     protected static BuildActionType = (actionType: string) =>
       `${actionType} SetItems`;
   }
-
-  export class SetSelectedItem<TItem> {
-    constructor(public selectedItem: TItem | undefined) {}
-
-    protected static BuildActionType = (actionType: string) =>
-      `${actionType} SetSelectedItem`;
-  }
 }

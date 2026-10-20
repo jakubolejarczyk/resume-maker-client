@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { map, switchMap } from 'rxjs';
 
 import { EducationService } from './education.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -88,5 +89,23 @@ describe('Education Service', () => {
         },
       ]);
     });
+  });
+
+  it('Should correctly select the item with id 1.', () => {
+    service
+      .select(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            EDUCATION_0,
+            {
+              ...EDUCATION_1,
+              metadata: { ...EDUCATION_1.metadata, isSelected: true },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
   });
 });
