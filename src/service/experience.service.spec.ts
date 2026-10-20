@@ -118,4 +118,40 @@ describe('Experience Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly create the new item.', () => {
+    service
+      .create(0, {
+        company: 'aaa',
+        jobTitle: 'bbb',
+        description: ['a', 'b', 'c'],
+        startDate: 'aaa',
+        endDate: 'bbb',
+      })
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            EXPERIENCE_0,
+            EXPERIENCE_1,
+            {
+              data: {
+                company: 'aaa',
+                jobTitle: 'bbb',
+                description: ['a', 'b', 'c'],
+                startDate: 'aaa',
+                endDate: 'bbb',
+              },
+              metadata: {
+                id: 2,
+                parentId: 0,
+                order: 2,
+                isSelected: false,
+              },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

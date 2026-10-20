@@ -97,4 +97,36 @@ describe('Skill Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly create the new item.', () => {
+    service
+      .create(0, {
+        category: 'aaa',
+        skills: ['a', 'b', 'c'],
+      })
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            SKILL_0,
+            SKILL_1,
+            SKILL_2,
+            SKILL_3,
+            {
+              data: {
+                category: 'aaa',
+                skills: ['a', 'b', 'c'],
+              },
+              metadata: {
+                id: 4,
+                parentId: 0,
+                order: 4,
+                isSelected: false,
+              },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

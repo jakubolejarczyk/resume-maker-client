@@ -127,4 +127,42 @@ describe('User Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly create the new item.', () => {
+    service
+      .create(undefined, {
+        firstName: 'aaa',
+        lastName: 'bbb',
+        email: 'ccc',
+        phoneNumber: 'ddd',
+        city: 'eee',
+        country: 'fff',
+        links: ['a', 'b', 'c'],
+      })
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            USER_0,
+            {
+              data: {
+                firstName: 'aaa',
+                lastName: 'bbb',
+                email: 'ccc',
+                phoneNumber: 'ddd',
+                city: 'eee',
+                country: 'fff',
+                links: ['a', 'b', 'c'],
+              },
+              metadata: {
+                id: 1,
+                order: 1,
+                isSelected: false,
+              },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

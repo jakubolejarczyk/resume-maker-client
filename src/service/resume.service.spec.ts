@@ -98,4 +98,35 @@ describe('Resume Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly create the new item.', () => {
+    service
+      .create(0, {
+        name: 'aaa',
+        jobTitle: 'bbb',
+        summary: 'ccc',
+      })
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            RESUME_0,
+            {
+              data: {
+                name: 'aaa',
+                jobTitle: 'bbb',
+                summary: 'ccc',
+              },
+              metadata: {
+                id: 1,
+                parentId: 0,
+                order: 1,
+                isSelected: false,
+              },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

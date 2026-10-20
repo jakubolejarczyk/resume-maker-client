@@ -118,4 +118,40 @@ describe('Education Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly create the new item.', () => {
+    service
+      .create(0, {
+        institutionName: 'a',
+        fieldOfStudy: 'b',
+        degree: 'c',
+        startYear: 1,
+        endYear: 2,
+      })
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            EDUCATION_0,
+            EDUCATION_1,
+            {
+              data: {
+                institutionName: 'a',
+                fieldOfStudy: 'b',
+                degree: 'c',
+                startYear: 1,
+                endYear: 2,
+              },
+              metadata: {
+                id: 2,
+                parentId: 0,
+                order: 2,
+                isSelected: false,
+              },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

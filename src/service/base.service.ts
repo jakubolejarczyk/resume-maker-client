@@ -102,8 +102,21 @@ export class BaseService<TData> {
     );
   }
 
-  create() {
-    throw new Error('Not implemented');
+  create(parentId: number | undefined, data: TData) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.create(parentId, data)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        return of(body);
+      }),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) => of(response.body)),
+      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 
   readById() {
