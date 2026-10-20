@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { switchMap, map } from 'rxjs';
+import { switchMap, map, tap } from 'rxjs';
 
 import { SkillService } from './skill.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -127,6 +127,13 @@ describe('Skill Service', () => {
           ]),
         ),
       )
+      .subscribe();
+  });
+
+  it('Should correctly read the item by id.', () => {
+    service
+      .readById(1)
+      .pipe(tap((item) => expect(item).toEqual(SKILL_1)))
       .subscribe();
   });
 });

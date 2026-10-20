@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { map, switchMap } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs';
 
 import { ResumeService } from './resume.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -127,6 +127,13 @@ describe('Resume Service', () => {
           ]),
         ),
       )
+      .subscribe();
+  });
+
+  it('Should correctly read the item by id.', () => {
+    service
+      .readById(0)
+      .pipe(tap((item) => expect(item).toEqual(RESUME_0)))
       .subscribe();
   });
 });

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { map, switchMap } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs';
 
 import { EducationService } from './education.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -152,6 +152,13 @@ describe('Education Service', () => {
           ]),
         ),
       )
+      .subscribe();
+  });
+
+  it('Should correctly read the item by id.', () => {
+    service
+      .readById(1)
+      .pipe(tap((item) => expect(item).toEqual(EDUCATION_1)))
       .subscribe();
   });
 });

@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { filter, of, switchMap } from 'rxjs';
+import { filter, map, of, switchMap } from 'rxjs';
 
 import { BaseApiService } from '../api/service/base-api.service';
 import { BaseStoreAction } from '../store/action/base-store.action';
@@ -119,8 +119,23 @@ export class BaseService<TData> {
     );
   }
 
-  readById() {
-    throw new Error('Not implemented');
+  readById(id: number) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.readById(id)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      switchMap((body) =>
+        this.store
+          .dispatch(new this.baseSetIsLoading(false))
+          .pipe(map(() => body)),
+      ),
+    );
   }
 
   readByParentId(id: number | undefined) {
