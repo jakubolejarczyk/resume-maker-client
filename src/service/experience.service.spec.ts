@@ -32,4 +32,51 @@ describe('Experience Service', () => {
       expect(response).toBeUndefined();
     });
   });
+
+  it('Should return the columns value from the store correctly.', () => {
+    service.getColumns().subscribe((response) => {
+      expect(response).toEqual([
+        {
+          id: 'company',
+          label: 'Company',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'jobTitle',
+          label: 'Job title',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'description',
+          label: 'Description',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: true,
+        },
+        {
+          id: 'startDate',
+          label: 'Start date',
+          isVisible: true,
+          isEditable: true,
+          type: 'date',
+          isArray: false,
+        },
+        {
+          id: 'endDate',
+          label: 'End date',
+          isVisible: true,
+          isEditable: true,
+          type: 'date',
+          isArray: false,
+        },
+      ]);
+    });
+  });
 });

@@ -32,4 +32,27 @@ describe('Skill Service', () => {
       expect(response).toBeUndefined();
     });
   });
+
+  it('Should return the columns value from the store correctly.', () => {
+    service.getColumns().subscribe((response) => {
+      expect(response).toEqual([
+        {
+          id: 'category',
+          label: 'Category',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'skills',
+          label: 'Skills',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: true,
+        },
+      ]);
+    });
+  });
 });

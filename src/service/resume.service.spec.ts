@@ -32,4 +32,35 @@ describe('Resume Service', () => {
       expect(response).toBeUndefined();
     });
   });
+
+  it('Should return the columns value from the store correctly.', () => {
+    service.getColumns().subscribe((response) => {
+      expect(response).toEqual([
+        {
+          id: 'name',
+          label: 'Name',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'jobTitle',
+          label: 'Job title',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'summary',
+          label: 'Summary',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+      ]);
+    });
+  });
 });

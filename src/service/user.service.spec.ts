@@ -33,45 +33,74 @@ describe('User Service', () => {
     });
   });
 
+  it('Should return the columns value from the store correctly.', () => {
+    service.getColumns().subscribe((response) => {
+      expect(response).toEqual([
+        {
+          id: 'firstName',
+          label: 'First name',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'lastName',
+          label: 'Last name',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'phoneNumber',
+          label: 'Phone number',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'email',
+          label: 'Email',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'city',
+          label: 'City',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'country',
+          label: 'Country',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'links',
+          label: 'Links',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: true,
+        },
+      ]);
+    });
+  });
+
   //   it('Should return items from the store.', () => {
   //     service.getItems().subscribe((items) => {
   //       expect(items).toEqual([
   //         { id: 0, name: 'Dog', order: 0 },
   //         { id: 1, name: 'Cat', order: 1 },
-  //       ]);
-  //     });
-  //   });
-
-  //   it('Should return the selected item from the store.', () => {
-  //     service.getSelectedItem().subscribe((selectedItem) => {
-  //       expect(selectedItem).toBeUndefined();
-  //     });
-  //   });
-
-  //   it('Should return the columns from the store.', () => {
-  //     service.getColumns().subscribe((columns) => {
-  //       expect(columns).toEqual([
-  //         {
-  //           id: 'id',
-  //           label: 'Id',
-  //           isVisible: false,
-  //           isEditable: false,
-  //           type: 'number',
-  //         },
-  //         {
-  //           id: 'name',
-  //           label: 'Name',
-  //           isVisible: true,
-  //           isEditable: true,
-  //           type: 'string',
-  //         },
-  //         {
-  //           id: 'order',
-  //           label: 'Order',
-  //           isVisible: false,
-  //           isEditable: false,
-  //           type: 'number',
-  //         },
   //       ]);
   //     });
   //   });

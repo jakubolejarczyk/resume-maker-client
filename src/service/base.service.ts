@@ -58,7 +58,7 @@ export class BaseService<TData> {
   }
 
   getColumns() {
-    throw new Error('Not implemented');
+    return this.store.select(this.baseGetColumns);
   }
 
   select() {

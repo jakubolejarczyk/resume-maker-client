@@ -32,4 +32,51 @@ describe('Education Service', () => {
       expect(response).toBeUndefined();
     });
   });
+
+  it('Should return the columns value from the store correctly.', () => {
+    service.getColumns().subscribe((response) => {
+      expect(response).toEqual([
+        {
+          id: 'institutionName',
+          label: 'Institution name',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'fieldOfStudy',
+          label: 'Field of study',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'degree',
+          label: 'Degree',
+          isVisible: true,
+          isEditable: true,
+          type: 'string',
+          isArray: false,
+        },
+        {
+          id: 'startYear',
+          label: 'Start year',
+          isVisible: true,
+          isEditable: true,
+          type: 'number',
+          isArray: false,
+        },
+        {
+          id: 'endYear',
+          label: 'End year',
+          isVisible: true,
+          isEditable: true,
+          type: 'number',
+          isArray: false,
+        },
+      ]);
+    });
+  });
 });
