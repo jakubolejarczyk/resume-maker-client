@@ -108,4 +108,14 @@ describe('Experience Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly deselect the item with id 1.', () => {
+    service
+      .deselect(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([EXPERIENCE_0, EXPERIENCE_1])),
+      )
+      .subscribe();
+  });
 });

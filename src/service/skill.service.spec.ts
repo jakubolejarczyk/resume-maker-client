@@ -85,4 +85,16 @@ describe('Skill Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly deselect the item with id 1.', () => {
+    service
+      .deselect(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]),
+        ),
+      )
+      .subscribe();
+  });
 });

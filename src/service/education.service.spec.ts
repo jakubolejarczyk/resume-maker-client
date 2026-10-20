@@ -108,4 +108,14 @@ describe('Education Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly deselect the item with id 1.', () => {
+    service
+      .deselect(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([EDUCATION_0, EDUCATION_1])),
+      )
+      .subscribe();
+  });
 });

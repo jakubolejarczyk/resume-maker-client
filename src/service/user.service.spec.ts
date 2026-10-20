@@ -117,4 +117,14 @@ describe('User Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly deselect the item with id 0.', () => {
+    service
+      .deselect(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([USER_0])),
+      )
+      .subscribe();
+  });
 });

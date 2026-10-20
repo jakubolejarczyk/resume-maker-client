@@ -81,8 +81,25 @@ export class BaseService<TData> {
     );
   }
 
-  deselect() {
-    throw new Error('Not implemented');
+  deselect(id: number) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.deselect(id)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      filter((body) => body !== undefined),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) => of(response.body)),
+      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 
   create() {

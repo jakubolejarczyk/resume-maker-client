@@ -88,4 +88,14 @@ describe('Resume Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly deselect the item with id 0.', () => {
+    service
+      .deselect(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([RESUME_0])),
+      )
+      .subscribe();
+  });
 });
