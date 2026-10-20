@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { switchMap } from 'rxjs';
+import { of, switchMap } from 'rxjs';
 
 import { BaseApiService } from '../api/service/base-api.service';
 import { BaseStoreAction } from '../store/action/base-store.action';
@@ -42,7 +42,7 @@ export class BaseService<TData> {
   }
 
   getStatus() {
-    throw new Error('Not implemented');
+    return this.store.select(this.baseGetStatus);
   }
 
   getIsLoading() {
@@ -78,13 +78,14 @@ export class BaseService<TData> {
   }
 
   readByParentId(id: number | undefined) {
-    return this.baseApiService
-      .readByParentId(id)
-      .pipe(
-        switchMap((items) =>
-          this.store.dispatch(new this.baseSetItems(items.body)),
-        ),
-      );
+    return this.baseApiService.readByParentId(id).pipe(
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        return of(body);
+      }),
+      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
+    );
   }
 
   update() {

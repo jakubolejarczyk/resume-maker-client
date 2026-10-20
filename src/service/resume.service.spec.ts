@@ -12,9 +12,18 @@ describe('Resume Service', () => {
     service.readByParentId(undefined).subscribe().unsubscribe();
   });
 
+  it('Should return the status value from the store correctly.', () => {
+    service.getStatus().subscribe((response) => {
+      expect(response).toEqual({
+        success: true,
+        message: 'The items was read correctly.',
+      });
+    });
+  });
+
   it('Should return the isLoading value from the store correctly.', () => {
-    service.getIsLoading().subscribe((isLoading) => {
-      expect(isLoading).toBeFalsy();
+    service.getIsLoading().subscribe((response) => {
+      expect(response).toBeFalsy();
     });
   });
 });
