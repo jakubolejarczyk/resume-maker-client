@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import { BaseService } from './base.service';
-import { ResumeApiModel } from '../api/model/resume-api.model';
-import { ResumeStoreAction } from '../store/action/resume-store.action';
-import { ResumeStoreState } from '../store/state/resume-store.state';
+import { ResumeDataApiModel } from '../api/model/data/resume-data-api.model';
 import { ResumeApiService } from '../api/service/resume-api.service';
+import { ResumeStoreState } from '../store/state/resume-store.state';
+import { ResumeStoreAction } from '../store/action/resume-store.action';
 
-@Injectable({ providedIn: 'root' })
-export class ResumeService extends BaseService<ResumeApiModel> {
+@Service()
+export class ResumeService extends BaseService<ResumeDataApiModel> {
   constructor() {
     super(
       ResumeApiService,
@@ -19,8 +19,6 @@ export class ResumeService extends BaseService<ResumeApiModel> {
       ResumeStoreAction.SetStatus,
       ResumeStoreAction.SetIsLoading,
       ResumeStoreAction.SetItems,
-      ResumeStoreAction.AddItem,
-      ResumeStoreAction.UpdateItem,
       ResumeStoreAction.SetSelectedItem,
     );
   }

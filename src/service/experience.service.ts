@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import { BaseService } from './base.service';
-import { ExperienceApiModel } from '../api/model/experience-api.model';
+import { ExperienceDataApiModel } from '../api/model/data/experience-data-api.model';
 import { ExperienceApiService } from '../api/service/experience-api.service';
-import { ExperienceStoreAction } from '../store/action/experience-store.action';
 import { ExperienceStoreState } from '../store/state/experience-store.state';
+import { ExperienceStoreAction } from '../store/action/experience-store.action';
 
-@Injectable({ providedIn: 'root' })
-export class ExperienceService extends BaseService<ExperienceApiModel> {
+@Service()
+export class ExperienceService extends BaseService<ExperienceDataApiModel> {
   constructor() {
     super(
       ExperienceApiService,
@@ -19,8 +19,6 @@ export class ExperienceService extends BaseService<ExperienceApiModel> {
       ExperienceStoreAction.SetStatus,
       ExperienceStoreAction.SetIsLoading,
       ExperienceStoreAction.SetItems,
-      ExperienceStoreAction.AddItem,
-      ExperienceStoreAction.UpdateItem,
       ExperienceStoreAction.SetSelectedItem,
     );
   }

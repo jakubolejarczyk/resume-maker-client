@@ -1,3 +1,4 @@
+import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 import { ColumnType } from '../../type/column.type';
 
 export interface BaseStoreColumnModel {
@@ -13,7 +14,7 @@ export interface BaseStoreModel<TItem> {
   success: boolean;
   message: string;
   isLoading: boolean;
-  items: TItem[];
+  items: BaseDatabaseModel<TItem>[];
   selectedItem: TItem | undefined;
   columns: BaseStoreColumnModel[];
 }

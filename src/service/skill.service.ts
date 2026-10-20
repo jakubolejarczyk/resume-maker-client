@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import { BaseService } from './base.service';
-import { SkillApiModel } from '../api/model/skill-api.model';
+import { SkillDataApiModel } from '../api/model/data/skill-data-api.model';
 import { SkillApiService } from '../api/service/skill-api.service';
-import { SkillStoreAction } from '../store/action/skill-store.action';
 import { SkillStoreState } from '../store/state/skill-store.state';
+import { SkillStoreAction } from '../store/action/skill-store.action';
 
-@Injectable({ providedIn: 'root' })
-export class SkillService extends BaseService<SkillApiModel> {
+@Service()
+export class SkillService extends BaseService<SkillDataApiModel> {
   constructor() {
     super(
       SkillApiService,
@@ -19,8 +19,6 @@ export class SkillService extends BaseService<SkillApiModel> {
       SkillStoreAction.SetStatus,
       SkillStoreAction.SetIsLoading,
       SkillStoreAction.SetItems,
-      SkillStoreAction.AddItem,
-      SkillStoreAction.UpdateItem,
       SkillStoreAction.SetSelectedItem,
     );
   }

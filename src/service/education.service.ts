@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import { BaseService } from './base.service';
-import { EducationApiModel } from '../api/model/education-api.model';
+import { EducationDataApiModel } from '../api/model/data/education-data-api.model';
 import { EducationApiService } from '../api/service/education-api.service';
-import { EducationStoreAction } from '../store/action/education-store.action';
 import { EducationStoreState } from '../store/state/education-store.state';
+import { EducationStoreAction } from '../store/action/education-store.action';
 
-@Injectable({ providedIn: 'root' })
-export class EducationService extends BaseService<EducationApiModel> {
+@Service()
+export class EducationService extends BaseService<EducationDataApiModel> {
   constructor() {
     super(
       EducationApiService,
@@ -19,8 +19,6 @@ export class EducationService extends BaseService<EducationApiModel> {
       EducationStoreAction.SetStatus,
       EducationStoreAction.SetIsLoading,
       EducationStoreAction.SetItems,
-      EducationStoreAction.AddItem,
-      EducationStoreAction.UpdateItem,
       EducationStoreAction.SetSelectedItem,
     );
   }

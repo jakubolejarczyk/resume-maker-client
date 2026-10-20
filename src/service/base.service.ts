@@ -1,52 +1,48 @@
-import { inject, ProviderToken } from '@angular/core';
+import { inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { combineLatest, map, of, switchMap, tap } from 'rxjs';
+import { switchMap } from 'rxjs';
 
-import { BaseApiModel } from '../api/model/base-api.model';
-import { BaseStoreModel } from '../store/model/base-store.model';
-import { BaseStoreAction } from '../store/action/base-store.action';
 import { BaseApiService } from '../api/service/base-api.service';
+import { BaseStoreAction } from '../store/action/base-store.action';
+import {
+  BaseStoreColumnModel,
+  BaseStoreModel,
+} from '../store/model/base-store.model';
+import { BaseDatabaseModel } from '../database/model/base/base-database.model';
 
-type TBaseGetStatus = <TModel extends BaseApiModel>(
-  state: BaseStoreModel<TModel>,
-) => { success: boolean; message: string };
-type TBaseGetIsLoading = <TModel extends BaseApiModel>(
-  state: BaseStoreModel<TModel>,
-) => boolean;
-type TBaseGetItems = <TModel extends BaseApiModel>(
-  state: BaseStoreModel<TModel>,
-) => TModel[];
-type TBaseGetSelectedItem = <TModel extends BaseApiModel>(
-  state: BaseStoreModel<TModel>,
-) => TModel | undefined;
-type TBaseGetColumns = <TModel extends BaseApiModel>(
-  state: BaseStoreModel<TModel>,
-) => BaseStoreModel<TModel>['columns'];
-
-export class BaseService<TModel extends BaseApiModel> {
-  baseApiService: BaseApiService<TModel>;
+export class BaseService<TData> {
+  baseApiService: BaseApiService<TData>;
 
   store = inject(Store);
 
   constructor(
-    private readonly token: ProviderToken<BaseApiService<TModel>>,
-    private readonly baseGetStatus: TBaseGetStatus,
-    private readonly baseGetIsLoading: TBaseGetIsLoading,
-    private readonly baseGetItems: TBaseGetItems,
-    private readonly baseGetSelectedItem: TBaseGetSelectedItem,
-    private readonly baseGetColumns: TBaseGetColumns,
+    private readonly token: typeof BaseApiService<TData>,
+    private readonly baseGetStatus: (state: BaseStoreModel<TData>) => {
+      success: boolean;
+      message: string;
+    },
+    private readonly baseGetIsLoading: (
+      state: BaseStoreModel<TData>,
+    ) => boolean,
+    private readonly baseGetItems: (
+      state: BaseStoreModel<TData>,
+    ) => BaseDatabaseModel<TData>[],
+    private readonly baseGetSelectedItem: (
+      state: BaseStoreModel<TData>,
+    ) => TData | undefined,
+    private readonly baseGetColumns: (
+      state: BaseStoreModel<TData>,
+    ) => BaseStoreColumnModel[],
     private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,
     private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,
-    private readonly baseSetItems: typeof BaseStoreAction.SetItems<TModel>,
-    private readonly baseAddItem: typeof BaseStoreAction.AddItem<TModel>,
-    private readonly baseUpdateItem: typeof BaseStoreAction.UpdateItem<TModel>,
-    private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TModel>,
+    private readonly baseSetItems: typeof BaseStoreAction.SetItems<TData>,
+    private readonly baseSetSelectedItem: typeof BaseStoreAction.SetSelectedItem<TData>,
   ) {
     this.baseApiService = inject(token);
   }
 
   getStatus() {
-    return this.store.select(this.baseGetStatus);
+    throw new Error('Not implemented');
   }
 
   getIsLoading() {
@@ -54,183 +50,56 @@ export class BaseService<TModel extends BaseApiModel> {
   }
 
   getItems() {
-    return this.store
-      .select(this.baseGetItems)
-      .pipe(
-        map((items) => items.sort((prev, next) => prev.order - next.order)),
-      );
+    throw new Error('Not implemented');
   }
 
   getSelectedItem() {
-    return this.store.select(this.baseGetSelectedItem);
+    throw new Error('Not implemented');
   }
 
   getColumns() {
-    return this.store.select(this.baseGetColumns);
+    throw new Error('Not implemented');
   }
 
-  create(itemToCreate: Omit<TModel, 'id'>) {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.create(itemToCreate)),
-      switchMap((response) => {
-        if (response.body) {
-          this.store.dispatch(new this.baseAddItem(response.body));
-        }
-        return of(response);
-      }),
-      switchMap((response) => {
-        const { success, message } = response;
-        this.store.dispatch(new this.baseSetStatus(success, message));
-        return of(true);
-      }),
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
-    );
+  select() {
+    throw new Error('Not implemented');
   }
 
-  read(id: number) {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.read(id)),
-      switchMap((response) => {
-        const { success, message } = response;
-        this.store.dispatch(new this.baseSetStatus(success, message));
-        return of(response.body);
-      }),
-      switchMap((body) => {
-        this.store.dispatch(new this.baseSetIsLoading(false));
-        return of(body);
-      }),
-    );
+  deselect() {
+    throw new Error('Not implemented');
   }
 
-  readAll() {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.readAll()),
-      switchMap((response) => {
-        this.store.dispatch(new this.baseSetItems(response.body));
-        return of(response);
-      }),
-      switchMap((response) => {
-        const { success, message } = response;
-        this.store.dispatch(new this.baseSetStatus(success, message));
-        return of(true);
-      }),
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
-    );
+  create() {
+    throw new Error('Not implemented');
   }
 
-  update(itemToUpdate: TModel) {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.update(itemToUpdate)),
-      switchMap((response) => {
-        if (response.body) {
-          this.store.dispatch(new this.baseUpdateItem(response.body));
-        }
-        return of(response);
-      }),
-      switchMap((response) => {
-        const { success, message } = response;
-        this.store.dispatch(new this.baseSetStatus(success, message));
-        return of(true);
-      }),
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
-    );
+  readById() {
+    throw new Error('Not implemented');
   }
 
-  delete(itemToDelete: TModel) {
-    return of(void 0).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.delete(itemToDelete)),
-      switchMap((response) => this.readAllItems().pipe(map(() => response))),
-      switchMap((response) =>
-        this.deselectNotExistedItem().pipe(map(() => response)),
-      ),
-      switchMap((response) =>
-        this.store
-          .dispatch(new this.baseSetIsLoading(false))
-          .pipe(map(() => response)),
-      ),
-    );
+  readByParentId(id: number | undefined) {
+    return this.baseApiService
+      .readByParentId(id)
+      .pipe(
+        switchMap((items) =>
+          this.store.dispatch(new this.baseSetItems(items.body)),
+        ),
+      );
   }
 
-  deselectItem() {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() =>
-        this.store.dispatch(new this.baseSetSelectedItem(undefined)),
-      ),
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
-    );
+  update() {
+    throw new Error('Not implemented');
   }
 
-  selectItem(itemToSelect: TModel) {
-    return of(true).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() =>
-        this.store.dispatch(new this.baseSetSelectedItem(itemToSelect)),
-      ),
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
-    );
+  delete() {
+    throw new Error('Not implemented');
   }
 
-  moveUp(itemToMoveUp: TModel) {
-    return of(void 0).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.moveUp(itemToMoveUp)),
-      switchMap((response) => this.readAllItems().pipe(map(() => response))),
-      switchMap((response) => this.getItems().pipe(map(() => response))),
-      // switchMap(response => this.deselectNotExistedItem().pipe(map(() => response))),
-      switchMap((response) =>
-        this.store
-          .dispatch(new this.baseSetIsLoading(false))
-          .pipe(map(() => response)),
-      ),
-    );
+  moveUp() {
+    throw new Error('Not implemented');
   }
 
-  moveDown(itemToMoveDown: TModel) {
-    return of(void 0).pipe(
-      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(true))),
-      switchMap(() => this.baseApiService.moveDown(itemToMoveDown)),
-      switchMap((response) => this.readAllItems().pipe(map(() => response))),
-      switchMap((response) => this.getItems().pipe(map(() => response))),
-      // switchMap(response => this.deselectNotExistedItem().pipe(map(() => response))),
-      switchMap((response) =>
-        this.store
-          .dispatch(new this.baseSetIsLoading(false))
-          .pipe(map(() => response)),
-      ),
-    );
-  }
-
-  private readAllItems() {
-    return of(void 0).pipe(
-      switchMap(() => this.baseApiService.readAll()),
-      switchMap((response) =>
-        this.store.dispatch(new this.baseSetItems(response.body)),
-      ),
-    );
-  }
-
-  private deselectNotExistedItem() {
-    return of(void 0).pipe(
-      switchMap(() =>
-        combineLatest({
-          selectedItem: this.store.selectOnce(this.baseGetSelectedItem),
-          items: this.store.selectOnce(this.baseGetItems),
-        }),
-      ),
-      tap(({ selectedItem, items }) => {
-        if (!selectedItem) return;
-        const selectedItemExists = items.some(
-          (item) => item.id === selectedItem.id,
-        );
-        if (selectedItemExists) return;
-        this.store.dispatch(new this.baseSetSelectedItem(undefined));
-      }),
-    );
+  moveDown() {
+    throw new Error('Not implemented');
   }
 }

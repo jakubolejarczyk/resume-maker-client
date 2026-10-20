@@ -1,3 +1,5 @@
+import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
+
 export namespace BaseStoreAction {
   export class SetStatus {
     constructor(
@@ -17,7 +19,7 @@ export namespace BaseStoreAction {
   }
 
   export class SetItems<TItem> {
-    constructor(public items: TItem[]) {}
+    constructor(public items: BaseDatabaseModel<TItem>[]) {}
 
     protected static BuildActionType = (actionType: string) =>
       `${actionType} SetItems`;

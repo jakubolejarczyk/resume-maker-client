@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 
 import { BaseService } from './base.service';
-import { UserApiModel } from '../api/model/user-api.model';
+import { UserDataApiModel } from '../api/model/data/user-data-api.model';
 import { UserApiService } from '../api/service/user-api.service';
 import { UserStoreState } from '../store/state/user-store.state';
 import { UserStoreAction } from '../store/action/user-store.action';
 
-@Injectable({ providedIn: 'root' })
-export class UserService extends BaseService<UserApiModel> {
+@Service()
+export class UserService extends BaseService<UserDataApiModel> {
   constructor() {
     super(
       UserApiService,
@@ -19,8 +19,6 @@ export class UserService extends BaseService<UserApiModel> {
       UserStoreAction.SetStatus,
       UserStoreAction.SetIsLoading,
       UserStoreAction.SetItems,
-      UserStoreAction.AddItem,
-      UserStoreAction.UpdateItem,
       UserStoreAction.SetSelectedItem,
     );
   }
