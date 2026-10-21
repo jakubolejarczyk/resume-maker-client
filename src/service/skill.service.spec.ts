@@ -142,7 +142,23 @@ describe('Skill Service', () => {
       .readByParentId(0)
       .pipe(
         switchMap(() => service.getItems()),
-        tap((items) => expect(items).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]))
+        tap((items) =>
+          expect(items).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]),
+        ),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly update the new item for skills.', () => {
+    const SKILL_1_CLONE = structuredClone(SKILL_1);
+    SKILL_1_CLONE.data.category = 'aaa';
+    service
+      .update(1, SKILL_1_CLONE.data)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([SKILL_0, SKILL_1_CLONE, SKILL_2, SKILL_3]),
+        ),
       )
       .subscribe();
   });

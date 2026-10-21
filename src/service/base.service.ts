@@ -151,8 +151,26 @@ export class BaseService<TData> {
     );
   }
 
-  update() {
-    throw new Error('Not implemented');
+  update(id: number, data: TData) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.update(id, data)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      filter((body) => body !== undefined),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) =>
+        this.store.dispatch(new this.baseSetItems(response.body)),
+      ),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 
   delete() {

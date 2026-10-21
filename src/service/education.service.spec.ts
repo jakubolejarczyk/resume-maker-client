@@ -167,7 +167,19 @@ describe('Education Service', () => {
       .readByParentId(0)
       .pipe(
         switchMap(() => service.getItems()),
-        tap((items) => expect(items).toEqual([EDUCATION_0, EDUCATION_1]))
+        tap((items) => expect(items).toEqual([EDUCATION_0, EDUCATION_1])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly update the new item for educations.', () => {
+    const EDUCATION_0_CLONE = structuredClone(EDUCATION_0);
+    EDUCATION_0_CLONE.data.institutionName = 'aaa';
+    service
+      .update(0, EDUCATION_0_CLONE.data)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([EDUCATION_0_CLONE, EDUCATION_1])),
       )
       .subscribe();
   });

@@ -142,7 +142,19 @@ describe('Resume Service', () => {
       .readByParentId(0)
       .pipe(
         switchMap(() => service.getItems()),
-        tap((items) => expect(items).toEqual([RESUME_0]))
+        tap((items) => expect(items).toEqual([RESUME_0])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly update the new item for resumes.', () => {
+    const RESUME_0_CLONE = structuredClone(RESUME_0);
+    RESUME_0_CLONE.data.jobTitle = 'aaa';
+    service
+      .update(1, RESUME_0_CLONE.data)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([RESUME_0_CLONE])),
       )
       .subscribe();
   });

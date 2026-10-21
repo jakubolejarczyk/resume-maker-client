@@ -178,7 +178,19 @@ describe('User Service', () => {
       .readByParentId(undefined)
       .pipe(
         switchMap(() => service.getItems()),
-        tap((items) => expect(items).toEqual([USER_0]))
+        tap((items) => expect(items).toEqual([USER_0])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly update the new item for users.', () => {
+    const USER_0_CLONE = structuredClone(USER_0);
+    USER_0_CLONE.data.firstName = 'aaa';
+    service
+      .update(0, USER_0_CLONE.data)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([USER_0_CLONE])),
       )
       .subscribe();
   });

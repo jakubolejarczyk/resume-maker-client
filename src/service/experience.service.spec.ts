@@ -167,7 +167,21 @@ describe('Experience Service', () => {
       .readByParentId(0)
       .pipe(
         switchMap(() => service.getItems()),
-        tap((items) => expect(items).toEqual([EXPERIENCE_0, EXPERIENCE_1]))
+        tap((items) => expect(items).toEqual([EXPERIENCE_0, EXPERIENCE_1])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly update the new item for experiences.', () => {
+    const EXPERIENCE_0_CLONE = structuredClone(EXPERIENCE_0);
+    EXPERIENCE_0_CLONE.data.jobTitle = 'aaa';
+    service
+      .update(0, EXPERIENCE_0_CLONE.data)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([EXPERIENCE_0_CLONE, EXPERIENCE_1]),
+        ),
       )
       .subscribe();
   });
