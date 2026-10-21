@@ -17,7 +17,7 @@ describe('Experience Service', () => {
     service.readByParentId(undefined).subscribe().unsubscribe();
   });
 
-  it('Should return the status value from the store correctly.', () => {
+  it('Should return the status value from the store correctly for experiences.', () => {
     service.getStatus().subscribe((response) => {
       expect(response).toEqual({
         success: true,
@@ -26,25 +26,25 @@ describe('Experience Service', () => {
     });
   });
 
-  it('Should return the isLoading value from the store correctly.', () => {
+  it('Should return the isLoading value from the store correctly for experiences.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
     });
   });
 
-  it('Should return the items value from the store correctly.', () => {
+  it('Should return the items value from the store correctly for experiences.', () => {
     service.getItems().subscribe((response) => {
       expect(response).toEqual([EXPERIENCE_0, EXPERIENCE_1]);
     });
   });
 
-  it('Should return the selectedItem value from the store correctly.', () => {
+  it('Should return the selectedItem value from the store correctly for experiences.', () => {
     service.getSelectedItem().subscribe((response) => {
       expect(response).toBeUndefined();
     });
   });
 
-  it('Should return the columns value from the store correctly.', () => {
+  it('Should return the columns value from the store correctly for experiences.', () => {
     service.getColumns().subscribe((response) => {
       expect(response).toEqual([
         {
@@ -91,7 +91,7 @@ describe('Experience Service', () => {
     });
   });
 
-  it('Should correctly select the item with id 1.', () => {
+  it('Should correctly select the item with id 1 for experiences.', () => {
     service
       .select(1)
       .pipe(
@@ -109,7 +109,7 @@ describe('Experience Service', () => {
       .subscribe();
   });
 
-  it('Should correctly deselect the item with id 1.', () => {
+  it('Should correctly deselect the item with id 1 for experiences.', () => {
     service
       .deselect(1)
       .pipe(
@@ -119,7 +119,7 @@ describe('Experience Service', () => {
       .subscribe();
   });
 
-  it('Should correctly create the new item.', () => {
+  it('Should correctly create the new item for experiences.', () => {
     service
       .create(0, {
         company: 'aaa',
@@ -155,10 +155,20 @@ describe('Experience Service', () => {
       .subscribe();
   });
 
-  it('Should correctly read the item by id.', () => {
+  it('Should correctly read the item by id for experiences.', () => {
     service
       .readById(1)
       .pipe(tap((item) => expect(item).toEqual(EXPERIENCE_1)))
+      .subscribe();
+  });
+
+  it('Should correctly read the items by parent id for experiences.', () => {
+    service
+      .readByParentId(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        tap((items) => expect(items).toEqual([EXPERIENCE_0, EXPERIENCE_1]))
+      )
       .subscribe();
   });
 });

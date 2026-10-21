@@ -138,14 +138,16 @@ export class BaseService<TData> {
     );
   }
 
-  readByParentId(id: number | undefined) {
-    return this.baseApiService.readByParentId(id).pipe(
+  readByParentId(parentId: number | undefined) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.readByParentId(parentId)),
       switchMap((response) => {
         const { success, message, body } = response;
         this.store.dispatch(new this.baseSetStatus(success, message));
         return of(body);
       }),
       switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
     );
   }
 

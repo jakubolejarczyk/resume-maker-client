@@ -14,7 +14,7 @@ describe('Resume Service', () => {
     service.readByParentId(undefined).subscribe().unsubscribe();
   });
 
-  it('Should return the status value from the store correctly.', () => {
+  it('Should return the status value from the store correctly for resumes.', () => {
     service.getStatus().subscribe((response) => {
       expect(response).toEqual({
         success: true,
@@ -23,25 +23,25 @@ describe('Resume Service', () => {
     });
   });
 
-  it('Should return the isLoading value from the store correctly.', () => {
+  it('Should return the isLoading value from the store correctly for resumes.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
     });
   });
 
-  it('Should return the items value from the store correctly.', () => {
+  it('Should return the items value from the store correctly for resumes.', () => {
     service.getItems().subscribe((response) => {
       expect(response).toEqual([RESUME_0]);
     });
   });
 
-  it('Should return the selectedItem value from the store correctly.', () => {
+  it('Should return the selectedItem value from the store correctly for resumes.', () => {
     service.getSelectedItem().subscribe((response) => {
       expect(response).toBeUndefined();
     });
   });
 
-  it('Should return the columns value from the store correctly.', () => {
+  it('Should return the columns value from the store correctly for resumes.', () => {
     service.getColumns().subscribe((response) => {
       expect(response).toEqual([
         {
@@ -72,7 +72,7 @@ describe('Resume Service', () => {
     });
   });
 
-  it('Should correctly select the item with id 0.', () => {
+  it('Should correctly select the item with id 0 for resumes.', () => {
     service
       .select(0)
       .pipe(
@@ -89,7 +89,7 @@ describe('Resume Service', () => {
       .subscribe();
   });
 
-  it('Should correctly deselect the item with id 0.', () => {
+  it('Should correctly deselect the item with id 0 for resumes.', () => {
     service
       .deselect(0)
       .pipe(
@@ -99,7 +99,7 @@ describe('Resume Service', () => {
       .subscribe();
   });
 
-  it('Should correctly create the new item.', () => {
+  it('Should correctly create the new item for resumes.', () => {
     service
       .create(0, {
         name: 'aaa',
@@ -130,10 +130,20 @@ describe('Resume Service', () => {
       .subscribe();
   });
 
-  it('Should correctly read the item by id.', () => {
+  it('Should correctly read the item by id for resumes.', () => {
     service
       .readById(0)
       .pipe(tap((item) => expect(item).toEqual(RESUME_0)))
+      .subscribe();
+  });
+
+  it('Should correctly read the items by parent id for resumes.', () => {
+    service
+      .readByParentId(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        tap((items) => expect(items).toEqual([RESUME_0]))
+      )
       .subscribe();
   });
 });

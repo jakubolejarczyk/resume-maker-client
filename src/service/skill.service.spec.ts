@@ -19,7 +19,7 @@ describe('Skill Service', () => {
     service.readByParentId(undefined).subscribe().unsubscribe();
   });
 
-  it('Should return the status value from the store correctly.', () => {
+  it('Should return the status value from the store correctly for skills.', () => {
     service.getStatus().subscribe((response) => {
       expect(response).toEqual({
         success: true,
@@ -28,25 +28,25 @@ describe('Skill Service', () => {
     });
   });
 
-  it('Should return the isLoading value from the store correctly.', () => {
+  it('Should return the isLoading value from the store correctly for skills.', () => {
     service.getIsLoading().subscribe((response) => {
       expect(response).toBeFalsy();
     });
   });
 
-  it('Should return the items value from the store correctly.', () => {
+  it('Should return the items value from the store correctly for skills.', () => {
     service.getItems().subscribe((response) => {
       expect(response).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]);
     });
   });
 
-  it('Should return the selectedItem value from the store correctly.', () => {
+  it('Should return the selectedItem value from the store correctly for skills.', () => {
     service.getSelectedItem().subscribe((response) => {
       expect(response).toBeUndefined();
     });
   });
 
-  it('Should return the columns value from the store correctly.', () => {
+  it('Should return the columns value from the store correctly for skills.', () => {
     service.getColumns().subscribe((response) => {
       expect(response).toEqual([
         {
@@ -69,7 +69,7 @@ describe('Skill Service', () => {
     });
   });
 
-  it('Should correctly select the item with id 1.', () => {
+  it('Should correctly select the item with id 1 for skills.', () => {
     service
       .select(1)
       .pipe(
@@ -86,7 +86,7 @@ describe('Skill Service', () => {
       .subscribe();
   });
 
-  it('Should correctly deselect the item with id 1.', () => {
+  it('Should correctly deselect the item with id 1 for skills.', () => {
     service
       .deselect(1)
       .pipe(
@@ -98,7 +98,7 @@ describe('Skill Service', () => {
       .subscribe();
   });
 
-  it('Should correctly create the new item.', () => {
+  it('Should correctly create the new item for skills.', () => {
     service
       .create(0, {
         category: 'aaa',
@@ -130,10 +130,20 @@ describe('Skill Service', () => {
       .subscribe();
   });
 
-  it('Should correctly read the item by id.', () => {
+  it('Should correctly read the item by id for skills.', () => {
     service
       .readById(1)
       .pipe(tap((item) => expect(item).toEqual(SKILL_1)))
+      .subscribe();
+  });
+
+  it('Should correctly read the items by parent id for skills.', () => {
+    service
+      .readByParentId(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        tap((items) => expect(items).toEqual([SKILL_0, SKILL_1, SKILL_2, SKILL_3]))
+      )
       .subscribe();
   });
 });
