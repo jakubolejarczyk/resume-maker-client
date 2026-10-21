@@ -162,4 +162,20 @@ describe('Skill Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly delete the item for skills.', () => {
+    service
+      .delete(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => {
+          expect(items).toEqual([
+            SKILL_0,
+            { ...SKILL_2, metadata: { ...SKILL_2.metadata, order: 1 } },
+            { ...SKILL_3, metadata: { ...SKILL_3.metadata, order: 2 } },
+          ]);
+        }),
+      )
+      .subscribe();
+  });
 });

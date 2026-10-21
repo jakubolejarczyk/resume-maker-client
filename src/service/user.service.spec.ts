@@ -194,4 +194,14 @@ describe('User Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly delete the item for users.', () => {
+    service
+      .delete(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([])),
+      )
+      .subscribe();
+  });
 });

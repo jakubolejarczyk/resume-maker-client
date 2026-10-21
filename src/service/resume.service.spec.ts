@@ -158,4 +158,14 @@ describe('Resume Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly delete the item for resumes.', () => {
+    service
+      .delete(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([])),
+      )
+      .subscribe();
+  });
 });

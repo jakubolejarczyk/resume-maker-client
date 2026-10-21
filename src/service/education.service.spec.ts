@@ -183,4 +183,14 @@ describe('Education Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly delete the item for educations.', () => {
+    service
+      .delete(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([EDUCATION_0])),
+      )
+      .subscribe();
+  });
 });

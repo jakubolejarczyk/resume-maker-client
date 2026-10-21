@@ -185,4 +185,21 @@ describe('Experience Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly delete the item for experiences.', () => {
+    service
+      .delete(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            {
+              ...EXPERIENCE_1,
+              metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });
