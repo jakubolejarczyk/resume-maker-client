@@ -195,11 +195,47 @@ export class BaseService<TData> {
     );
   }
 
-  moveUp() {
-    throw new Error('Not implemented');
+  moveUp(id: number) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.moveUp(id)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      filter((body) => body !== undefined),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) =>
+        this.store.dispatch(new this.baseSetItems(response.body)),
+      ),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 
-  moveDown() {
-    throw new Error('Not implemented');
+  moveDown(id: number) {
+    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
+      switchMap(() => this.baseApiService.moveDown(id)),
+      switchMap((response) => {
+        const { success, message, body } = response;
+        this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.store.dispatch(new this.baseSetIsLoading(false));
+        }
+        return of(body);
+      }),
+      filter((body) => body !== undefined),
+      switchMap((body) =>
+        this.baseApiService.readByParentId(body.metadata.parentId),
+      ),
+      switchMap((response) =>
+        this.store.dispatch(new this.baseSetItems(response.body)),
+      ),
+      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
+    );
   }
 }

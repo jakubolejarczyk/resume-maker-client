@@ -204,4 +204,24 @@ describe('User Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly move up the item for users.', () => {
+    service
+      .moveUp(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([USER_0])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly move down the item for users.', () => {
+    service
+      .moveDown(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([USER_0])),
+      )
+      .subscribe();
+  });
 });

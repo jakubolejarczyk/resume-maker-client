@@ -178,4 +178,38 @@ describe('Skill Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly move up the item for skills.', () => {
+    service
+      .moveUp(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
+            { ...SKILL_1, metadata: { ...SKILL_1.metadata, order: 0 } },
+            SKILL_2,
+            SKILL_3,
+          ]),
+        ),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly move down the item for skills.', () => {
+    service
+      .moveDown(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
+            { ...SKILL_1, metadata: { ...SKILL_1.metadata, order: 0 } },
+            SKILL_2,
+            SKILL_3,
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

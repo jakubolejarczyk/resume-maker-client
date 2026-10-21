@@ -168,4 +168,24 @@ describe('Resume Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly move up the item for resumes.', () => {
+    service
+      .moveUp(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([RESUME_0])),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly move down the item for resumes.', () => {
+    service
+      .moveDown(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) => expect(items).toEqual([RESUME_0])),
+      )
+      .subscribe();
+  });
 });

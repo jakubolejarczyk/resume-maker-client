@@ -202,4 +202,46 @@ describe('Experience Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly move up the item for experiences.', () => {
+    service
+      .moveUp(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            {
+              ...EXPERIENCE_0,
+              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
+            },
+            {
+              ...EXPERIENCE_1,
+              metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly move down the item for experiences.', () => {
+    service
+      .moveDown(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            {
+              ...EXPERIENCE_0,
+              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
+            },
+            {
+              ...EXPERIENCE_1,
+              metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+            },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });

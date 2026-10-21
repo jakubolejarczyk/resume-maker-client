@@ -193,4 +193,34 @@ describe('Education Service', () => {
       )
       .subscribe();
   });
+
+  it('Should correctly move up the item for educations.', () => {
+    service
+      .moveUp(1)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
+            { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
+
+  it('Should correctly move down the item for educations.', () => {
+    service
+      .moveDown(0)
+      .pipe(
+        switchMap(() => service.getItems()),
+        map((items) =>
+          expect(items).toEqual([
+            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
+            { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+          ]),
+        ),
+      )
+      .subscribe();
+  });
 });
