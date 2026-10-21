@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { RootComponent } from '../root/root.component';
+// import { RootComponent } from '../root/root.component';
 
 @Component({
   selector: 'app',
-  template: '<app-root-component></app-root-component>',
-  imports: [RootComponent],
+  template: '<p>Hello</p>',
+  // imports: [RootComponent],
 })
 export class AppComponent {}

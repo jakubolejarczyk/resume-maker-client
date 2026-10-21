@@ -14,8 +14,6 @@ import { SkillStoreState } from '../store/state/skill-store.state';
 import { ExperienceStoreState } from '../store/state/experience-store.state';
 import { EducationStoreState } from '../store/state/education-store.state';
 import { environment } from '../environments/environment';
-import { AnimalStoreState } from '../store/state/animal-store.state';
-import { ANIMAL_SERVICE_PROVIDER } from '../service/animal-service.provider';
 import { ResumeStoreState } from '../store/state/resume-store.state';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -27,11 +25,7 @@ export const getProvider = (): ApplicationConfig => {
 
 export const getStorybookProvider = (): ApplicationConfig => {
   return {
-    providers: [
-      ...getBaseProvider(),
-      ...getStorybookProvideStore(),
-      ...ANIMAL_SERVICE_PROVIDER,
-    ],
+    providers: [...getBaseProvider(), ...getStorybookProvideStore()],
   };
 };
 
@@ -66,5 +60,5 @@ const getProvideStore = (): ApplicationConfig['providers'] => {
 };
 
 const getStorybookProvideStore = (): ApplicationConfig['providers'] => {
-  return [provideStore([AnimalStoreState], withNgxsReduxDevtoolsPlugin())];
+  return [provideStore([], withNgxsReduxDevtoolsPlugin())];
 };
