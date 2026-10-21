@@ -2593,15 +2593,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -2727,15 +2749,37 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -2743,15 +2787,37 @@
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -5115,15 +5181,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -5249,15 +5337,37 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -5265,15 +5375,37 @@
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -7637,15 +7769,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -7771,15 +7925,37 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -7787,15 +7963,37 @@
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -10159,15 +10357,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -10293,15 +10513,37 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -10309,15 +10551,37 @@
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -12681,15 +12945,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -12815,15 +13101,37 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -12831,15 +13139,37 @@
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ],
           "inheritance": {
             "file": "BaseService"
           }
@@ -15105,13 +15435,13 @@
     },
     {
       "name": "BaseService",
-      "id": "class-BaseService-32c678141c0f7ddcec45865646881ff28037bb7d92332fa93c6b23769d3db7577ca9b1a1f8c66957e15e7f067548376cb97722008f923f46560c0d4556c00008",
+      "id": "class-BaseService-ed5a0c9e9dba6462905aded3b7f586fc6d115e6155e94d3d62848c4899020654d7d426ffdf3a80306a6358b51549ed7803bcbfba9012c83579b54f8e871a4a37",
       "file": "src/service/base.service.ts",
       "coverageIgnore": false,
       "deprecated": false,
       "deprecationMessage": "",
       "type": "class",
-      "sourceCode": "import { inject } from '@angular/core';\nimport { Store } from '@ngxs/store';\nimport { filter, map, of, switchMap } from 'rxjs';\n\nimport { BaseApiService } from '../api/service/base-api.service';\nimport { BaseStoreAction } from '../store/action/base-store.action';\nimport {\n  BaseStoreColumnModel,\n  BaseStoreModel,\n} from '../store/model/base-store.model';\nimport { BaseDatabaseModel } from '../database/model/base/base-database.model';\n\nexport class BaseService<TData> {\n  baseApiService: BaseApiService<TData>;\n\n  store = inject(Store);\n\n  constructor(\n    private readonly token: typeof BaseApiService<TData>,\n    private readonly baseGetStatus: (state: BaseStoreModel<TData>) => {\n      success: boolean;\n      message: string;\n    },\n    private readonly baseGetIsLoading: (\n      state: BaseStoreModel<TData>,\n    ) => boolean,\n    private readonly baseGetItems: (\n      state: BaseStoreModel<TData>,\n    ) => BaseDatabaseModel<TData>[],\n    private readonly baseGetSelectedItem: (\n      state: BaseStoreModel<TData>,\n    ) => BaseDatabaseModel<TData> | undefined,\n    private readonly baseGetColumns: (\n      state: BaseStoreModel<TData>,\n    ) => BaseStoreColumnModel[],\n    private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\n    private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\n    private readonly baseSetItems: typeof BaseStoreAction.SetItems<TData>,\n  ) {\n    this.baseApiService = inject(token);\n  }\n\n  getStatus() {\n    return this.store.select(this.baseGetStatus);\n  }\n\n  getIsLoading() {\n    return this.store.select(this.baseGetIsLoading);\n  }\n\n  getItems() {\n    return this.store.select(this.baseGetItems);\n  }\n\n  getSelectedItem() {\n    return this.store.select(this.baseGetSelectedItem);\n  }\n\n  getColumns() {\n    return this.store.select(this.baseGetColumns);\n  }\n\n  select(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.select(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  deselect(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.deselect(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  create(parentId: number | undefined, data: TData) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.create(parentId, data)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        return of(body);\n      }),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  readById(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.readById(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      switchMap((body) =>\n        this.store\n          .dispatch(new this.baseSetIsLoading(false))\n          .pipe(map(() => body)),\n      ),\n    );\n  }\n\n  readByParentId(parentId: number | undefined) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.readByParentId(parentId)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        return of(body);\n      }),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  update(id: number, data: TData) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.update(id, data)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) =>\n        this.store.dispatch(new this.baseSetItems(response.body)),\n      ),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  delete() {\n    throw new Error('Not implemented');\n  }\n\n  moveUp() {\n    throw new Error('Not implemented');\n  }\n\n  moveDown() {\n    throw new Error('Not implemented');\n  }\n}\n",
+      "sourceCode": "import { inject } from '@angular/core';\nimport { Store } from '@ngxs/store';\nimport { filter, map, of, switchMap } from 'rxjs';\n\nimport { BaseApiService } from '../api/service/base-api.service';\nimport { BaseStoreAction } from '../store/action/base-store.action';\nimport {\n  BaseStoreColumnModel,\n  BaseStoreModel,\n} from '../store/model/base-store.model';\nimport { BaseDatabaseModel } from '../database/model/base/base-database.model';\n\nexport class BaseService<TData> {\n  baseApiService: BaseApiService<TData>;\n\n  store = inject(Store);\n\n  constructor(\n    private readonly token: typeof BaseApiService<TData>,\n    private readonly baseGetStatus: (state: BaseStoreModel<TData>) => {\n      success: boolean;\n      message: string;\n    },\n    private readonly baseGetIsLoading: (\n      state: BaseStoreModel<TData>,\n    ) => boolean,\n    private readonly baseGetItems: (\n      state: BaseStoreModel<TData>,\n    ) => BaseDatabaseModel<TData>[],\n    private readonly baseGetSelectedItem: (\n      state: BaseStoreModel<TData>,\n    ) => BaseDatabaseModel<TData> | undefined,\n    private readonly baseGetColumns: (\n      state: BaseStoreModel<TData>,\n    ) => BaseStoreColumnModel[],\n    private readonly baseSetStatus: typeof BaseStoreAction.SetStatus,\n    private readonly baseSetIsLoading: typeof BaseStoreAction.SetIsLoading,\n    private readonly baseSetItems: typeof BaseStoreAction.SetItems<TData>,\n  ) {\n    this.baseApiService = inject(token);\n  }\n\n  getStatus() {\n    return this.store.select(this.baseGetStatus);\n  }\n\n  getIsLoading() {\n    return this.store.select(this.baseGetIsLoading);\n  }\n\n  getItems() {\n    return this.store.select(this.baseGetItems);\n  }\n\n  getSelectedItem() {\n    return this.store.select(this.baseGetSelectedItem);\n  }\n\n  getColumns() {\n    return this.store.select(this.baseGetColumns);\n  }\n\n  select(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.select(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  deselect(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.deselect(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  create(parentId: number | undefined, data: TData) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.create(parentId, data)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        return of(body);\n      }),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) => of(response.body)),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  readById(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.readById(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      switchMap((body) =>\n        this.store\n          .dispatch(new this.baseSetIsLoading(false))\n          .pipe(map(() => body)),\n      ),\n    );\n  }\n\n  readByParentId(parentId: number | undefined) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.readByParentId(parentId)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        return of(body);\n      }),\n      switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  update(id: number, data: TData) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.update(id, data)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) =>\n        this.store.dispatch(new this.baseSetItems(response.body)),\n      ),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  delete(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.delete(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) =>\n        this.store.dispatch(new this.baseSetItems(response.body)),\n      ),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  moveUp(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.moveUp(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) =>\n        this.store.dispatch(new this.baseSetItems(response.body)),\n      ),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n\n  moveDown(id: number) {\n    return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(\n      switchMap(() => this.baseApiService.moveDown(id)),\n      switchMap((response) => {\n        const { success, message, body } = response;\n        this.store.dispatch(new this.baseSetStatus(success, message));\n        if (!success && body === undefined) {\n          this.store.dispatch(new this.baseSetIsLoading(false));\n        }\n        return of(body);\n      }),\n      filter((body) => body !== undefined),\n      switchMap((body) =>\n        this.baseApiService.readByParentId(body.metadata.parentId),\n      ),\n      switchMap((response) =>\n        this.store.dispatch(new this.baseSetItems(response.body)),\n      ),\n      switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),\n    );\n  }\n}\n",
       "displayName": "BaseService<TData>",
       "typeParameters": ["TData"],
       "constructorObj": {
@@ -15484,15 +15814,37 @@
         {
           "name": "delete",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
           "line": 176,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
-          "description": ""
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
         },
         {
           "name": "deselect",
@@ -15597,28 +15949,72 @@
         {
           "name": "moveDown",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 184,
+          "line": 220,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
-          "description": ""
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
         },
         {
           "name": "moveUp",
           "coverageIgnore": false,
-          "args": [],
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
           "optional": false,
-          "returnType": "void",
+          "returnType": "any",
           "typeParameters": [],
-          "line": 180,
+          "line": 198,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
-          "description": ""
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
         },
         {
           "name": "readById",
@@ -17150,6 +17546,71 @@
         "incoming": [],
         "outgoing": []
       }
+    },
+    {
+      "name": "TableDataComponent",
+      "id": "component-TableDataComponent-790c7bac8bbbcee1efbd3d727aa6db5c665c08a8a4ea779e6286dd71e1e9caa77c9fb2c6e1e1539d90f578ffcc7afa7ead2967c586c136791bc3ae7a8c2193ec",
+      "file": "src/component/data/table/table-data.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-table-data-component",
+      "styleUrls": ["./table-data.component.scss"],
+      "styles": [],
+      "templateUrl": ["./table-data.component.html"],
+      "templateVariables": [
+        {
+          "name": "selectedItem",
+          "defaultValue": "selectedItem$() | async"
+        },
+        {
+          "name": "items",
+          "defaultValue": "items$() | async"
+        },
+        {
+          "name": "columns",
+          "defaultValue": "columns$() | async"
+        },
+        {
+          "name": "isLastItem",
+          "defaultValue": "checkIsLastItem(item) | async"
+        }
+      ],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "coverageIgnore": false,
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  //   imports: [TableModule, ButtonFormComponent, BadgeMiscComponent, AsyncPipe],\n})\nexport class TableDataComponent {\n  //   items$ = input.required<Observable<BaseApiModel[]>>();\n  //   selectedItem$ = input.required<Observable<BaseApiModel | undefined>>();\n  //   columns$ = input.required<Observable<BaseStoreModel<TModel>['columns']>>();\n  //   onSelectEvent = output<TModel>();\n  //   onDeselectEvent = output();\n  //   onShowEvent = output<TModel>();\n  //   onUpdateEvent = output<TModel>();\n  //   onDeleteEvent = output<TModel>();\n  //   onMoveUpEvent = output<TModel>();\n  //   onMoveDownEvent = output<TModel>();\n  //   onSelect(item: TModel) {\n  //     this.onSelectEvent.emit(item);\n  //   }\n  //   onDeselect() {\n  //     this.onDeselectEvent.emit();\n  //   }\n  //   onShow(item: TModel) {\n  //     this.onShowEvent.emit(item);\n  //   }\n  //   onUpdate(item: TModel) {\n  //     this.onUpdateEvent.emit(item);\n  //   }\n  //   onDelete(item: TModel) {\n  //     this.onDeleteEvent.emit(item);\n  //   }\n  //   onMoveUp(item: TModel) {\n  //     this.onMoveUpEvent.emit(item);\n  //   }\n  //   onMoveDown(item: TModel) {\n  //     this.onMoveDownEvent.emit(item);\n  //   }\n  //   checkIsFirstItem(item: TModel) {\n  //     return item.order === 0;\n  //   }\n  //   checkIsLastItem(item: TModel) {\n  //     return this.items$().pipe(\n  //       map((items) => items.sort((prev, next) => next.order - prev.order)[0]),\n  //       map((lastItem) => lastItem.id === item.id),\n  //     );\n  //   }\n}\n",
+      "styleUrl": "./table-data.component.scss",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "// .actions {\n//   &__buttons {\n//     display: flex;\n//     align-items: center;\n//     justify-content: flex-end;\n//     gap: 0.5rem;\n//   }\n// }\n",
+          "styleUrl": "./table-data.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "extends": [],
+      "relationships": {
+        "incoming": [],
+        "outgoing": []
+      },
+      "templateData": "<p>table data component works!</p>\n\n<!-- @let selectedItem = selectedItem$() | async;\n@let items = items$() | async;\n@let columns = columns$() | async;\n\n@if (items && columns) {\n  <p-table\n    [value]=\"items\"\n    showGridlines\n    [tableStyle]=\"{ 'min-width': '50rem' }\"\n  >\n    <ng-template #header>\n      <tr>\n        @if (selectedItem) {\n          <th>Selected</th>\n        } @else {\n          <th>\n            Selected\n            <app-badge-misc-component\n              value=\"Nothing\"\n              severity=\"secondary\"\n            ></app-badge-misc-component>\n          </th>\n        }\n        @for (column of columns; track column.id; let index = $index) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th>Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        <td>\n          @if (selectedItem && selectedItem.id === item.id) {\n            <app-badge-misc-component\n              value=\"Selected\"\n              severity=\"secondary\"\n            ></app-badge-misc-component>\n          }\n        </td>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <td>{{ item[column.id] }}</td>\n          }\n        }\n        <td>\n          <div class=\"actions__buttons\">\n            @if (selectedItem && selectedItem.id === item.id) {\n              <app-button-form-component\n                label=\"Deselect\"\n                size=\"small\"\n                severity=\"secondary\"\n                (event)=\"onDeselect()\"\n              ></app-button-form-component>\n            } @else {\n              <app-button-form-component\n                label=\"Select\"\n                size=\"small\"\n                severity=\"secondary\"\n                (event)=\"onSelect(item)\"\n              ></app-button-form-component>\n            }\n            <app-button-form-component\n              label=\"Show\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onShow(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Update\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onUpdate(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Delete\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onDelete(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Move up\"\n              size=\"small\"\n              severity=\"secondary\"\n              [disabled]=\"checkIsFirstItem(item)\"\n              (event)=\"onMoveUp(item)\"\n            ></app-button-form-component>\n            @let isLastItem = checkIsLastItem(item) | async;\n            @if (isLastItem !== null) {\n              <app-button-form-component\n                label=\"Move down\"\n                size=\"small\"\n                severity=\"secondary\"\n                [disabled]=\"isLastItem\"\n                (event)=\"onMoveDown(item)\"\n              ></app-button-form-component>\n            }\n          </div>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n} -->\n"
     }
   ],
   "modules": [],
@@ -17357,17 +17818,6 @@
         "name": "messageCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly create ${entity} with id ${id}.`;\n}"
-      },
-      {
-        "name": "messageCreate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17376,7 +17826,7 @@
         "defaultValue": "(entity: string) => {\n  return `Should correctly create ${entity}.`;\n}"
       },
       {
-        "name": "messageDelete",
+        "name": "messageCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/database/util/database.util.ts",
@@ -17384,7 +17834,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly delete ${entity} with id ${id}.`;\n}"
+        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly create ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "messageDelete",
@@ -17396,6 +17846,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} delete ${entity} with id ${id}.`;\n}"
+      },
+      {
+        "name": "messageDelete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly delete ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "messageDeselect",
@@ -17445,17 +17906,6 @@
         "name": "messageReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly read ${entity} with id ${id}.`;\n}"
-      },
-      {
-        "name": "messageReadById",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17464,7 +17914,7 @@
         "defaultValue": "(\n  success: boolean,\n  entity: string,\n  id: number,\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by id ${id}.`;\n}"
       },
       {
-        "name": "messageReadByParentId",
+        "name": "messageReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/database/util/database.util.ts",
@@ -17472,7 +17922,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "(entity: string, parentId: number) => {\n  return `Should correctly read ${entity} with parent id ${parentId}.`;\n}"
+        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly read ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "messageReadByParentId",
@@ -17484,6 +17934,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(\n  success: boolean,\n  entity: string,\n  parentId: number | 'undefined',\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by parent id ${parentId}.`;\n}"
+      },
+      {
+        "name": "messageReadByParentId",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(entity: string, parentId: number) => {\n  return `Should correctly read ${entity} with parent id ${parentId}.`;\n}"
       },
       {
         "name": "messageSelect",
@@ -17500,23 +17961,23 @@
         "name": "messageUpdate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly update ${entity} with id ${id}.`;\n}"
-      },
-      {
-        "name": "messageUpdate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} update ${entity} with id ${id}.`;\n}"
+      },
+      {
+        "name": "messageUpdate",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly update ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "providerStore",
@@ -17599,17 +18060,6 @@
         "name": "testCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToCreate: BaseDatabaseModel<TData>,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.create(itemToCreate);\n  expect(database.readAll()).toEqual(expected);\n}"
-      },
-      {
-        "name": "testCreate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17618,7 +18068,7 @@
         "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>>,\n) => {\n  expect(logic.create(parentId, data)).toEqual(expected);\n}"
       },
       {
-        "name": "testDelete",
+        "name": "testCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/database/util/database.util.ts",
@@ -17626,7 +18076,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.delete(id);\n  expect(database.readAll()).toEqual(expected);\n}"
+        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToCreate: BaseDatabaseModel<TData>,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.create(itemToCreate);\n  expect(database.readAll()).toEqual(expected);\n}"
       },
       {
         "name": "testDelete",
@@ -17638,6 +18088,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.delete(id)).toEqual(expected);\n}"
+      },
+      {
+        "name": "testDelete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.delete(id);\n  expect(database.readAll()).toEqual(expected);\n}"
       },
       {
         "name": "testDeselect",
@@ -17687,17 +18148,6 @@
         "name": "testReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>,\n) => {\n  expect(database.readById(id)).toEqual(expected);\n}"
-      },
-      {
-        "name": "testReadById",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17706,7 +18156,7 @@
         "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.readById(id)).toEqual(expected);\n}"
       },
       {
-        "name": "testReadByParentId",
+        "name": "testReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/database/util/database.util.ts",
@@ -17714,7 +18164,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  parentId: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  expect(database.readByParentId(parentId)).toEqual(expected);\n}"
+        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>,\n) => {\n  expect(database.readById(id)).toEqual(expected);\n}"
       },
       {
         "name": "testReadByParentId",
@@ -17726,6 +18176,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>[]>,\n) => {\n  expect(logic.readByParentId(parentId)).toEqual(expected);\n}"
+      },
+      {
+        "name": "testReadByParentId",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  parentId: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  expect(database.readByParentId(parentId)).toEqual(expected);\n}"
       },
       {
         "name": "testSelect",
@@ -17742,23 +18203,23 @@
         "name": "testUpdate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/database/util/database.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToUpdate: BaseDatabaseModel<TData>,\n) => {\n  database.update(itemToUpdate);\n  expect(database.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);\n}"
-      },
-      {
-        "name": "testUpdate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.update(id, data)).toEqual(expected);\n}"
+      },
+      {
+        "name": "testUpdate",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/database/util/database.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToUpdate: BaseDatabaseModel<TData>,\n) => {\n  database.update(itemToUpdate);\n  expect(database.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);\n}"
       },
       {
         "name": "USER_0",
@@ -18735,6 +19196,15 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "appConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/component/data/table/table-data.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "TableDataComponent",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
