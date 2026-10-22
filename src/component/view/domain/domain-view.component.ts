@@ -1,98 +1,61 @@
-// import {
-//   ChangeDetectorRef,
-//   Component,
-//   inject,
-//   Injector,
-//   input,
-//   OnDestroy,
-//   OnInit,
-// } from '@angular/core';
-// import { Observable, of, Subscription } from 'rxjs';
+import {
+  Component,
+  inject,
+  Injector,
+  input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { Observable, of, Subscription, tap } from 'rxjs';
 
-// import { TableDataComponent } from '../../data/table/table-data.component';
-// import { BaseApiModel } from '../../../api/model/base-api.model';
-// import { BaseService } from '../../../service/base.service';
-// import { BaseStoreModel } from '../../../store/model/base-store.model';
-// import { ToolbarPanelComponent } from '../../panel/toolbar/toolbar-panel.component';
-// import { ConfirmationUtil } from '../../../util/confirmation.util';
+import { TableDataComponent } from '../../data/table/table-data.component';
+import { BaseService } from '../../../service/base.service';
+import { BaseApiModel } from '../../../api/model/base/base-api.model';
+import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 
-// @Component({
-//   selector: 'app-domain-view-component',
-//   templateUrl: './domain-view.component.html',
-//   imports: [TableDataComponent, ToolbarPanelComponent],
-// })
-// export class DomainViewComponent<TModel extends BaseApiModel>
-//   implements OnInit, OnDestroy
-// {
-//   private readonly cdr = inject(ChangeDetectorRef);
-//   private readonly injector = inject(Injector);
-//   private baseService!: BaseService<TModel>;
-//   private sub!: Subscription;
+@Component({
+  selector: 'app-domain-view-component',
+  templateUrl: './domain-view.component.html',
+  imports: [TableDataComponent],
+})
+export class DomainViewComponent<TData> implements OnInit, OnDestroy {
+  private readonly injector = inject(Injector);
 
-//   private readonly confirmationUtil = inject(ConfirmationUtil);
+  type = input.required<typeof BaseService<TData>>();
+  parentId = input.required<number | undefined>();
 
-//   baseServiceType = input.required<typeof BaseService<TModel>>();
+  columns$: Observable<BaseStoreColumnModel[]> = of([]);
+  items$: Observable<BaseApiModel<TData>[]> = of([]);
 
-//   label = '';
-//   item: TModel | undefined;
+  service!: BaseService<TData>;
+  sub!: Subscription;
 
-//   selectedItem$: Observable<BaseApiModel | undefined> = of(undefined);
-//   items$: Observable<BaseApiModel[]> = of([]);
-//   columns$: Observable<BaseStoreModel<TModel>['columns']> = of([]);
+  ngOnInit() {
+    this.service = this.injector.get(this.type());
+    this.sub = this.service
+      .readByParentId(undefined)
+      .pipe(
+        tap(() => {
+          this.columns$ = this.service.getColumns();
+          this.items$ = this.service.getItems();
+        }),
+      )
+      .subscribe();
+  }
 
-//   ngOnInit() {
-//     this.baseService = this.injector.get(this.baseServiceType());
-//     this.sub = this.baseService.readAll().subscribe(() => {
-//       this.selectedItem$ = this.baseService.getSelectedItem();
-//       this.items$ = this.baseService.getItems();
-//       this.columns$ = this.baseService.getColumns();
-//     });
-//   }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
-//   ngOnDestroy() {
-//     this.sub.unsubscribe();
-//   }
+  onDeleteEvent(id: number) {
+    this.service.delete(id).subscribe().unsubscribe();
+  }
 
-//   onCreateEvent() {
-//     console.log('create');
-//   }
+  onMoveUpEvent(id: number) {
+    this.service.moveUp(id).subscribe().unsubscribe();
+  }
 
-//   onSelectEvent(item: TModel) {
-//     this.baseService.selectItem(item).subscribe();
-//   }
-
-//   onDeselectEvent() {
-//     this.baseService.deselectItem().subscribe();
-//   }
-
-//   onShowEvent(item: TModel) {
-//     console.log('show', item);
-//   }
-
-//   onUpdateEvent(item: TModel) {
-//     console.log('update', item);
-//   }
-
-//   onDeleteEvent(item: TModel) {
-//     this.confirmationUtil.confirm(
-//       'Are you sure you want to proceed with the deletion? This action cannot be undone.',
-//       'Confirm Delete',
-//       'Delete',
-//       () => this.onDelete(item),
-//     );
-//   }
-
-//   onMoveUpEvent(item: TModel) {
-//     this.baseService.moveUp(item).subscribe(() => {
-//       this.cdr.markForCheck();
-//     });
-//   }
-
-//   onMoveDownEvent(item: TModel) {
-//     this.baseService.moveDown(item).subscribe();
-//   }
-
-//   onDelete(item: TModel) {
-//     this.baseService.delete(item).subscribe();
-//   }
-// }
+  onMoveDownEvent(id: number) {
+    this.service.moveDown(id).subscribe().unsubscribe();
+  }
+}

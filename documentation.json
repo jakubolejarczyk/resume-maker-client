@@ -326,12 +326,12 @@
     },
     {
       "name": "EducationDataApiModel",
-      "id": "interface-EducationDataApiModel-c2a2acf06b62aa9fa00899ab28fcfdf6d75128a3553d0290421f0d14d42e39850403f408f58f9c075ea5998d18d4e1ada40ae007a65af9cb8d6e1a6f8e0602f0",
+      "id": "interface-EducationDataApiModel-14e16e110162cae975e25fd5cfccdabc992a5c05916071195dffa5ad75a9f2a34bdd2658461ee087ab584ff93a1a681cc58832835c5d47b497703e9ce717dabb",
       "file": "src/api/model/data/education-data-api.model.ts",
       "deprecated": false,
       "deprecationMessage": "",
       "type": "interface",
-      "sourceCode": "export interface EducationDataApiModel {\r\n  institutionName: string;\r\n  fieldOfStudy: string;\r\n  degree: string;\r\n  startYear: number;\r\n  endYear: number;\r\n}\r\n",
+      "sourceCode": "export interface EducationDataApiModel {\n  institutionName: string;\n  fieldOfStudy: string;\n  degree: string;\n  startYear: number;\n  endYear: number;\n}\n",
       "displayName": "EducationDataApiModel",
       "properties": [
         {
@@ -17548,29 +17548,20 @@
       }
     },
     {
-      "name": "TableDataComponent",
-      "id": "component-TableDataComponent-ad8f05d19bc83c9aafef65f9d5c694955b29c0c74dcc16a6d373d45b212115a9e9be28e650b9c179c9dfc3d027e8989ed983f164687d4f8919bb0009f1a6b87d",
-      "file": "src/component/data/table/table-data.component.ts",
+      "name": "DomainViewComponent",
+      "id": "component-DomainViewComponent-7fbaae5e6a6eb1b1ae11737dbae8739fcdd556fdb28b898dfd84b132e33a3c667c1810497de270056f3a36978c8979a588980d8e1fb33698b9238974f3503734",
+      "file": "src/component/view/domain/domain-view.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
       "entryComponents": [],
       "inputs": [],
       "outputs": [],
       "providers": [],
-      "selector": "app-table-data-component",
-      "styleUrls": ["./table-data.component.scss"],
+      "selector": "app-domain-view-component",
+      "styleUrls": [],
       "styles": [],
-      "templateUrl": ["./table-data.component.html"],
-      "templateVariables": [
-        {
-          "name": "columns",
-          "defaultValue": "getColumns() | async"
-        },
-        {
-          "name": "items",
-          "defaultValue": "getItems() | async"
-        }
-      ],
+      "templateUrl": ["./domain-view.component.html"],
+      "templateVariables": [],
       "viewProviders": [],
       "hostDirectives": [],
       "inputsClass": [
@@ -17579,7 +17570,7 @@
           "coverageIgnore": false,
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "any",
+          "type": "typeof BaseService<TData>",
           "indexKey": "",
           "optional": false,
           "description": "",
@@ -17591,15 +17582,55 @@
       "outputsClass": [],
       "propertiesClass": [
         {
-          "name": "service",
+          "name": "columns$",
           "coverageIgnore": false,
+          "defaultValue": "of([])",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "BaseService<any>",
+          "type": "Observable<BaseStoreColumnModel[]>",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 19,
+          "rawdescription": "\n"
+        },
+        {
+          "name": "injector",
+          "coverageIgnore": false,
+          "defaultValue": "inject(Injector)",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "unknown",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 15,
+          "rawdescription": "\n",
+          "modifierKind": [123, 148]
+        },
+        {
+          "name": "items$",
+          "coverageIgnore": false,
+          "defaultValue": "of([])",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Observable<BaseApiModel[]>",
           "indexKey": "",
           "optional": false,
           "description": "",
           "line": 20,
+          "rawdescription": "\n"
+        },
+        {
+          "name": "service",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "BaseService<TData>",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 22,
           "rawdescription": "\n"
         },
         {
@@ -17611,37 +17642,11 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 22,
+          "line": 23,
           "rawdescription": "\n"
         }
       ],
       "methodsClass": [
-        {
-          "name": "getColumns",
-          "coverageIgnore": false,
-          "args": [],
-          "optional": false,
-          "returnType": "any",
-          "typeParameters": [],
-          "line": 33,
-          "deprecated": false,
-          "deprecationMessage": "",
-          "rawdescription": "\n",
-          "description": ""
-        },
-        {
-          "name": "getItems",
-          "coverageIgnore": false,
-          "args": [],
-          "optional": false,
-          "returnType": "any",
-          "typeParameters": [],
-          "line": 37,
-          "deprecated": false,
-          "deprecationMessage": "",
-          "rawdescription": "\n",
-          "description": ""
-        },
         {
           "name": "ngOnDestroy",
           "coverageIgnore": false,
@@ -17649,7 +17654,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 29,
+          "line": 35,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -17662,12 +17667,294 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 24,
+          "line": 25,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
           "description": ""
         },
+        {
+          "name": "onDeleteEvent",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 39,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onMoveDownEvent",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 47,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onMoveUpEvent",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 43,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        }
+      ],
+      "coverageIgnore": false,
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [
+        {
+          "name": "TableDataComponent",
+          "type": "component"
+        }
+      ],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component, inject, Injector, input, OnDestroy, OnInit } from \"@angular/core\";\nimport { Observable, of, Subscription, tap } from \"rxjs\";\n\nimport { TableDataComponent } from \"../../data/table/table-data.component\";\nimport { BaseService } from \"../../../service/base.service\";\nimport { BaseApiModel } from \"../../../api/model/base/base-api.model\";\nimport { BaseStoreColumnModel } from \"../../../store/model/base-store.model\";\n\n@Component({\n  selector: 'app-domain-view-component',\n  templateUrl: './domain-view.component.html',\n  imports: [TableDataComponent]\n})\nexport class DomainViewComponent<TData> implements OnInit, OnDestroy {\n  private readonly injector = inject(Injector);\n\n  type = input.required<typeof BaseService<TData>>();\n\n  columns$: Observable<BaseStoreColumnModel[]> = of([]);\n  items$: Observable<BaseApiModel<TData>[]> = of([]);\n\n  service!: BaseService<TData>;\n  sub!: Subscription;\n\n  ngOnInit() {\n    this.service = this.injector.get(this.type());\n    this.sub = this.service.readByParentId(undefined).pipe(\n      tap(() => {\n        this.columns$ = this.service.getColumns();\n        this.items$ = this.service.getItems();\n      })\n    ).subscribe();\n  }\n\n  ngOnDestroy() {\n    this.sub.unsubscribe();\n  }\n\n  onDeleteEvent(id: number) {\n    this.service.delete(id).subscribe().unsubscribe();\n  }\n\n  onMoveUpEvent(id: number) {\n    this.service.moveUp(id).subscribe().unsubscribe();\n  }\n\n  onMoveDownEvent(id: number) {\n    this.service.moveDown(id).subscribe().unsubscribe();\n  }\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": [],
+      "implements": ["OnInit", "OnDestroy"],
+      "relationships": {
+        "incoming": [],
+        "outgoing": [
+          {
+            "name": "TableDataComponent",
+            "type": "component"
+          },
+          {
+            "name": "OnInit",
+            "type": "interface"
+          },
+          {
+            "name": "OnDestroy",
+            "type": "interface"
+          }
+        ]
+      },
+      "templateData": "<app-table-data-component [columns$]=\"columns$\" [items$]=\"items$\"></app-table-data-component>"
+    },
+    {
+      "name": "TableDataComponent",
+      "id": "component-TableDataComponent-5bc75f027ee0eb47accff7c8ee86ff2602a5654acd0a0388ab62fa0eaef17119127c96e6584cc0fed893b5fab170a8ee17689ae20017e562c46617d241099684",
+      "file": "src/component/data/table/table-data.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-table-data-component",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./table-data.component.html"],
+      "templateVariables": [
+        {
+          "name": "items",
+          "defaultValue": "items$() | async"
+        },
+        {
+          "name": "columns",
+          "defaultValue": "columns$() | async"
+        }
+      ],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [
+        {
+          "name": "columns$",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Observable<BaseStoreColumnModel[]>",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 16,
+          "rawdescription": "\n",
+          "required": true
+        },
+        {
+          "name": "items$",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Observable<BaseApiModel<TData>[]>",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 17,
+          "rawdescription": "\n",
+          "required": true
+        }
+      ],
+      "outputsClass": [
+        {
+          "name": "onDeleteEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 22,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onDeselectEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 19,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onMoveDownEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 24,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onMoveUpEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 23,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onSelectEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 20,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onUpdateEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 21,
+          "rawdescription": "\n",
+          "required": false
+        }
+      ],
+      "propertiesClass": [],
+      "methodsClass": [
         {
           "name": "onDelete",
           "coverageIgnore": false,
@@ -17684,7 +17971,42 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 49,
+          "line": 38,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onDeselect",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 26,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -17719,7 +18041,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 45,
+          "line": 46,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -17754,7 +18076,77 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 41,
+          "line": 42,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onSelect",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 30,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onUpdate",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 34,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -17797,20 +18189,18 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, inject, input, OnDestroy, OnInit } from '@angular/core';\nimport { TableModule } from 'primeng/table';\nimport { AsyncPipe } from '@angular/common';\nimport { Subscription } from 'rxjs';\nimport { ButtonDirective } from 'primeng/button';\n\nimport { BaseService } from '../../../service/base.service';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  imports: [TableModule, ButtonDirective, AsyncPipe],\n})\nexport class TableDataComponent implements OnInit, OnDestroy {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  type = input.required<any>();\n\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  service!: BaseService<any>;\n\n  sub!: Subscription;\n\n  ngOnInit() {\n    this.service = inject(this.type());\n    this.sub = this.service.readByParentId(undefined).subscribe();\n  }\n\n  ngOnDestroy() {\n    this.sub.unsubscribe();\n  }\n\n  getColumns() {\n    return this.service.getColumns();\n  }\n\n  getItems() {\n    return this.service.getItems();\n  }\n\n  onMoveUp(id: number) {\n    this.service.moveUp(id).subscribe();\n  }\n\n  onMoveDown(id: number) {\n    this.service.moveDown(id).subscribe();\n  }\n\n  onDelete(id: number) {\n    this.service.delete(id).subscribe();\n  }\n}\n",
-      "styleUrl": "./table-data.component.scss",
+      "sourceCode": "import { Component, input, output } from \"@angular/core\";\nimport { AsyncPipe } from \"@angular/common\";\nimport { Observable } from \"rxjs\";\nimport { TableModule } from 'primeng/table';\nimport { ButtonDirective } from 'primeng/button';\n\nimport { BaseStoreColumnModel } from \"../../../store/model/base-store.model\";\nimport { BaseApiModel } from \"../../../api/model/base/base-api.model\";\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  imports: [TableModule, ButtonDirective, AsyncPipe],\n})\nexport class TableDataComponent<TData> {\n  columns$ = input.required<Observable<BaseStoreColumnModel[]>>();\n  items$ = input.required<Observable<BaseApiModel<TData>[]>>();\n\n  onDeselectEvent = output<number>();\n  onSelectEvent = output<number>();\n  onUpdateEvent = output<number>();\n  onDeleteEvent = output<number>();\n  onMoveUpEvent = output<number>();\n  onMoveDownEvent = output<number>();\n\n  onDeselect(id: number) {\n    this.onDeselectEvent.emit(id);\n  }\n\n  onSelect(id: number) {\n    this.onSelectEvent.emit(id);\n  }\n\n  onUpdate(id: number) {\n    this.onUpdateEvent.emit(id);\n  }\n\n  onDelete(id: number) {\n    this.onDeleteEvent.emit(id);\n  }\n\n  onMoveUp(id: number) {\n    this.onMoveUpEvent.emit(id);\n  }\n\n  onMoveDown(id: number) {\n    this.onMoveDownEvent.emit(id);\n  }\n}\n",
       "assetsDirs": [],
-      "styleUrlsData": [
-        {
-          "data": "",
-          "styleUrl": "./table-data.component.scss"
-        }
-      ],
+      "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
-      "implements": ["OnInit", "OnDestroy"],
       "relationships": {
-        "incoming": [],
+        "incoming": [
+          {
+            "name": "DomainViewComponent",
+            "type": "component"
+          }
+        ],
         "outgoing": [
           {
             "name": "TableModule",
@@ -17823,18 +18213,10 @@
           {
             "name": "AsyncPipe",
             "type": "pipe"
-          },
-          {
-            "name": "OnInit",
-            "type": "interface"
-          },
-          {
-            "name": "OnDestroy",
-            "type": "interface"
           }
         ]
       },
-      "templateData": "@let columns = getColumns() | async;\n@let items = getItems() | async;\n\n@if (items) {\n  <p-table [value]=\"items\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n    <ng-template #header>\n      <tr>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th>Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <td>{{ item.data[column.id] }}</td>\n          }\n        }\n        <td>\n          <button pButton (click)=\"onMoveUp(item.metadata.id)\">Move up</button>\n          <button pButton (click)=\"onMoveDown(item.metadata.id)\">\n            Move down\n          </button>\n          <button pButton (click)=\"onDelete(item.metadata.id)\">Delete</button>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n}\n"
+      "templateData": "@let items = items$() | async;\n\n@if (items) {\n  @let columns = columns$() | async;\n  <p-table [value]=\"items\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n    <ng-template #header>\n      <tr>\n        <th>Selected</th>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th>Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        <td>\n          @if (item.metadata.isSelected) {\n            <button pButton severity=\"secondary\" (click)=\"onDeselect(item.metadata.id)\">Deselect</button>\n          } @else {\n            <button pButton severity=\"secondary\" (click)=\"onSelect(item.metadata.id)\">Select</button>\n          }\n        </td>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <th>{{ item.data[column.id] }}</th>\n          }\n        }\n        <td>\n          <button pButton severity=\"secondary\" (click)=\"onUpdate(item.metadata.id)\">Update</button>\n          <button pButton severity=\"secondary\" (click)=\"onDelete(item.metadata.id)\">Delete</button>\n          <button pButton severity=\"secondary\" (click)=\"onMoveUp(item.metadata.id)\">Deselect</button>\n          <button pButton severity=\"secondary\" (click)=\"onMoveDown(item.metadata.id)\">Deselect</button>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n}\n"
     }
   ],
   "modules": [],
@@ -19430,7 +19812,16 @@
         "linktype": "component",
         "name": "TableDataComponent",
         "coveragePercent": 0,
-        "coverageCount": "0/11",
+        "coverageCount": "0/15",
+        "status": "low"
+      },
+      {
+        "filePath": "src/component/view/domain/domain-view.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "DomainViewComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/12",
         "status": "low"
       },
       {

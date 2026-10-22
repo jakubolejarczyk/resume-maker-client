@@ -1,61 +1,49 @@
-import {
-  Component,
-  inject,
-  Injector,
-  input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { TableModule } from 'primeng/table';
+import { Component, input, output } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { TableModule } from 'primeng/table';
 import { ButtonDirective } from 'primeng/button';
 
-import { BaseService } from '../../../service/base.service';
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
+import { BaseApiModel } from '../../../api/model/base/base-api.model';
 
 @Component({
   selector: 'app-table-data-component',
   templateUrl: './table-data.component.html',
-  styleUrl: './table-data.component.scss',
   imports: [TableModule, ButtonDirective, AsyncPipe],
 })
-export class TableDataComponent implements OnInit, OnDestroy {
-  private readonly injector = inject(Injector);
+export class TableDataComponent<TData> {
+  columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
+  items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type = input.required<any>();
+  onDeselectEvent = output<number>();
+  onSelectEvent = output<number>();
+  onUpdateEvent = output<number>();
+  onDeleteEvent = output<number>();
+  onMoveUpEvent = output<number>();
+  onMoveDownEvent = output<number>();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  service!: BaseService<any>;
-
-  columns$: Observable<BaseStoreColumnModel[]> = of([]);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  items$: Observable<any[]> = of([]);
-
-  sub!: Subscription;
-
-  ngOnInit() {
-    this.service = this.injector.get(this.type());
-    this.sub = this.service.readByParentId(undefined).subscribe();
-    this.columns$ = this.service.getColumns();
-    this.items$ = this.service.getItems();
+  onDeselect(id: number) {
+    this.onDeselectEvent.emit(id);
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  onSelect(id: number) {
+    this.onSelectEvent.emit(id);
   }
 
-  onMoveUp(id: number) {
-    this.service.moveUp(id).subscribe();
-  }
-
-  onMoveDown(id: number) {
-    this.service.moveDown(id).subscribe();
+  onUpdate(id: number) {
+    this.onUpdateEvent.emit(id);
   }
 
   onDelete(id: number) {
-    this.service.delete(id).subscribe();
+    this.onDeleteEvent.emit(id);
+  }
+
+  onMoveUp(id: number) {
+    this.onMoveUpEvent.emit(id);
+  }
+
+  onMoveDown(id: number) {
+    this.onMoveDownEvent.emit(id);
   }
 }

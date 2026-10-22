@@ -1,10 +1,11 @@
-@let columns = columns$ | async;
-@let items = items$ | async;
+@let items = items$() | async;
 
 @if (items) {
+  @let columns = columns$() | async;
   <p-table [value]="items" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template #header>
       <tr>
+        <th>Selected</th>
         @for (column of columns; track column.id) {
           @if (column.isVisible) {
             <th>{{ column.label }}</th>
@@ -15,17 +16,59 @@
     </ng-template>
     <ng-template #body let-item>
       <tr>
+        <td>
+          @if (item.metadata.isSelected) {
+            <button
+              pButton
+              severity="secondary"
+              (click)="onDeselect(item.metadata.id)"
+            >
+              Deselect
+            </button>
+          } @else {
+            <button
+              pButton
+              severity="secondary"
+              (click)="onSelect(item.metadata.id)"
+            >
+              Select
+            </button>
+          }
+        </td>
         @for (column of columns; track column.id) {
           @if (column.isVisible) {
-            <td>{{ item.data[column.id] }}</td>
+            <th>{{ item.data[column.id] }}</th>
           }
         }
         <td>
-          <button pButton (click)="onMoveUp(item.metadata.id)">Move up</button>
-          <button pButton (click)="onMoveDown(item.metadata.id)">
-            Move down
+          <button
+            pButton
+            severity="secondary"
+            (click)="onUpdate(item.metadata.id)"
+          >
+            Update
           </button>
-          <button pButton (click)="onDelete(item.metadata.id)">Delete</button>
+          <button
+            pButton
+            severity="secondary"
+            (click)="onDelete(item.metadata.id)"
+          >
+            Delete
+          </button>
+          <button
+            pButton
+            severity="secondary"
+            (click)="onMoveUp(item.metadata.id)"
+          >
+            Deselect
+          </button>
+          <button
+            pButton
+            severity="secondary"
+            (click)="onMoveDown(item.metadata.id)"
+          >
+            Deselect
+          </button>
         </td>
       </tr>
     </ng-template>
