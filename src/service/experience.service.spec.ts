@@ -211,12 +211,12 @@ describe('Experience Service', () => {
         map((items) =>
           expect(items).toEqual([
             {
-              ...EXPERIENCE_0,
-              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
-            },
-            {
               ...EXPERIENCE_1,
               metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+            },
+            {
+              ...EXPERIENCE_0,
+              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
             },
           ]),
         ),
@@ -232,12 +232,12 @@ describe('Experience Service', () => {
         map((items) =>
           expect(items).toEqual([
             {
-              ...EXPERIENCE_0,
-              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
-            },
-            {
               ...EXPERIENCE_1,
               metadata: { ...EXPERIENCE_1.metadata, order: 0 },
+            },
+            {
+              ...EXPERIENCE_0,
+              metadata: { ...EXPERIENCE_0.metadata, order: 1 },
             },
           ]),
         ),

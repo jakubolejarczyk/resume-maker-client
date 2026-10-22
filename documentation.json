@@ -17549,7 +17549,7 @@
     },
     {
       "name": "TableDataComponent",
-      "id": "component-TableDataComponent-790c7bac8bbbcee1efbd3d727aa6db5c665c08a8a4ea779e6286dd71e1e9caa77c9fb2c6e1e1539d90f578ffcc7afa7ead2967c586c136791bc3ae7a8c2193ec",
+      "id": "component-TableDataComponent-b09f5139a6ef594adb0fb1934e6c64ce0f6e5aa48043fb268383306f89b69c5791b92a2e279cc1d47766662002967b044dfd379c414de77f47646cf3584b63be",
       "file": "src/component/data/table/table-data.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -17563,44 +17563,86 @@
       "templateUrl": ["./table-data.component.html"],
       "templateVariables": [
         {
-          "name": "selectedItem",
-          "defaultValue": "selectedItem$() | async"
+          "name": "columns",
+          "defaultValue": "getColumns() | async"
         },
         {
           "name": "items",
-          "defaultValue": "items$() | async"
-        },
-        {
-          "name": "columns",
-          "defaultValue": "columns$() | async"
-        },
-        {
-          "name": "isLastItem",
-          "defaultValue": "checkIsLastItem(item) | async"
+          "defaultValue": "getItems() | async"
         }
       ],
       "viewProviders": [],
       "hostDirectives": [],
       "inputsClass": [],
       "outputsClass": [],
-      "propertiesClass": [],
-      "methodsClass": [],
+      "propertiesClass": [
+        {
+          "name": "service",
+          "coverageIgnore": false,
+          "defaultValue": "inject(UserService)",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "unknown",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 14,
+          "rawdescription": "\n"
+        }
+      ],
+      "methodsClass": [
+        {
+          "name": "getColumns",
+          "coverageIgnore": false,
+          "args": [],
+          "optional": false,
+          "returnType": "any",
+          "typeParameters": [],
+          "line": 16,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": ""
+        },
+        {
+          "name": "getItems",
+          "coverageIgnore": false,
+          "args": [],
+          "optional": false,
+          "returnType": "any",
+          "typeParameters": [],
+          "line": 20,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": ""
+        }
+      ],
       "coverageIgnore": false,
       "deprecated": false,
       "deprecationMessage": "",
       "hostBindings": [],
       "hostListeners": [],
       "standalone": true,
-      "imports": [],
+      "imports": [
+        {
+          "name": "TableModule",
+          "type": "module"
+        },
+        {
+          "name": "AsyncPipe",
+          "type": "pipe"
+        }
+      ],
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  //   imports: [TableModule, ButtonFormComponent, BadgeMiscComponent, AsyncPipe],\n})\nexport class TableDataComponent {\n  //   items$ = input.required<Observable<BaseApiModel[]>>();\n  //   selectedItem$ = input.required<Observable<BaseApiModel | undefined>>();\n  //   columns$ = input.required<Observable<BaseStoreModel<TModel>['columns']>>();\n  //   onSelectEvent = output<TModel>();\n  //   onDeselectEvent = output();\n  //   onShowEvent = output<TModel>();\n  //   onUpdateEvent = output<TModel>();\n  //   onDeleteEvent = output<TModel>();\n  //   onMoveUpEvent = output<TModel>();\n  //   onMoveDownEvent = output<TModel>();\n  //   onSelect(item: TModel) {\n  //     this.onSelectEvent.emit(item);\n  //   }\n  //   onDeselect() {\n  //     this.onDeselectEvent.emit();\n  //   }\n  //   onShow(item: TModel) {\n  //     this.onShowEvent.emit(item);\n  //   }\n  //   onUpdate(item: TModel) {\n  //     this.onUpdateEvent.emit(item);\n  //   }\n  //   onDelete(item: TModel) {\n  //     this.onDeleteEvent.emit(item);\n  //   }\n  //   onMoveUp(item: TModel) {\n  //     this.onMoveUpEvent.emit(item);\n  //   }\n  //   onMoveDown(item: TModel) {\n  //     this.onMoveDownEvent.emit(item);\n  //   }\n  //   checkIsFirstItem(item: TModel) {\n  //     return item.order === 0;\n  //   }\n  //   checkIsLastItem(item: TModel) {\n  //     return this.items$().pipe(\n  //       map((items) => items.sort((prev, next) => next.order - prev.order)[0]),\n  //       map((lastItem) => lastItem.id === item.id),\n  //     );\n  //   }\n}\n",
+      "sourceCode": "import { Component, inject } from '@angular/core';\nimport { TableModule } from 'primeng/table';\nimport { AsyncPipe } from '@angular/common';\n\nimport { UserService } from '../../../service/user.service';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  imports: [TableModule, AsyncPipe],\n})\nexport class TableDataComponent {\n  service = inject(UserService);\n\n  getColumns() {\n    return this.service.getColumns();\n  }\n\n  getItems() {\n    return this.service.getItems();\n  }\n  \n  //   items$ = input.required<Observable<BaseApiModel[]>>();\n  //   selectedItem$ = input.required<Observable<BaseApiModel | undefined>>();\n  //   columns$ = input.required<Observable<BaseStoreModel<TModel>['columns']>>();\n  //   onSelectEvent = output<TModel>();\n  //   onDeselectEvent = output();\n  //   onShowEvent = output<TModel>();\n  //   onUpdateEvent = output<TModel>();\n  //   onDeleteEvent = output<TModel>();\n  //   onMoveUpEvent = output<TModel>();\n  //   onMoveDownEvent = output<TModel>();\n  //   onSelect(item: TModel) {\n  //     this.onSelectEvent.emit(item);\n  //   }\n  //   onDeselect() {\n  //     this.onDeselectEvent.emit();\n  //   }\n  //   onShow(item: TModel) {\n  //     this.onShowEvent.emit(item);\n  //   }\n  //   onUpdate(item: TModel) {\n  //     this.onUpdateEvent.emit(item);\n  //   }\n  //   onDelete(item: TModel) {\n  //     this.onDeleteEvent.emit(item);\n  //   }\n  //   onMoveUp(item: TModel) {\n  //     this.onMoveUpEvent.emit(item);\n  //   }\n  //   onMoveDown(item: TModel) {\n  //     this.onMoveDownEvent.emit(item);\n  //   }\n  //   checkIsFirstItem(item: TModel) {\n  //     return item.order === 0;\n  //   }\n  //   checkIsLastItem(item: TModel) {\n  //     return this.items$().pipe(\n  //       map((items) => items.sort((prev, next) => next.order - prev.order)[0]),\n  //       map((lastItem) => lastItem.id === item.id),\n  //     );\n  //   }\n}\n",
       "styleUrl": "./table-data.component.scss",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": "// .actions {\n//   &__buttons {\n//     display: flex;\n//     align-items: center;\n//     justify-content: flex-end;\n//     gap: 0.5rem;\n//   }\n// }\n",
+          "data": "",
           "styleUrl": "./table-data.component.scss"
         }
       ],
@@ -17608,9 +17650,18 @@
       "extends": [],
       "relationships": {
         "incoming": [],
-        "outgoing": []
+        "outgoing": [
+          {
+            "name": "TableModule",
+            "type": "module"
+          },
+          {
+            "name": "AsyncPipe",
+            "type": "pipe"
+          }
+        ]
       },
-      "templateData": "<p>table data component works!</p>\n\n<!-- @let selectedItem = selectedItem$() | async;\n@let items = items$() | async;\n@let columns = columns$() | async;\n\n@if (items && columns) {\n  <p-table\n    [value]=\"items\"\n    showGridlines\n    [tableStyle]=\"{ 'min-width': '50rem' }\"\n  >\n    <ng-template #header>\n      <tr>\n        @if (selectedItem) {\n          <th>Selected</th>\n        } @else {\n          <th>\n            Selected\n            <app-badge-misc-component\n              value=\"Nothing\"\n              severity=\"secondary\"\n            ></app-badge-misc-component>\n          </th>\n        }\n        @for (column of columns; track column.id; let index = $index) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th>Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        <td>\n          @if (selectedItem && selectedItem.id === item.id) {\n            <app-badge-misc-component\n              value=\"Selected\"\n              severity=\"secondary\"\n            ></app-badge-misc-component>\n          }\n        </td>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <td>{{ item[column.id] }}</td>\n          }\n        }\n        <td>\n          <div class=\"actions__buttons\">\n            @if (selectedItem && selectedItem.id === item.id) {\n              <app-button-form-component\n                label=\"Deselect\"\n                size=\"small\"\n                severity=\"secondary\"\n                (event)=\"onDeselect()\"\n              ></app-button-form-component>\n            } @else {\n              <app-button-form-component\n                label=\"Select\"\n                size=\"small\"\n                severity=\"secondary\"\n                (event)=\"onSelect(item)\"\n              ></app-button-form-component>\n            }\n            <app-button-form-component\n              label=\"Show\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onShow(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Update\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onUpdate(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Delete\"\n              size=\"small\"\n              severity=\"secondary\"\n              (event)=\"onDelete(item)\"\n            ></app-button-form-component>\n            <app-button-form-component\n              label=\"Move up\"\n              size=\"small\"\n              severity=\"secondary\"\n              [disabled]=\"checkIsFirstItem(item)\"\n              (event)=\"onMoveUp(item)\"\n            ></app-button-form-component>\n            @let isLastItem = checkIsLastItem(item) | async;\n            @if (isLastItem !== null) {\n              <app-button-form-component\n                label=\"Move down\"\n                size=\"small\"\n                severity=\"secondary\"\n                [disabled]=\"isLastItem\"\n                (event)=\"onMoveDown(item)\"\n              ></app-button-form-component>\n            }\n          </div>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n} -->\n"
+      "templateData": "@let columns = getColumns() | async;\n@let items = getItems() | async;\n\n@if (items) {\n  <p-table [value]=\"items\" [tableStyle]=\"{ 'min-width': '50rem' }\">\n      <ng-template #header>\n          <tr>\n            @for (column of columns; track column.id) {\n              @if (column.isVisible) {\n                <th>{{ column.label }}</th>\n              }\n            }\n          </tr>\n      </ng-template>\n      <ng-template #body let-item>\n          <tr>\n            @for (column of columns; track column.id) {\n              @if (column.isVisible) {\n                <td>{{ item.data[column.id] }}</td>\n              }\n            }\n          </tr>\n      </ng-template>\n  </p-table>\n}"
     }
   ],
   "modules": [],
@@ -17818,17 +17869,6 @@
         "name": "messageCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(entity: string) => {\n  return `Should correctly create ${entity}.`;\n}"
-      },
-      {
-        "name": "messageCreate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17837,7 +17877,7 @@
         "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly create ${entity} with id ${id}.`;\n}"
       },
       {
-        "name": "messageDelete",
+        "name": "messageCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
@@ -17845,7 +17885,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} delete ${entity} with id ${id}.`;\n}"
+        "defaultValue": "(entity: string) => {\n  return `Should correctly create ${entity}.`;\n}"
       },
       {
         "name": "messageDelete",
@@ -17857,6 +17897,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly delete ${entity} with id ${id}.`;\n}"
+      },
+      {
+        "name": "messageDelete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} delete ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "messageDeselect",
@@ -17906,17 +17957,6 @@
         "name": "messageReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(\n  success: boolean,\n  entity: string,\n  id: number,\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by id ${id}.`;\n}"
-      },
-      {
-        "name": "messageReadById",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -17925,7 +17965,7 @@
         "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly read ${entity} with id ${id}.`;\n}"
       },
       {
-        "name": "messageReadByParentId",
+        "name": "messageReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
@@ -17933,7 +17973,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "(\n  success: boolean,\n  entity: string,\n  parentId: number | 'undefined',\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by parent id ${parentId}.`;\n}"
+        "defaultValue": "(\n  success: boolean,\n  entity: string,\n  id: number,\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by id ${id}.`;\n}"
       },
       {
         "name": "messageReadByParentId",
@@ -17945,6 +17985,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(entity: string, parentId: number) => {\n  return `Should correctly read ${entity} with parent id ${parentId}.`;\n}"
+      },
+      {
+        "name": "messageReadByParentId",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(\n  success: boolean,\n  entity: string,\n  parentId: number | 'undefined',\n) => {\n  return `Should ${getMessageContext(success)} read ${entity} by parent id ${parentId}.`;\n}"
       },
       {
         "name": "messageSelect",
@@ -17961,23 +18012,23 @@
         "name": "messageUpdate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} update ${entity} with id ${id}.`;\n}"
-      },
-      {
-        "name": "messageUpdate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "(entity: string, id: number) => {\n  return `Should correctly update ${entity} with id ${id}.`;\n}"
+      },
+      {
+        "name": "messageUpdate",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "(success: boolean, entity: string, id: number) => {\n  return `Should ${getMessageContext(success)} update ${entity} with id ${id}.`;\n}"
       },
       {
         "name": "providerStore",
@@ -18060,17 +18111,6 @@
         "name": "testCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>>,\n) => {\n  expect(logic.create(parentId, data)).toEqual(expected);\n}"
-      },
-      {
-        "name": "testCreate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -18079,7 +18119,7 @@
         "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToCreate: BaseDatabaseModel<TData>,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.create(itemToCreate);\n  expect(database.readAll()).toEqual(expected);\n}"
       },
       {
-        "name": "testDelete",
+        "name": "testCreate",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
@@ -18087,7 +18127,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.delete(id)).toEqual(expected);\n}"
+        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>>,\n) => {\n  expect(logic.create(parentId, data)).toEqual(expected);\n}"
       },
       {
         "name": "testDelete",
@@ -18099,6 +18139,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  database.delete(id);\n  expect(database.readAll()).toEqual(expected);\n}"
+      },
+      {
+        "name": "testDelete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.delete(id)).toEqual(expected);\n}"
       },
       {
         "name": "testDeselect",
@@ -18148,17 +18199,6 @@
         "name": "testReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.readById(id)).toEqual(expected);\n}"
-      },
-      {
-        "name": "testReadById",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
@@ -18167,7 +18207,7 @@
         "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  id: number,\n  expected: BaseDatabaseModel<TData>,\n) => {\n  expect(database.readById(id)).toEqual(expected);\n}"
       },
       {
-        "name": "testReadByParentId",
+        "name": "testReadById",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/logic/util/logic.util.ts",
@@ -18175,7 +18215,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
-        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>[]>,\n) => {\n  expect(logic.readByParentId(parentId)).toEqual(expected);\n}"
+        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.readById(id)).toEqual(expected);\n}"
       },
       {
         "name": "testReadByParentId",
@@ -18187,6 +18227,17 @@
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  parentId: number,\n  expected: BaseDatabaseModel<TData>[],\n) => {\n  expect(database.readByParentId(parentId)).toEqual(expected);\n}"
+      },
+      {
+        "name": "testReadByParentId",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  parentId: number | undefined,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData>[]>,\n) => {\n  expect(logic.readByParentId(parentId)).toEqual(expected);\n}"
       },
       {
         "name": "testSelect",
@@ -18203,23 +18254,23 @@
         "name": "testUpdate",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/logic/util/logic.util.ts",
-        "coverageIgnore": false,
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "unknown",
-        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.update(id, data)).toEqual(expected);\n}"
-      },
-      {
-        "name": "testUpdate",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/database/util/database.util.ts",
         "coverageIgnore": false,
         "deprecated": false,
         "deprecationMessage": "",
         "type": "unknown",
         "defaultValue": "<TData>(\n  database: BaseDatabaseService<TData>,\n  itemToUpdate: BaseDatabaseModel<TData>,\n) => {\n  database.update(itemToUpdate);\n  expect(database.readById(itemToUpdate.metadata.id)).toEqual(itemToUpdate);\n}"
+      },
+      {
+        "name": "testUpdate",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/logic/util/logic.util.ts",
+        "coverageIgnore": false,
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "unknown",
+        "defaultValue": "<TData>(\n  logic: BaseLogicService<TData>,\n  id: number,\n  data: TData,\n  expected: ResponseLogicModel<BaseDatabaseModel<TData> | undefined>,\n) => {\n  expect(logic.update(id, data)).toEqual(expected);\n}"
       },
       {
         "name": "USER_0",
@@ -19206,7 +19257,7 @@
         "linktype": "component",
         "name": "TableDataComponent",
         "coveragePercent": 0,
-        "coverageCount": "0/1",
+        "coverageCount": "0/4",
         "status": "low"
       },
       {

@@ -49,7 +49,13 @@ export class BaseService<TData> {
   }
 
   getItems() {
-    return this.store.select(this.baseGetItems);
+    return this.store
+      .select(this.baseGetItems)
+      .pipe(
+        map((items) =>
+          items.sort((prev, next) => prev.metadata.order - next.metadata.order),
+        ),
+      );
   }
 
   getSelectedItem() {

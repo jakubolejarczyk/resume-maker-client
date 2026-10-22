@@ -186,8 +186,8 @@ describe('Skill Service', () => {
         switchMap(() => service.getItems()),
         map((items) =>
           expect(items).toEqual([
-            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
             { ...SKILL_1, metadata: { ...SKILL_1.metadata, order: 0 } },
+            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
             SKILL_2,
             SKILL_3,
           ]),
@@ -203,8 +203,8 @@ describe('Skill Service', () => {
         switchMap(() => service.getItems()),
         map((items) =>
           expect(items).toEqual([
-            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
             { ...SKILL_1, metadata: { ...SKILL_1.metadata, order: 0 } },
+            { ...SKILL_0, metadata: { ...SKILL_0.metadata, order: 1 } },
             SKILL_2,
             SKILL_3,
           ]),

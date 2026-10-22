@@ -201,8 +201,8 @@ describe('Education Service', () => {
         switchMap(() => service.getItems()),
         map((items) =>
           expect(items).toEqual([
-            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
             { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
           ]),
         ),
       )
@@ -216,8 +216,8 @@ describe('Education Service', () => {
         switchMap(() => service.getItems()),
         map((items) =>
           expect(items).toEqual([
-            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
             { ...EDUCATION_1, metadata: { ...EDUCATION_1.metadata, order: 0 } },
+            { ...EDUCATION_0, metadata: { ...EDUCATION_0.metadata, order: 1 } },
           ]),
         ),
       )
