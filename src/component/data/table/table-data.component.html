@@ -1,5 +1,5 @@
-@let columns = getColumns() | async;
-@let items = getItems() | async;
+@let columns = columns$ | async;
+@let items = items$ | async;
 
 @if (items) {
   <p-table [value]="items" [tableStyle]="{ 'min-width': '50rem' }">
