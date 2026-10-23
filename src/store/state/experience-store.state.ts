@@ -21,7 +21,7 @@ import { ExperienceStoreAction } from '../action/experience-store.action';
     {
       id: 'jobTitle',
       label: 'Job title',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -29,7 +29,7 @@ import { ExperienceStoreAction } from '../action/experience-store.action';
     {
       id: 'description',
       label: 'Description',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: true,

@@ -63,7 +63,7 @@ describe('User Service', () => {
         {
           id: 'phoneNumber',
           label: 'Phone number',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -79,7 +79,7 @@ describe('User Service', () => {
         {
           id: 'city',
           label: 'City',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -87,7 +87,7 @@ describe('User Service', () => {
         {
           id: 'country',
           label: 'Country',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -95,7 +95,7 @@ describe('User Service', () => {
         {
           id: 'links',
           label: 'Links',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: true,

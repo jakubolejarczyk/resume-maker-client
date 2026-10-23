@@ -58,7 +58,7 @@ describe('Education Service', () => {
         {
           id: 'fieldOfStudy',
           label: 'Field of study',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -74,7 +74,7 @@ describe('Education Service', () => {
         {
           id: 'startYear',
           label: 'Start year',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'number',
           isArray: false,
@@ -82,7 +82,7 @@ describe('Education Service', () => {
         {
           id: 'endYear',
           label: 'End year',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'number',
           isArray: false,

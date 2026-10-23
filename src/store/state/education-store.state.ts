@@ -21,7 +21,7 @@ import { EducationStoreAction } from '../action/education-store.action';
     {
       id: 'fieldOfStudy',
       label: 'Field of study',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -37,7 +37,7 @@ import { EducationStoreAction } from '../action/education-store.action';
     {
       id: 'startYear',
       label: 'Start year',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'number',
       isArray: false,
@@ -45,7 +45,7 @@ import { EducationStoreAction } from '../action/education-store.action';
     {
       id: 'endYear',
       label: 'End year',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'number',
       isArray: false,

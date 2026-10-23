@@ -55,7 +55,7 @@ describe('Resume Service', () => {
         {
           id: 'jobTitle',
           label: 'Job title',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -63,7 +63,7 @@ describe('Resume Service', () => {
         {
           id: 'summary',
           label: 'Summary',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,

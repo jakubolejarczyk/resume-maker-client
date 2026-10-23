@@ -58,7 +58,7 @@ describe('Experience Service', () => {
         {
           id: 'jobTitle',
           label: 'Job title',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: false,
@@ -66,7 +66,7 @@ describe('Experience Service', () => {
         {
           id: 'description',
           label: 'Description',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: true,

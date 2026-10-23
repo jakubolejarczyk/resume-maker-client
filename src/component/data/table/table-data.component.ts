@@ -3,6 +3,13 @@ import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { TableModule } from 'primeng/table';
 import { ButtonDirective } from 'primeng/button';
+import { ArrowDown } from '@primeicons/angular/arrow-down';
+import { ArrowUp } from '@primeicons/angular/arrow-up';
+import { Trash } from '@primeicons/angular/trash';
+import { FileEdit } from '@primeicons/angular/file-edit';
+import { Bookmark } from '@primeicons/angular/bookmark';
+import { BookmarkFill } from '@primeicons/angular/bookmark-fill';
+import { InfoCircle } from '@primeicons/angular/info-circle';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
@@ -10,18 +17,35 @@ import { BaseApiModel } from '../../../api/model/base/base-api.model';
 @Component({
   selector: 'app-table-data-component',
   templateUrl: './table-data.component.html',
-  imports: [TableModule, ButtonDirective, AsyncPipe],
+  styleUrl: './table-data.component.scss',
+  imports: [
+    TableModule,
+    ButtonDirective,
+    AsyncPipe,
+    ArrowDown,
+    ArrowUp,
+    Trash,
+    FileEdit,
+    Bookmark,
+    BookmarkFill,
+    InfoCircle,
+  ],
 })
 export class TableDataComponent<TData> {
   columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
+  onReadEvent = output<number>();
   onDeselectEvent = output<number>();
   onSelectEvent = output<number>();
   onUpdateEvent = output<number>();
   onDeleteEvent = output<number>();
   onMoveUpEvent = output<number>();
   onMoveDownEvent = output<number>();
+
+  onRead(id: number) {
+    this.onReadEvent.emit(id);
+  }
 
   onDeselect(id: number) {
     this.onDeselectEvent.emit(id);
@@ -45,5 +69,19 @@ export class TableDataComponent<TData> {
 
   onMoveDown(id: number) {
     this.onMoveDownEvent.emit(id);
+  }
+
+  isFirstItem(item: BaseApiModel<TData>) {
+    return item.metadata.order === 0;
+  }
+
+  isLastItem(item: BaseApiModel<TData>, items: BaseApiModel<TData>[]) {
+    const lastOrder = items.reduce((acc: number, curr) => {
+      if (curr.metadata.order > acc) {
+        acc = curr.metadata.order;
+      }
+      return acc;
+    }, 0);
+    return item.metadata.order === lastOrder;
   }
 }

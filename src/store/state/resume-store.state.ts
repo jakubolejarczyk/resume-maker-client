@@ -21,7 +21,7 @@ import { ResumeStoreAction } from '../action/resume-store.action';
     {
       id: 'jobTitle',
       label: 'Job title',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -29,7 +29,7 @@ import { ResumeStoreAction } from '../action/resume-store.action';
     {
       id: 'summary',
       label: 'Summary',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,

@@ -2,73 +2,101 @@
 
 @if (items) {
   @let columns = columns$() | async;
-  <p-table [value]="items" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table
+    [value]="items"
+    showGridlines
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
     <ng-template #header>
       <tr>
-        <th>Selected</th>
+        <th class="column__selected"></th>
         @for (column of columns; track column.id) {
           @if (column.isVisible) {
             <th>{{ column.label }}</th>
           }
         }
-        <th>Actions</th>
+        <th class="column__actions">Actions</th>
       </tr>
     </ng-template>
     <ng-template #body let-item>
       <tr>
         <td>
-          @if (item.metadata.isSelected) {
-            <button
-              pButton
-              severity="secondary"
-              (click)="onDeselect(item.metadata.id)"
-            >
-              Deselect
-            </button>
-          } @else {
-            <button
-              pButton
-              severity="secondary"
-              (click)="onSelect(item.metadata.id)"
-            >
-              Select
-            </button>
-          }
+          <div class="column__selected--content">
+            @if (item.metadata.isSelected) {
+              <button
+                pButton
+                size="large"
+                severity="secondary"
+                (click)="onDeselect(item.metadata.id)"
+              >
+                <svg data-p-icon="bookmark-fill"></svg>
+              </button>
+            } @else {
+              <button
+                pButton
+                size="large"
+                severity="secondary"
+                (click)="onSelect(item.metadata.id)"
+              >
+                <svg data-p-icon="bookmark"></svg>
+              </button>
+            }
+          </div>
         </td>
         @for (column of columns; track column.id) {
           @if (column.isVisible) {
-            <th>{{ item.data[column.id] }}</th>
+            @if (item.data[column.id] === undefined) {
+              <td>Empty</td>
+            } @else {
+              <td>{{ item.data[column.id] }}</td>
+            }
           }
         }
         <td>
-          <button
-            pButton
-            severity="secondary"
-            (click)="onUpdate(item.metadata.id)"
-          >
-            Update
-          </button>
-          <button
-            pButton
-            severity="secondary"
-            (click)="onDelete(item.metadata.id)"
-          >
-            Delete
-          </button>
-          <button
-            pButton
-            severity="secondary"
-            (click)="onMoveUp(item.metadata.id)"
-          >
-            Move up
-          </button>
-          <button
-            pButton
-            severity="secondary"
-            (click)="onMoveDown(item.metadata.id)"
-          >
-            Move down
-          </button>
+          <div class="column__actions--content">
+            <button
+              pButton
+              size="large"
+              severity="secondary"
+              (click)="onRead(item.metadata.id)"
+            >
+              <svg data-p-icon="info-circle"></svg>
+            </button>
+            <button
+              pButton
+              size="large"
+              severity="secondary"
+              (click)="onUpdate(item.metadata.id)"
+            >
+              <svg data-p-icon="file-edit"></svg>
+            </button>
+            <button
+              pButton
+              size="large"
+              severity="secondary"
+              (click)="onDelete(item.metadata.id)"
+            >
+              <svg data-p-icon="trash"></svg>
+            </button>
+            <button
+              pButton
+              size="large"
+              severity="secondary"
+              [disabled]="isFirstItem(item)"
+              (click)="onMoveUp(item.metadata.id)"
+            >
+              <svg data-p-icon="arrow-up"></svg>
+            </button>
+            <button
+              pButton
+              size="large"
+              severity="secondary"
+              [disabled]="isLastItem(item, items)"
+              (click)="onMoveDown(item.metadata.id)"
+            >
+              <svg data-p-icon="arrow-down"></svg>
+            </button>
+          </div>
         </td>
       </tr>
     </ng-template>

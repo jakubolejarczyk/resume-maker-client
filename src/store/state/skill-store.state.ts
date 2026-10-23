@@ -21,7 +21,7 @@ import { SkillStoreAction } from '../action/skill-store.action';
     {
       id: 'skills',
       label: 'Skills',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: true,

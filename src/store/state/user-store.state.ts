@@ -29,7 +29,7 @@ import { UserStoreAction } from '../action/user-store.action';
     {
       id: 'phoneNumber',
       label: 'Phone number',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -45,7 +45,7 @@ import { UserStoreAction } from '../action/user-store.action';
     {
       id: 'city',
       label: 'City',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -53,7 +53,7 @@ import { UserStoreAction } from '../action/user-store.action';
     {
       id: 'country',
       label: 'Country',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: false,
@@ -61,7 +61,7 @@ import { UserStoreAction } from '../action/user-store.action';
     {
       id: 'links',
       label: 'Links',
-      isVisible: true,
+      isVisible: false,
       isEditable: true,
       type: 'string',
       isArray: true,

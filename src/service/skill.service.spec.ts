@@ -60,7 +60,7 @@ describe('Skill Service', () => {
         {
           id: 'skills',
           label: 'Skills',
-          isVisible: true,
+          isVisible: false,
           isEditable: true,
           type: 'string',
           isArray: true,

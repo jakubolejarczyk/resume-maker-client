@@ -1,0 +1,23 @@
+.column {
+  &__actions {
+    width: 200px;
+
+    &--content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  }
+
+  &__selected {
+    width: 60px;
+
+    &--content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  }
+}
