@@ -17507,7 +17507,7 @@
   "components": [
     {
       "name": "AppComponent",
-      "id": "component-AppComponent-1885655fd9c09d2bf46304bb65c55fb11878913620bcafe337b7ab9bfd5c0fd69cd2daed5b13511de8ee3126d26c143869d91140c01f18b270cc48472b4e9e45",
+      "id": "component-AppComponent-2ddaaa8ddfa4976b3cfd598b32975671a546a3d9129ee02f532c4b0096367f0b69b929f218348d8099787c6a7dfede54a02c90e38f8eac9d4a253e2750103ba0",
       "file": "src/app/app.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -17518,7 +17518,7 @@
       "selector": "app",
       "styleUrls": [],
       "styles": [],
-      "template": "<p>Hello</p>",
+      "template": "<app-root-component></app-root-component>",
       "templateUrl": [],
       "templateVariables": [],
       "viewProviders": [],
@@ -17533,18 +17533,28 @@
       "hostBindings": [],
       "hostListeners": [],
       "standalone": true,
-      "imports": [],
+      "imports": [
+        {
+          "name": "RootComponent",
+          "type": "component"
+        }
+      ],
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component } from '@angular/core';\n\n// import { RootComponent } from '../root/root.component';\n\n@Component({\n  selector: 'app',\n  template: '<p>Hello</p>',\n  // imports: [RootComponent],\n})\nexport class AppComponent {}\n",
+      "sourceCode": "import { Component } from '@angular/core';\n\nimport { RootComponent } from '../root/root.component';\n\n@Component({\n  selector: 'app',\n  template: '<app-root-component></app-root-component>',\n  imports: [RootComponent],\n})\nexport class AppComponent {}\n",
       "assetsDirs": [],
       "styleUrlsData": "",
       "stylesData": "",
       "extends": [],
       "relationships": {
         "incoming": [],
-        "outgoing": []
+        "outgoing": [
+          {
+            "name": "RootComponent",
+            "type": "component"
+          }
+        ]
       }
     },
     {
@@ -18122,6 +18132,216 @@
       "templateData": "<app-domain-view-component\n  [type]=\"type\"\n  [parentId]=\"0\"\n></app-domain-view-component>\n"
     },
     {
+      "name": "RootComponent",
+      "id": "component-RootComponent-3aa4f9f801d6452235bb0fe24e7474cf5868457c617f28fa43681646822c319b9d7600d4ef0ae34251bc3037ed3a33761f69bf34bfaf2578aa2c1fcaed7d64d1",
+      "file": "src/root/root.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-root-component",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./root.component.html"],
+      "templateVariables": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "coverageIgnore": false,
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [
+        {
+          "name": "SidebarComponent",
+          "type": "component"
+        },
+        {
+          "name": "SkillPageComponent",
+          "type": "component"
+        }
+      ],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\nimport { SidebarComponent } from '../component/view/sidebar/sidebar-view.component';\nimport { SkillPageComponent } from '../component/page/skill/skill-page.component';\n\n@Component({\n  selector: 'app-root-component',\n  templateUrl: './root.component.html',\n  imports: [SidebarComponent, SkillPageComponent],\n})\nexport class RootComponent {}\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": [],
+      "relationships": {
+        "incoming": [
+          {
+            "name": "AppComponent",
+            "type": "component"
+          }
+        ],
+        "outgoing": [
+          {
+            "name": "SidebarComponent",
+            "type": "component"
+          },
+          {
+            "name": "SkillPageComponent",
+            "type": "component"
+          }
+        ]
+      },
+      "templateData": "<app-sidebar-view-component>\n  <app-skill-page-component></app-skill-page-component>\n</app-sidebar-view-component>\n"
+    },
+    {
+      "name": "SidebarComponent",
+      "id": "component-SidebarComponent-d5c666125826b75cf081d378341a1ccaacf9041288fbc8c01a49c50abf1b8a0ccb93b37bb8cbd0fc0dca773805e2617b10c3cad19e2a1bd9a252eaecccc72d14",
+      "file": "src/component/view/sidebar/sidebar-view.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-sidebar-view-component",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./sidebar-view.component.html"],
+      "templateVariables": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [
+        {
+          "name": "isMobile",
+          "coverageIgnore": false,
+          "defaultValue": "signal(false)",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "unknown",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 30,
+          "rawdescription": "\n"
+        }
+      ],
+      "methodsClass": [],
+      "coverageIgnore": false,
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": true,
+      "imports": [
+        {
+          "name": "AvatarModule",
+          "type": "module"
+        },
+        {
+          "name": "SidebarModule",
+          "type": "module"
+        },
+        {
+          "name": "ButtonModule",
+          "type": "module"
+        },
+        {
+          "name": "Home"
+        },
+        {
+          "name": "Inbox"
+        },
+        {
+          "name": "Search"
+        },
+        {
+          "name": "Users"
+        },
+        {
+          "name": "Bell"
+        },
+        {
+          "name": "Cog"
+        },
+        {
+          "name": "Sidebar"
+        }
+      ],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component, signal } from '@angular/core';\nimport { AvatarModule } from 'primeng/avatar';\nimport { SidebarModule } from 'primeng/sidebar';\nimport { ButtonModule } from 'primeng/button';\nimport { Home } from '@primeicons/angular/home';\nimport { Inbox } from '@primeicons/angular/inbox';\nimport { Search } from '@primeicons/angular/search';\nimport { Users } from '@primeicons/angular/users';\nimport { Bell } from '@primeicons/angular/bell';\nimport { Cog } from '@primeicons/angular/cog';\nimport { Sidebar } from '@primeicons/angular/sidebar';\n\n@Component({\n  selector: 'app-sidebar-view-component',\n  templateUrl: './sidebar-view.component.html',\n  imports: [\n    AvatarModule,\n    SidebarModule,\n    ButtonModule,\n    Home,\n    Inbox,\n    Search,\n    Users,\n    Bell,\n    Cog,\n    Sidebar,\n  ],\n})\nexport class SidebarComponent {\n  isMobile = signal(false);\n\n  constructor() {\n    if (typeof window === 'undefined') return;\n    const mql = window.matchMedia('(max-width: 1023px)');\n    this.isMobile.set(mql.matches);\n    mql.addEventListener('change', (e) => this.isMobile.set(e.matches));\n  }\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [],
+        "line": 30,
+        "rawdescription": "\n"
+      },
+      "extends": [],
+      "relationships": {
+        "incoming": [
+          {
+            "name": "RootComponent",
+            "type": "component"
+          }
+        ],
+        "outgoing": [
+          {
+            "name": "AvatarModule",
+            "type": "module"
+          },
+          {
+            "name": "SidebarModule",
+            "type": "module"
+          },
+          {
+            "name": "ButtonModule",
+            "type": "module"
+          },
+          {
+            "name": "Home",
+            "type": "module"
+          },
+          {
+            "name": "Inbox",
+            "type": "module"
+          },
+          {
+            "name": "Search",
+            "type": "module"
+          },
+          {
+            "name": "Users",
+            "type": "module"
+          },
+          {
+            "name": "Bell",
+            "type": "module"
+          },
+          {
+            "name": "Cog",
+            "type": "module"
+          },
+          {
+            "name": "Sidebar",
+            "type": "module"
+          }
+        ]
+      },
+      "templateData": "<p-sidebar-layout>\n  @if (isMobile()) {\n    <p-sidebar-backdrop class=\"absolute!\" />\n  }\n  <p-sidebar\n    id=\"mobile-nav\"\n    [collapsible]=\"isMobile() ? 'offcanvas' : 'icon'\"\n    [overlay]=\"isMobile()\"\n    [open]=\"!isMobile()\"\n    width=\"14rem\"\n  >\n    <p-sidebar-spacer />\n    <p-sidebar-aside>\n      <p-sidebar-panel>\n        <p-sidebar-header>\n          <p-sidebar-menu>\n            <p-sidebar-menu-item>\n              <button pSidebarMenuButton class=\"p-1!\">\n                <div\n                  class=\"flex size-6 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-violet-500 to-indigo-600 text-white text-xs font-bold leading-none\"\n                >\n                  A\n                </div>\n                <span class=\"font-semibold text-sm\">Acme Inc</span>\n              </button>\n            </p-sidebar-menu-item>\n          </p-sidebar-menu>\n        </p-sidebar-header>\n        <p-sidebar-content>\n          <p-sidebar-group>\n            <p-sidebar-group-label>Menu</p-sidebar-group-label>\n            <p-sidebar-group-content>\n              <p-sidebar-menu>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton [isActive]=\"true\">\n                    <svg data-p-icon=\"home\"></svg>\n                    <span>Home</span>\n                  </button>\n                </p-sidebar-menu-item>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton>\n                    <svg data-p-icon=\"inbox\"></svg>\n                    <span>Inbox</span>\n                  </button>\n                  <p-sidebar-menu-badge>3</p-sidebar-menu-badge>\n                </p-sidebar-menu-item>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton>\n                    <svg data-p-icon=\"search\"></svg>\n                    <span>Search</span>\n                  </button>\n                </p-sidebar-menu-item>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton>\n                    <svg data-p-icon=\"users\"></svg>\n                    <span>Team</span>\n                  </button>\n                </p-sidebar-menu-item>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton>\n                    <svg data-p-icon=\"bell\"></svg>\n                    <span>Notifications</span>\n                  </button>\n                </p-sidebar-menu-item>\n                <p-sidebar-menu-item>\n                  <button pSidebarMenuButton>\n                    <svg data-p-icon=\"cog\"></svg>\n                    <span>Settings</span>\n                  </button>\n                </p-sidebar-menu-item>\n              </p-sidebar-menu>\n            </p-sidebar-group-content>\n          </p-sidebar-group>\n        </p-sidebar-content>\n        <p-sidebar-footer>\n          <p-sidebar-menu>\n            <p-sidebar-menu-item>\n              <button pSidebarMenuButton class=\"p-1!\">\n                <p-avatar\n                  label=\"JD\"\n                  shape=\"circle\"\n                  class=\"size-6 shrink-0 text-xs\"\n                />\n                <span>John Doe</span>\n              </button>\n            </p-sidebar-menu-item>\n          </p-sidebar-menu>\n        </p-sidebar-footer>\n      </p-sidebar-panel>\n    </p-sidebar-aside>\n  </p-sidebar>\n  <p-sidebar-main>\n    <header\n      class=\"flex h-12 items-center gap-2 border-b border-surface-200 dark:border-surface-700 px-4\"\n    >\n      <button\n        pButton\n        pSidebarTrigger\n        target=\"mobile-nav\"\n        severity=\"secondary\"\n        text\n        size=\"small\"\n      >\n        <svg data-p-icon=\"sidebar\"></svg>\n      </button>\n      <span class=\"text-sm font-medium\">Dashboard</span>\n      <span\n        class=\"ml-auto text-xs text-muted-color rounded-md bg-surface-100 dark:bg-surface-800 px-2 py-1\"\n        >{{ isMobile() ? \"Mobile\" : \"Desktop\" }}</span\n      >\n    </header>\n    <ng-content></ng-content>\n  </p-sidebar-main>\n</p-sidebar-layout>\n"
+    },
+    {
       "name": "SkillPageComponent",
       "id": "component-SkillPageComponent-23700fd9a2b65444f95d84a8253d048833bcceac152da2388709304c262c828262fe0ed96896f910f7fe963a9b679d2f958ed6a0b78932d9a40240a45000bcd0",
       "file": "src/component/page/skill/skill-page.component.ts",
@@ -18177,7 +18397,12 @@
       "stylesData": "",
       "extends": [],
       "relationships": {
-        "incoming": [],
+        "incoming": [
+          {
+            "name": "RootComponent",
+            "type": "component"
+          }
+        ],
         "outgoing": [
           {
             "name": "DomainViewComponent",
@@ -18189,7 +18414,7 @@
     },
     {
       "name": "TableDataComponent",
-      "id": "component-TableDataComponent-10f363a93cf84fd003d35bcfe3fd8894016f83993fb66c0f696ce16f73d08d849f00584d967e7af615ca4e5115edfa375a035a5486352e9364766d27a9e08ac0",
+      "id": "component-TableDataComponent-966af53719b4220d42e903b9ea5bcba1e154135f9897a06cd268de4f1595c86afadf16bd7ef6803476e90827d341120712d647a5e4d675b44c448e93cb000910",
       "file": "src/component/data/table/table-data.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -18223,7 +18448,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 33,
+          "line": 35,
           "rawdescription": "\n",
           "required": true
         },
@@ -18236,7 +18461,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 34,
+          "line": 36,
           "rawdescription": "\n",
           "required": true
         }
@@ -18251,7 +18476,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 39,
+          "line": 42,
           "rawdescription": "\n",
           "required": false
         },
@@ -18264,7 +18489,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 36,
+          "line": 39,
           "rawdescription": "\n",
           "required": false
         },
@@ -18277,7 +18502,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 41,
+          "line": 44,
           "rawdescription": "\n",
           "required": false
         },
@@ -18290,7 +18515,20 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 40,
+          "line": 43,
+          "rawdescription": "\n",
+          "required": false
+        },
+        {
+          "name": "onReadEvent",
+          "coverageIgnore": false,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 38,
           "rawdescription": "\n",
           "required": false
         },
@@ -18303,7 +18541,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 37,
+          "line": 40,
           "rawdescription": "\n",
           "required": false
         },
@@ -18316,7 +18554,7 @@
           "indexKey": "",
           "optional": false,
           "description": "",
-          "line": 38,
+          "line": 41,
           "rawdescription": "\n",
           "required": false
         }
@@ -18339,7 +18577,7 @@
           "optional": false,
           "returnType": "boolean",
           "typeParameters": [],
-          "line": 67,
+          "line": 74,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18382,7 +18620,7 @@
           "optional": false,
           "returnType": "boolean",
           "typeParameters": [],
-          "line": 71,
+          "line": 78,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18428,7 +18666,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 55,
+          "line": 62,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18463,7 +18701,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 43,
+          "line": 50,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18498,7 +18736,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 63,
+          "line": 70,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18533,7 +18771,42 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 59,
+          "line": 66,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "\n",
+          "description": "",
+          "jsdoctags": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        },
+        {
+          "name": "onRead",
+          "coverageIgnore": false,
+          "args": [
+            {
+              "name": "id",
+              "type": "number",
+              "optional": false,
+              "dotDotDotToken": false,
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 46,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18568,7 +18841,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 47,
+          "line": 54,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18603,7 +18876,7 @@
           "optional": false,
           "returnType": "void",
           "typeParameters": [],
-          "line": 51,
+          "line": 58,
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "\n",
@@ -18659,12 +18932,15 @@
         },
         {
           "name": "BookmarkFill"
+        },
+        {
+          "name": "InfoCircle"
         }
       ],
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, input, output } from '@angular/core';\nimport { AsyncPipe } from '@angular/common';\nimport { Observable } from 'rxjs';\nimport { TableModule } from 'primeng/table';\nimport { ButtonDirective } from 'primeng/button';\nimport { ArrowDown } from '@primeicons/angular/arrow-down';\nimport { ArrowUp } from '@primeicons/angular/arrow-up';\nimport { Trash } from '@primeicons/angular/trash';\nimport { FileEdit } from '@primeicons/angular/file-edit';\nimport { Bookmark } from '@primeicons/angular/bookmark';\nimport { BookmarkFill } from '@primeicons/angular/bookmark-fill';\n\nimport { BaseStoreColumnModel } from '../../../store/model/base-store.model';\nimport { BaseApiModel } from '../../../api/model/base/base-api.model';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  imports: [\n    TableModule,\n    ButtonDirective,\n    AsyncPipe,\n    ArrowDown,\n    ArrowUp,\n    Trash,\n    FileEdit,\n    Bookmark,\n    BookmarkFill,\n  ],\n})\nexport class TableDataComponent<TData> {\n  columns$ = input.required<Observable<BaseStoreColumnModel[]>>();\n  items$ = input.required<Observable<BaseApiModel<TData>[]>>();\n\n  onDeselectEvent = output<number>();\n  onSelectEvent = output<number>();\n  onUpdateEvent = output<number>();\n  onDeleteEvent = output<number>();\n  onMoveUpEvent = output<number>();\n  onMoveDownEvent = output<number>();\n\n  onDeselect(id: number) {\n    this.onDeselectEvent.emit(id);\n  }\n\n  onSelect(id: number) {\n    this.onSelectEvent.emit(id);\n  }\n\n  onUpdate(id: number) {\n    this.onUpdateEvent.emit(id);\n  }\n\n  onDelete(id: number) {\n    this.onDeleteEvent.emit(id);\n  }\n\n  onMoveUp(id: number) {\n    this.onMoveUpEvent.emit(id);\n  }\n\n  onMoveDown(id: number) {\n    this.onMoveDownEvent.emit(id);\n  }\n\n  isFirstItem(item: BaseApiModel<TData>) {\n    return item.metadata.order === 0;\n  }\n\n  isLastItem(item: BaseApiModel<TData>, items: BaseApiModel<TData>[]) {\n    const lastOrder = items.reduce((acc: number, curr) => {\n      if (curr.metadata.order > acc) {\n        acc = curr.metadata.order;\n      }\n      return acc;\n    }, 0);\n    return item.metadata.order === lastOrder;\n  }\n}\n",
+      "sourceCode": "import { Component, input, output } from '@angular/core';\nimport { AsyncPipe } from '@angular/common';\nimport { Observable } from 'rxjs';\nimport { TableModule } from 'primeng/table';\nimport { ButtonDirective } from 'primeng/button';\nimport { ArrowDown } from '@primeicons/angular/arrow-down';\nimport { ArrowUp } from '@primeicons/angular/arrow-up';\nimport { Trash } from '@primeicons/angular/trash';\nimport { FileEdit } from '@primeicons/angular/file-edit';\nimport { Bookmark } from '@primeicons/angular/bookmark';\nimport { BookmarkFill } from '@primeicons/angular/bookmark-fill';\nimport { InfoCircle } from '@primeicons/angular/info-circle';\n\nimport { BaseStoreColumnModel } from '../../../store/model/base-store.model';\nimport { BaseApiModel } from '../../../api/model/base/base-api.model';\n\n@Component({\n  selector: 'app-table-data-component',\n  templateUrl: './table-data.component.html',\n  styleUrl: './table-data.component.scss',\n  imports: [\n    TableModule,\n    ButtonDirective,\n    AsyncPipe,\n    ArrowDown,\n    ArrowUp,\n    Trash,\n    FileEdit,\n    Bookmark,\n    BookmarkFill,\n    InfoCircle,\n  ],\n})\nexport class TableDataComponent<TData> {\n  columns$ = input.required<Observable<BaseStoreColumnModel[]>>();\n  items$ = input.required<Observable<BaseApiModel<TData>[]>>();\n\n  onReadEvent = output<number>();\n  onDeselectEvent = output<number>();\n  onSelectEvent = output<number>();\n  onUpdateEvent = output<number>();\n  onDeleteEvent = output<number>();\n  onMoveUpEvent = output<number>();\n  onMoveDownEvent = output<number>();\n\n  onRead(id: number) {\n    this.onReadEvent.emit(id);\n  }\n\n  onDeselect(id: number) {\n    this.onDeselectEvent.emit(id);\n  }\n\n  onSelect(id: number) {\n    this.onSelectEvent.emit(id);\n  }\n\n  onUpdate(id: number) {\n    this.onUpdateEvent.emit(id);\n  }\n\n  onDelete(id: number) {\n    this.onDeleteEvent.emit(id);\n  }\n\n  onMoveUp(id: number) {\n    this.onMoveUpEvent.emit(id);\n  }\n\n  onMoveDown(id: number) {\n    this.onMoveDownEvent.emit(id);\n  }\n\n  isFirstItem(item: BaseApiModel<TData>) {\n    return item.metadata.order === 0;\n  }\n\n  isLastItem(item: BaseApiModel<TData>, items: BaseApiModel<TData>[]) {\n    const lastOrder = items.reduce((acc: number, curr) => {\n      if (curr.metadata.order > acc) {\n        acc = curr.metadata.order;\n      }\n      return acc;\n    }, 0);\n    return item.metadata.order === lastOrder;\n  }\n}\n",
       "styleUrl": "./table-data.component.scss",
       "assetsDirs": [],
       "styleUrlsData": [
@@ -18718,10 +18994,14 @@
           {
             "name": "BookmarkFill",
             "type": "module"
+          },
+          {
+            "name": "InfoCircle",
+            "type": "module"
           }
         ]
       },
-      "templateData": "@let items = items$() | async;\n\n@if (items) {\n  @let columns = columns$() | async;\n  <p-table\n    [value]=\"items\"\n    showGridlines\n    [tableStyle]=\"{ 'min-width': '50rem' }\"\n  >\n    <ng-template #header>\n      <tr>\n        <th class=\"column__selected\"></th>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th class=\"column__actions\">Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        <td>\n          <div class=\"column__selected--content\">\n            @if (item.metadata.isSelected) {\n              <button\n                pButton\n                severity=\"secondary\"\n                (click)=\"onDeselect(item.metadata.id)\"\n              >\n                <svg data-p-icon=\"bookmark-fill\"></svg>\n              </button>\n            } @else {\n              <button\n                pButton\n                severity=\"secondary\"\n                (click)=\"onSelect(item.metadata.id)\"\n              >\n                <svg data-p-icon=\"bookmark\"></svg>\n              </button>\n            }\n          </div>\n        </td>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <td>{{ item.data[column.id] }}</td>\n          }\n        }\n        <td>\n          <div class=\"column__actions--content\">\n            <button\n              pButton\n              severity=\"secondary\"\n              (click)=\"onUpdate(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"file-edit\"></svg>\n            </button>\n            <button\n              pButton\n              severity=\"secondary\"\n              (click)=\"onDelete(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"trash\"></svg>\n            </button>\n            <button\n              pButton\n              severity=\"secondary\"\n              [disabled]=\"isFirstItem(item)\"\n              (click)=\"onMoveUp(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"arrow-up\"></svg>\n            </button>\n            <button\n              pButton\n              severity=\"secondary\"\n              [disabled]=\"isLastItem(item, items)\"\n              (click)=\"onMoveDown(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"arrow-down\"></svg>\n            </button>\n          </div>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n}\n"
+      "templateData": "@let items = items$() | async;\n\n@if (items) {\n  @let columns = columns$() | async;\n  <p-table\n    [value]=\"items\"\n    showGridlines\n    [tableStyle]=\"{ 'min-width': '50rem' }\"\n  >\n    <ng-template #header>\n      <tr>\n        <th class=\"column__selected\"></th>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            <th>{{ column.label }}</th>\n          }\n        }\n        <th class=\"column__actions\">Actions</th>\n      </tr>\n    </ng-template>\n    <ng-template #body let-item>\n      <tr>\n        <td>\n          <div class=\"column__selected--content\">\n            @if (item.metadata.isSelected) {\n              <button\n                pButton\n                size=\"large\"\n                severity=\"secondary\"\n                (click)=\"onDeselect(item.metadata.id)\"\n              >\n                <svg data-p-icon=\"bookmark-fill\"></svg>\n              </button>\n            } @else {\n              <button\n                pButton\n                size=\"large\"\n                severity=\"secondary\"\n                (click)=\"onSelect(item.metadata.id)\"\n              >\n                <svg data-p-icon=\"bookmark\"></svg>\n              </button>\n            }\n          </div>\n        </td>\n        @for (column of columns; track column.id) {\n          @if (column.isVisible) {\n            @if (item.data[column.id] === undefined) {\n              <td>Empty</td>\n            } @else {\n              <td>{{ item.data[column.id] }}</td>\n            }\n          }\n        }\n        <td>\n          <div class=\"column__actions--content\">\n            <button\n              pButton\n              size=\"large\"\n              severity=\"secondary\"\n              (click)=\"onRead(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"info-circle\"></svg>\n            </button>\n            <button\n              pButton\n              size=\"large\"\n              severity=\"secondary\"\n              (click)=\"onUpdate(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"file-edit\"></svg>\n            </button>\n            <button\n              pButton\n              size=\"large\"\n              severity=\"secondary\"\n              (click)=\"onDelete(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"trash\"></svg>\n            </button>\n            <button\n              pButton\n              size=\"large\"\n              severity=\"secondary\"\n              [disabled]=\"isFirstItem(item)\"\n              (click)=\"onMoveUp(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"arrow-up\"></svg>\n            </button>\n            <button\n              pButton\n              size=\"large\"\n              severity=\"secondary\"\n              [disabled]=\"isLastItem(item, items)\"\n              (click)=\"onMoveDown(item.metadata.id)\"\n            >\n              <svg data-p-icon=\"arrow-down\"></svg>\n            </button>\n          </div>\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n}\n"
     },
     {
       "name": "UserPageComponent",
@@ -20383,7 +20663,7 @@
         "linktype": "component",
         "name": "TableDataComponent",
         "coveragePercent": 0,
-        "coverageCount": "0/17",
+        "coverageCount": "0/19",
         "status": "low"
       },
       {
@@ -20438,6 +20718,15 @@
         "name": "DomainViewComponent",
         "coveragePercent": 0,
         "coverageCount": "0/15",
+        "status": "low"
+      },
+      {
+        "filePath": "src/component/view/sidebar/sidebar-view.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "SidebarComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
         "status": "low"
       },
       {
@@ -21151,6 +21440,15 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "testUpdate",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/root/root.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "RootComponent",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
