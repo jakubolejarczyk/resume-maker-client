@@ -1,8 +1,11 @@
 <app-table-data-component
   [columns$]="columns$"
   [items$]="items$"
+  (onCreateEvent)="onCreateEvent()"
   (onSelectEvent)="onSelectEvent($event)"
   (onDeselectEvent)="onDeselectEvent($event)"
+  (onReadEvent)="onReadEvent($event)"
+  (onUpdateEvent)="onUpdateEvent($event)"
   (onDeleteEvent)="onDeleteEvent($event)"
   (onMoveUpEvent)="onMoveUpEvent($event)"
   (onMoveDownEvent)="onMoveDownEvent($event)"

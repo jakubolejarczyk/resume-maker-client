@@ -10,6 +10,7 @@ import { FileEdit } from '@primeicons/angular/file-edit';
 import { Bookmark } from '@primeicons/angular/bookmark';
 import { BookmarkFill } from '@primeicons/angular/bookmark-fill';
 import { InfoCircle } from '@primeicons/angular/info-circle';
+import { Plus } from '@primeicons/angular/plus';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
@@ -29,12 +30,14 @@ import { BaseApiModel } from '../../../api/model/base/base-api.model';
     Bookmark,
     BookmarkFill,
     InfoCircle,
+    Plus,
   ],
 })
 export class TableDataComponent<TData> {
   columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
+  onCreateEvent = output();
   onReadEvent = output<number>();
   onDeselectEvent = output<number>();
   onSelectEvent = output<number>();
@@ -42,6 +45,10 @@ export class TableDataComponent<TData> {
   onDeleteEvent = output<number>();
   onMoveUpEvent = output<number>();
   onMoveDownEvent = output<number>();
+
+  onCreate() {
+    this.onCreateEvent.emit();
+  }
 
   onRead(id: number) {
     this.onReadEvent.emit(id);

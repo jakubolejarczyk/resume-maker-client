@@ -47,12 +47,24 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  onCreateEvent() {
+    alert('On Create Event');
+  }
+
   onSelectEvent(id: number) {
     this.service.select(id).subscribe().unsubscribe();
   }
 
   onDeselectEvent(id: number) {
     this.service.deselect(id).subscribe().unsubscribe();
+  }
+
+  onReadEvent(id: number) {
+    alert('On Read Event: ' + id);
+  }
+
+  onUpdateEvent(id: number) {
+    alert('On Update Event: ' + id);
   }
 
   onDeleteEvent(id: number) {

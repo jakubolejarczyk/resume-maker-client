@@ -9,7 +9,16 @@
   >
     <ng-template #header>
       <tr>
-        <th class="column__selected"></th>
+        <th class="column__selected">
+          <button
+            pButton
+            size="large"
+            severity="secondary"
+            (click)="onCreate()"
+          >
+            <svg data-p-icon="plus"></svg>
+          </button>
+        </th>
         @for (column of columns; track column.id) {
           @if (column.isVisible) {
             <th>{{ column.label }}</th>
