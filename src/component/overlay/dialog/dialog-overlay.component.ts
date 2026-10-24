@@ -4,6 +4,10 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { LabelModule } from 'primeng/label';
+import { DatePickerModule } from 'primeng/datepicker';
+
+import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
+import { BaseApiModel } from '../../../api/model/base/base-api.model';
 
 @Component({
   selector: 'app-dialog-overlay-component',
@@ -14,28 +18,33 @@ import { LabelModule } from 'primeng/label';
     InputTextModule,
     LabelModule,
     FormsModule,
+    DatePickerModule,
   ],
 })
-export class DialogOverlayComponent {
-  dialogTrigger = input.required<{ header: string; id: number | undefined }>();
+export class DialogOverlayComponent<TData> {
+  dialogTrigger = input.required<{
+    header: string;
+    columns: BaseStoreColumnModel[];
+    item?: BaseApiModel<TData>;
+  }>();
 
   header = '';
   visible = false;
   name = 'Amanda Miller';
   email = 'amanda@example.com';
+  columns: BaseStoreColumnModel[] = [];
+  item: BaseApiModel<TData> | undefined;
 
   constructor() {
     effect(() => {
-      const triggerValue = this.dialogTrigger();
-      if (triggerValue.header === '') {
+      const trigger = this.dialogTrigger();
+      if (trigger.header === '') {
         return;
       }
-      if (triggerValue.id === undefined) {
-        this.header = triggerValue.header;
-      } else {
-        this.header = `${triggerValue.header} ${triggerValue.id}`;
-      }
+      this.header = trigger.header;
       this.visible = true;
+      this.columns = trigger.columns;
+      this.item = trigger.item;
     });
   }
 }

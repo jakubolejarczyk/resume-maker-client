@@ -32,9 +32,14 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   service!: BaseService<TData>;
   sub!: Subscription;
 
-  dialogTrigger = signal<{ header: string; id: number | undefined }>({
+  dialogTrigger = signal<{
+    header: string;
+    columns: BaseStoreColumnModel[];
+    item?: BaseApiModel<TData>;
+  }>({
     header: '',
-    id: undefined,
+    columns: [],
+    item: undefined,
   });
 
   ngOnInit() {
@@ -57,7 +62,8 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   onCreateEvent() {
     this.dialogTrigger.update(() => ({
       header: 'Create',
-      id: undefined,
+      columns: this.service.getColumnsSnapshot(),
+      item: undefined,
     }));
   }
 
@@ -69,12 +75,20 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
     this.service.deselect(id).subscribe().unsubscribe();
   }
 
-  onReadEvent(id: number) {
-    this.dialogTrigger.update(() => ({ header: 'Read', id }));
+  onReadEvent(item: BaseApiModel<TData>) {
+    this.dialogTrigger.update(() => ({
+      header: 'Read',
+      columns: this.service.getColumnsSnapshot(),
+      item,
+    }));
   }
 
-  onUpdateEvent(id: number) {
-    this.dialogTrigger.update(() => ({ header: 'Update', id }));
+  onUpdateEvent(item: BaseApiModel<TData>) {
+    this.dialogTrigger.update(() => ({
+      header: 'Update',
+      columns: this.service.getColumnsSnapshot(),
+      item,
+    }));
   }
 
   onDeleteEvent(id: number) {

@@ -38,10 +38,10 @@ export class TableDataComponent<TData> {
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
   onCreateEvent = output();
-  onReadEvent = output<number>();
+  onReadEvent = output<BaseApiModel<TData>>();
   onDeselectEvent = output<number>();
   onSelectEvent = output<number>();
-  onUpdateEvent = output<number>();
+  onUpdateEvent = output<BaseApiModel<TData>>();
   onDeleteEvent = output<number>();
   onMoveUpEvent = output<number>();
   onMoveDownEvent = output<number>();
@@ -50,8 +50,8 @@ export class TableDataComponent<TData> {
     this.onCreateEvent.emit();
   }
 
-  onRead(id: number) {
-    this.onReadEvent.emit(id);
+  onRead(item: BaseApiModel<TData>) {
+    this.onReadEvent.emit(item);
   }
 
   onDeselect(id: number) {
@@ -62,8 +62,8 @@ export class TableDataComponent<TData> {
     this.onSelectEvent.emit(id);
   }
 
-  onUpdate(id: number) {
-    this.onUpdateEvent.emit(id);
+  onUpdate(item: BaseApiModel<TData>) {
+    this.onUpdateEvent.emit(item);
   }
 
   onDelete(id: number) {

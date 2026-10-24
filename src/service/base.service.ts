@@ -60,12 +60,22 @@ export class BaseService<TData> {
       );
   }
 
+  getItemsSnapshot() {
+    return this.store
+      .selectSnapshot(this.baseGetItems)
+      .sort((prev, next) => prev.metadata.order - next.metadata.order);
+  }
+
   getSelectedItem() {
     return this.store.select(this.baseGetSelectedItem);
   }
 
   getColumns() {
     return this.store.select(this.baseGetColumns);
+  }
+
+  getColumnsSnapshot() {
+    return this.store.selectSnapshot(this.baseGetColumns);
   }
 
   select(id: number) {
