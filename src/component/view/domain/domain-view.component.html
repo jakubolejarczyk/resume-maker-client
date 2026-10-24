@@ -1,4 +1,6 @@
-<app-dialog-overlay-component></app-dialog-overlay-component>
+<app-dialog-overlay-component
+  [dialogTrigger]="dialogTrigger()"
+></app-dialog-overlay-component>
 <app-table-data-component
   [columns$]="columns$"
   [items$]="items$"

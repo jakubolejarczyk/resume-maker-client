@@ -5,6 +5,7 @@ import {
   input,
   OnDestroy,
   OnInit,
+  signal,
 } from '@angular/core';
 import { Observable, of, Subscription, tap } from 'rxjs';
 
@@ -31,6 +32,11 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   service!: BaseService<TData>;
   sub!: Subscription;
 
+  dialogTrigger = signal<{ header: string; id: number | undefined }>({
+    header: '',
+    id: undefined,
+  });
+
   ngOnInit() {
     this.service = this.injector.get(this.type());
     this.sub = this.service
@@ -49,7 +55,10 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   }
 
   onCreateEvent() {
-    alert('On Create Event');
+    this.dialogTrigger.update(() => ({
+      header: 'Create',
+      id: undefined,
+    }));
   }
 
   onSelectEvent(id: number) {
@@ -61,11 +70,11 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   }
 
   onReadEvent(id: number) {
-    alert('On Read Event: ' + id);
+    this.dialogTrigger.update(() => ({ header: 'Read', id }));
   }
 
   onUpdateEvent(id: number) {
-    alert('On Update Event: ' + id);
+    this.dialogTrigger.update(() => ({ header: 'Update', id }));
   }
 
   onDeleteEvent(id: number) {
