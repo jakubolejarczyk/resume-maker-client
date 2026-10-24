@@ -14,6 +14,7 @@ import { BaseService } from '../../../service/base.service';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { DialogOverlayComponent } from '../../overlay/dialog/dialog-overlay.component';
+import { DialogTriggerModel } from '../../overlay/dialog/dialog-trigger.model';
 
 @Component({
   selector: 'app-domain-view-component',
@@ -32,15 +33,7 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   service!: BaseService<TData>;
   sub!: Subscription;
 
-  dialogTrigger = signal<{
-    header: string;
-    columns: BaseStoreColumnModel[];
-    item?: BaseApiModel<TData>;
-  }>({
-    header: '',
-    columns: [],
-    item: undefined,
-  });
+  dialogTrigger = signal<DialogTriggerModel<TData> | undefined>(undefined);
 
   ngOnInit() {
     this.service = this.injector.get(this.type());
@@ -60,11 +53,7 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   }
 
   onCreateEvent() {
-    this.dialogTrigger.update(() => ({
-      header: 'Create',
-      columns: this.service.getColumnsSnapshot(),
-      item: undefined,
-    }));
+    throw new Error('Not implemented!');
   }
 
   onSelectEvent(id: number) {

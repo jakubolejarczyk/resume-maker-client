@@ -11,15 +11,7 @@
         @if (column.isEditable) {
           <div class="flex flex-col gap-1.5">
             <label pLabel [for]="column.id">{{ column.label }}</label>
-            @if (column.type === "string") {
-              <input
-                pInputText
-                [id]="column.id"
-                [(ngModel)]="item.data[column.id]"
-              />
-            } @else if (column.type === "date") {
-              <p-datepicker [(ngModel)]="item.data[column.id]" />
-            }
+            <input pInputText [id]="column.id" />
           </div>
         }
       }
