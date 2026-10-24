@@ -12,11 +12,12 @@ import { TableDataComponent } from '../../data/table/table-data.component';
 import { BaseService } from '../../../service/base.service';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
+import { DialogOverlayComponent } from '../../overlay/dialog/dialog-overlay.component';
 
 @Component({
   selector: 'app-domain-view-component',
   templateUrl: './domain-view.component.html',
-  imports: [TableDataComponent],
+  imports: [TableDataComponent, DialogOverlayComponent],
 })
 export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   private readonly injector = inject(Injector);
