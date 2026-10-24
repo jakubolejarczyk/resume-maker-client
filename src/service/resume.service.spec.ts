@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { map, switchMap, tap } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 import { ResumeService } from './resume.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -9,7 +10,9 @@ describe('Resume Service', () => {
   let service: ResumeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [providerStore] });
+    TestBed.configureTestingModule({
+      providers: [providerStore, MessageService],
+    });
     service = TestBed.inject(ResumeService);
     service.readByParentId(undefined).subscribe().unsubscribe();
   });

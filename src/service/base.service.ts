@@ -9,11 +9,13 @@ import {
   BaseStoreModel,
 } from '../store/model/base-store.model';
 import { BaseDatabaseModel } from '../database/model/base/base-database.model';
+import { MessageUtil } from '../util/message.util';
 
 export class BaseService<TData> {
   baseApiService: BaseApiService<TData>;
 
-  store = inject(Store);
+  private readonly messageUtil = inject(MessageUtil);
+  private readonly store = inject(Store);
 
   constructor(
     private readonly token: typeof BaseApiService<TData>,
@@ -187,6 +189,9 @@ export class BaseService<TData> {
         this.store.dispatch(new this.baseSetStatus(success, message));
         if (!success && body === undefined) {
           this.store.dispatch(new this.baseSetIsLoading(false));
+          this.messageUtil.run('error', 'Delete', message);
+        } else {
+          this.messageUtil.run('success', 'Delete', message);
         }
         return of(body);
       }),

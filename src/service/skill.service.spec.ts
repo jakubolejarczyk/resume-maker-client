@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { switchMap, map, tap } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 import { SkillService } from './skill.service';
 import { providerStore } from '../store/provider/provider.store';
@@ -14,7 +15,9 @@ describe('Skill Service', () => {
   let service: SkillService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ providers: [providerStore] });
+    TestBed.configureTestingModule({
+      providers: [providerStore, MessageService],
+    });
     service = TestBed.inject(SkillService);
     service.readByParentId(undefined).subscribe().unsubscribe();
   });
