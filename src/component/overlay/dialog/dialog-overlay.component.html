@@ -1,36 +1,42 @@
-<p-dialog
-  [(visible)]="visible"
-  [modal]="true"
-  [header]="header"
-  [style]="{ width: '24rem' }"
-  styleClass="w-screen! h-screen! max-h-screen! rounded-none!"
->
-  <div class="flex flex-col gap-4">
-    @if (item) {
-      @for (column of columns; track column.id) {
-        @if (column.isEditable) {
-          <div class="flex flex-col gap-1.5">
-            <label pLabel [for]="column.id">{{ column.label }}</label>
-            <input pInputText [id]="column.id" />
-          </div>
+@if (item) {
+  <p-dialog
+    [(visible)]="visible"
+    [modal]="true"
+    [header]="header"
+    [style]="{ width: '24rem' }"
+    styleClass="w-screen! h-screen! max-h-screen! rounded-none!"
+  >
+    <div class="flex flex-col gap-4">
+      @if (item) {
+        @for (column of columns; track column.id) {
+          @if (column.isEditable) {
+            <div class="flex flex-col gap-1.5">
+              <label pLabel [for]="column.id">{{ column.label }}</label>
+              <input
+                pInputText
+                [id]="column.id"
+                [(ngModel)]="$any(item.data)[column.id]"
+              />
+            </div>
+          }
         }
       }
-    }
-  </div>
-  <ng-template #footer>
-    @if (header !== "Read") {
-      <button
-        type="button"
-        pButton
-        severity="secondary"
-        variant="outlined"
-        (click)="visible = false"
-      >
-        Cancel
-      </button>
-      <button type="button" pButton (click)="visible = false">
-        {{ header }}
-      </button>
-    }
-  </ng-template>
-</p-dialog>
+    </div>
+    <ng-template #footer>
+      @if (header !== "Read") {
+        <button
+          type="button"
+          pButton
+          severity="secondary"
+          variant="outlined"
+          (click)="visible = false"
+        >
+          Cancel
+        </button>
+        <button type="button" pButton (click)="onClick()">
+          {{ header }}
+        </button>
+      }
+    </ng-template>
+  </p-dialog>
+}

@@ -1,4 +1,4 @@
-import { Component, effect, input } from '@angular/core';
+import { Component, effect, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -28,15 +28,23 @@ export class DialogOverlayComponent<TData> {
   columns: BaseStoreColumnModel[] = [];
   item: BaseApiModel<TData> | undefined;
 
+  event = output<{ header: string; item: BaseApiModel<TData> }>();
+
   constructor() {
     effect(() => {
       const trigger = this.dialogTrigger();
       if (trigger === undefined) return;
-      if (trigger.header === '') return undefined;
       this.header = trigger.header;
       this.visible = true;
       this.columns = trigger.columns;
       this.item = trigger.item;
     });
+  }
+
+  onClick() {
+    if (this.item) {
+      this.visible = false;
+      this.event.emit({ header: this.header, item: this.item });
+    }
   }
 }

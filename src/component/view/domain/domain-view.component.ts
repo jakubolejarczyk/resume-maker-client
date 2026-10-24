@@ -52,8 +52,18 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  onEvent(response: { header: string; item: BaseApiModel<TData> }) {
+    if (response.header === 'Read') return;
+    else if (response.header === 'Update') {
+      this.service
+        .update(response.item.metadata.id, response.item.data)
+        .subscribe()
+        .unsubscribe();
+    }
+  }
+
   onCreateEvent() {
-    throw new Error('Not implemented!');
+    throw new Error('Not implemented');
   }
 
   onSelectEvent(id: number) {

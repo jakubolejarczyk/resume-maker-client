@@ -177,6 +177,9 @@ export class BaseService<TData> {
         this.store.dispatch(new this.baseSetStatus(success, message));
         if (!success && body === undefined) {
           this.store.dispatch(new this.baseSetIsLoading(false));
+          this.messageUtil.run('error', 'Update', message);
+        } else {
+          this.messageUtil.run('success', 'Update', message);
         }
         return of(body);
       }),
