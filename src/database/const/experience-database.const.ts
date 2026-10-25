@@ -12,8 +12,8 @@ export const EXPERIENCE_0: BaseDatabaseModel<ExperienceDataDatabaseModel> = {
       'Created and maintained custom ESLint rules to automate adherence to company coding standards, reducing manual formatting effort and improving code consistency.',
       'Developed and maintained unit tests to verify application behavior, ensure code correctness, and improve overall software reliability.',
     ],
-    startDate: '2020-07-01',
-    endDate: '2025-02-01',
+    startDate: '01/07/2020',
+    endDate: '01/02/2025',
   },
   metadata: {
     id: 0,
@@ -34,7 +34,7 @@ export const EXPERIENCE_1: BaseDatabaseModel<ExperienceDataDatabaseModel> = {
       'Integrated UiPath RPA solutions with external services through REST APIs and implemented data operations using Microsoft SQL Server, enabling automated communication and data processing across business systems.',
       'Collaborated directly with clients to analyze business processes, gather and clarify requirements, and identify automation opportunities, using the collected information to design effective RPA solutions.',
     ],
-    startDate: '2025-06-01',
+    startDate: '01/06/2025',
   },
   metadata: {
     id: 1,

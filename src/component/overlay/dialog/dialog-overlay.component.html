@@ -1,42 +1,88 @@
 @if (item) {
-  <p-dialog
-    [(visible)]="visible"
-    [modal]="true"
-    [header]="header"
-    [style]="{ width: '24rem' }"
-    styleClass="w-screen! h-screen! max-h-screen! rounded-none!"
-  >
-    <div class="flex flex-col gap-4">
-      @if (item) {
-        @for (column of columns; track column.id) {
-          @if (column.isEditable) {
-            <div class="flex flex-col gap-1.5">
-              <label pLabel [for]="column.id">{{ column.label }}</label>
-              <input
-                pInputText
-                [id]="column.id"
-                [(ngModel)]="$any(item.data)[column.id]"
-              />
-            </div>
-          }
+  <div class="container">
+    <p-dialog
+      [(visible)]="visible"
+      [modal]="true"
+      [header]="header"
+      styleClass="w-screen! h-screen! max-h-screen! rounded-none!"
+    >
+      @for (column of columns; track column.id) {
+        @if (column.isEditable) {
+          <div class="control__container">
+            <label [for]="column.id" class="control__label">
+              {{ column.label }}
+            </label>
+            @if (column.isArray) {
+              @if (column.type === "string") {
+                <!-- <p-inputtags
+                  [(ngModel)]="data[column.id]"
+                  [allowDuplicate]="true"
+                  fluid
+                /> -->
+                <p-inputtags
+                  [(ngModel)]="data[column.id]"
+                  [allowDuplicate]="true"
+                  fluid
+                />
+                <div
+                  cdkDropList
+                  [cdkDropListData]="getTags(column.id)"
+                  cdkDropListOrientation="mixed"
+                  (cdkDropListDropped)="dropTags($event, column.id)"
+                  class="tags-list"
+                >
+                  @for (tag of getTags(column.id); track $index) {
+                    <span cdkDrag class="tag-item">
+                      <i class="pi pi-bars"></i>
+                      {{ tag }}
+                    </span>
+                  }
+                </div>
+              }
+            } @else {
+              @if (column.type === "string") {
+                <input
+                  pInputText
+                  [id]="column.id"
+                  class="control"
+                  [disabled]="isDisabled()"
+                  [(ngModel)]="data[column.id]"
+                  autocomplete="off"
+                />
+              } @else if (column.type === "date") {
+                <p-datepicker
+                  [id]="column.id"
+                  class="control"
+                  [disabled]="isDisabled()"
+                  [(ngModel)]="data[column.id]"
+                  dateFormat="dd/mm/yy"
+                />
+              }
+            }
+          </div>
         }
       }
-    </div>
-    <ng-template #footer>
-      @if (header !== "Read") {
-        <button
-          type="button"
-          pButton
-          severity="secondary"
-          variant="outlined"
-          (click)="visible = false"
-        >
-          Cancel
-        </button>
-        <button type="button" pButton (click)="onClick()">
-          {{ header }}
-        </button>
-      }
-    </ng-template>
-  </p-dialog>
+      <ng-template #footer>
+        @if (id === "update") {
+          <button
+            pButton
+            type="button"
+            severity="secondary"
+            variant="outlined"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            severity="secondary"
+            pButton
+            (click)="onSubmit()"
+          >
+            {{ header }}
+          </button>
+        }
+      </ng-template>
+    </p-dialog>
+  </div>
 }

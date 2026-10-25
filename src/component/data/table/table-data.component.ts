@@ -37,7 +37,6 @@ export class TableDataComponent<TData> {
   columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
-  onCreateEvent = output();
   onReadEvent = output<BaseApiModel<TData>>();
   onDeselectEvent = output<number>();
   onSelectEvent = output<number>();
@@ -47,7 +46,7 @@ export class TableDataComponent<TData> {
   onMoveDownEvent = output<number>();
 
   onCreate() {
-    this.onCreateEvent.emit();
+    throw new Error('Not implemented!');
   }
 
   onRead(item: BaseApiModel<TData>) {

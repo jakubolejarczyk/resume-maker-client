@@ -14,7 +14,7 @@ import { BaseService } from '../../../service/base.service';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { DialogOverlayComponent } from '../../overlay/dialog/dialog-overlay.component';
-import { DialogTriggerModel } from '../../overlay/dialog/dialog-trigger.model';
+import { DialogOverlayTriggerModel } from '../../overlay/dialog/dialog-overlay-trigger.model';
 
 @Component({
   selector: 'app-domain-view-component',
@@ -33,7 +33,9 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   service!: BaseService<TData>;
   sub!: Subscription;
 
-  dialogTrigger = signal<DialogTriggerModel<TData> | undefined>(undefined);
+  dialogOverlayTrigger = signal<DialogOverlayTriggerModel<TData> | undefined>(
+    undefined,
+  );
 
   ngOnInit() {
     this.service = this.injector.get(this.type());
@@ -52,19 +54,15 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  onEvent(response: { header: string; item: BaseApiModel<TData> }) {
-    if (response.header === 'Read') return;
-    else if (response.header === 'Update') {
-      this.service
-        .update(response.item.metadata.id, response.item.data)
-        .subscribe()
-        .unsubscribe();
-    }
-  }
-
-  onCreateEvent() {
-    throw new Error('Not implemented');
-  }
+  // onEvent(response: { header: string; item: BaseApiModel<TData> }) {
+  //   if (response.header === 'Read') return;
+  //   else if (response.header === 'Update') {
+  //     this.service
+  //       .update(response.item.metadata.id, response.item.data)
+  //       .subscribe()
+  //       .unsubscribe();
+  //   }
+  // }
 
   onSelectEvent(id: number) {
     this.service.select(id).subscribe().unsubscribe();
@@ -75,7 +73,8 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   }
 
   onReadEvent(item: BaseApiModel<TData>) {
-    this.dialogTrigger.update(() => ({
+    this.dialogOverlayTrigger.update(() => ({
+      id: 'read',
       header: 'Read',
       columns: this.service.getColumnsSnapshot(),
       item,
@@ -83,7 +82,8 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
   }
 
   onUpdateEvent(item: BaseApiModel<TData>) {
-    this.dialogTrigger.update(() => ({
+    this.dialogOverlayTrigger.update(() => ({
+      id: 'update',
       header: 'Update',
       columns: this.service.getColumnsSnapshot(),
       item,

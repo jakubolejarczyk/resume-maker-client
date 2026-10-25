@@ -1,11 +1,9 @@
 <app-dialog-overlay-component
-  [dialogTrigger]="dialogTrigger()"
-  (event)="onEvent($event)"
+  [dialogOverlayTrigger]="dialogOverlayTrigger()"
 ></app-dialog-overlay-component>
 <app-table-data-component
   [columns$]="columns$"
   [items$]="items$"
-  (onCreateEvent)="onCreateEvent()"
   (onSelectEvent)="onSelectEvent($event)"
   (onDeselectEvent)="onDeselectEvent($event)"
   (onReadEvent)="onReadEvent($event)"
