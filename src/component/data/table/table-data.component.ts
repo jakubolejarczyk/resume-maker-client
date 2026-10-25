@@ -9,7 +9,6 @@ import { Trash } from '@primeicons/angular/trash';
 import { FileEdit } from '@primeicons/angular/file-edit';
 import { Bookmark } from '@primeicons/angular/bookmark';
 import { BookmarkFill } from '@primeicons/angular/bookmark-fill';
-import { InfoCircle } from '@primeicons/angular/info-circle';
 import { Plus } from '@primeicons/angular/plus';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
@@ -29,7 +28,6 @@ import { BaseApiModel } from '../../../api/model/base/base-api.model';
     FileEdit,
     Bookmark,
     BookmarkFill,
-    InfoCircle,
     Plus,
   ],
 })
@@ -37,7 +35,6 @@ export class TableDataComponent<TData> {
   columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
 
-  onReadEvent = output<BaseApiModel<TData>>();
   onDeselectEvent = output<number>();
   onSelectEvent = output<number>();
   onUpdateEvent = output<BaseApiModel<TData>>();
@@ -47,10 +44,6 @@ export class TableDataComponent<TData> {
 
   onCreate() {
     throw new Error('Not implemented!');
-  }
-
-  onRead(item: BaseApiModel<TData>) {
-    this.onReadEvent.emit(item);
   }
 
   onDeselect(id: number) {

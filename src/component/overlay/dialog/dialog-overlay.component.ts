@@ -13,6 +13,7 @@ import {
   CdkDropList,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { Trash } from '@primeicons/angular/trash';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
@@ -33,6 +34,7 @@ import { DialogOverlayTriggerModel } from './dialog-overlay-trigger.model';
     InputTagsModule,
     CdkDrag,
     CdkDropList,
+    Trash,
   ],
 })
 export class DialogOverlayComponent<TData> {
@@ -40,14 +42,14 @@ export class DialogOverlayComponent<TData> {
     undefined,
   );
 
-  id: DialogOverlayTriggerModel<TData>['id'] = 'read';
+  id: DialogOverlayTriggerModel<TData>['id'] = 'update';
   header = '';
   columns: BaseStoreColumnModel[] = [];
   item: BaseApiModel<TData> | undefined;
   visible = false;
   data: Record<string, unknown | unknown[]> = {};
 
-  // event = output<{ header: string; item: BaseApiModel<TData> }>();
+  tagInput = '';
 
   constructor() {
     effect(() => {
@@ -67,12 +69,7 @@ export class DialogOverlayComponent<TData> {
   }
 
   onSubmit() {
-    // this.visible = false;
     console.log(this.data);
-  }
-
-  isDisabled() {
-    return this.id === 'read';
   }
 
   getTags(key: string): string[] {
@@ -85,6 +82,21 @@ export class DialogOverlayComponent<TData> {
   dropTags(event: CdkDragDrop<string[]>, key: string): void {
     const tags = this.getTags(key);
     moveItemInArray(tags, event.previousIndex, event.currentIndex);
+    this.data[key] = tags;
+  }
+
+  addTag(key: string, event: Event): void {
+    event.preventDefault();
+    const tag = this.tagInput.trim();
+    if (!tag) return;
+    const tags = this.getTags(key);
+    this.data[key] = [...tags, tag];
+    this.tagInput = '';
+  }
+
+  removeTag(key: string, index: number): void {
+    const tags = [...this.getTags(key)];
+    tags.splice(index, 1);
     this.data[key] = tags;
   }
 }

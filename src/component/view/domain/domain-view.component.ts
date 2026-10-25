@@ -72,15 +72,6 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
     this.service.deselect(id).subscribe().unsubscribe();
   }
 
-  onReadEvent(item: BaseApiModel<TData>) {
-    this.dialogOverlayTrigger.update(() => ({
-      id: 'read',
-      header: 'Read',
-      columns: this.service.getColumnsSnapshot(),
-      item,
-    }));
-  }
-
   onUpdateEvent(item: BaseApiModel<TData>) {
     this.dialogOverlayTrigger.update(() => ({
       id: 'update',
