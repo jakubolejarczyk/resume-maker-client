@@ -1,5 +1,6 @@
 <app-dialog-overlay-component
   [dialogOverlayTrigger]="dialogOverlayTrigger()"
+  (dataEvent)="onDialogOverlayEvent($event)"
 ></app-dialog-overlay-component>
 <app-table-data-component
   [columns$]="columns$"

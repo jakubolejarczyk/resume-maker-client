@@ -1,4 +1,4 @@
-import { Component, effect, input } from '@angular/core';
+import { Component, effect, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -42,13 +42,14 @@ export class DialogOverlayComponent<TData> {
     undefined,
   );
 
+  dataEvent = output<BaseApiModel<TData>>();
+
   id: DialogOverlayTriggerModel<TData>['id'] = 'update';
   header = '';
   columns: BaseStoreColumnModel[] = [];
   item: BaseApiModel<TData> | undefined;
   visible = false;
   data: Record<string, unknown | unknown[]> = {};
-
   tagInput = '';
 
   constructor() {
@@ -69,7 +70,12 @@ export class DialogOverlayComponent<TData> {
   }
 
   onSubmit() {
-    console.log(this.data);
+    if (this.item) {
+      const itemClone = structuredClone(this.item);
+      itemClone.data = this.deepMerge(itemClone.data, this.data);
+      this.dataEvent.emit(itemClone);
+    }
+    this.visible = false;
   }
 
   getTags(key: string): string[] {
@@ -98,5 +104,35 @@ export class DialogOverlayComponent<TData> {
     const tags = [...this.getTags(key)];
     tags.splice(index, 1);
     this.data[key] = tags;
+  }
+
+  isPlainObject(value: unknown): value is Record<string, unknown> {
+    if (value === null || typeof value !== 'object') {
+      return false;
+    }
+    const proto = Object.getPrototypeOf(value);
+    return proto === Object.prototype || proto === null;
+  }
+
+  deepMerge<T>(target: T, source: unknown): T {
+    if (Array.isArray(target) && Array.isArray(source)) {
+      const result: unknown[] = [...target];
+      source.forEach((value, index) => {
+        result[index] =
+          index in target ? this.deepMerge(target[index], value) : value;
+      });
+      return result as T;
+    }
+    if (this.isPlainObject(target) && this.isPlainObject(source)) {
+      const result: Record<string, unknown> = { ...target };
+      for (const key of Object.keys(source)) {
+        result[key] =
+          key in target
+            ? this.deepMerge(target[key], source[key])
+            : source[key];
+      }
+      return result as T;
+    }
+    return source as T;
   }
 }
