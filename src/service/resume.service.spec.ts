@@ -68,7 +68,7 @@ describe('Resume Service', () => {
           label: 'Summary',
           isVisible: false,
           isEditable: true,
-          type: 'string',
+          type: 'textarea',
           isArray: false,
         },
       ]);

@@ -14,6 +14,8 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { Trash } from '@primeicons/angular/trash';
+import { TextareaModule } from 'primeng/textarea';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
 import { BaseApiModel } from '../../../api/model/base/base-api.model';
@@ -35,6 +37,8 @@ import { DialogOverlayTriggerModel } from './dialog-overlay-trigger.model';
     CdkDrag,
     CdkDropList,
     Trash,
+    TextareaModule,
+    InputNumberModule,
   ],
 })
 export class DialogOverlayComponent<TData> {

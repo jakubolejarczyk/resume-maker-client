@@ -16,12 +16,7 @@
           <p-sidebar-menu>
             <p-sidebar-menu-item>
               <button pSidebarMenuButton class="p-1!">
-                <div
-                  class="flex size-6 shrink-0 items-center justify-center rounded-md bg-linear-to-br from-violet-500 to-indigo-600 text-white text-xs font-bold leading-none"
-                >
-                  A
-                </div>
-                <span class="font-semibold text-sm">Acme Inc</span>
+                <span class="font-semibold text-sm">Resume Maker</span>
               </button>
             </p-sidebar-menu-item>
           </p-sidebar-menu>
@@ -32,60 +27,39 @@
             <p-sidebar-group-content>
               <p-sidebar-menu>
                 <p-sidebar-menu-item>
-                  <button pSidebarMenuButton [isActive]="true">
-                    <svg data-p-icon="home"></svg>
-                    <span>Home</span>
+                  <button pSidebarMenuButton routerLink="/user">
+                    <svg data-p-icon="user"></svg>
+                    <span>User</span>
                   </button>
                 </p-sidebar-menu-item>
                 <p-sidebar-menu-item>
-                  <button pSidebarMenuButton>
+                  <button pSidebarMenuButton routerLink="/resume">
                     <svg data-p-icon="inbox"></svg>
-                    <span>Inbox</span>
-                  </button>
-                  <p-sidebar-menu-badge>3</p-sidebar-menu-badge>
-                </p-sidebar-menu-item>
-                <p-sidebar-menu-item>
-                  <button pSidebarMenuButton>
-                    <svg data-p-icon="search"></svg>
-                    <span>Search</span>
+                    <span>Resume</span>
                   </button>
                 </p-sidebar-menu-item>
                 <p-sidebar-menu-item>
-                  <button pSidebarMenuButton>
-                    <svg data-p-icon="users"></svg>
-                    <span>Team</span>
+                  <button pSidebarMenuButton routerLink="/skill">
+                    <svg data-p-icon="code"></svg>
+                    <span>Skill</span>
                   </button>
                 </p-sidebar-menu-item>
                 <p-sidebar-menu-item>
-                  <button pSidebarMenuButton>
-                    <svg data-p-icon="bell"></svg>
-                    <span>Notifications</span>
+                  <button pSidebarMenuButton routerLink="/experience">
+                    <svg data-p-icon="building"></svg>
+                    <span>Experience</span>
                   </button>
                 </p-sidebar-menu-item>
                 <p-sidebar-menu-item>
-                  <button pSidebarMenuButton>
-                    <svg data-p-icon="cog"></svg>
-                    <span>Settings</span>
+                  <button pSidebarMenuButton routerLink="/education">
+                    <svg data-p-icon="graduation-cap"></svg>
+                    <span>Education</span>
                   </button>
                 </p-sidebar-menu-item>
               </p-sidebar-menu>
             </p-sidebar-group-content>
           </p-sidebar-group>
         </p-sidebar-content>
-        <p-sidebar-footer>
-          <p-sidebar-menu>
-            <p-sidebar-menu-item>
-              <button pSidebarMenuButton class="p-1!">
-                <p-avatar
-                  label="JD"
-                  shape="circle"
-                  class="size-6 shrink-0 text-xs"
-                />
-                <span>John Doe</span>
-              </button>
-            </p-sidebar-menu-item>
-          </p-sidebar-menu>
-        </p-sidebar-footer>
       </p-sidebar-panel>
     </p-sidebar-aside>
   </p-sidebar>

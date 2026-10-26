@@ -31,7 +31,7 @@ import { ResumeStoreAction } from '../action/resume-store.action';
       label: 'Summary',
       isVisible: false,
       isEditable: true,
-      type: 'string',
+      type: 'textarea',
       isArray: false,
     },
   ]),

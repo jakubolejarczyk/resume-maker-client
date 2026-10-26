@@ -63,6 +63,22 @@
                   [(ngModel)]="data[column.id]"
                   dateFormat="dd/mm/yy"
                 />
+              } @else if (column.type === "textarea") {
+                <textarea
+                  pTextarea
+                  [id]="column.id"
+                  class="control"
+                  [(ngModel)]="data[column.id]"
+                ></textarea>
+              } @else if (column.type === "number") {
+                <p-inputnumber
+                  [id]="column.id"
+                  class="control"
+                  [(ngModel)]="data[column.id]"
+                  mode="decimal"
+                  [useGrouping]="false"
+                  fluid
+                />
               }
             }
           </div>

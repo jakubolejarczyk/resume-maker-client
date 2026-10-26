@@ -2,13 +2,13 @@ import { Component, signal } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-import { Home } from '@primeicons/angular/home';
+import { User } from '@primeicons/angular/user';
 import { Inbox } from '@primeicons/angular/inbox';
-import { Search } from '@primeicons/angular/search';
-import { Users } from '@primeicons/angular/users';
-import { Bell } from '@primeicons/angular/bell';
-import { Cog } from '@primeicons/angular/cog';
+import { Code } from '@primeicons/angular/code';
+import { Building } from '@primeicons/angular/building';
+import { GraduationCap } from '@primeicons/angular/graduation-cap';
 import { Sidebar } from '@primeicons/angular/sidebar';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-view-component',
@@ -17,13 +17,13 @@ import { Sidebar } from '@primeicons/angular/sidebar';
     AvatarModule,
     SidebarModule,
     ButtonModule,
-    Home,
+    User,
     Inbox,
-    Search,
-    Users,
-    Bell,
-    Cog,
+    Code,
+    Building,
+    GraduationCap,
     Sidebar,
+    RouterLink,
   ],
 })
 export class SidebarComponent {
