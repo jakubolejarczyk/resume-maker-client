@@ -36,7 +36,7 @@
                   <button
                     pSidebarMenuButton
                     routerLink="/resume"
-                    [disabled]="true"
+                    [disabled]="(user.getSelectedItem() | async) === undefined"
                   >
                     <svg data-p-icon="inbox"></svg>
                     <span>Resume</span>
@@ -46,7 +46,9 @@
                   <button
                     pSidebarMenuButton
                     routerLink="/skill"
-                    [disabled]="true"
+                    [disabled]="
+                      (resume.getSelectedItem() | async) === undefined
+                    "
                   >
                     <svg data-p-icon="code"></svg>
                     <span>Skill</span>
@@ -56,7 +58,9 @@
                   <button
                     pSidebarMenuButton
                     routerLink="/experience"
-                    [disabled]="true"
+                    [disabled]="
+                      (resume.getSelectedItem() | async) === undefined
+                    "
                   >
                     <svg data-p-icon="building"></svg>
                     <span>Experience</span>
@@ -66,7 +70,9 @@
                   <button
                     pSidebarMenuButton
                     routerLink="/education"
-                    [disabled]="true"
+                    [disabled]="
+                      (resume.getSelectedItem() | async) === undefined
+                    "
                   >
                     <svg data-p-icon="graduation-cap"></svg>
                     <span>Education</span>

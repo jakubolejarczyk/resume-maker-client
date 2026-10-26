@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
@@ -9,6 +9,10 @@ import { Building } from '@primeicons/angular/building';
 import { GraduationCap } from '@primeicons/angular/graduation-cap';
 import { Sidebar } from '@primeicons/angular/sidebar';
 import { RouterLink } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+
+import { UserService } from '../../../service/user.service';
+import { ResumeService } from '../../../service/resume.service';
 
 @Component({
   selector: 'app-sidebar-view-component',
@@ -24,10 +28,13 @@ import { RouterLink } from '@angular/router';
     GraduationCap,
     Sidebar,
     RouterLink,
+    AsyncPipe,
   ],
 })
 export class SidebarComponent {
   isMobile = signal(false);
+  user = inject(UserService);
+  resume = inject(ResumeService);
 
   constructor() {
     if (typeof window === 'undefined') return;
