@@ -21,4 +21,11 @@ export class SkillService extends BaseService<SkillDataApiModel> {
       SkillStoreAction.SetItems,
     );
   }
+
+  override createEmptyItem(): SkillDataApiModel {
+    return {
+      category: '',
+      skills: [],
+    };
+  }
 }

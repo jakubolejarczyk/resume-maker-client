@@ -26,8 +26,8 @@ export class UserService extends BaseService<UserDataApiModel> {
     return {
       firstName: '',
       lastName: '',
-      email: '',
       phoneNumber: '',
+      email: '',
       city: '',
       country: '',
       links: [],

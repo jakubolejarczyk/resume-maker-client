@@ -21,4 +21,12 @@ export class ResumeService extends BaseService<ResumeDataApiModel> {
       ResumeStoreAction.SetItems,
     );
   }
+
+  override createEmptyItem(): ResumeDataApiModel {
+    return {
+      name: '',
+      jobTitle: '',
+      summary: '',
+    };
+  }
 }

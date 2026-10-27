@@ -21,4 +21,14 @@ export class EducationService extends BaseService<EducationDataApiModel> {
       EducationStoreAction.SetItems,
     );
   }
+
+  override createEmptyItem(): EducationDataApiModel {
+    return {
+      institutionName: '',
+      fieldOfStudy: '',
+      degree: '',
+      startYear: 0,
+      endYear: 0,
+    };
+  }
 }

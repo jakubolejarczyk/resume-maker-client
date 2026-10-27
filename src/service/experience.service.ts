@@ -21,4 +21,14 @@ export class ExperienceService extends BaseService<ExperienceDataApiModel> {
       ExperienceStoreAction.SetItems,
     );
   }
+
+  override createEmptyItem(): ExperienceDataApiModel {
+    return {
+      company: '',
+      jobTitle: '',
+      description: [],
+      startDate: '',
+      endDate: '',
+    };
+  }
 }
