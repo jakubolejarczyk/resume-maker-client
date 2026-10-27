@@ -18,7 +18,6 @@ import { TextareaModule } from 'primeng/textarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 import { BaseStoreColumnModel } from '../../../store/model/base-store.model';
-import { BaseApiModel } from '../../../api/model/base/base-api.model';
 import { DialogOverlayTriggerModel } from './dialog-overlay-trigger.model';
 
 @Component({
@@ -46,15 +45,22 @@ export class DialogOverlayComponent<TData> {
     undefined,
   );
 
-  dataEvent = output<BaseApiModel<TData>>();
+  dataEvent = output<{
+    id: DialogOverlayTriggerModel<TData>['id'];
+    item: TData;
+    itemId: number;
+    parentId: number | undefined;
+  }>();
 
   id: DialogOverlayTriggerModel<TData>['id'] = 'update';
   header = '';
   columns: BaseStoreColumnModel[] = [];
-  item: BaseApiModel<TData> | undefined;
+  item: TData | undefined;
   visible = false;
   data: Record<string, unknown | unknown[]> = {};
   tagInput = '';
+  itemId = -1;
+  parentId: number | undefined = -1;
 
   constructor() {
     effect(() => {
@@ -65,7 +71,9 @@ export class DialogOverlayComponent<TData> {
       this.columns = trigger.columns;
       this.item = trigger.item;
       this.visible = true;
-      this.data = structuredClone(this.item.data) as Record<string, unknown>;
+      this.itemId = trigger.itemId;
+      this.parentId = trigger.parentId;
+      this.data = structuredClone(this.item) as Record<string, unknown>;
     });
   }
 
@@ -75,9 +83,14 @@ export class DialogOverlayComponent<TData> {
 
   onSubmit() {
     if (this.item) {
-      const itemClone = structuredClone(this.item);
-      itemClone.data = this.deepMerge(itemClone.data, this.data);
-      this.dataEvent.emit(itemClone);
+      let itemClone = structuredClone(this.item);
+      itemClone = this.deepMerge(itemClone, this.data);
+      this.dataEvent.emit({
+        id: this.id,
+        item: itemClone,
+        itemId: this.itemId,
+        parentId: this.parentId,
+      });
     }
     this.visible = false;
   }

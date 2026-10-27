@@ -42,6 +42,10 @@ export class BaseService<TData> {
     this.baseApiService = inject(token);
   }
 
+  createEmptyItem(): TData {
+    throw new Error('Not implemented');
+  }
+
   getStatus() {
     return this.store.select(this.baseGetStatus);
   }
@@ -126,6 +130,11 @@ export class BaseService<TData> {
       switchMap((response) => {
         const { success, message, body } = response;
         this.store.dispatch(new this.baseSetStatus(success, message));
+        if (!success && body === undefined) {
+          this.messageUtil.run('error', 'Create', message);
+        } else {
+          this.messageUtil.run('success', 'Create', message);
+        }
         return of(body);
       }),
       switchMap((body) =>

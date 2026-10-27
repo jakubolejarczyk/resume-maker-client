@@ -85,25 +85,18 @@
         }
       }
       <ng-template #footer>
-        @if (id === "update") {
-          <button
-            pButton
-            type="button"
-            severity="secondary"
-            variant="outlined"
-            (click)="onCancel()"
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            severity="secondary"
-            pButton
-            (click)="onSubmit()"
-          >
-            {{ header }}
-          </button>
-        }
+        <button
+          pButton
+          type="button"
+          severity="secondary"
+          variant="outlined"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button type="button" severity="secondary" pButton (click)="onSubmit()">
+          {{ header }}
+        </button>
       </ng-template>
     </p-dialog>
   </div>

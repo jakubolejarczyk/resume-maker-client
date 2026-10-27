@@ -6,6 +6,7 @@
 <app-table-data-component
   [columns$]="columns$"
   [items$]="items$"
+  [parentId$]="parentId$"
   (onCreateEvent)="onCreateEvent(parentId)"
   (onSelectEvent)="onSelectEvent($event)"
   (onDeselectEvent)="onDeselectEvent($event)"

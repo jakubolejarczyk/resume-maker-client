@@ -21,4 +21,16 @@ export class UserService extends BaseService<UserDataApiModel> {
       UserStoreAction.SetItems,
     );
   }
+
+  override createEmptyItem(): UserDataApiModel {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      city: '',
+      country: '',
+      links: [],
+    };
+  }
 }

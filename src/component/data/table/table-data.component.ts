@@ -34,6 +34,7 @@ import { BaseApiModel } from '../../../api/model/base/base-api.model';
 export class TableDataComponent<TData> {
   columns$ = input.required<Observable<BaseStoreColumnModel[]>>();
   items$ = input.required<Observable<BaseApiModel<TData>[]>>();
+  parentId$ = input.required<Observable<number | undefined>>();
 
   onCreateEvent = output();
   onDeselectEvent = output<number>();

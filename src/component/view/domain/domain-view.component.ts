@@ -75,18 +75,36 @@ export class DomainViewComponent<TData, TParentData>
     this.sub.unsubscribe();
   }
 
-  onDialogOverlayEvent(item: BaseApiModel<TData>) {
-    this.service.update(item.metadata.id, item.data).subscribe().unsubscribe();
+  onDialogOverlayEvent(response: {
+    id: DialogOverlayTriggerModel<TData>['id'];
+    item: TData;
+    itemId: number;
+    parentId: number | undefined;
+  }) {
+    if (response.id === 'create') {
+      this.service
+        .create(response.parentId, response.item)
+        .subscribe()
+        .unsubscribe();
+    } else if (response.id === 'update') {
+      this.service
+        .update(response.itemId, response.item)
+        .subscribe()
+        .unsubscribe();
+    }
   }
 
   onCreateEvent(parentId: number | null | undefined) {
-    alert('Create: ' + parentId);
-    // this.dialogOverlayTrigger.update(() => ({
-    //   id: 'create',
-    //   header: 'Create',
-    //   columns: this.service.getColumnsSnapshot(),
-    //   item: {},
-    // }));
+    if (parentId !== null) {
+      this.dialogOverlayTrigger.update(() => ({
+        id: 'create',
+        header: 'Create',
+        columns: this.service.getColumnsSnapshot(),
+        item: this.service.createEmptyItem(),
+        itemId: -1,
+        parentId,
+      }));
+    }
   }
 
   onSelectEvent(id: number) {
@@ -102,7 +120,9 @@ export class DomainViewComponent<TData, TParentData>
       id: 'update',
       header: 'Update',
       columns: this.service.getColumnsSnapshot(),
-      item,
+      item: item.data,
+      itemId: item.metadata.id,
+      parentId: item.metadata.parentId,
     }));
   }
 
