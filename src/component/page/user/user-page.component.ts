@@ -10,4 +10,5 @@ import { UserService } from '../../../service/user.service';
 })
 export class UserPageComponent {
   type = UserService;
+  parentType = UserService;
 }

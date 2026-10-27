@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { DomainViewComponent } from '../../view/domain/domain-view.component';
 import { EducationService } from '../../../service/education.service';
+import { ResumeService } from '../../../service/resume.service';
 
 @Component({
   selector: 'app-education-page-component',
@@ -10,4 +11,5 @@ import { EducationService } from '../../../service/education.service';
 })
 export class EducationPageComponent {
   type = EducationService;
+  parentType = ResumeService;
 }

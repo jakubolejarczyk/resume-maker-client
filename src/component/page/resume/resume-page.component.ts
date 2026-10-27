@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { DomainViewComponent } from '../../view/domain/domain-view.component';
 import { ResumeService } from '../../../service/resume.service';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-resume-page-component',
@@ -10,4 +11,5 @@ import { ResumeService } from '../../../service/resume.service';
 })
 export class ResumePageComponent {
   type = ResumeService;
+  parentType = UserService;
 }

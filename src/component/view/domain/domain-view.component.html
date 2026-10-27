@@ -1,3 +1,4 @@
+@let parentId = parentId$ | async;
 <app-dialog-overlay-component
   [dialogOverlayTrigger]="dialogOverlayTrigger()"
   (dataEvent)="onDialogOverlayEvent($event)"
@@ -5,6 +6,7 @@
 <app-table-data-component
   [columns$]="columns$"
   [items$]="items$"
+  (onCreateEvent)="onCreateEvent(parentId)"
   (onSelectEvent)="onSelectEvent($event)"
   (onDeselectEvent)="onDeselectEvent($event)"
   (onUpdateEvent)="onUpdateEvent($event)"

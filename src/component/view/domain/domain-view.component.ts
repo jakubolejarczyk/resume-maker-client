@@ -7,7 +7,8 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { Observable, of, Subscription, tap } from 'rxjs';
+import { map, Observable, of, Subscription, tap } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 import { TableDataComponent } from '../../data/table/table-data.component';
 import { BaseService } from '../../../service/base.service';
@@ -19,18 +20,23 @@ import { DialogOverlayTriggerModel } from '../../overlay/dialog/dialog-overlay-t
 @Component({
   selector: 'app-domain-view-component',
   templateUrl: './domain-view.component.html',
-  imports: [TableDataComponent, DialogOverlayComponent],
+  imports: [TableDataComponent, DialogOverlayComponent, AsyncPipe],
 })
-export class DomainViewComponent<TData> implements OnInit, OnDestroy {
+export class DomainViewComponent<TData, TParentData>
+  implements OnInit, OnDestroy
+{
   private readonly injector = inject(Injector);
 
   type = input.required<typeof BaseService<TData>>();
-  parentId = input.required<number | undefined>();
+  parentType = input.required<typeof BaseService<TParentData>>();
+  hasParent = input(true);
 
   columns$: Observable<BaseStoreColumnModel[]> = of([]);
   items$: Observable<BaseApiModel<TData>[]> = of([]);
+  parentId$: Observable<number | undefined> = of(undefined);
 
   service!: BaseService<TData>;
+  parentService!: BaseService<TParentData>;
   sub!: Subscription;
 
   dialogOverlayTrigger = signal<DialogOverlayTriggerModel<TData> | undefined>(
@@ -39,12 +45,27 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.service = this.injector.get(this.type());
+    this.parentService = this.injector.get(this.parentType());
     this.sub = this.service
       .readByParentId(undefined)
       .pipe(
         tap(() => {
           this.columns$ = this.service.getColumns();
           this.items$ = this.service.getItems();
+          if (this.hasParent()) {
+            this.parentId$ = this.parentService.getItems().pipe(
+              map((items) =>
+                items.reduce((acc: number | undefined, curr) => {
+                  if (curr.metadata.isSelected) {
+                    acc = curr.metadata.id;
+                  }
+                  return acc;
+                }, undefined),
+              ),
+            );
+          } else {
+            this.parentId$ = of(undefined);
+          }
         }),
       )
       .subscribe();
@@ -56,6 +77,16 @@ export class DomainViewComponent<TData> implements OnInit, OnDestroy {
 
   onDialogOverlayEvent(item: BaseApiModel<TData>) {
     this.service.update(item.metadata.id, item.data).subscribe().unsubscribe();
+  }
+
+  onCreateEvent(parentId: number | null | undefined) {
+    alert('Create: ' + parentId);
+    // this.dialogOverlayTrigger.update(() => ({
+    //   id: 'create',
+    //   header: 'Create',
+    //   columns: this.service.getColumnsSnapshot(),
+    //   item: {},
+    // }));
   }
 
   onSelectEvent(id: number) {
