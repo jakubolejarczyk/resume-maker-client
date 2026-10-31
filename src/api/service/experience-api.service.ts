@@ -7,6 +7,6 @@ import { ExperienceLogicService } from '../../logic/service/experience-logic.ser
 @Service()
 export class ExperienceApiService extends BaseApiService<ExperienceDataApiModel> {
   constructor() {
-    super(ExperienceLogicService);
+    super(ExperienceLogicService, 'Experience');
   }
 }

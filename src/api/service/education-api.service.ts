@@ -7,6 +7,6 @@ import { EducationLogicService } from '../../logic/service/education-logic.servi
 @Service()
 export class EducationApiService extends BaseApiService<EducationDataApiModel> {
   constructor() {
-    super(EducationLogicService);
+    super(EducationLogicService, 'Education');
   }
 }

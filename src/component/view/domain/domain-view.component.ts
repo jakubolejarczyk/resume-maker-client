@@ -7,7 +7,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { map, Observable, of, Subscription, tap } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 import { TableDataComponent } from '../../data/table/table-data.component';
@@ -33,7 +33,7 @@ export class DomainViewComponent<TData, TParentData>
 
   columns$: Observable<BaseStoreColumnModel[]> = of([]);
   items$: Observable<BaseApiModel<TData>[]> = of([]);
-  parentId$: Observable<number | undefined> = of(undefined);
+  parentId$: Observable<number | null> = of(null);
 
   service!: BaseService<TData>;
   parentService!: BaseService<TParentData>;
@@ -46,29 +46,10 @@ export class DomainViewComponent<TData, TParentData>
   ngOnInit() {
     this.service = this.injector.get(this.type());
     this.parentService = this.injector.get(this.parentType());
-    this.sub = this.service
-      .readByParentId(undefined)
-      .pipe(
-        tap(() => {
-          this.columns$ = this.service.getColumns();
-          this.items$ = this.service.getItems();
-          if (this.hasParent()) {
-            this.parentId$ = this.parentService.getItems().pipe(
-              map((items) =>
-                items.reduce((acc: number | undefined, curr) => {
-                  if (curr.metadata.isSelected) {
-                    acc = curr.metadata.id;
-                  }
-                  return acc;
-                }, undefined),
-              ),
-            );
-          } else {
-            this.parentId$ = of(undefined);
-          }
-        }),
-      )
-      .subscribe();
+    this.columns$ = this.service.getColumns();
+    this.items$ = this.service.getItems();
+    this.parentId$ = this.parentService.getSelectedItem();
+    this.sub = this.service.readByParentId(undefined).subscribe();
   }
 
   ngOnDestroy() {

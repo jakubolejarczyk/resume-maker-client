@@ -7,6 +7,6 @@ import { SkillLogicService } from '../../logic/service/skill-logic.service';
 @Service()
 export class SkillApiService extends BaseApiService<SkillDataApiModel> {
   constructor() {
-    super(SkillLogicService);
+    super(SkillLogicService, 'Skill');
   }
 }

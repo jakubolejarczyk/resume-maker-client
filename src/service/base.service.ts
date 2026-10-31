@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { filter, map, of, switchMap } from 'rxjs';
+import { filter, map, Observable, of, switchMap } from 'rxjs';
 
 import { BaseApiService } from '../api/service/base-api.service';
 import { BaseStoreAction } from '../store/action/base-store.action';
@@ -70,8 +70,16 @@ export class BaseService<TData> {
       .sort((prev, next) => prev.metadata.order - next.metadata.order);
   }
 
-  getSelectedItem() {
-    return this.store.select(this.baseGetSelectedItem);
+  getSelectedItem(): Observable<number | null> {
+    return this.store
+      .select(this.baseGetItems)
+      .pipe(
+        map(
+          (items) =>
+            items.find((item) => item.metadata.isSelected)?.metadata.parentId ||
+            null,
+        ),
+      );
   }
 
   getColumns() {

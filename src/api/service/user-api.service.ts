@@ -7,6 +7,6 @@ import { UserLogicService } from '../../logic/service/user-logic.service';
 @Service()
 export class UserApiService extends BaseApiService<UserDataApiModel> {
   constructor() {
-    super(UserLogicService);
+    super(UserLogicService, 'User');
   }
 }

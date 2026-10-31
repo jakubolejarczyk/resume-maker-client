@@ -7,6 +7,6 @@ import { ResumeLogicService } from '../../logic/service/resume-logic.service';
 @Service()
 export class ResumeApiService extends BaseApiService<ResumeDataApiModel> {
   constructor() {
-    super(ResumeLogicService);
+    super(ResumeLogicService, 'Resume');
   }
 }
