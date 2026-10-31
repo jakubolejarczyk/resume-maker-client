@@ -41,15 +41,13 @@ import { DialogOverlayTriggerModel } from './dialog-overlay-trigger.model';
   ],
 })
 export class DialogOverlayComponent<TData> {
-  dialogOverlayTrigger = input<DialogOverlayTriggerModel<TData> | undefined>(
-    undefined,
-  );
+  dialogOverlayTrigger = input<DialogOverlayTriggerModel<TData> | null>(null);
 
   dataEvent = output<{
     id: DialogOverlayTriggerModel<TData>['id'];
     item: TData;
     itemId: number;
-    parentId: number | undefined;
+    parentId: number | null;
   }>();
 
   id: DialogOverlayTriggerModel<TData>['id'] = 'update';
@@ -60,12 +58,12 @@ export class DialogOverlayComponent<TData> {
   data: Record<string, unknown | unknown[]> = {};
   tagInput = '';
   itemId = -1;
-  parentId: number | undefined = -1;
+  parentId: number | null = null;
 
   constructor() {
     effect(() => {
       const trigger = this.dialogOverlayTrigger();
-      if (trigger === undefined) return;
+      if (trigger === null) return;
       this.id = trigger.id;
       this.header = trigger.header;
       this.columns = trigger.columns;
@@ -73,7 +71,7 @@ export class DialogOverlayComponent<TData> {
       this.visible = true;
       this.itemId = trigger.itemId;
       this.parentId = trigger.parentId;
-      this.data = structuredClone(this.item) as Record<string, unknown>;
+      this.data = this.item as Record<string, unknown>;
     });
   }
 
@@ -83,7 +81,7 @@ export class DialogOverlayComponent<TData> {
 
   onSubmit() {
     if (this.item) {
-      let itemClone = structuredClone(this.item);
+      let itemClone = this.item;
       itemClone = this.deepMerge(itemClone, this.data);
       this.dataEvent.emit({
         id: this.id,

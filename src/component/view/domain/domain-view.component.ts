@@ -39,17 +39,17 @@ export class DomainViewComponent<TData, TParentData>
   parentService!: BaseService<TParentData>;
   sub!: Subscription;
 
-  dialogOverlayTrigger = signal<DialogOverlayTriggerModel<TData> | undefined>(
-    undefined,
-  );
+  dialogOverlayTrigger = signal<DialogOverlayTriggerModel<TData> | null>(null);
 
   ngOnInit() {
     this.service = this.injector.get(this.type());
     this.parentService = this.injector.get(this.parentType());
     this.columns$ = this.service.getColumns();
     this.items$ = this.service.getItems();
-    this.parentId$ = this.parentService.getSelectedItem();
-    this.sub = this.service.readByParentId(undefined).subscribe();
+    this.parentId$ = this.hasParent()
+      ? this.parentService.getSelectedItem()
+      : of(null);
+    this.sub = this.service.readByParentId(null).subscribe();
   }
 
   ngOnDestroy() {
@@ -60,40 +60,32 @@ export class DomainViewComponent<TData, TParentData>
     id: DialogOverlayTriggerModel<TData>['id'];
     item: TData;
     itemId: number;
-    parentId: number | undefined;
+    parentId: number | null;
   }) {
     if (response.id === 'create') {
-      this.service
-        .create(response.parentId, response.item)
-        .subscribe()
-        .unsubscribe();
+      this.service.create(response.parentId, response.item).subscribe();
     } else if (response.id === 'update') {
-      this.service
-        .update(response.itemId, response.item)
-        .subscribe()
-        .unsubscribe();
+      this.service.update(response.itemId, response.item).subscribe();
     }
   }
 
-  onCreateEvent(parentId: number | null | undefined) {
-    if (parentId !== null) {
-      this.dialogOverlayTrigger.update(() => ({
-        id: 'create',
-        header: 'Create',
-        columns: this.service.getColumnsSnapshot(),
-        item: this.service.createEmptyItem(),
-        itemId: -1,
-        parentId,
-      }));
-    }
+  onCreateEvent(parentId: number | null) {
+    this.dialogOverlayTrigger.update(() => ({
+      id: 'create',
+      header: 'Create',
+      columns: this.service.getColumnsSnapshot(),
+      item: this.service.createEmptyItem(),
+      itemId: -1,
+      parentId,
+    }));
   }
 
   onSelectEvent(id: number) {
-    this.service.select(id).subscribe().unsubscribe();
+    this.service.select(id).subscribe();
   }
 
   onDeselectEvent(id: number) {
-    this.service.deselect(id).subscribe().unsubscribe();
+    this.service.deselect(id).subscribe();
   }
 
   onUpdateEvent(item: BaseApiModel<TData>) {
@@ -108,14 +100,14 @@ export class DomainViewComponent<TData, TParentData>
   }
 
   onDeleteEvent(id: number) {
-    this.service.delete(id).subscribe().unsubscribe();
+    this.service.delete(id).subscribe();
   }
 
   onMoveUpEvent(id: number) {
-    this.service.moveUp(id).subscribe().unsubscribe();
+    this.service.moveUp(id).subscribe();
   }
 
   onMoveDownEvent(id: number) {
-    this.service.moveDown(id).subscribe().unsubscribe();
+    this.service.moveDown(id).subscribe();
   }
 }

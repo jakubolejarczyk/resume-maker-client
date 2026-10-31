@@ -32,7 +32,7 @@ export class BaseStoreState {
   }
 
   static baseGetSelectedItem<TItem>(state: BaseStoreModel<TItem>) {
-    return state.items.find((item) => item.metadata.isSelected);
+    return state.items.find((item) => item.metadata.isSelected) || null;
   }
 
   static baseGetColumns<TItem>(state: BaseStoreModel<TItem>) {

@@ -14,17 +14,17 @@ export class BaseLogicService<TData> {
     this.nextId = this.service.getItems().length;
   }
 
-  select(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | undefined> {
+  select(id: number): ResponseLogicModel<BaseDatabaseModel<TData> | null> {
     const itemToSelect = this.service.readById(id);
     if (itemToSelect === undefined) {
       return {
         success: false,
         message: 'Failed to select the item because it does not exist.',
-        body: undefined,
+        body: null,
       };
     }
     const items =
-      itemToSelect.metadata.parentId === undefined
+      itemToSelect.metadata.parentId === null
         ? this.service.readAll()
         : this.service.readByParentId(itemToSelect.metadata.parentId);
     items.forEach((item) => {
@@ -35,7 +35,7 @@ export class BaseLogicService<TData> {
       }
       this.service.update(item);
     });
-    const currentItem = this.service.readById(id);
+    const currentItem = this.service.readById(id) || null;
     return {
       success: true,
       message: 'The item was selected correctly.',
@@ -64,11 +64,11 @@ export class BaseLogicService<TData> {
   }
 
   create(
-    parentId: number | undefined,
+    parentId: number | null,
     data: TData,
   ): ResponseLogicModel<BaseDatabaseModel<TData>> {
     const items =
-      parentId === undefined
+      parentId === null
         ? this.service.readAll()
         : this.service.readByParentId(parentId);
     const lastOrder = items.reduce((acc: number, curr) => {
@@ -167,7 +167,7 @@ export class BaseLogicService<TData> {
     const { parentId } = itemToDelete.metadata;
     this.service.delete(itemToDelete.metadata.id);
     const itemsToUpdate =
-      parentId === undefined
+      parentId === null
         ? this.service.readAll()
         : this.service.readByParentId(parentId);
     itemsToUpdate
@@ -201,7 +201,7 @@ export class BaseLogicService<TData> {
       };
     }
     const items =
-      itemToMoveUp.metadata.parentId === undefined
+      itemToMoveUp.metadata.parentId === null
         ? this.service.readAll()
         : this.service.readByParentId(itemToMoveUp.metadata.parentId);
     const prevItem = items.find(
@@ -239,7 +239,7 @@ export class BaseLogicService<TData> {
       };
     }
     const items =
-      itemToMoveDown.metadata.parentId === undefined
+      itemToMoveDown.metadata.parentId === null
         ? this.service.readAll()
         : this.service.readByParentId(itemToMoveDown.metadata.parentId);
     const lastOrder = items.reduce((acc: number, curr) => {

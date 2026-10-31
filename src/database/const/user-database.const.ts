@@ -18,6 +18,7 @@ export const USER_0: BaseDatabaseModel<UserDataDatabaseModel> = {
   },
   metadata: {
     id: 0,
+    parentId: null,
     order: 0,
     isSelected: false,
   },

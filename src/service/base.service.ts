@@ -31,7 +31,7 @@ export class BaseService<TData> {
     ) => BaseDatabaseModel<TData>[],
     private readonly baseGetSelectedItem: (
       state: BaseStoreModel<TData>,
-    ) => BaseDatabaseModel<TData> | undefined,
+    ) => BaseDatabaseModel<TData> | null,
     private readonly baseGetColumns: (
       state: BaseStoreModel<TData>,
     ) => BaseStoreColumnModel[],
@@ -71,15 +71,10 @@ export class BaseService<TData> {
   }
 
   getSelectedItem(): Observable<number | null> {
-    return this.store
-      .select(this.baseGetItems)
-      .pipe(
-        map(
-          (items) =>
-            items.find((item) => item.metadata.isSelected)?.metadata.parentId ||
-            null,
-        ),
-      );
+    return this.store.select(this.baseGetItems).pipe(
+      map((items) => items.find((item) => item.metadata.isSelected)),
+      map((item) => (item ? item.metadata.id : null)),
+    );
   }
 
   getColumns() {
@@ -132,7 +127,7 @@ export class BaseService<TData> {
     );
   }
 
-  create(parentId: number | undefined, data: TData) {
+  create(parentId: number | null, data: TData) {
     return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
       switchMap(() => this.baseApiService.create(parentId, data)),
       switchMap((response) => {
@@ -148,7 +143,10 @@ export class BaseService<TData> {
       switchMap((body) =>
         this.baseApiService.readByParentId(body.metadata.parentId),
       ),
-      switchMap((response) => of(response.body)),
+      switchMap((response) => {
+        console.log(response);
+        return of(response.body);
+      }),
       switchMap((items) => this.store.dispatch(new this.baseSetItems(items))),
       switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
     );
@@ -173,7 +171,7 @@ export class BaseService<TData> {
     );
   }
 
-  readByParentId(parentId: number | undefined) {
+  readByParentId(parentId: number | null) {
     return this.store.dispatch(new this.baseSetIsLoading(true)).pipe(
       switchMap(() => this.baseApiService.readByParentId(parentId)),
       switchMap((response) => {
@@ -217,21 +215,23 @@ export class BaseService<TData> {
       switchMap((response) => {
         const { success, message, body } = response;
         this.store.dispatch(new this.baseSetStatus(success, message));
-        if (!success && body === undefined) {
+        if (!success && body === null) {
           this.store.dispatch(new this.baseSetIsLoading(false));
           this.messageUtil.run('error', 'Delete', message);
         } else {
           this.messageUtil.run('success', 'Delete', message);
         }
+        console.log(body);
         return of(body);
       }),
-      filter((body) => body !== undefined),
+      filter((body) => body !== null),
       switchMap((body) =>
         this.baseApiService.readByParentId(body.metadata.parentId),
       ),
-      switchMap((response) =>
-        this.store.dispatch(new this.baseSetItems(response.body)),
-      ),
+      switchMap((response) => {
+        console.log('response', response);
+        return this.store.dispatch(new this.baseSetItems(response.body));
+      }),
       switchMap(() => this.store.dispatch(new this.baseSetIsLoading(false))),
     );
   }

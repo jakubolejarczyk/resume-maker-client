@@ -1,65 +1,94 @@
 import { inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { BaseLogicService } from '../../logic/service/base-logic.service';
 import { ResponseLogicModel } from '../../logic/model/response-logic.model';
 import { BaseDatabaseModel } from '../../database/model/base/base-database.model';
 
 export class BaseApiService<TData> {
-  private readonly service: BaseLogicService<TData>;
   private readonly http = inject(HttpClient);
   private readonly url = 'https://localhost:7125/api';
 
-  constructor(
-    private readonly type: typeof BaseLogicService<TData>,
-    private readonly endpoint: string,
-  ) {
-    this.service = inject(type);
-  }
+  constructor(private readonly endpoint: string) {}
 
-  select(id: number) {
-    return of(this.service.select(id));
-  }
-
-  deselect(id: number) {
-    return of(this.service.deselect(id));
-  }
-
-  create(parentId: number | undefined, data: TData) {
-    return of(this.service.create(parentId, data));
-  }
-
-  readById(id: number) {
-    return of(this.service.readById(id));
-  }
-
-  readByParentId(
-    parentId: number | undefined,
-  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>[]>> {
-    if (parentId !== undefined) {
-      return this.http.get<ResponseLogicModel<BaseDatabaseModel<TData>[]>>(
-        `${this.url}/${this.endpoint}?parentId=${parentId}`,
-      );
-    }
-    return this.http.get<ResponseLogicModel<BaseDatabaseModel<TData>[]>>(
-      `${this.url}/${this.endpoint}`,
+  select(id: number): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.post<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}/select`,
+      null,
     );
   }
 
-  update(id: number, data: TData) {
-    return of(this.service.update(id, data));
+  deselect(
+    id: number,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.post<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}/deselect`,
+      null,
+    );
   }
 
-  delete(id: number) {
-    return of(this.service.delete(id));
+  create(
+    parentId: number | null,
+    data: TData,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    const options =
+      parentId !== null ? { params: { parentId: parentId.toString() } } : {};
+
+    return this.http.post<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}`,
+      data,
+      options,
+    );
   }
 
-  moveUp(id: number) {
-    return of(this.service.moveUp(id));
+  readById(
+    id: number,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.get<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}`,
+    );
   }
 
-  moveDown(id: number) {
-    return of(this.service.moveDown(id));
+  readByParentId(
+    parentId: number | null,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>[]>> {
+    const options =
+      parentId !== null ? { params: { parentId: parentId.toString() } } : {};
+    return this.http.get<ResponseLogicModel<BaseDatabaseModel<TData>[]>>(
+      `${this.url}/${this.endpoint}`,
+      options,
+    );
+  }
+
+  update(
+    id: number,
+    data: TData,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.put<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}`,
+      data,
+    );
+  }
+
+  delete(id: number): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.delete<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}`,
+    );
+  }
+
+  moveUp(id: number): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.post<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}/move-up`,
+      null,
+    );
+  }
+
+  moveDown(
+    id: number,
+  ): Observable<ResponseLogicModel<BaseDatabaseModel<TData>>> {
+    return this.http.post<ResponseLogicModel<BaseDatabaseModel<TData>>>(
+      `${this.url}/${this.endpoint}/${id}/move-down`,
+      null,
+    );
   }
 }

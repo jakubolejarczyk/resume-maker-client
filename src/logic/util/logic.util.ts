@@ -76,7 +76,7 @@ export const testDeselect = <TData>(
 
 export const testCreate = <TData>(
   logic: BaseLogicService<TData>,
-  parentId: number | undefined,
+  parentId: number | null,
   data: TData,
   expected: ResponseLogicModel<BaseDatabaseModel<TData>>,
 ) => {

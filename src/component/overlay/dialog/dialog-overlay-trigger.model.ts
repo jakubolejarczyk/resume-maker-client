@@ -6,5 +6,5 @@ export interface DialogOverlayTriggerModel<TData> {
   columns: BaseStoreColumnModel[];
   item: TData;
   itemId: number;
-  parentId: number | undefined;
+  parentId: number | null;
 }
